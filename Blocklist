@@ -116,6 +116,7 @@ whathifi.com##.slice-container, .how-we-test, .how-we-test-review, .slice-contai
 !!--Bing--!!
 bing.com##.algoSlug_icon
 bing.com##.b_adLastChild
+bing.com##.b_dr_mod
 bing.com##.b_wikipedia_icon
 bing.com##.b_wpt_bg_wait
 bing.com##.disambig-outline
@@ -131,6 +132,7 @@ bing.com##.scs_rei
 bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ssa_main
 bing.com##.ta_l
+bing.com###tob_rail_container
 bing.com##.TopicsExplore_Box
 bing.com###waitListDefault
 bing.com##li.b_ans.b_imgAns.b_ansb
