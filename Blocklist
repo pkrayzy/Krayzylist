@@ -126,7 +126,6 @@ bing.com##.b_adLastChild
 bing.com##.b_dr_mod
 bing.com##.b_wikipedia_icon
 bing.com##.b_wpt_bg_wait
-!!bing.com##.disambig-outline
 bing.com##.fdbk_thmb_root
 bing.com###l_ecrd_blk_4_ChildMultimediaKifVideoAnswer
 bing.com###OverlayIFrame
@@ -137,24 +136,25 @@ bing.com##.scs_arw
 bing.com##.scs_icn
 bing.com##.scs_rei
 bing.com###ShoppingAnswerLGFilterContainer
-!!bing.com###ssa_main
 bing.com##.ta_l
 bing.com###tob_rail_container
 bing.com##.TopicsExplore_Box
 bing.com###waitListDefault
 bing.com###b_wiki_wrc_carousel_container
+
+!!--Bing Answers--!!
+bing.com###b_results > li.b_ans.b_mop
 @@bing.com###b_results > li.b_ans.b_mop > div.sto_slides
-bing.com###b_results > li.b_ans.b_mop > div.srscardcar_tHdr
-!!bing.com###b_results > li.b_ans.b_mop
-!!bing.com###b_results > li.b_ans.b_vidAns.b_ansb
-bing.com###b_results > li.b_ans.b_mop.b_mopb.b_explans
-!!bing.com##li.b_ans.b_vidAns
 bing.com##li.b_ans.b_imgAns.b_ansb
 bing.com##li.b_ans.b_vidans.b_ansb
 bing.com##li.b_ans.b_mop.b_imgans
-!!bing.com##li.b_ans.b_mop.b_vidans
+bing.com##li.b_ans.b_mop.b_vidans
+bing.com##li.b_ans.b_mop.b_explans
 bing.com##li.b_ans.b_mop.b_mopb.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
+bing.com##li.b_ans.b_mop.b_mopb.b_explans
+
+!!--Bing Extended--!!
 !!bing.com##li.b_ans.b_mop:has([id^="imgans"])
 !!bing.com##li.b_ans.b_mop:has([id$="imgans"])
 !!bing.com##li.b_ans.b_mop:has([class^="imgans"])
