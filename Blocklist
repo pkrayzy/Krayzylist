@@ -144,6 +144,7 @@ bing.com##.TopicsExplore_Box
 bing.com###waitListDefault
 bing.com###b_wiki_wrc_carousel_container
 @@bing.com###b_results > li.b_ans.b_mop > div.sto_slides
+bing.com###b_results > li.b_ans.b_mop > div.srscardcar_tHdr
 !!bing.com###b_results > li.b_ans.b_mop
 !!bing.com###b_results > li.b_ans.b_vidAns.b_ansb
 bing.com###b_results > li.b_ans.b_mop.b_mopb.b_explans
