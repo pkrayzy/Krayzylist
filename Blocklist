@@ -91,6 +91,7 @@ redditstatic.com/*^*$font
 ##div[class^="articlePage_bannerAd_wrapper"]
 ##div[class^="articlePage_eoabContent"]
 ##div[class^="articlePage_riverContainer"]
+##div[class=“article__content-sign-up”]
 ##div[id$="below-article-thumbnails"]
 ##div[class^="c-adSkyBox"]
 ##div[section^="fd-ad-billboard"]
