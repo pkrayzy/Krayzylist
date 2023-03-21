@@ -143,8 +143,8 @@ bing.com###waitListDefault
 bing.com###b_wiki_wrc_carousel_container
 
 !!--Bing Answers--!!
-bing.com###b_results > li.b_ans.b_mop
-@@bing.com###b_results > li.b_ans.b_mop > div.sto_slides
+!!bing.com###b_results > li.b_ans.b_mop
+!!@@bing.com###b_results > li.b_ans.b_mop > div.sto_slides
 bing.com##li.b_ans.b_imgAns.b_ansb
 bing.com##li.b_ans.b_vidans.b_ansb
 bing.com##li.b_ans.b_mop.b_imgans
