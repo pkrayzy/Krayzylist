@@ -118,7 +118,6 @@ whathifi.com###taboola-below-article-thumbnails
 whathifi.com###affiliate-disclaimer
 whathifi.com##.hawk-nest, .hawk-processed
 whathifi.com##.slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
-zerohedge.com##div.fc-ab-root
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
@@ -145,7 +144,8 @@ bing.com###tob_rail_container
 bing.com##.TopicsExplore_Box
 bing.com###waitListDefault
 bing.com###b_wiki_wrc_carousel_container
-bing.com###b_results > li.b_ans.b_mop
+@@bing.com###b_results > li.b_ans.b_mop > div.sto_slides
+!!bing.com###b_results > li.b_ans.b_mop
 bing.com###b_results > li.b_ans.b_vidAns.b_ansb
 bing.com###b_results > li.b_ans.b_mop.b_mopb.b_explans
 bing.com##li.b_ans.b_vidAns
@@ -168,3 +168,16 @@ bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 !!bing.com##li.b_ans:has([class^="rqnaContainer"])
 !!bing.com##li.b_ans:has([id^="vidans2"])
 !!bing.com##li.b_ans:has([class^="vidans2"])
+!!bing.com##li.b_ans.b_mop[-ext-has='[id^="imgans"]']
+!!bing.com##li.b_ans.b_mop[-ext-has='[id$="imgans"]']
+!!bing.com##li.b_ans.b_mop[-ext-has='[class^="imgans"]']
+!!bing.com##li.b_ans.b_mop[-ext-has='[class$="imgans"]']
+!!bing.com##li.b_ans.b_mop[-ext-has='[id^="vidans"]']
+!!bing.com##li.b_ans.b_mop[-ext-has='[id$="vidans"]']
+!!bing.com##li.b_ans.b_mop[-ext-has='[class^="vidans"]']
+!!bing.com##li.b_ans.b_mop[-ext-has='[class$="vidans"]']
+!!bing.com##li.b_ans[-ext-has='[class$="b_wpt_bg_wait"]']
+!!bing.com##li.b_ans[-ext-has='[id^="rqnaContainer"]']
+!!bing.com##li.b_ans[-ext-has='[class^="rqnaContainer"]']
+!!bing.com##li.b_ans[-ext-has='[id^="vidans2"]']
+!!bing.com##li.b_ans[-ext-has='[class^="vidans2"]']
