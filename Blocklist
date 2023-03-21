@@ -145,13 +145,13 @@ bing.com###waitListDefault
 bing.com###b_wiki_wrc_carousel_container
 @@bing.com###b_results > li.b_ans.b_mop > div.sto_slides
 !!bing.com###b_results > li.b_ans.b_mop
-bing.com###b_results > li.b_ans.b_vidAns.b_ansb
+!!bing.com###b_results > li.b_ans.b_vidAns.b_ansb
 bing.com###b_results > li.b_ans.b_mop.b_mopb.b_explans
 bing.com##li.b_ans.b_vidAns
 bing.com##li.b_ans.b_imgAns.b_ansb
 bing.com##li.b_ans.b_vidans.b_ansb
 bing.com##li.b_ans.b_mop.b_imgans
-bing.com##li.b_ans.b_mop.b_vidans
+!!bing.com##li.b_ans.b_mop.b_vidans
 bing.com##li.b_ans.b_mop.b_mopb.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 !!bing.com##li.b_ans.b_mop:has([id^="imgans"])
