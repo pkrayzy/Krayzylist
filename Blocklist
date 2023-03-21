@@ -123,6 +123,7 @@ whathifi.com##.slice-container, .how-we-test, .how-we-test-review, .slice-contai
 bing.com##.algoSlug_icon
 bing.com###brspole
 bing.com##.b_adLastChild
+bing.com##.b_lgw_navigation, .slide-in-nav
 bing.com##.b_wikipedia_icon
 bing.com##.b_wpt_bg_wait
 bing.com##.fdbk_thmb_root
@@ -142,7 +143,7 @@ bing.com###waitListDefault
 bing.com###b_wiki_wrc_carousel_container
 
 !!--Bing Answers--!!
-!!bing.com###b_results > li.b_ans.b_mop
+!!bing.com##li.b_ans.b_mop
 bing.com##li.b_ans.b_imgAns.b_ansb
 bing.com##li.b_ans.b_vidans.b_ansb
 bing.com##li.b_ans.b_mop.b_imgans
