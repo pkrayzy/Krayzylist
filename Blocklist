@@ -73,6 +73,7 @@ redditstatic.com/*^*$font
 @@rakuten.com^*
 @@rakuten.com^*$~third-party
 @@jdoqocy.com/click^*?url=^*
+@@||rakuten.com^$cookie,important
 @@flipboard.com/redirect?^*
 
 !!---Generic CSS---!!
@@ -142,6 +143,7 @@ bing.com###waitListDefault
 bing.com###b_wiki_wrc_carousel_container
 
 !!--Bing Answers--!!
+bing.com###b_pole > div.b_poleContent > div.b_ans
 !!bing.com##li.b_ans.b_mop
 bing.com##li.b_ans.b_imgAns.b_ansb
 bing.com##li.b_ans.b_vidans.b_ansb
