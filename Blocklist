@@ -72,7 +72,7 @@ redditstatic.com/*^*$font
 @@ebates.com^*$~third-party
 @@rakuten.com^*
 @@rakuten.com^*$~third-party
-@@jdoqocy.com/click^*?url=^*
+@@jdoqocy.com/click^*?url=^*^$important
 @@||rakuten.com^$cookie,important
 @@flipboard.com/redirect?^*
 
