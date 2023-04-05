@@ -108,6 +108,7 @@ redditstatic.com/*^*$font
 
 !!---Specific CSS---!!
 cnet.com##.c-head_disclosure
+ft.com##.o-banner
 semafor.com##div[class^="styles_floatingBanner"]
 windowscentral.com##.van_vid_carousel, .vid-present
 windowscentral.com###taboola-below-article-thumbnails
