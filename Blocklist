@@ -52,7 +52,7 @@ webfonts.sakura.ne.jp*^*$font
 wp.com*^*$font
 
 !!---Custom-Strict---!!
-!!*Segoe*^*$font
+*Segoe*^*$font
 *OpenSans-*00-*^*$font
 *Roboto*^*$font
 fonts.gstatic.com/^*roboto^*$font^$important
