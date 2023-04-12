@@ -108,6 +108,7 @@ fonts.gstatic.com/^*productsans*^*$font
 ##div[id$="what-to-read-next"]
 
 !!---Specific CSS---!!
+12ft.io##.flourish-disclaimer
 cnet.com##.c-head_disclosure
 ft.com##.o-banner
 semafor.com##div[class^="styles_floatingBanner"]
