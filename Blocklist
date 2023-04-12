@@ -88,6 +88,7 @@ fonts.gstatic.com/^*productsans*^*$font
 ##div[id^="affiliateDisclaimer"]
 ##div[id$="affiliateDisclaimer"]
 ##div[class$="article-ad-full"]
+##div[class^="article__content-sign-up"]
 ##div[class^="articlePage_bannerAd_wrapper"]
 ##div[class^="articlePage_eoabContent"]
 ##div[class^="articlePage_riverContainer"]
