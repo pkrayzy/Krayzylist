@@ -58,7 +58,7 @@ wp.com*^*$font
 fonts.gstatic.com/^*roboto^*$font^$important
 redditstatic.com/*^*$font
 @@redditstatic.com/*Icon*^*$font
-!!fonts.gstatic.com/^*googlesans*^*$font
+fonts.gstatic.com/^*googlesans*^*$font
 fonts.gstatic.com/^*productsans*^*$font
 @@fonts.gstatic.com/^*youtubesans*^*$font
 @@fonts.gstatic.com/^*icon*^*$font
