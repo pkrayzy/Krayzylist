@@ -182,8 +182,3 @@ bing.com##li.b_ans:has([class$="b_wpt_bg_wait"])
 bing.com##li.b_ans:has([id^="rqnaContainer"])
 bing.com##li.b_ans:has([class^="rqnaContainer"])
 bing.com##li.b_ans:has([id^="vidans2"])
-
-
-
-
-bing.com##li.b_ans:has([class^="vidans2"])
