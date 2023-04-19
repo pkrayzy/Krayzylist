@@ -163,6 +163,12 @@ bing.com##li.b_ans.b_mop.b_mopb.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_mopb.b_explans
 
+bing.com###ssa_main
+bing.com###b_results > li.b_msg.b_canvas
+bing.com###b_results > li.b_ans.b_imgans.b_bop
+bing.com###b_algospacing > ul.b_vList.b_divsec
+bing.com###b_results > li.b_ans.b_vidAns.b_ansb
+
 !!--Bing Extended--!!
 bing.com##li.b_ans.b_mop:has([id^="imgans"])
 bing.com##li.b_ans.b_mop:has([id$="imgans"])
@@ -176,4 +182,8 @@ bing.com##li.b_ans:has([class$="b_wpt_bg_wait"])
 bing.com##li.b_ans:has([id^="rqnaContainer"])
 bing.com##li.b_ans:has([class^="rqnaContainer"])
 bing.com##li.b_ans:has([id^="vidans2"])
+
+
+
+
 bing.com##li.b_ans:has([class^="vidans2"])
