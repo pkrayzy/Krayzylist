@@ -185,6 +185,7 @@ bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
 bing.com##div[id$="Quotes"].lite-entcard-blk
 bing.com##div[id$="MultimediaKifVideoAnswer"].lite-entcard-blk
+bing.com##div[id$="Footer"].lite-entcard-blk
 
 !!bing.com##li.b_ans:has([class$="b_wpt_bg_wait"])
 !!bing.com##li.b_ans.b_mop:has([class^="imgans"])
