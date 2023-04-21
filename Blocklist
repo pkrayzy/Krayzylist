@@ -76,36 +76,6 @@ fonts.gstatic.com/^*productsans*^*$font
 @@||rakuten.com^$cookie,important
 @@flipboard.com/redirect?^*
 
-!!---Generic CSS---!!
-##div[class^="ad-slot"]
-##div[class$="ad-slot"]
-##div[class^="affiliate-Disclaimer"]
-##div[class$="affiliate-Disclaimer"]
-##div[id^="affiliate-Disclaimer"]
-##div[id$="affiliate-Disclaimer"]
-##div[class^="affiliateDisclaimer"]
-##div[class$="affiliateDisclaimer"]
-##div[id^="affiliateDisclaimer"]
-##div[id$="affiliateDisclaimer"]
-##div[class$="article-ad-full"]
-##div[class^="article__content-sign-up"]
-##div[class^="articlePage_bannerAd_wrapper"]
-##div[class^="articlePage_eoabContent"]
-##div[class^="articlePage_riverContainer"]
-##div[class=“article__content-sign-up”]
-##div[id$="below-article-thumbnails"]
-##div[class^="c-adSkyBox"]
-##div[section^="fd-ad-billboard"]
-##div[class$="head_disclosure"]
-##div[class^="intra-article-ad"]
-##div[class^="slice-container-newsletter"]
-##div[id^="slice-container-newsletter"]
-##div[class^="slot-placeholder"]
-##div[class^="styles_adHeader"]
-##div[class^="styles_floatingBanner"]
-##div[class^="videoWrap"]
-##div[id^="views-banner-ad"]
-##div[id$="what-to-read-next"]
 
 !!---Specific CSS---!!
 12ft.io##.flourish-disclaimer
