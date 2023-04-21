@@ -128,6 +128,7 @@ zerohedge.com##div.fc-ab-root
 bing.com##.algoSlug_icon
 bing.com##.b_adLastChild
 bing.com##.b_fbCont
+bing.com##.b_wikipedia_icon
 bing.com##.fdbk_thmb_root
 bing.com##.rqnaContainerwithfeedback
 bing.com##.scs_arw
@@ -139,7 +140,6 @@ bing.com###relatedSearchesLGWContainer
 !!bing.com##.b_dr_mod
 !!bing.com##.b_lgw_navigation, .slide-in-nav
 !!bing.com##.b_underSearchbox, #b_tween
-!!bing.com##.b_wikipedia_icon
 !!bing.com##.b_wpt_bg_wait
 !!bing.com##.richrswrapper
 !!bing.com##.rrr_wrapper
