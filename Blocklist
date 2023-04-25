@@ -72,7 +72,7 @@ fonts.gstatic.com/^*productsans*^*$font
 @@ebates.com^*$~third-party
 @@rakuten.com^*
 @@rakuten.com^*$~third-party
-@@jdoqocy.com/click^*?url=^*^$important
+@@jdoqocy.com/click^*^$important
 @@||rakuten.com^$cookie,important
 @@flipboard.com/redirect?^*
 
