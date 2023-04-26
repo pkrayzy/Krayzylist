@@ -79,6 +79,7 @@ fonts.gstatic.com/^*productsans*^*$font
 
 !!---Specific CSS---!!
 12ft.io##.flourish-disclaimer
+bulbapedia.bulbagarden.net###siteNotice
 cnet.com##.c-head_disclosure
 ft.com##.o-banner
 semafor.com##div[class^="styles_floatingBanner"]
@@ -102,6 +103,7 @@ bing.com##.b_wikipedia_icon
 bing.com##.fdbk_thmb_root
 bing.com##.rqnaContainerwithfeedback
 bing.com##.scs_arw
+bing.com##.scs_box
 bing.com##.scs_icn
 bing.com##.scs_rei
 bing.com###OverlayIFrame
