@@ -93,6 +93,7 @@ whathifi.com###affiliate-disclaimer
 whathifi.com##.hawk-nest, .hawk-processed
 whathifi.com##.slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
 wsj.com##div[class^="css-xgokil-Box"]
+www.wsj.com##div.ad-portal
 zerohedge.com##div.fc-ab-root
 
 !!--Bing--!!
