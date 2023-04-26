@@ -152,6 +152,7 @@ bing.com##li.b_ans.b_mop:has([class$="vidans"])
 bing.com##li.b_ans.b_mop:has([id^="vidans"])
 bing.com##li.b_ans.b_mop:has([id$="vidans"])
 bing.com##li.b_ans.b_mop:has(div[class="l-microanswercard-ans"])
+bing.com##li.b_msg.b_canvas:has(div[class$="spFootnote"])
 
 bing.com##.b_sideBleed:has(.revModCtr)
 bing.com###li.b_algo:has(.b_algospacingab_seemore)
