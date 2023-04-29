@@ -129,7 +129,6 @@ bing.com###ShoppingAnswerLGFilterContainer
 
 
 !!--Bing Answers--!!
-bing.com##li.b_ans.b_tophb
 bing.com##li.b_ans.b_imgAns.b_ansb
 bing.com##li.b_ans.b_imgans.b_bop
 bing.com##li.b_ans.b_mop.b_explans
@@ -139,6 +138,7 @@ bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_vidans.b_ansb
 
+bing.com###b_results > li.b_ans.b_tophb
 !!bing.com###b_algospacing > ul.b_vList.b_divsec
 !!bing.com###b_pole > div.b_poleContent > div.b_ans
 !!bing.com###b_results > li.b_msg.b_canvas
