@@ -139,6 +139,7 @@ bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_vidans.b_ansb
 
 bing.com###b_results > li.b_ans.b_tophb
+bing.com###b_results > li.b_algo.b_vtl_deeplinks > #b_algospacing.b_algospacing
 !!bing.com###b_algospacing > ul.b_vList.b_divsec
 !!bing.com###b_pole > div.b_poleContent > div.b_ans
 !!bing.com###b_results > li.b_msg.b_canvas
