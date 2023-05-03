@@ -4,6 +4,9 @@
 
 !!---Fonts---!!
 *$font,third-party
+@@azureedge.net^*$font
+@@office.net^*$font
+@@sharepointonline.com^*$font
 @@redditstatic.com/*Icon*^*$font,domain=reddit.com
 @@fonts.gstatic.com/^*youtubesans*^*$font,domain=google.com|youtube.com
 @@fonts.gstatic.com/^*icon*^*$font,domain=google.com|youtube.com
