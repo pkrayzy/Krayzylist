@@ -26,6 +26,7 @@ fonts.condenast.com*^*$font
 fonts.googleapis.com/*^*$font
 fonts.gotraffic.net*^*$font
 fonts.gstatic.com*^*$font
+@@fonts.gstatic.com*^*$font,domain=google.com
 fonts.nymag.com*^*$font
 fonts.smdg.ca*^*$font
 fonts.staticworld.net*^*$font
