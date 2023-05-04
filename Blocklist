@@ -51,8 +51,6 @@ vidible.tv/prod/fonts/*^*$font
 webfonts.creativecloud.com*^*$font
 webfonts.sakura.ne.jp*^*$font
 wp.com*^*$font
-@@redditstatic.com/*Icon*^*$font,domain=reddit.com
-@@fonts.gstatic.com/^*youtubesans*^*$font,domain=google.com|youtube.com
 
 !!---Custom---!!
 @@getcerebral.doxy.me/*
