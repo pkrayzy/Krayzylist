@@ -2,23 +2,8 @@
 ! Description: Personal Blocklist
 ! Version: 1.0
 
-!!---Fonts---!!
-*$font,third-party
-@@azureedge.net^*$font
-@@office.net^*$font
-@@sharepointonline.com^*$font
-@@redditstatic.com/*Icon*^*$font,domain=reddit.com
-@@fonts.gstatic.com/^*youtubesans*^*$font,domain=google.com|youtube.com
-@@fonts.gstatic.com/^*icon*^*$font,domain=google.com|youtube.com
-@@fonts.gstatic.com/^*/*materialicons*^*$font,domain=google.com|youtube.com
-@@fontawesome.com/*^*fa-solid*^*$font
-@@fontawesome.com/*^*fa-brands*^*$font
-@@cnbcfm.com*^*$font,domain=cnbc.com
-@@espncdn.com*^*$font,domain=espn.com
-@@cdn.arstechnica.net*^*$font,domain=arstechnica.com
-
 !!---Custom---!!
-@@getcerebral.doxy.me/jasmineb*
+@@getcerebral.doxy.me/*
 @@ebates.com^*
 @@ebates.com^*$~third-party
 @@rakuten.com^*
