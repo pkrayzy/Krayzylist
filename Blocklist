@@ -125,7 +125,7 @@ bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_vidans.b_ansb
 
-!!bing.com###b_results > li.b_ans.b_tophb
+bing.com###b_results > li.b_ans.b_tophb
 bing.com###b_results > li.b_algo.b_vtl_deeplinks > #b_algospacing.b_algospacing
 bing.com###b_algospacing > ul.b_vList.b_divsec
 !!bing.com###b_pole > div.b_poleContent > div.b_ans
@@ -145,7 +145,7 @@ bing.com##li.b_ans.b_mop:has([id$="vidans"])
 bing.com##li.b_ans.b_mop:has(div[class="l-microanswercard-ans"])
 bing.com##li.b_msg.b_canvas:has(div[class$="spFootnote"])
 
-bing.com##.b_sideBleed:has(.revModCtr)
+!!bing.com##.b_sideBleed:has(.revModCtr)
 bing.com###li.b_algo:has(.b_algospacingab_seemore)
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
