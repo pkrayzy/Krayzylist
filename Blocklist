@@ -135,8 +135,8 @@ bing.com###b_algospacing > ul.b_vList.b_divsec
 !!bing.com##li.b_ans.b_mop.b_imgans
 
 !!--Bing Extended--!!
-bing.com##li.b_ans:has([class^="rqnaContainer"])
-bing.com##li.b_ans:has([id^="rqnaContainer"])
+!!bing.com##li.b_ans:has([class^="rqnaContainer"])
+!!bing.com##li.b_ans:has([id^="rqnaContainer"])
 bing.com##li.b_ans:has([id^="vidans2"])
 bing.com##li.b_ans.b_mop:has([class^="vidans"])
 bing.com##li.b_ans.b_mop:has([class$="vidans"])
