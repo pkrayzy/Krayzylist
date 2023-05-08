@@ -86,67 +86,19 @@ wsj.com##div[class^="css-xgokil-Box"]
 zerohedge.com##div.fc-ab-root
 
 !!--Bing--!!
-bing.com##.algoSlug_icon
-bing.com##.b_adLastChild
-bing.com##.b_fbCont
-bing.com##.b_wikipedia_icon
-bing.com##.fdbk_thmb_root
-bing.com##.rqnaContainerwithfeedback
-bing.com##.scs_arw
-bing.com##.scs_box
-bing.com##.scs_icn
-bing.com##.scs_rei
-bing.com###OverlayIFrame
-bing.com###relatedSearchesLGWContainer
-bing.com###ShoppingAnswerLGFilterContainer
-
-!!bing.com##.b_dr_mod
-!!bing.com##.b_lgw_navigation, .slide-in-nav
-!!bing.com##.b_underSearchbox, #b_tween
-!!bing.com##.b_wpt_bg_wait
-!!bing.com##.richrswrapper
-!!bing.com##.rrr_wrapper
-!!bing.com##.ta_l
-!!bing.com##.TopicsExplore_Box
-!!bing.com###b_wiki_wrc_carousel_container
-!!bing.com###brspole
-!!bing.com###ShoppingAnswerLGFilterContainer
-!!bing.com###tob_rail_container
-!!bing.com###waitListDefault
-
+bing.com##.algoSlug_icon, .b_adLastChild, .b_fbCont, .b_wikipedia_icon, .fdbk_thmb_root, #relatedSearchesLGWContainer, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei
 
 !!--Bing Answers--!!
 bing.com##li.b_ans.b_imgAns.b_ansb
 bing.com##li.b_ans.b_imgans.b_bop
 bing.com##li.b_ans.b_mop.b_explans
+bing.com##li.b_ans.b_mop.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_explans
 bing.com##li.b_ans.b_mop.b_mopb.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_vidans.b_ansb
 
-bing.com###b_results > li.b_ans.b_tophb
-bing.com###b_results > li.b_algo.b_vtl_deeplinks > #b_algospacing.b_algospacing
-bing.com###b_algospacing > ul.b_vList.b_divsec
-!!bing.com###b_pole > div.b_poleContent > div.b_ans
-!!bing.com###b_results > li.b_msg.b_canvas
-!!bing.com###ssa_main
-!!bing.com##li.b_ans.b_mop
-!!bing.com##li.b_ans.b_mop.b_imgans
-
-!!--Bing Extended--!!
-!!bing.com##li.b_ans:has([class^="rqnaContainer"])
-!!bing.com##li.b_ans:has([id^="rqnaContainer"])
-bing.com##li.b_ans:has([id^="vidans2"])
-bing.com##li.b_ans.b_mop:has([class^="vidans"])
-bing.com##li.b_ans.b_mop:has([class$="vidans"])
-bing.com##li.b_ans.b_mop:has([id^="vidans"])
-bing.com##li.b_ans.b_mop:has([id$="vidans"])
-bing.com##li.b_ans.b_mop:has(div[class="l-microanswercard-ans"])
-bing.com##li.b_msg.b_canvas:has(div[class$="spFootnote"])
-
-!!bing.com##.b_sideBleed:has(.revModCtr)
-bing.com###li.b_algo:has(.b_algospacingab_seemore)
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
 bing.com##div[id$="Quotes"].lite-entcard-blk
@@ -154,8 +106,13 @@ bing.com##div[id$="MultimediaKifVideoAnswer"].lite-entcard-blk
 bing.com##div[id$="Footer"].lite-entcard-blk
 bing.com##div[id$="Trivia"].lite-entcard-blk
 
-!!bing.com##li.b_ans:has([class$="b_wpt_bg_wait"])
-!!bing.com##li.b_ans.b_mop:has([class^="imgans"])
-!!bing.com##li.b_ans.b_mop:has([class$="imgans"])
-!!bing.com##li.b_ans.b_mop:has([id^="imgans"])
-!!bing.com##li.b_ans.b_mop:has([id$="imgans"])
+!!--Bing Extended--!!
+bing.com###li.b_algo:has(.b_algospacingab_seemore)
+bing.com###b_results > li.b_ans:has(#df_listaa)
+bing.com###b_results > li.b_ans.b_mop:has(div.b_canvas.b_tophbb.bgtopwh)
+bing.com##li.b_ans:has(#vidans2)
+bing.com##li.b_ans.b_mop:has([class^="vidans"])
+bing.com##li.b_ans.b_mop:has([class$="vidans"])
+bing.com##li.b_ans.b_mop:has([id^="vidans"])
+bing.com##li.b_ans.b_mop:has([id$="vidans"])
+bing.com##li.b_ans.b_mop:has(div[class="l-microanswercard-ans"])
