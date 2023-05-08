@@ -63,6 +63,8 @@ wp.com*^*$font
 @@||rakuten.com^$cookie,important
 @@flipboard.com/redirect?^*
 
+!!---Generic CSS---!!
+###newsletter-slice
 
 !!---Specific CSS---!!
 12ft.io##.flourish-disclaimer
