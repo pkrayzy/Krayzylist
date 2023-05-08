@@ -86,7 +86,7 @@ wsj.com##div[class^="css-xgokil-Box"]
 zerohedge.com##div.fc-ab-root
 
 !!--Bing--!!
-bing.com##.algoSlug_icon, .b_adLastChild, .b_fbCont, .b_wikipedia_icon, .fdbk_thmb_root, #relatedSearchesLGWContainer, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei
+bing.com##.algoSlug_icon, .b_adLastChild, .b_fbCont, .b_wikipedia_icon, .fdbk_thmb_root, #relatedSearchesLGWContainer, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #ShoppingAnswerLGFilterContainer
 
 !!--Bing Answers--!!
 bing.com##li.b_ans.b_imgAns.b_ansb
