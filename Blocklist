@@ -89,7 +89,7 @@ wsj.com##.aside-container
 wsj.com###cx-what-to-read-next
 wsj.com##div.ad-portal
 wsj.com##div[class^="css-xgokil-Box"]
-zerohedge.com##div.fc-ab-root
+zerohedge.com##div.fc-ab-root:nth-child(n)
 
 !!--Bing--!!
 bing.com##.algoSlug_icon, .b_adLastChild, .b_fbCont, .b_wikipedia_icon, .fdbk_thmb_root, #relatedSearchesLGWContainer, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #ShoppingAnswerLGFilterContainer
