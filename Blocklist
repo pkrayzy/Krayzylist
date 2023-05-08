@@ -105,6 +105,7 @@ bing.com##div[id$="Quotes"].lite-entcard-blk
 bing.com##div[id$="MultimediaKifVideoAnswer"].lite-entcard-blk
 bing.com##div[id$="Footer"].lite-entcard-blk
 bing.com##div[id$="Trivia"].lite-entcard-blk
+@@||bing.com##div[class="b_algo b_vtl_deeplinks"]
 
 !!--Bing Extended--!!
 bing.com###li.b_algo:has(.b_algospacingab_seemore)
