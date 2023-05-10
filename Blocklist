@@ -104,6 +104,7 @@ bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_vidans.b_ansb
 
+bing.com#@#div[class="b_algo b_vtl_deeplinks"]
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
 bing.com##div[id$="Quotes"].lite-entcard-blk
