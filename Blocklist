@@ -59,8 +59,7 @@ wp.com*^*$font
 @@ebates.com^*$~third-party
 @@rakuten.com^*
 @@rakuten.com^*$~third-party
-@@jdoqocy.com/click*^$important
-@@||rakuten.com^$cookie,important
+@@jdoqocy.com/click*
 @@flipboard.com/redirect?^*
 
 !!---Generic CSS---!!
@@ -111,7 +110,6 @@ bing.com##div[id$="Quotes"].lite-entcard-blk
 bing.com##div[id$="MultimediaKifVideoAnswer"].lite-entcard-blk
 bing.com##div[id$="Footer"].lite-entcard-blk
 bing.com##div[id$="Trivia"].lite-entcard-blk
-@@||bing.com##div[class="b_algo b_vtl_deeplinks"]
 
 !!--Bing Extended--!!
 bing.com###li.b_algo:has(.b_algospacingab_seemore)
