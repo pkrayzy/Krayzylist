@@ -46,6 +46,8 @@ wsj.com###cx-what-to-read-next
 wsj.com##div.ad-portal
 wsj.com##div[class^="css-xgokil-Box"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
+zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
+zerohedge.com##div[class^="BlockLogin_container"]
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
