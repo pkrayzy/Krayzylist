@@ -31,6 +31,7 @@ cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
 msn.com##div[class^="articlePage_river"]
 msn.com###modernRightRail_container
+people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 windowscentral.com##.van_vid_carousel, .vid-present
 windowscentral.com###taboola-below-article-thumbnails
