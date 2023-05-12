@@ -3,55 +3,13 @@
 ! Version: 1.0
 
 
-!!---Fanboy Fonts---!!
-gannett-cdn.com*^*$font
-gannettdigital.com*^*$font
-kinja-static.com/assets/fonts/*^*$font
-alluremedia.com.au*^*$font
-amazonaws.com*^*$font
-bootstrapcdn.com/bootstrap/*^*$font
-cloud.typography.com*^*$font
-cloud.webtype.com*^*$font
-cloudfront.net*^*$font
-disquscdn.com/next/assets/font/*^*$font
-edgefonts.net*^*$font
-fast.fonts.com*^*$font
-fast.fonts.net*^*$font
-fastly.net*^*$font
-fontawesome.com*^*$font
-fontdeck.com*^*$font
-fonts.advance.net*^*$font
-fonts.bauernet.me*^*$font
-fonts.condenast.com*^*$font
-fonts.googleapis.com/*^*$font
-fonts.gotraffic.net*^*$font
-fonts.gstatic.com*^*$font
-@@fonts.gstatic.com*^*$font,domain=google.com
-fonts.nymag.com*^*$font
-fonts.smdg.ca*^*$font
-fonts.staticworld.net*^*$font
-fonts.timeinc.net*^*$font
-fonts.voxmedia.com*^*$font
-google.com/swg/*^*$font
-googleapis.com/ajax/libs/webfont/*^*$font
-googleusercontent.com/static/fonts/*^*$font
-gotraffic.net*^*$font
-maxcdn.bootstrapcdn.com/font-awesome/*^*$font
-myfontastic.com*^*$font
-myfonts.net*^*$font
-netdna-cdn.com*^*$font
-netdna.bootstrapcdn.com*^*$font
-qmerce.com/assets/*^*$font
-rackcdn.com/fonts/*^*$font
-typefront.com*^*$font
-typekit.com*^*$font
-typekit.net*^*$font
-typesquare.com*^*$font
-use.fonticons.com*^*$font
-vidible.tv/prod/fonts/*^*$font
-webfonts.creativecloud.com*^*$font
-webfonts.sakura.ne.jp*^*$font
-wp.com*^*$font
+!!---Fonts---!!
+fonts.googleapis.com/*$font
+fonts.gstatic.com/*$font
+@@fonts.gstatic.com/*$font,domain=google.com
+google.com/swg/*$font
+googleapis.com/ajax/libs/webfont/*$font
+googleusercontent.com/static/fonts/*$font
 
 !!---Custom---!!
 @@getcerebral.doxy.me/*
