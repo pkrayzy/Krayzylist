@@ -68,7 +68,7 @@ wp.com*^*$font
 !!---Specific CSS---!!
 12ft.io##.flourish-disclaimer
 12ft.io##div[class="article__content-sign-up"]
-arstechnica##aside.ad.ad_crown:nth-child(n)
+arstechnica.com##aside.ad.ad_crown:nth-child(n)
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
