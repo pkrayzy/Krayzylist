@@ -49,7 +49,19 @@ wsj.com##div[class^="css-xgokil-Box"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
 
 !!--Bing--!!
-bing.com##.algoSlug_icon, .b_adLastChild, .b_fbCont, .b_wikipedia_icon, .fdbk_thmb_root, #relatedSearchesLGWContainer, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #ShoppingAnswerLGFilterContainer
+bing.com##.algoSlug_icon
+bing.com##.b_adLastChild
+bing.com##.b_fbCont
+bing.com##.b_wikipedia_icon
+bing.com##.fdbk_thmb_root
+bing.com###relatedSearchesLGWContainer
+bing.com##.richrswrapper
+bing.com##.rqnaContainerwithfeedback
+bing.com##.scs_arw
+bing.com##.scs_exp.b_floatrt
+bing.com##.scs_icn
+bing.com##.scs_rei
+bing.com###ShoppingAnswerLGFilterContainer
 
 !!--Bing Answers--!!
 !!bing.com##li.b_ans.b_imgAns.b_ansb
