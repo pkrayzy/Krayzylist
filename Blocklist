@@ -84,12 +84,9 @@ bing.com##.scs_rei
 bing.com###ShoppingAnswerLGFilterContainer
 
 !!--Bing Answers--!!
-!!bing.com##li.b_ans.b_imgAns.b_ansb
 bing.com##li.b_ans.b_imgans.b_bop
 bing.com##li.b_ans.b_mop.b_explans
-!!bing.com##li.b_ans.b_mop.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_explans
-!!bing.com##li.b_ans.b_mop.b_mopb.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_vidans.b_ansb
@@ -108,9 +105,6 @@ bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com###b_results > li.b_ans.b_mop:has(div.b_canvas.b_tophbb.bgtopwh)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##.b_ans.b_tophb:has(.utilAns)
-!!bing.com##li.b_ans.b_mop:has([class^="vidans"])
-!!bing.com##li.b_ans.b_mop:has([class$="vidans"])
-!!bing.com##li.b_ans.b_mop:has([id^="vidans"])
-!!bing.com##li.b_ans.b_mop:has([id$="vidans"])
 bing.com##li.b_ans.b_mop:has(div[class="l-microanswercard-ans"])
 bing.com##li.b_ans:has(#waitListDefault)
+bing.com###b_algospacing:has(.b_algospacingab_seemore)
