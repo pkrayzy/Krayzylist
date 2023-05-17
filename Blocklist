@@ -39,6 +39,8 @@ googleusercontent.com/static/fonts/*$font
 
 !!---Generic CSS---!!
 ###newsletter-slice
+OpenSans-*00*$font
+Roboto*$font
 
 !!---Specific CSS---!!
 12ft.io##.flourish-disclaimer
