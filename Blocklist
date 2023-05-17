@@ -64,6 +64,7 @@ wsj.com##.aside-container
 wsj.com###cx-what-to-read-next
 wsj.com##div.ad-portal
 wsj.com##div[class^="css-xgokil-Box"]
+www.wsj.com##div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 zerohedge.com##div[class^="BlockLogin_container"]
