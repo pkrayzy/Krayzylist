@@ -40,7 +40,7 @@ googleusercontent.com/static/fonts/*$font
 
 !!---Generic CSS---!!
 ###newsletter-slice
-##div[class="ad-unit"]
+##div[class$="ad-unit"]
 OpenSans-*00*$font
 Roboto*$font
 
