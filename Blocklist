@@ -51,9 +51,13 @@ arstechnica.com##aside.ad.ad_crown:nth-child(n)
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
-msn.com##div[class^="articlePage_river"]
 msn.com##.galleryPage_gridarea_rail_new-DS-EntryPoint1-1
 msn.com##.articlePage_gridarea_rail_new-DS-EntryPoint1-1
+msn.com##.galleryPage_riverContainer-DS-EntryPoint1-1
+msn.com###msnewsroot
+msn.com##.morefromcategory
+msn.com###publisher-carousel-container
+
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 windowscentral.com##.van_vid_carousel, .vid-present
