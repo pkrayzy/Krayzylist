@@ -52,7 +52,8 @@ bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
 msn.com##div[class^="articlePage_river"]
-msn.com###modernRightRail_container
+msn.com##.galleryPage_gridarea_rail_new-DS-EntryPoint1-1
+msn.com##.articlePage_gridarea_rail_new-DS-EntryPoint1-1
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 windowscentral.com##.van_vid_carousel, .vid-present
