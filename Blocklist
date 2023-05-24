@@ -48,6 +48,7 @@ Roboto*$font
 12ft.io##.flourish-disclaimer
 12ft.io##div[class="article__content-sign-up"]
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
+arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
@@ -57,7 +58,6 @@ msn.com##.galleryPage_riverContainer-DS-EntryPoint1-1
 msn.com###msnewsroot
 msn.com##.morefromcategory
 msn.com###publisher-carousel-container
-
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 windowscentral.com##.van_vid_carousel, .vid-present
