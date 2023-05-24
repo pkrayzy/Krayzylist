@@ -41,6 +41,7 @@ googleusercontent.com/static/fonts/*$font
 !!---Generic CSS---!!
 ###newsletter-slice
 ##div[class$="ad-unit"]
+#@#div[class^="InstagramEmbedContainer"]
 OpenSans-*00*$font
 Roboto*$font
 
