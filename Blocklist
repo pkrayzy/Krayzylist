@@ -59,6 +59,7 @@ msn.com##.galleryPage_riverContainer-DS-EntryPoint1-1
 msn.com###msnewsroot
 msn.com##.morefromcategory
 msn.com###publisher-carousel-container
+nytimes.com##[data-testid="standard-dock"]
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 windowscentral.com##.van_vid_carousel, .vid-present
