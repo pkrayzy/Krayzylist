@@ -32,16 +32,20 @@ googleusercontent.com/static/fonts/*$font
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 @@||optimizely.com*$domain=rakuten.com|rakuten.ca
 @@*$domain=rakuten.com
+@@||jdoqocy.com/click*
 
 !!---Custom---!!
-@@getcerebral.doxy.me/*
-@@jdoqocy.com/click*
-@@flipboard.com/redirect?^*
+@@||getcerebral.doxy.me/*
+@@||flipboard.com/redirect?^*
 
 !!---Generic CSS---!!
 ###newsletter-slice
 ##div[class$="ad-unit"]
 #@#div[class^="InstagramEmbedContainer"]
+##div.billboard-overlay
+##div.recirc
+##div.div-related-embed.article-video-slot
+##div[class="adblock-allowlist-messaging__article-wrapper"]
 OpenSans-*00*$font
 Roboto*$font
 
@@ -53,6 +57,7 @@ arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
+msn.com##div.articlePage_riverContainer-DS-EntryPoint1-1
 msn.com##.galleryPage_gridarea_rail_new-DS-EntryPoint1-1
 msn.com##.articlePage_gridarea_rail_new-DS-EntryPoint1-1
 msn.com##.galleryPage_riverContainer-DS-EntryPoint1-1
@@ -93,6 +98,7 @@ bing.com##.scs_arw
 bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
+bing.com##.secure_icon
 bing.com###ShoppingAnswerLGFilterContainer
 
 !!--Bing Answers--!!
