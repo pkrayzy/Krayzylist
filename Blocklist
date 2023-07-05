@@ -32,7 +32,7 @@ googleusercontent.com/static/fonts/*$font
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 @@||optimizely.com*$domain=rakuten.com|rakuten.ca
 @@*$domain=rakuten.com
-@@||jdoqocy.com^$important
+@@*$domain=jdoqocy.com
 
 !!---Custom---!!
 @@||getcerebral.doxy.me/*
