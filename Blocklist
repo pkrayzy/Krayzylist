@@ -55,13 +55,6 @@ arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
-msn.com##div.articlePage_riverContainer-DS-EntryPoint1-1
-msn.com##.galleryPage_gridarea_rail_new-DS-EntryPoint1-1
-msn.com##.articlePage_gridarea_rail_new-DS-EntryPoint1-1
-msn.com##.galleryPage_riverContainer-DS-EntryPoint1-1
-!!msn.com###msnewsroot
-msn.com##.morefromcategory
-msn.com###publisher-carousel-container
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
@@ -120,11 +113,12 @@ bing.com##li.b_ans.b_top.b_topborder.b_imgans
 !!bing.com##div[id$="Trivia"].lite-entcard-blk
 
 !!--Bing Extended--!!
-!!bing.com###li.b_algo:has(.b_algospacingab_seemore)
 bing.com###b_results > li.b_ans:has(#df_listaa)
-!!bing.com###b_results > li.b_ans.b_mop:has(div.b_canvas.b_tophbb.bgtopwh)
 bing.com##li.b_ans:has(#vidans2)
+bing.com##li.b_ans:has(#waitListDefault)
+
+!!bing.com###li.b_algo:has(.b_algospacingab_seemore)
+!!bing.com###b_results > li.b_ans.b_mop:has(div.b_canvas.b_tophbb.bgtopwh)
 !!bing.com##.b_ans.b_tophb:has(.utilAns)
 !!bing.com##li.b_ans.b_mop:has(div[class="l-microanswercard-ans"])
-bing.com##li.b_ans:has(#waitListDefault)
 !!bing.com###b_algospacing:has(.b_algospacingab_seemore)
