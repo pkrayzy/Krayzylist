@@ -33,6 +33,7 @@ googleusercontent.com/static/fonts/*$font
 @@||googleadservices.com*$domain=rakuten.com|rakuten.ca|doubleclick.net
 
 !!---Custom---!!
+@@||tv.youtube.com^$important,document
 @@||getcerebral.doxy.me/*
 @@||flipboard.com/redirect?^*
 
