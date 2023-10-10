@@ -56,8 +56,11 @@ arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
-google.com##div:has(.related-question-pair)
-google.com###bres
+google.com###rso div.related-question-pair:upward(div[jscontroller])
+google.com###botstuff #bres
+google.com###rso div.g div[jscontroller][id^="eob_"]
+google.com###rso div.MjjYud:has(div[jsname="Cpkphb"] a[href^="/search?"])
+google.com##div.isv-r[data-rfg]
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
