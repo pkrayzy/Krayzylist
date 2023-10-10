@@ -56,7 +56,6 @@ arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
-google.com###kp-wp-tab-overview > div:has(.related-question-pair)
 google.com##div:has(.related-question-pair)
 google.com###bres
 nytimes.com##[data-testid="standard-dock"]
