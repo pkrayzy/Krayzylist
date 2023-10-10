@@ -58,6 +58,7 @@ cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
 google.com###kp-wp-tab-overview > div:has(.related-question-pair)
 google.com###search > div > div > div:has(.related-question-pair)
+google.com###bres
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
