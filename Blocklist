@@ -56,8 +56,7 @@ arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
-google.com##.sATSHe:has(.related-question-pair)
-google.com##.sATSHe:contains(People also)
+google.com##div[class="sATSHe"]:has(div[jsname="Cpkphb"])
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
