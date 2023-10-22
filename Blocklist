@@ -5,7 +5,7 @@
 !!---Fonts---!!
 fonts.googleapis.com/*$font
 fonts.gstatic.com/*$font
-@@fonts.gstatic.com/*$font,domain=google.com
+@@fonts.gstatic.com/*$font,domain=google.com|youtube.com
 google.com/swg/*$font
 googleapis.com/ajax/libs/webfont/*$font
 googleusercontent.com/static/fonts/*$font
