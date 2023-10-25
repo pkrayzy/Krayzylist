@@ -10,6 +10,11 @@ google.com/swg/*$font
 googleapis.com/ajax/libs/webfont/*$font
 googleusercontent.com/static/fonts/*$font
 
+!!---Google---!!
+google.com###g-more-link,g-section-with-header
+google.com##.related-question-pair:upward(div[jscontroller]):upward(div[class],div[jsname])
+google.com##span[class]:contains(People also):upward(div[jsname])
+
 !!---Rakuten---!!
 @@*$domain=rakuten.com
 @@*$domain=jdoqocy.com
@@ -56,16 +61,6 @@ arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner
-
-google.com##div[class^="cUnQKe"]:has(div[jsname^="Cpkphb"])
-google.com##div[class^="cUnQKe"]:has(.related-question-pair)
-google.com##div[class^="cUnQKe"]:has(div[class^="ouy7Mc"])
-
-google.com##div[class="sATSHe"]:has(div[jsname^="Cpkphb"])
-google.com##div[class="sATSHe"]:has(.related-question-pair)
-google.com##div[class="sATSHe"]:has(div[class^="ouy7Mc"])
-
-
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
