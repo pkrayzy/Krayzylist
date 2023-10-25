@@ -13,7 +13,7 @@ googleusercontent.com/static/fonts/*$font
 !!---Google---!!
 google.com###g-more-link,g-section-with-header
 google.com##.related-question-pair:upward(div[jscontroller]):upward(div[class],div[jsname])
-google.com##span[class]:contains(People also):upward(div[jsname])
+google.com##div[class^="ouy7Mc"]:upward(div[class],div[jscontroller]):upward(div[class],div[jsname])
 
 !!---Rakuten---!!
 @@*$domain=rakuten.com
