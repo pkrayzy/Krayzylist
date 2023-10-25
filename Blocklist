@@ -11,9 +11,9 @@ googleapis.com/ajax/libs/webfont/*$font
 googleusercontent.com/static/fonts/*$font
 
 !!---Google---!!
-google.com###g-more-link,g-section-with-header
-google.com##.related-question-pair:upward(div[jscontroller]):upward(div[class],div[jsname])
-google.com##div[class^="ouy7Mc"]:upward(div[class],div[jscontroller]):upward(div[class],div[jsname])
+!google.com###g-more-link,g-section-with-header
+google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
+google.com##div[class] > div[jsname] > div[class="sATSHe"]:contains(People also)
 
 !!---Rakuten---!!
 @@*$domain=rakuten.com
