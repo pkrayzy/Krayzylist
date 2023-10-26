@@ -102,7 +102,7 @@ bing.com###ShoppingAnswerLGFilterContainer
 bing.com###tob_rail_container
 
 !!--Bing Answers--!!
-bing.com##li.b_ans.b_imgans.b_bop
+bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_mop.b_explans
 bing.com##li.b_ans.b_mop.b_mopb.b_explans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
