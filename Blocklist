@@ -12,7 +12,6 @@ googleusercontent.com/static/fonts/*$font
 
 !!---Google---!!
 google.com###g-more-link,g-section-with-header
-!google.com##div.MjjYud:has(.related-question-pair)
 google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
 google.com##div[class] > div[jsname] > div[class="sATSHe"]:contains(People also)
 
