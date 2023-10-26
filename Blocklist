@@ -12,7 +12,7 @@ googleusercontent.com/static/fonts/*$font
 
 !!---Google---!!
 google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
-google.com##div[class] > div[jsname] > div[class="sATSHe"]:contains(People also)
+!!google.com##div[class] > div[jsname] > div[class="sATSHe"]:contains(People also)
 
 !!---Rakuten---!!
 @@*$domain=rakuten.com
