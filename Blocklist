@@ -119,21 +119,14 @@ bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_top.b_topborder.b_imgans
 bing.com##li.b_ans.b_vidans.b_ansb
 
-!!bing.com#@#div[class="b_algo b_vtl_deeplinks"]
-!!bing.com##div[id$="Poll"].lite-entcard-blk
-!!bing.com##div[id$="QnA"].lite-entcard-blk
-!!bing.com##div[id$="Quotes"].lite-entcard-blk
+bing.com##div[id$="Poll"].lite-entcard-blk
+bing.com##div[id$="QnA"].lite-entcard-blk
+bing.com##div[id$="Quotes"].lite-entcard-blk
 !!bing.com##div[id$="MultimediaKifVideoAnswer"].lite-entcard-blk
 !!bing.com##div[id$="Footer"].lite-entcard-blk
-!!bing.com##div[id$="Trivia"].lite-entcard-blk
+bing.com##div[id$="Trivia"].lite-entcard-blk
 
 !!--Bing Extended--!!
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
-
-!!bing.com###li.b_algo:has(.b_algospacingab_seemore)
-!!bing.com###b_results > li.b_ans.b_mop:has(div.b_canvas.b_tophbb.bgtopwh)
-!!bing.com##.b_ans.b_tophb:has(.utilAns)
-!!bing.com##li.b_ans.b_mop:has(div[class="l-microanswercard-ans"])
-!!bing.com###b_algospacing:has(.b_algospacingab_seemore)
