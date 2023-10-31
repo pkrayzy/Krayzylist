@@ -64,6 +64,7 @@ nytimes.com##[data-testid="standard-dock"]
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
+speedtest.net##div.mobile-during-test-banner
 windowscentral.com##.van_vid_carousel, .vid-present
 windowscentral.com###taboola-below-article-thumbnails
 windowscentral.com###affiliate-disclaimer
@@ -84,13 +85,11 @@ zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 !!--Bing--!!
 bing.com##.algoSlug_icon
 bing.com##.b_adLastChild
-bing.com###fabstrip
-bing.com##.b_footer
 bing.com##.b_algo_DUIcon
 bing.com##.b_fbCont
+bing.com##.b_footer
 bing.com##.b_wikipedia_icon
 bing.com##.fdbk_thmb_root
-bing.com###relatedSearchesLGWContainer
 bing.com##.richrswrapper
 bing.com##.rqnaContainerwithfeedback
 bing.com##.scs_arw
@@ -98,18 +97,27 @@ bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
 bing.com##.secure_icon
+bing.com###b_pag_chat_btn_container
+bing.com###fabstrip
+bing.com###relatedSearchesLGWContainer
 bing.com###ShoppingAnswerLGFilterContainer
+bing.com###syd_suggestion_wrapper
 bing.com###tob_rail_container
+bing.com##div[class="wpt_bc_container"]
+bing.com##div[id="propmtBuilder_wrapper"]
 
 !!--Bing Answers--!!
+bing.com###b_context > li.b_ans > div.rrr_wrapper
+bing.com##li.b_ans:has(div[class="wpt_bc_container"])
+bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_mop.b_explans
+bing.com##li.b_ans.b_mop.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_explans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_vidAns
-bing.com##li.b_ans.b_vidans.b_ansb
 bing.com##li.b_ans.b_top.b_topborder.b_imgans
-bing.com###b_context > li.b_ans > div.rrr_wrapper
+bing.com##li.b_ans.b_vidans.b_ansb
 
 !!bing.com#@#div[class="b_algo b_vtl_deeplinks"]
 !!bing.com##div[id$="Poll"].lite-entcard-blk
