@@ -107,6 +107,7 @@ bing.com##div[class="wpt_bc_container"]
 bing.com##div[id="propmtBuilder_wrapper"]
 
 !!--Bing Answers--!!
+bing.com#@#li.b_algo.b_nav.b_vtl_deeplinks_mb
 bing.com###b_context > li.b_ans > div.rrr_wrapper
 bing.com##li.b_ans:has(div[class="wpt_bc_container"])
 bing.com##li.b_ans.b_imgans
