@@ -3,12 +3,12 @@
 ! Version: 1.0
 
 !!---Fonts---!!
-fonts.googleapis.com/*$font
-fonts.gstatic.com/*$font
-@@fonts.gstatic.com/*$font,domain=google.com|youtube.com
-google.com/swg/*$font
-googleapis.com/ajax/libs/webfont/*$font
-googleusercontent.com/static/fonts/*$font
+!!fonts.googleapis.com/*$font
+!!fonts.gstatic.com/*$font
+!!@@fonts.gstatic.com/*$font,domain=google.com|youtube.com
+!!google.com/swg/*$font
+!!googleapis.com/ajax/libs/webfont/*$font
+!!googleusercontent.com/static/fonts/*$font
 
 !!---Google---!!
 google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
