@@ -61,6 +61,9 @@ arstechnica.com##aside.ad.ad_crown:nth-child(n)
 arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
+espn.com##div[class="GameBreak GameBreak--triggered"]
+espn.com###nflgamepackage
+espn.com###vjs_video_3
 ft.com##.o-banner
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
