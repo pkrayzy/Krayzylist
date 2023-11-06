@@ -9,7 +9,9 @@
 !!google.com/swg/*$font
 !!googleapis.com/ajax/libs/webfont/*$font
 !!googleusercontent.com/static/fonts/*$font
-*/IBMPlexSans*^$font
+IBMPlexSans*^$font
+OpenSans-*00*$font
+Roboto*$font
 
 !!---Google---!!
 google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
@@ -50,8 +52,6 @@ google.com##div.cUnQKe:has(.related-question-pair)
 ##div.recirc
 ##div.div-related-embed.article-video-slot
 ##div[class="adblock-allowlist-messaging__article-wrapper"]
-OpenSans-*00*$font
-Roboto*$font
 
 !!---Specific CSS---!!
 12ft.io##.flourish-disclaimer
