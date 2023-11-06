@@ -9,6 +9,7 @@
 !!google.com/swg/*$font
 !!googleapis.com/ajax/libs/webfont/*$font
 !!googleusercontent.com/static/fonts/*$font
+*/IBMPlexSans*^$font
 
 !!---Google---!!
 google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
