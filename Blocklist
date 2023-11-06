@@ -9,7 +9,8 @@
 !!google.com/swg/*$font
 !!googleapis.com/ajax/libs/webfont/*$font
 !!googleusercontent.com/static/fonts/*$font
-IBMPlexSans*^$font
+IBMPlexSans*$font
+NotoSans*$font
 OpenSans-*00*$font
 Roboto*$font
 
