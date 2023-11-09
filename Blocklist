@@ -103,7 +103,7 @@ bing.com###b_pag_chat_btn_container
 bing.com###bnp\
 bing.com###relatedSearchesLGWContainer
 bing.com###syd_suggestion_wrapper
-!!bing.com##.b_fbCont
+bing.com##.b_fbCont
 !!bing.com##.b_footer
 !!bing.com##.b_wikipedia_icon
 !!bing.com##.secure_icon
@@ -113,6 +113,10 @@ bing.com###syd_suggestion_wrapper
 !!bing.com##div[class="wpt_bc_container"]
 !!bing.com##div[id="propmtBuilder_wrapper"]
 
+
+bing.com##.inner, .b_footnote, .cico.scs_hdImg
+
+
 !!--Bing Answers--!!
 bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_imgans
@@ -120,6 +124,9 @@ bing.com##li.b_ans.b_mop.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_vidans.b_ansb
+bing.com##.b_ans > .b_rrsr
+bing.com##.b_ans > .wpt_bc_container
+
 !!bing.com#@#li.b_algo.b_nav.b_vtl_deeplinks_mb
 !!bing.com###b_context > li.b_ans > div.rrr_wrapper
 !!bing.com##li.b_ans:has(div[class="wpt_bc_container"])
@@ -137,5 +144,5 @@ bing.com##div[id$="QnA"].lite-entcard-blk
 !!--Bing Extended--!!
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
-!!bing.com##li.b_ans:has(#waitListDefault)
-!!bing.com###b_results > li.b_ans.b_top:has(#b_wpt_bg)
+bing.com##li.b_ans:has(#waitListDefault)
+bing.com###b_results > li.b_ans.b_top:has(#b_wpt_bg)
