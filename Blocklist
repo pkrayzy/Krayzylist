@@ -92,7 +92,10 @@ bing.com##.algoSlug_icon
 bing.com##.b_adLastChild
 bing.com##.b_algo_DUIcon
 bing.com##.b_algoSlug
+bing.com##.cico.scs_hdImg
 bing.com##.fdbk_thmb_root
+bing.com##.b_footnote
+bing.com##.inner
 bing.com##.richrswrapper
 bing.com##.rqnaContainerwithfeedback
 bing.com##.scs_arw
@@ -103,8 +106,10 @@ bing.com###b_pag_chat_btn_container
 bing.com###bnp\
 bing.com###relatedSearchesLGWContainer
 bing.com###syd_suggestion_wrapper
+
 bing.com##.b_fbCont
-!!bing.com##.b_footer
+bing.com##.b_footer
+
 !!bing.com##.b_wikipedia_icon
 !!bing.com##.secure_icon
 !!bing.com###fabstrip
@@ -112,10 +117,6 @@ bing.com##.b_fbCont
 !!bing.com###tob_rail_container
 !!bing.com##div[class="wpt_bc_container"]
 !!bing.com##div[id="propmtBuilder_wrapper"]
-
-
-bing.com##.inner, .b_footnote, .cico.scs_hdImg
-
 
 !!--Bing Answers--!!
 bing.com##li.b_ans.b_imgans
