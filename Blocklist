@@ -1,6 +1,7 @@
 ! Title: Krayzylist
 ! Description: Personal Blocklist
 ! Version: 1.0
+! Expires: 1 hour (update frequency)
 
 !!---Fonts---!!
 !!fonts.googleapis.com/*$font
@@ -94,6 +95,8 @@ bing.com##.b_algo_DUIcon
 bing.com##.b_algoSlug
 bing.com##.cico.scs_hdImg
 bing.com##.fdbk_thmb_root
+bing.com##.b_fbCont
+bing.com##.b_footer
 bing.com##.b_footnote
 bing.com##.inner
 bing.com##.richrswrapper
@@ -102,13 +105,15 @@ bing.com##.scs_arw
 bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
+
+bing.com###b_alsotry.b_underSearchbox
 bing.com###b_pag_chat_btn_container
 bing.com###bnp\
+bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
 bing.com###syd_suggestion_wrapper
 
-bing.com##.b_fbCont
-bing.com##.b_footer
+
 
 !!bing.com##.b_wikipedia_icon
 !!bing.com##.secure_icon
@@ -125,7 +130,9 @@ bing.com##li.b_ans.b_mop.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
 bing.com##li.b_ans.b_mop.b_vidAns
 bing.com##li.b_ans.b_vidans.b_ansb
+
 bing.com##.b_ans > .b_rrsr
+bing.com##.b_ans > .b_spa_adblock
 bing.com##.b_ans > .wpt_bc_container
 
 !!bing.com#@#li.b_algo.b_nav.b_vtl_deeplinks_mb
