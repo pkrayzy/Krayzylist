@@ -92,11 +92,12 @@ zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 bing.com##.algoSlug_icon
 bing.com##.b_adLastChild
 bing.com##.b_algo_DUIcon
-bing.com##.b_algoSlug
+bing.com##.b_circleImage.b_onfaimg.rms_img
 bing.com##.cico.scs_hdImg
 bing.com##.fdbk_thmb_root
 bing.com##.b_fbCont
 bing.com##.inner
+bing.com##.l_ecrd_imcolheader.gradient.simg
 bing.com##.richrswrapper
 bing.com##.rqnaContainerwithfeedback
 bing.com##.scs_arw
@@ -109,6 +110,7 @@ bing.com###b_pag_chat_btn_container
 bing.com###bnp\
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
+bing.com###span.algoSlug_icon
 bing.com###syd_suggestion_wrapper
 
 !!bing.com##.b_footer
