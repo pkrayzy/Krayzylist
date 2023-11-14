@@ -113,12 +113,6 @@ bing.com###relatedSearchesLGWContainer
 bing.com###span.algoSlug_icon
 bing.com###syd_suggestion_wrapper
 
-!!--Bing Utility Answers--!!
-bing.com##.utilAns > .lite-entcard-ans-m > div > div > .l_ecrd_imcolheader.gradient.simg
-bing.com##.l_ecrd_imcolheader_txt
-bing.com##.l_ecrd_imcolheader.gradient.simg > .l_ecrd_webicons
-
-
 !!--Bing Answers--!!
 bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_imgans
@@ -130,6 +124,11 @@ bing.com##li.b_ans.b_vidans.b_ansb
 bing.com##.b_ans > .b_rrsr
 bing.com##.b_ans > .b_spa_adblock
 bing.com##.b_ans > .wpt_bc_container
+
+!!--Bing Utility Answers--!!
+bing.com##.utilAns > .lite-entcard-ans-m > div > div > .l_ecrd_imcolheader.gradient.simg
+bing.com##.l_ecrd_imcolheader_txt
+bing.com##.l_ecrd_imcolheader.gradient.simg > .l_ecrd_webicons
 
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
