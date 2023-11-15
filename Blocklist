@@ -94,7 +94,7 @@ bing.com##.algoSlug_icon
 bing.com##.b_adLastChild
 bing.com##.b_algo_DUIcon
 bing.com##.b_wikipedia_icon
-bing.com##.cico.scs_hdImg
+!!bing.com##.cico.scs_hdImg
 bing.com##.fdbk_thmb_root
 bing.com##.b_fbCont
 bing.com##.richrswrapper
@@ -104,7 +104,6 @@ bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
 
-bing.com###b_alsotry.b_underSearchbox
 bing.com###b_pag_chat_btn_container
 bing.com###bnp\
 bing.com###b_tween
@@ -127,7 +126,6 @@ bing.com##.b_ans > .wpt_bc_container
 !!--Bing Utility Answers--!!
 bing.com##.utilAns > .lite-entcard-ans-m > div > div > .l_ecrd_imcolheader.gradient.simg
 bing.com##.l_ecrd_imcolheader_txt
-!!bing.com##.l_ecrd_imcolheader.gradient.simg > .l_ecrd_webicons
 
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
