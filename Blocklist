@@ -15,8 +15,8 @@ google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question
 google.com##div.cUnQKe:has(.related-question-pair)
 
 !!---Rakuten---!!
-@@||*$domain=rakuten.com
-@@||*$domain=jdoqocy.com
+@@||*$document,domain=rakuten.com
+@@||jdoqocy.com^$$ocument,domain=rakuten.com, bing.com
 
 !!---Custom---!!
 @@||tv.youtube.com^$important,document
