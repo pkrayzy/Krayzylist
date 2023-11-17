@@ -17,6 +17,13 @@ google.com##div.cUnQKe:has(.related-question-pair)
 !!---Rakuten---!!
 @@||*$document,domain=rakuten.com
 @@||jdoqocy.com/click$domain=bing.com|rakuten.com
+@@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
+@@||datadoghq.com*$domain=rakuten.com|rakuten.ca
+@@||segment.com*$domain=rakuten.com|rakuten.ca
+@@||optimizely.com*$domain=rakuten.com|rakuten.ca
+@@||ecbsn.com*$domain=rakuten.com|rakuten.ca
+@@||ebates.com*$domain=rakuten.com|rakuten.ca
+@@||linksynergy.com*$domain=rakuten.com|rakuten.ca
 
 !!---Custom---!!
 @@||tv.youtube.com^$important,document
