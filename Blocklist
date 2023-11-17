@@ -100,8 +100,9 @@ bing.com##.b_ans > .b_spa_adblock
 bing.com##.b_ans > .wpt_bc_container
 
 !!--Bing Utility Answers--!!
-bing.com##.utilAns > .lite-entcard-ans-m > div > div > .l_ecrd_imcolheader.gradient.simg
-bing.com##.l_ecrd_imcolheader_txt
+!!bing.com##.utilAns > .lite-entcard-ans-m > div > div > .l_ecrd_imcolheader.gradient.simg
+bing.com##.l_ecrd_imcolheader_txt, l_ecrd_imcolheader_img
+
 
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
