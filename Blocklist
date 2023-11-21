@@ -56,6 +56,7 @@ nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##div.mobile-during-test-banner
+twitter.com##div[data-testid="placementTracking"]
 windowscentral.com##.van_vid_carousel, .vid-present
 windowscentral.com###taboola-below-article-thumbnails
 windowscentral.com###affiliate-disclaimer
