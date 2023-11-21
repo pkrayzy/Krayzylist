@@ -57,6 +57,8 @@ people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##div.mobile-during-test-banner
 twitter.com##div[data-testid="placementTracking"]:contains(Ad)
+twitter.com##div[data-testid="placementTracking"]:has-text(Ad)
+twitter.com##div[data-testid="placementTracking"]:-abp-contains(Ad)
 windowscentral.com##.van_vid_carousel, .vid-present
 windowscentral.com###taboola-below-article-thumbnails
 windowscentral.com###affiliate-disclaimer
