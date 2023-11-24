@@ -78,6 +78,7 @@ zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
+bing.com##span[class="algoSlug_icon"]
 bing.com##.b_adLastChild
 bing.com##.b_algo_DUIcon
 bing.com##.b_wikipedia_icon
@@ -92,7 +93,6 @@ bing.com##.scs_icn
 bing.com##.scs_rei
 
 bing.com###b_pag_chat_btn_container
-bing.com###bnp\
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
 bing.com###span.algoSlug_icon
