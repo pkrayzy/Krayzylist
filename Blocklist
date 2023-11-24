@@ -77,7 +77,6 @@ zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
-bing.com##.algoSlug_icon
 bing.com##span[class="algoSlug_icon"]
 bing.com##.b_adLastChild
 bing.com##.b_algo_DUIcon
