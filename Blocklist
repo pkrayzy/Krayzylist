@@ -27,30 +27,24 @@ Segoe*$font
 !!---Generic CSS---!!
 ###newsletter-slice, .billboard-overlay, .recirc, .div-related-embed.article-video-slot
 ##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"]
-#@#div[class^="InstagramEmbedContainer"]
+#@#div[class^="InstagramEmbedContainer"],
+##.van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
 
 !!---Specific CSS---!!
-arstechnica.com##aside.ad.ad_crown:nth-child(n)
-arstechnica.com##li[class="archive-list archive-list-insteam"]
+arstechnica.com##aside.ad.ad_crown:nth-child(n), li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner, #n-exponea-top-slot
 msn.com##.consumption-page-banner-wrapper
-nytimes.com##[data-testid="standard-dock"]
-nytimes.com###gateway-content
-nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
+nytimes.com##[data-testid="standard-dock"], #gateway-content, #story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##div.mobile-during-test-banner
-windowscentral.com##.van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed
-whathifi.com##.van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
-wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal
-wsj.com##div[class^="css-xgokil-Box"], div[data-testid="ad-container"]
+wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal, div[class^="css-xgokil-Box"], div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n), div[class^="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
-bing.com##span[class="algoSlug_icon"]
-bing.com##.b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
+bing.com##span[class="algoSlug_icon"], .b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
 !!bing.com##.cico.scs_hdImg
 
 !!--Bing Answers--!!
