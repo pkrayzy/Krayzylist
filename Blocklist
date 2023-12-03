@@ -48,10 +48,6 @@ wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal
 wsj.com##div[class^="css-xgokil-Box"], div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n), div[class^="TheMarketEarHomePageSidebar"]
 
-twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:contains(Ad))
-twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:-abp-contains(Ad))
-twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:has-text(Ad))
-
 !!--Bing--!!
 bing.com##span[class="algoSlug_icon"]
 bing.com##.b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
