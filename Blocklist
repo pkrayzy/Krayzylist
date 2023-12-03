@@ -45,7 +45,7 @@ arstechnica.com##aside.ad.ad_crown:nth-child(n)
 arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
-ft.com##.o-banner
+ft.com##.o-banner, #n-exponea-top-slot
 msn.com##.consumption-page-banner-wrapper
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###gateway-content
