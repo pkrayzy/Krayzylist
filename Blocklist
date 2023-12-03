@@ -39,8 +39,6 @@ google.com##div.cUnQKe:has(.related-question-pair)
 ##div[class="adblock-allowlist-messaging__article-wrapper"]
 
 !!---Specific CSS---!!
-12ft.io##.flourish-disclaimer
-12ft.io##div[class="article__content-sign-up"]
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
 arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
@@ -56,20 +54,11 @@ speedtest.net##div.mobile-during-test-banner
 twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:contains(Ad))
 twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:-abp-contains(Ad))
 twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:has-text(Ad))
-windowscentral.com##.van_vid_carousel, .vid-present
-windowscentral.com###taboola-below-article-thumbnails
-windowscentral.com###affiliate-disclaimer
-windowscentral.com##.hawk-nest, .hawk-processed
-whathifi.com##.van_vid_carousel, .vid-present
-whathifi.com###taboola-below-article-thumbnails
-whathifi.com###affiliate-disclaimer
-whathifi.com##.hawk-nest, .hawk-processed
-whathifi.com##.slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
-wsj.com##.aside-container
-wsj.com###cx-what-to-read-next
-wsj.com##div.ad-portal
+windowscentral.com##.van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed
+whathifi.com##.van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
+wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal
 wsj.com##div[class^="css-xgokil-Box"]
-www.wsj.com##div[data-testid="ad-container"]
+wsj.com##div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
