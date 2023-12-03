@@ -64,27 +64,10 @@ zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
 bing.com##span[class="algoSlug_icon"]
-bing.com##.b_adLastChild
-bing.com##.b_algo_DUIcon
-bing.com##.b_wikipedia_icon
+bing.com##.b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
 !!bing.com##.cico.scs_hdImg
-bing.com##.fdbk_thmb_root
-bing.com##.b_fbCont
-bing.com##.richrswrapper
-bing.com##.rqnaContainerwithfeedback
-bing.com##.scs_arw
-bing.com##.scs_exp.b_floatrt
-bing.com##.scs_icn
-bing.com##.scs_rei
-
-bing.com###b_pag_chat_btn_container
-bing.com###b_tween
-bing.com###relatedSearchesLGWContainer
-bing.com###span.algoSlug_icon
-bing.com###syd_suggestion_wrapper
 
 !!--Bing Answers--!!
-bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_mop.b_imgans
 bing.com##li.b_ans.b_mop.b_mopb.b_vidans
