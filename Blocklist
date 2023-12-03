@@ -9,6 +9,7 @@ IBMPlexSans*$font
 NotoSans*$font
 OpenSans-*00*$font
 Roboto*$font
+Segoe*$font
 
 !!---Google---!!
 google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
@@ -75,21 +76,7 @@ www.wsj.com##div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
-!!--Reddit--!!
-reddit.com#$##acceptabletest { display: block !important; }
-reddit.com#$##adblocktest { display: block !important; }
-reddit.com#$#body { pointer-events: auto !important; overflow: auto !important; }
-reddit.com#$#shreddit-app > div.sidebar-grid.pdp { filter: unset !important; }
-reddit.com#$#shreddit-experience-tree { display: none !important; }
-reddit.com#$#.theme-beta .sidebar-grid.fixed { position: unset !important;}
-reddit.com#$#.m-blurred { filter: none !important; }
-reddit.com#$#.XPromoBlockingModal { display: none !important; }
-reddit.com#$#.XPromoBlockingModalRpl { display: none !important; }
-reddit.com#$#div[class="NavFrame"] div.XPromoBottomBar { display: none !important; }
-reddit.com#$#body > .footer-parent { height: calc(100%)!important; padding:0px!important; }
-
 !!--Bing--!!
-!!@@||bing.com/fd/ls/
 bing.com##span[class="algoSlug_icon"]
 bing.com##.b_adLastChild
 bing.com##.b_algo_DUIcon
@@ -124,8 +111,8 @@ bing.com##.b_ans > .wpt_bc_container
 
 !!--Bing Utility Answers--!!
 !!bing.com##.utilAns > .lite-entcard-ans-m > div > div > .l_ecrd_imcolheader.gradient.simg
-bing.com##.l_ecrd_imcolheader_txt, .l_ecrd_imcolheader_img
-
+!!bing.com##.l_ecrd_imcolheader_txt, .l_ecrd_imcolheader_img
+bing.com##.l_ecrd_imcolheader_img
 
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
