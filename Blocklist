@@ -10,10 +10,6 @@ OpenSans-*00*$font
 Roboto*$font
 Segoe*$font
 
-!!---Google---!!
-google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
-google.com##div.cUnQKe:has(.related-question-pair)
-
 !!---Rakuten---!!
 @@||*$document,domain=rakuten.com
 @@||jdoqocy.com/click$domain=bing.com|rakuten.com
@@ -27,16 +23,11 @@ google.com##div.cUnQKe:has(.related-question-pair)
 
 !!---Custom---!!
 @@||getcerebral.doxy.me/*
-@@||flipboard.com/redirect?^*
 
 !!---Generic CSS---!!
-###newsletter-slice
-##div[class$="ad-unit"]
+###newsletter-slice, .billboard-overlay, .recirc, .div-related-embed.article-video-slot
+##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"]
 #@#div[class^="InstagramEmbedContainer"]
-##div.billboard-overlay
-##div.recirc
-##div.div-related-embed.article-video-slot
-##div[class="adblock-allowlist-messaging__article-wrapper"]
 
 !!---Specific CSS---!!
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
@@ -51,16 +42,15 @@ nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##div.mobile-during-test-banner
-twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:contains(Ad))
-twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:-abp-contains(Ad))
-twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:has-text(Ad))
 windowscentral.com##.van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed
 whathifi.com##.van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
 wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal
-wsj.com##div[class^="css-xgokil-Box"]
-wsj.com##div[data-testid="ad-container"]
-zerohedge.com##div.fc-ab-root:nth-child(n)
-zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
+wsj.com##div[class^="css-xgokil-Box"], div[data-testid="ad-container"]
+zerohedge.com##div.fc-ab-root:nth-child(n), div[class^="TheMarketEarHomePageSidebar"]
+
+twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:contains(Ad))
+twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:-abp-contains(Ad))
+twitter.com##div[data-testid="cellInnerDiv"]:has(div[data-testid="placementTracking"]:has-text(Ad))
 
 !!--Bing--!!
 bing.com##span[class="algoSlug_icon"]
@@ -68,15 +58,8 @@ bing.com##.b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b
 !!bing.com##.cico.scs_hdImg
 
 !!--Bing Answers--!!
-bing.com##li.b_ans.b_imgans
-bing.com##li.b_ans.b_mop.b_imgans
-bing.com##li.b_ans.b_mop.b_mopb.b_vidans
-bing.com##li.b_ans.b_mop.b_vidAns
-bing.com##li.b_ans.b_vidans.b_ansb
-
-bing.com##.b_ans > .b_rrsr
-bing.com##.b_ans > .b_spa_adblock
-bing.com##.b_ans > .wpt_bc_container
+bing.com##li.b_ans.b_imgans, b_mop.b_imgans, .b_mop.b_mopb.b_vidans, .b_mop.b_vidAns, .b_vidans.b_ansb
+bing.com##.b_ans > .b_rrsr, .b_spa_adblock, .wpt_bc_container
 
 !!--Bing Utility Answers--!!
 bing.com##.l_ecrd_imcolheader_img
@@ -88,3 +71,7 @@ bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com###b_results > li.b_ans.b_top:has(#b_wpt_bg)
+
+!!---Google---!!
+google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
+google.com##div.cUnQKe:has(.related-question-pair)
