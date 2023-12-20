@@ -26,7 +26,7 @@ Segoe*$font
 
 !!---Generic CSS---!!
 ###newsletter-slice, .billboard-overlay, .recirc, .div-related-embed.article-video-slot
-##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"]
+##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"], [id^="div-insticator-ad-"]
 #@#div[class^="InstagramEmbedContainer"]
 ##.van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
 
