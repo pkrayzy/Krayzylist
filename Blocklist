@@ -20,10 +20,10 @@ Segoe*$font
 @@||ecbsn.com*$domain=rakuten.com|rakuten.ca
 @@||ebates.com*$domain=rakuten.com|rakuten.ca
 @@||linksynergy.com*$domain=rakuten.com|rakuten.ca
-@@||bing.com/fd/ls/GLinkPing.aspx?
 
 !!---Custom---!!
 @@||getcerebral.doxy.me/*
+@@||bing.com/fd/ls/GLinkPing.aspx?
 
 !!---Generic CSS---!!
 ###newsletter-slice, .billboard-overlay, .recirc, .div-related-embed.article-video-slot
