@@ -39,6 +39,7 @@ ft.com##.o-banner, #n-exponea-top-slot
 msn.com##.consumption-page-banner-wrapper
 nytimes.com##[data-testid="standard-dock"], #gateway-content, #story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
+reddit.com#?#div[data-testid="frontpage-sidebar"] > div[class]:has(> div[data-before-content])
 semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##div.mobile-during-test-banner
 wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal, div[class^="css-xgokil-Box"], div[data-testid="ad-container"]
