@@ -43,14 +43,6 @@ speedtest.net##div.mobile-during-test-banner
 wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal, div[class^="css-xgokil-Box"], div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n), div[class^="TheMarketEarHomePageSidebar"]
 
-!!---Reddit---!!
-||reddit.com/api/request_promo.json
-reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion#?#div[data-testid="frontpage-sidebar"] > div[class]:has(> div[data-before-content])
-reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion##div[data-before-content]
-reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion#?#.ListingLayout-outerContainer > div[class] > div[style][class] > div[style][class] > div[class] div[class]:not([data-redditstyle]):has(> div[class] > div[class] > .SidebarAd)
-reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion##.promotedlink:not([style^="height: 1px;"])
-reddit.com##div[data-before-content="advertisement"]
-
 !!--Bing--!!
 bing.com#@#.b_algo.b_vtl_deeplinks
 bing.com##span[class="algoSlug_icon"], .b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
