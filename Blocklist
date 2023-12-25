@@ -61,7 +61,3 @@ bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com###b_results > li.b_ans.b_top:has(#b_wpt_bg)
-
-!!---Google---!!
-google.com##div[class] > div[jsname] > div[class="sATSHe"]:has(.related-question-pair)
-google.com##div.cUnQKe:has(.related-question-pair)
