@@ -36,6 +36,7 @@ bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner, #n-exponea-top-slot
 msn.com##.consumption-page-banner-wrapper, .articlePageIntraArticleFullWidth, .articlePage_riverContainer-DS-EntryPoint1-1
+nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 nytimes.com##[data-testid="standard-dock"], #gateway-content, #story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
