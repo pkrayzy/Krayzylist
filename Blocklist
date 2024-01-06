@@ -29,7 +29,7 @@ Segoe*$font
 ||theathletic.com/*/webpack*.js
 
 !!---Generic CSS---!!
-###newsletter-slice, .billboard-overlay, .recirc, .div-related-embed.article-video-slot, .van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
+###newsletter-slice, .bOvWNQ, .billboard-overlay, .recirc, .div-related-embed.article-video-slot, .van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
 ##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"], [id^="div-insticator-ad-"]
 #@#div[class^="InstagramEmbedContainer"]
 
@@ -37,8 +37,8 @@ Segoe*$font
 arstechnica.com##aside.ad.ad_crown:nth-child(n), li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
-ft.com##.o-banner, #n-exponea-top-slot
-msn.com##.consumption-page-banner-wrapper, .articlePageIntraArticleFullWidth, .articlePage_riverContainer-DS-EntryPoint1-1
+ft.com##.o-banner, #n-exponea-top-slot, #sp_message_container_967339
+msn.com##.articlePageIntraArticleFullWidth, .articlePage_riverContainer-DS-EntryPoint1-1, .consumption-page-banner-wrapper, #GameCenter_r_1
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 nytimes.com##[data-testid="standard-dock"], #gateway-content, #story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
