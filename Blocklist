@@ -48,7 +48,7 @@ wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal, div[class^="css-xg
 zerohedge.com##div.fc-ab-root:nth-child(n), div[class^="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
-bing.com#@#.b_algo.b_vtl_deeplinks
+bing.com#@#.b_algo.b_vtl_deeplinks$important
 bing.com##span[class="algoSlug_icon"], .b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
 
 !!--Bing Answers--!!
