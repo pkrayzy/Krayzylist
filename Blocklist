@@ -50,7 +50,7 @@ zerohedge.com##div.fc-ab-root:nth-child(n), div[class^="TheMarketEarHomePageSide
 
 !!--Bing--!!
 bing.com#@#.b_algo.b_vtl_deeplinks$important
-bing.com##span[class="algoSlug_icon"], .b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .lcksb, .richrswrapper, .rqnaContainerwithfeedback, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, .te_wrap, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
+bing.com##span[class="algoSlug_icon"], .b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .lcksb, .richrswrapper, .rqnaContainerwithfeedback, .rrr_te, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, .te_wrap, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
 
 !!--Bing Answers--!!
 bing.com##li.b_ans.b_imgans, b_mop.b_imgans, .b_mop.b_mopb.b_vidans, .b_mop.b_vidAns, .b_vidans.b_ansb
