@@ -14,7 +14,11 @@
 
     if (document.referrer == 'https://www.ft.com/') {
 
-    var newURL = window.location.host + window.location.pathname + window.location.search + '==' ;
+    var newURL = window.location.host + window.location.pathname + window.location.search + 'Ò' ;
+
+// Ò
+// Ò
+
 
     // window.location.href = 'https://news.google.com/articles/CBMiP2h0dHBzOi8v' + btoa(newURL) + 'IBAA';
     window.location.replace( 'https://news.google.com/articles/CBMiP2h0dHBzOi8v' + btoa(newURL) + 'IBAA');
