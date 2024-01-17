@@ -17,7 +17,7 @@
     var newURL = window.location.host + window.location.pathname + window.location.search + '==' ;
 
     // window.location.href = 'https://news.google.com/articles/CBMiP2h0dHBzOi8v' + btoa(newURL) + 'IBAA';
-    window.location.replace( 'https://news.google.com/articles/CBMiP2h0dHBzOi8v' + btoa(newURL) + 'IBAA?hl=en-US&gl=US&ceid=US%3Aen');
+    window.location.replace( 'https://news.google.com/articles/CBMiP2h0dHBzOi8v' + btoa(newURL) + 'IBAA');
     }
 
 })();
