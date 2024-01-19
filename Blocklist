@@ -29,11 +29,12 @@ Segoe*$font
 ||sheargovernor.com/*.js
 ||theathletic.com/*/webpack*.js
 
+google.com##+js(cookie-remover)
+news.google.com##+js(cookie-remover)
+
 bloomberg.com##+js(cookie-remover)
 ft.com##+js(cookie-remover)
 nytimes.com##+js(cookie-remover)
-google.com##+js(cookie-remover)
-news.google.com##+js(cookie-remover)
 
 !!---Generic CSS---!!
 ###newsletter-slice, .bOvWNQ, .billboard-overlay, .recirc, .div-related-embed.article-video-slot, .van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
