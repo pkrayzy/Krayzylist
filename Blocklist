@@ -44,7 +44,6 @@ nytimes.com##+js(cookie-remover)
 !!---Specific CSS---!!
 arstechnica.com##aside.ad.ad_crown:nth-child(n), li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
-bloomberg.com##div[id^="fortress-"], div[id^="leaderboard"], div[class^="leaderboard"], div.canopy-container, div[data-ad-status], div[data-ad-type], div[class^="FullWidthAd_"], div.adWrapper !! BPC Blocklist!!
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
 ft.com##.o-banner, #n-exponea-top-slot, #sp_message_container_967339
 msn.com##.articlePageIntraArticleFullWidth, .articlePage_riverContainer-DS-EntryPoint1-1, .consumption-page-banner-wrapper, #GameCenter_r_1
