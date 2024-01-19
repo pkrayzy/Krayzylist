@@ -30,7 +30,7 @@ Segoe*$font
 ||theathletic.com/*/webpack*.js
 
 google.com, news.google.com##+js(cookie-remover)
-bloomberg.com, businessinsider.com, ft.com, nytimes.com##+js(cookie-remover)
+bloomberg.com, businessinsider.com, ft.com, medium.com, nytimes.com##+js(cookie-remover)
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
