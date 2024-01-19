@@ -29,13 +29,8 @@ Segoe*$font
 ||sheargovernor.com/*.js
 ||theathletic.com/*/webpack*.js
 
-google.com##+js(cookie-remover)
-news.google.com##+js(cookie-remover)
-
-bloomberg.com##+js(cookie-remover)
-businessinsider.com##+js(cookie-remover)
-ft.com##+js(cookie-remover)
-nytimes.com##+js(cookie-remover)
+google.com, news.google.com##+js(cookie-remover)
+bloomberg.com, businessinsider.com, ft.com, nytimes.com##+js(cookie-remover)
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
