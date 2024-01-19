@@ -33,6 +33,7 @@ google.com##+js(cookie-remover)
 news.google.com##+js(cookie-remover)
 
 bloomberg.com##+js(cookie-remover)
+businessinsider.com##+js(cookie-remover)
 ft.com##+js(cookie-remover)
 nytimes.com##+js(cookie-remover)
 
