@@ -37,9 +37,9 @@ ft.com##+js(cookie-remover)
 nytimes.com##+js(cookie-remover)
 
 !!---Generic CSS---!!
-###newsletter-slice, .bOvWNQ, .billboard-overlay, .recirc, .div-related-embed.article-video-slot, .van_vid_carousel, .vid-present, #taboola-below-article-thumbnails, #affiliate-disclaimer, .hawk-nest, .hawk-processed, .slice-container, .how-we-test, .how-we-test-review, .slice-container-howWeTest
-##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"], [id^="div-insticator-ad-"]
 #@#div[class^="InstagramEmbedContainer"]
+###newsletter-slice, #affiliate-disclaimer, #taboola-below-article-thumbnails, .billboard-overlay, .bOvWNQ, .div-related-embed.article-video-slot, .hawk-nest, .hawk-processed, .how-we-test, .how-we-test-review, .recirc, .slice-container, .slice-container-howWeTest, .van_vid_carousel, .vid-present
+##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"], [id^="div-insticator-ad-"]
 
 !!---Specific CSS---!!
 arstechnica.com##aside.ad.ad_crown:nth-child(n), li[class="archive-list archive-list-insteam"]
@@ -66,7 +66,6 @@ bing.com##.b_ans > .b_rrsr, .b_spa_adblock, .wpt_bc_container
 !!--Bing Utility Answers--!!
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
-!! bing.com##.l_ecrd_imcolheader_img
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.rs_chat)
