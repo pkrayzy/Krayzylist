@@ -23,6 +23,4 @@
     window.location.replace( 'https://news.google.com/articles/CBMiP2h0dHBzOi8v' + newsURL);
     }
 
-    window.location.reload();
-
 })();
