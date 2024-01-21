@@ -45,6 +45,7 @@ nytimes.com##+js(cookie-remover)
 arstechnica.com##aside.ad.ad_crown:nth-child(n), li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
+digitaltrends.com##.dtads-location, .dtads-content, .dtads-mobile, [class^="dtads-"]
 ft.com##.o-banner, #n-exponea-top-slot, #sp_message_container_967339
 msn.com##.articlePageIntraArticleFullWidth, .articlePage_riverContainer-DS-EntryPoint1-1, .consumption-page-banner-wrapper, #GameCenter_r_1
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
