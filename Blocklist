@@ -32,7 +32,7 @@ Segoe*$font
 google.com, news.google.com##+js(cookie-remover)
 bloomberg.com, bwbx.io##+js(cookie-remover)
 businessinsider.com, insider.com, markets.businessinsider.com, my.businessinsider.com##+js(cookie-remover)
-ft.com, www.ft.com, .ft.com##+js(cookie-remover) 
+ft.com##+js(cookie-remover) 
 nytimes.com##+js(cookie-remover)
 
 !!---Generic CSS---!!
