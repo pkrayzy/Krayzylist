@@ -15,7 +15,7 @@
     'use strict';
 
     // if (document.referrer == 'https://www.ft.com/') {
-    if (document.referrer != 'https://www.news.google.com/') {
+    if (document.referrer != 'https://www.google.com/') {
 
     var newURL = window.location.host + window.location.pathname + window.location.search;
     var newsURL = btoa(newURL);
