@@ -14,8 +14,7 @@
 (function() {
     'use strict';
 
-if (document.referrer == ('https://www.ft.com/' || 'https://www.twitter.com/' || 'https://t.co/')) {
-// if (document.referrer !== 'https://www.google.com/') {
+if (document.referrer == (window.location.protocol + "//" + window.location.host + "/")) {
 
     var newURL = window.location.host + window.location.pathname + window.location.search;
     var newsURL = btoa(newURL);
