@@ -11,6 +11,7 @@ Roboto*$font
 Segoe*$font
 
 !!---Rakuten---!!
+@@||rakuten.com^$important,document
 @@||*$domain=rakuten.com
 @@||jdoqocy.com/click$domain=bing.com|rakuten.com
 @@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
