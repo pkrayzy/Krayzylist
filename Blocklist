@@ -33,8 +33,8 @@ google.com, news.google.com##+js(cookie-remover)
 bloomberg.com, bwbx.io##+js(cookie-remover)
 businessinsider.com, insider.com, markets.businessinsider.com, my.businessinsider.com##+js(cookie-remover)
 ft.com##+js(cookie-remover) 
+ft.com#%#//scriptlet('trusted-set-cookie-reload', 'ft-access-decision-policy', 'PRIVILEGED_REFERER_POLICY_GOOGLE_8_TO_5_VARIANT', '1year')
 nytimes.com##+js(cookie-remover)
-
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
