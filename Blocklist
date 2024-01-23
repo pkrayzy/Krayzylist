@@ -35,10 +35,6 @@ businessinsider.com, insider.com, markets.businessinsider.com, my.businessinside
 ft.com##+js(cookie-remover) 
 nytimes.com##+js(cookie-remover)
 
-ft.com#%#//scriptlet('trusted-set-cookie', 'ft-access-decision-policy', 'PRIVILEGED_REFERER_POLICY_GOOGLE_8_TO_5_VARIANT')
-! ft.com#%#//scriptlet('trusted-set-cookie-reload', 'ft-access-decision-policy', 'PRIVILEGED_REFERER_POLICY_GOOGLE_8_TO_5_VARIANT')
-
-
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
 ###newsletter-slice, #affiliate-disclaimer, #taboola-below-article-thumbnails, .billboard-overlay, .bOvWNQ, .div-related-embed.article-video-slot, .hawk-nest, .hawk-processed, .how-we-test, .how-we-test-review, .recirc, .slice-container, .slice-container-howWeTest, .van_vid_carousel, .vid-present
