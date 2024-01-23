@@ -14,13 +14,13 @@
 (function() {
     'use strict';
 
-if (document.referrer == (window.location.protocol + "//" + window.location.host + "/")) {
+        var referrer = new URL(document.referrer).hostname;
+        var newURL = window.location.host + window.location.pathname + window.location.search;
+        var newsURL = btoa(newURL);
+        newsURL.slice(0,-1);
 
-    var newURL = window.location.host + window.location.pathname + window.location.search;
-    var newsURL = btoa(newURL);
-    newsURL.slice(0,-1);
-
-    window.location.replace( 'https://news.google.com/articles/CBMiP2h0dHBzOi8v' + newsURL);
+    if (referrer == window.location.host) {
+        window.location.replace( 'https://news.google.com/articles/CBMiP2h0dHBzOi8v' + newsURL);
     }
 
 })();
