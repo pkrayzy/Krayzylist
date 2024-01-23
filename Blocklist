@@ -39,7 +39,7 @@ nytimes.com##+js(cookie-remover)
 #@#div[class^="InstagramEmbedContainer"]
 ###newsletter-slice, #affiliate-disclaimer, #taboola-below-article-thumbnails, .billboard-overlay, .bOvWNQ, .div-related-embed.article-video-slot, .hawk-nest, .hawk-processed, .how-we-test, .how-we-test-review, .recirc, .slice-container, .slice-container-howWeTest, .van_vid_carousel, .vid-present
 ##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"], [id^="div-insticator-ad-"]
-##[class^="BaseAd_"], [class^="FullWidthAd_"], [class^="ImmersiveAd_"], [data-component="immersive-ad"]
+##[class^="BaseAd_"], [class^="FullWidthAd_"], [class^="ImmersiveAd_"], [data-component="immersive-ad"], [class^="Header_HeaderAdvert"]
 
 !!---Specific CSS---!!
 arstechnica.com##aside.ad.ad_crown:nth-child(n), li[class="archive-list archive-list-insteam"]
