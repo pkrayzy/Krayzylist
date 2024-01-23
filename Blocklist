@@ -12,8 +12,7 @@ Segoe*$font
 
 !!---Rakuten---!!
 @@||rakuten.com^$important,document
-@@||*$domain=rakuten.com
-@@||jdoqocy.com/click$domain=bing.com|rakuten.com
+@@||jdoqocy.com^$domain=bing.com|rakuten.com,important
 @@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
 @@||datadoghq.com*$domain=rakuten.com|rakuten.ca
 @@||segment.com*$domain=rakuten.com|rakuten.ca
