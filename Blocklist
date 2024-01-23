@@ -35,6 +35,7 @@ businessinsider.com, insider.com, markets.businessinsider.com, my.businessinside
 ft.com##+js(cookie-remover) 
 nytimes.com##+js(cookie-remover)
 
+ft.com#%#//scriptlet('set-cookie', 'ft-access-decision-policy', 'PRIVILEGED_REFERER_POLICY_GOOGLE_8_TO_5_VARIANT')
 ft.com#%#//scriptlet('trusted-set-cookie', 'ft-access-decision-policy', 'PRIVILEGED_REFERER_POLICY_GOOGLE_8_TO_5_VARIANT')
 ! ft.com#%#//scriptlet('trusted-set-cookie-reload', 'ft-access-decision-policy', 'PRIVILEGED_REFERER_POLICY_GOOGLE_8_TO_5_VARIANT')
 
