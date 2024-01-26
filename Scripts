@@ -15,11 +15,6 @@ curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/Bas
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_url.txt >> ./Combined
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_url.txt >> ./Combined
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_url.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/specific.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/specific_web.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/cookies_specific.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/specific.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/specific.txt >> ./Combined
 
 
 curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_block.txt >> ./Combined
@@ -37,7 +32,6 @@ curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/Mob
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_elemhide.txt >> ./Combined
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_elemhide.txt >> ./Combined
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_general.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_specific.txt >> ./Combined
 
 
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/antiadblock.txt >> ./Combined
@@ -45,3 +39,11 @@ curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/Bas
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_extensions.txt >> ./Combined
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_extensions.txt >> ./Combined
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_extensions.txt >> ./Combined
+
+
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/specific.txt >> ./Combined
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/specific_web.txt >> ./Combined
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/cookies_specific.txt >> ./Combined
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/specific.txt >> ./Combined
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/specific.txt >> ./Combined
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_specific.txt >> ./Combined
