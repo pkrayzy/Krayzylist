@@ -1,4 +1,4 @@
-rm '/Users/pkrzystek/Downloads/Krayzylist/Combined'
+rm Combined
 
 curl -sS https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Header >> ./Combined
 
