@@ -1,3 +1,4 @@
+curl -sS https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Header >> ./Combined.txt
 
 
 curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block.txt >> ./Combined.txt
@@ -6,6 +7,7 @@ curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/
 curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_block.txt >> ./Combined.txt
 curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_block.txt >> ./Combined.txt
 curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_block.txt >> ./Combined.txt
+
 
 curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_block.txt >> ./Combined.txt
 curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_specific.txt >> ./Combined.txt
