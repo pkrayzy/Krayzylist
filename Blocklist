@@ -37,33 +37,98 @@ nytimes.com##+js(cookie-remover)
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
-###newsletter-slice, #affiliate-disclaimer, #taboola-below-article-thumbnails, .billboard-overlay, .bOvWNQ, .div-related-embed.article-video-slot, .hawk-nest, .hawk-processed, .how-we-test, .how-we-test-review, .recirc, .slice-container, .slice-container-howWeTest, .van_vid_carousel, .vid-present
-##div[class$="ad-unit"], [class="adblock-allowlist-messaging__article-wrapper"], [id^="div-insticator-ad-"], [class^="Header_HeaderAdvert"]
-##[class^="BaseAd_"], [class^="FullWidthAd_"], [class^="ImmersiveAd_"], [data-component="immersive-ad"]
+###newsletter-slice
+###affiliate-disclaimer
+###taboola-below-article-thumbnails
+##.billboard-overlay
+##.bOvWNQ, 
+##.div-related-embed.article-video-slot
+##.hawk-nest
+##.hawk-processed
+##.how-we-test
+##.how-we-test-review
+##.recirc
+##.slice-container
+##.slice-container-howWeTest
+##.van_vid_carousel
+##.vid-present
+##div[class$="ad-unit"]
+##[class="adblock-allowlist-messaging__article-wrapper"]
+##[id^="div-insticator-ad-"]
+##[class^="Header_HeaderAdvert"]
+##[class^="BaseAd_"]
+##[class^="FullWidthAd_"]
+##[class^="ImmersiveAd_"]
+##[data-component="immersive-ad"]
 
 !!---Specific CSS---!!
-arstechnica.com##aside.ad.ad_crown:nth-child(n), li[class="archive-list archive-list-insteam"]
+arstechnica.com##aside.ad.ad_crown:nth-child(n)
+arstechnica.com##li[class="archive-list archive-list-insteam"]
 bulbapedia.bulbagarden.net###siteNotice
-cnet.com##div.c-globalDisclosure, .c-naviWidget, .c-head_disclosure
-digitaltrends.com##.dtads-location, .dtads-content, .dtads-mobile, [class^="dtads-"]
-ft.com##.o-banner, #n-exponea-top-slot, #sp_message_container_967339, .article__content-sign-up
+cnet.com##div.c-globalDisclosure
+cnet.com##.c-naviWidget
+cnet.com##.c-head_disclosure
+digitaltrends.com##.dtads-location
+digitaltrends.com##.dtads-content
+digitaltrends.com##.dtads-mobile
+digitaltrends.com##[class^="dtads-"]
+ft.com##.o-banner
+ft.com###n-exponea-top-slot
+ft.com###sp_message_container_967339
+ft.com##.article__content-sign-up
 ft.com##div.n-layout__header-before > pg-slot
-msn.com##.articlePageIntraArticleFullWidth, .articlePage_riverContainer-DS-EntryPoint1-1, .consumption-page-banner-wrapper, #GameCenter_r_1
+msn.com##.articlePageIntraArticleFullWidth
+msn.com##.articlePage_riverContainer-DS-EntryPoint1-1
+msn.com##.consumption-page-banner-wrapper
+msn.com###GameCenter_r_1
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
-nytimes.com##[data-testid="standard-dock"], #gateway-content, #story > div.MAG_web_Athena.shown.expanded.expanded-dock
+nytimes.com##[data-testid="standard-dock"]
+nytimes.com###gateway-content
+nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
 semafor.com##div[class^="styles_floatingBanner"]
-speedtest.net##.mobile-during-test-banner, .mobile-pretest, .modal-overlay
-wsj.com##.aside-container, #cx-what-to-read-next, .ad-portal, div[class^="css-xgokil-Box"], div[data-testid="ad-container"]
-zerohedge.com##div.fc-ab-root:nth-child(n), div[class^="TheMarketEarHomePageSidebar"]
+speedtest.net##.mobile-during-test-banner
+speedtest.net##.mobile-pretest
+speedtest.net##.modal-overlay
+wsj.com##.aside-container
+wsj.com###cx-what-to-read-next
+wsj.com##.ad-portal
+wsj.com##.div[class^="css-xgokil-Box"]
+wsj.com##.div[data-testid="ad-container"]
+zerohedge.com##div.fc-ab-root:nth-child(n)
+zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
 bing.com#@#.b_algo.b_vtl_deeplinks
-bing.com##span[class="algoSlug_icon"], .b_adLastChild, .b_algo_DUIcon, .b_wikipedia_icon, .fdbk_thmb_root, .b_fbCont, .lcksb, .richrswrapper, .rqnaContainerwithfeedback, .rrr_te, .scs_arw, .scs_exp.b_floatrt, .scs_icn, .scs_rei, .te_wrap, #b_pag_chat_btn_container, #b_tween, #relatedSearchesLGWContainer, #syd_suggestion_wrapper
+bing.com##span[class="algoSlug_icon"], 
+bing.com##.b_adLastChild
+bing.com##.b_algo_DUIcon
+bing.com##.b_wikipedia_icon
+bing.com##.fdbk_thmb_root
+bing.com##.b_fbCont
+bing.com##.lcksb
+bing.com##.richrswrapper
+bing.com##.rqnaContainerwithfeedback
+bing.com##.rrr_te
+bing.com##.scs_arw
+bing.com##.scs_exp.b_floatrt
+bing.com##.scs_icn
+bing.com##.scs_rei
+bing.com##.te_wrap
+bing.com###b_pag_chat_btn_container
+bing.com###b_tween
+bing.com###relatedSearchesLGWContainer
+bing.com###syd_suggestion_wrapper
 
 !!--Bing Answers--!!
-bing.com##li.b_ans.b_imgans, b_mop.b_imgans, .b_mop.b_mopb.b_vidans, .b_mop.b_vidAns, .b_vidans.b_ansb
-bing.com##.b_ans > .b_rrsr, .b_spa_adblock, .wpt_bc_container
+bing.com##li.b_ans.b_imgans
+bing.com##.b_mop.b_imgans
+bing.com##.b_mop.b_mopb.b_vidans
+bing.com##.b_mop.b_vidAns
+bing.com##.b_vidans.b_ansb
+bing.com##.b_ans > .b_rrsr
+bing.com##.b_spa_adblock
+bing.com##.wpt_bc_container
 
 !!--Bing Utility Answers--!!
 bing.com##div[id$="Poll"].lite-entcard-blk
