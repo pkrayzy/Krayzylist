@@ -1,0 +1,30 @@
+
+
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block_dimensions.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_general.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_block.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_block.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_block.txt >> ./Combined.txt
+
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_block.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_specific.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_specific_block.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_thirdparty.txt >> ./Combined.txt
+
+
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_hide.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_hide.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_hide.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt >> ./Combined.txt
+
+
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_hide.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_hide.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_specific_hide.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_specific_hide.txt >> ./Combined.txt
+
+
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_uBO.txt >> ./Combined.txt
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_specific_uBO.txt >> ./Combined.txt
+
