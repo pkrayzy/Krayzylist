@@ -40,6 +40,7 @@ nytimes.com##+js(cookie-remover)
 ###newsletter-slice
 ###affiliate-disclaimer
 ###slice-container-affiliateDisclaimerBar
+###slice-container-newsletterForm-articleSidebar
 ###taboola-below-article-thumbnails
 ##.billboard-overlay
 ##.bOvWNQ, 
