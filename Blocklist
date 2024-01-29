@@ -39,6 +39,7 @@ nytimes.com##+js(cookie-remover)
 #@#div[class^="InstagramEmbedContainer"]
 ###newsletter-slice
 ###affiliate-disclaimer
+###slice-container-affiliateDisclaimerBar
 ###taboola-below-article-thumbnails
 ##.billboard-overlay
 ##.bOvWNQ, 
