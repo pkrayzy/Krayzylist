@@ -37,13 +37,17 @@ nytimes.com##+js(cookie-remover)
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
-###newsletter-slice
-###affiliate-disclaimer
-###slice-container-affiliateDisclaimerBar
-###slice-container-newsletterForm-articleSidebar
-###taboola-below-article-thumbnails
-###third-party--article-mid
-###third-party--viewport-takeover
+##[id="newsletter-slice"]
+##[class="newsletter-slice"]
+##[id="affiliate-disclaimer"]
+##[class="affiliate-disclaimer"]
+##[id="slice-container-affiliateDisclaimerBar"]
+##[class="slice-container-affiliateDisclaimerBar"]
+##[id="slice-container-newsletterForm-articleSidebar"]
+##[class="slice-container-newsletterForm-articleSidebar"]
+##[id="taboola-below-article-thumbnails"]
+##[id="third-party--article-mid"]
+##[id="third-party--viewport-takeover"]
 ##.billboard-overlay
 ##.bOvWNQ, 
 ##.div-related-embed.article-video-slot
