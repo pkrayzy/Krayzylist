@@ -126,6 +126,7 @@ bing.com###b_algospacing
 bing.com###b_pag_chat_btn_container
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
+bing.com###ssa_main
 bing.com###syd_suggestion_wrapper
 
 !!--Bing Answers--!!
@@ -145,6 +146,7 @@ bing.com##div[id$="QnA"].lite-entcard-blk
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.rs_chat)
+bing.com##li.b_ans:has(#ssa_main)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
 bing.com###b_results > li.b_ans:has(#df_listaa)
