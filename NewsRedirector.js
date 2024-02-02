@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         NewsRedirector
 // @namespace    http://tampermonkey.net/
-// @downloadURL  https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/NewsRedirector
-// @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/NewsRedirector
+// @downloadURL  https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/NewsRedirector.js
+// @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/NewsRedirector.js
 // @version      0.1
 // @description  Convert Weblinks into Google News Redirects
 // @author       You
