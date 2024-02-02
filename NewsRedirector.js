@@ -7,7 +7,6 @@
 // @description  Convert Weblinks into Google News Redirects
 // @author       You
 // @match        https://www.ft.com/content/*
-// @match        https://www.nytimes.com/*/*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
