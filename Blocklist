@@ -41,10 +41,8 @@ nytimes.com##+js(cookie-remover)
 ##[class="newsletter-slice"]
 ##[id="affiliate-disclaimer"]
 ##[class="affiliate-disclaimer"]
-##[id="slice-container-affiliateDisclaimerBar"]
-##[class="slice-container-affiliateDisclaimerBar"]
-##[id="slice-container-newsletterForm-articleSidebar"]
-##[class="slice-container-newsletterForm-articleSidebar"]
+##[id^="slice-container"]
+##[class^="slice-container"]
 ##[id="taboola-below-article-thumbnails"]
 ##[id="third-party--article-mid"]
 ##[id="third-party--viewport-takeover"]
@@ -55,9 +53,9 @@ nytimes.com##+js(cookie-remover)
 ##.hawk-processed
 ##.how-we-test
 ##.how-we-test-review
+##.newsletter-form__wrapper
 ##.recirc
-##.slice-container
-##.slice-container-howWeTest
+###third-party--viewport-takeover
 ##.van_vid_carousel
 ##.vid-present
 ##div[class$="ad-unit"]
@@ -98,6 +96,8 @@ semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
+theintercept.com###third-party--article-mid
+wikipedia.org###centralNotice
 wsj.com##.aside-container
 wsj.com###cx-what-to-read-next
 wsj.com##.ad-portal
