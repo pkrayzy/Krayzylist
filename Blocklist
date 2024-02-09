@@ -35,6 +35,8 @@ businessinsider.com, insider.com, markets.businessinsider.com, my.businessinside
 ft.com##+js(cookie-remover) 
 nytimes.com##+js(cookie-remover)
 
+
+
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
 ##[id="newsletter-slice"]
@@ -48,6 +50,7 @@ nytimes.com##+js(cookie-remover)
 ##[id="third-party--viewport-takeover"]
 ##.billboard-overlay
 ##.bOvWNQ
+##.fixedBottom
 ##.div-related-embed.article-video-slot
 ##.hawk-nest
 ##.hawk-processed
@@ -70,6 +73,9 @@ nytimes.com##+js(cookie-remover)
 !!---Specific CSS---!!
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
 arstechnica.com##li[class="archive-list archive-list-insteam"]
+bloomberg.com##[button^=“FloatingCopyLink”]
+bloomberg.com##.ledeVideo_ledeVideo__MkrSN
+bloomberg.com##.styles_ledeContainer___qNar
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure
 cnet.com##.c-naviWidget
@@ -88,19 +94,23 @@ msn.com##.articlePage_riverContainer-DS-EntryPoint1-1
 msn.com##.consumption-page-banner-wrapper
 msn.com###GameCenter_r_1
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
+news.google.com###ZCHFDb > div.tGUGyc:first-child
+nypost.com##amp-video-iframe
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###gateway-content
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
+reddit.com##xpromo-nsfw-blocking-modal
 semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
 theintercept.com###third-party--article-mid
 wikipedia.org###centralNotice
-wsj.com##.aside-container
-wsj.com###cx-what-to-read-next
 wsj.com##.ad-portal
+wsj.com##.aside-container
+wsj.com##.css-xgokil-Box
+wsj.com###cx-what-to-read-next
 wsj.com##.div[class^="css-xgokil-Box"]
 wsj.com##.div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
