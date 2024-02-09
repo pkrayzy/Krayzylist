@@ -35,8 +35,6 @@ businessinsider.com, insider.com, markets.businessinsider.com, my.businessinside
 ft.com##+js(cookie-remover) 
 nytimes.com##+js(cookie-remover)
 
-
-
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
 ##[id="newsletter-slice"]
@@ -151,6 +149,7 @@ bing.com##.b_spa_adblock
 bing.com##.wpt_bc_container
 
 !!--Bing Utility Answers--!!
+bing.com##.b_wptmAns:not(:has(.l_ecrd_hero))
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
 
