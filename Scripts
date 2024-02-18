@@ -1,49 +1,117 @@
 rm Combined
+rm ContentBlocker
+rm Adguard
 
-curl -sS https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Header >> ./Combined
+!! ------------------------------------------------------------------------------------ !!
 
+curl -sS https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Header >> ./ContentBlocker
 
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block_dimensions.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_hide.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_general.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_block.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_block.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_block.txt >> ./Combined
+// --- \\
 
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_url.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_url.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_url.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_url.txt >> ./Combined
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block_dimensions.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_hide.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_general.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_block.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_block.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_block.txt >> ./ContentBlocker
 
+// --- \\
 
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_block.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_specific.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_specific_block.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_thirdparty.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_hide.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_hide.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_hide.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt >> ./Combined
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_url.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_url.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_url.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_url.txt >> ./ContentBlocker
 
+// --- \\
 
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/banner_sizes.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_elemhide.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_elemhide.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_elemhide.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_elemhide.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_general.txt >> ./Combined
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_block.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_specific.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_specific_block.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_thirdparty.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_hide.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_hide.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_hide.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt >> ./ContentBlocker
 
+// --- \\
 
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/specific.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/specific.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/specific_web.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/cookies_specific.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/specific.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_specific.txt >> ./Combined
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/banner_sizes.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_elemhide.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_elemhide.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_elemhide.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_elemhide.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_general.txt >> ./ContentBlocker
 
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/antiadblock.txt >> ./Combined
-curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_extensions.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_extensions.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_extensions.txt >> ./Combined
-# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_extensions.txt >> ./Combined
+// --- \\
+
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/specific.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/specific.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/specific_web.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/cookies_specific.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_specific.txt >> ./ContentBlocker
+
+// --- \\
+
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/antiadblock.txt >> ./ContentBlocker
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_extensions.txt >> ./ContentBlocker
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_extensions.txt >> ./ContentBlocker
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_extensions.txt >> ./ContentBlocker
+# curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_extensions.txt >> ./ContentBlocker
+
+!! ------------------------------------------------------------------------------------ !!
+
+curl -sS https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Header >> ./Adguard
+
+// --- \\
+
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_block_dimensions.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_hide.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_general.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_block.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_block.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_block.txt >> ./Adguard
+
+// --- \\
+
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_url.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_url.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_url.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_url.txt >> ./Adguard
+
+// --- \\
+
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_specific_block.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_specific.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_specific_block.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_thirdparty.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist/easylist_general_hide.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_general_hide.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_social_general_hide.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt >> ./Adguard
+
+// --- \\
+
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/banner_sizes.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_elemhide.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_elemhide.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_elemhide.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_elemhide.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_general.txt >> ./Adguard
+
+// --- \\
+
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/specific.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/specific.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/specific_web.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/cookies_specific.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_specific.txt >> ./Adguard
+
+// --- \\
+
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/antiadblock.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/BaseFilter/sections/general_extensions.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/general_extensions.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_extensions.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_extensions.txt >> ./Adguard
