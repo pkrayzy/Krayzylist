@@ -65,6 +65,7 @@ nytimes.com##+js(cookie-remover)
 ##[id^="div-insticator-ad-"]
 ##[class^="Header_HeaderAdvert"]
 ##[class^="BaseAd_"]
+##[class^="email-signup"]
 ##[class^="FullWidthAd_"]
 ##[class^="ImmersiveAd_"]
 ##[data-component="immersive-ad"]
