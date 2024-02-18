@@ -28,6 +28,7 @@ Segoe*$font
 ||consent-manager.ft.com/*/gdpr-tcf.*.bundle.js
 ||sheargovernor.com/*.js
 ||theathletic.com/*/webpack*.js
+||klaviyo.com/media/js/*.js
 
 google.com, news.google.com##+js(cookie-remover)
 bloomberg.com, bwbx.io##+js(cookie-remover)
