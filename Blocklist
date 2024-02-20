@@ -106,6 +106,7 @@ speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
 theintercept.com###third-party--article-mid
+thurrott.com##div[data-thurrott-section="inline-form"]
 wikipedia.org###centralNotice
 wsj.com##.ad-portal
 wsj.com##.aside-container
