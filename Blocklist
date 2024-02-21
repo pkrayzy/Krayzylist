@@ -143,6 +143,7 @@ bing.com###syd_suggestion_wrapper
 
 !!--Bing Answers--!!
 bing.com##li.b_ans.b_imgans
+bing.com##li.b_ans.b_vidAns
 bing.com##.exploreAns
 bing.com##.b_mop.b_imgans
 bing.com##.b_mop.b_mopb.b_vidans
