@@ -41,6 +41,7 @@ curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/Mob
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_elemhide.txt >> ./ContentBlocker
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_elemhide.txt >> ./ContentBlocker
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_general.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/MobileApp/sections/mobile-app_general.txt >> ./ContentBlocker
 
 // --- \\
 
@@ -49,6 +50,7 @@ curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/Spy
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/specific_web.txt >> ./ContentBlocker
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/cookies_specific.txt >> ./ContentBlocker
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_specific.txt >> ./ContentBlocker
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/MobileApp/sections/mobile-app_specific.txt >> ./ContentBlocker
 
 // --- \\
 
@@ -98,6 +100,7 @@ curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/Mob
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/general_elemhide.txt >> ./Adguard
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SocialFilter/sections/general_elemhide.txt >> ./Adguard
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_general.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/MobileApp/sections/mobile-app_general.txt >> ./Adguard
 
 // --- \\
 
@@ -106,6 +109,7 @@ curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/Spy
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/MobileFilter/sections/specific_web.txt >> ./Adguard
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/SpywareFilter/sections/cookies_specific.txt >> ./Adguard
 curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/Cookies/sections/cookies_specific.txt >> ./Adguard
+curl -sS https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/MobileApp/sections/mobile-app_specific.txt >> ./Adguard
 
 // --- \\
 
