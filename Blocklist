@@ -35,6 +35,9 @@ businessinsider.com, insider.com, markets.businessinsider.com, my.businessinside
 ft.com##+js(cookie-remover) 
 nytimes.com##+js(cookie-remover)
 
+||redditstatic.com/shreddit/*xpromo*.js
+@@||redditstatic.com/shreddit/*xpromo-f5b19f79.js
+
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
 ##[id="newsletter-slice"]
