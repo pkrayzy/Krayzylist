@@ -4,11 +4,9 @@
 ! Last modified: 
 
 !!---Fonts---!!
-!! IBMPlexSans*$font
-!! NotoSans*$font
-!! OpenSans-*00*$font
-!! Roboto*$font
-!! Segoe*$font
+NotoSans*$font
+OpenSans-*00*$font
+Roboto*$font
 
 !!---Rakuten---!!
 @@||rakuten.com^$important,document
