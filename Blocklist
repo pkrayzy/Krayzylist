@@ -4,9 +4,9 @@
 ! Last modified: 
 
 !!---Fonts---!!
-!!NotoSans*$font
-!!OpenSans-*00*$font
-!!Roboto*$font
+! NotoSans*$font
+! OpenSans-*00*$font
+! Roboto*$font
 
 !!---Rakuten---!!
 @@||rakuten.com^$important,document
@@ -21,9 +21,6 @@
 @@||linksynergy.com*$domain=rakuten.com|rakuten.ca
 
 !!---Custom---!!
-@@||getcerebral.doxy.me/*
-@@||bing.com/fd/ls/GLinkPing.aspx?
-
 ||consent-manager.ft.com/*/gdpr-tcf.*.bundle.js
 ||sheargovernor.com/*.js
 ||theathletic.com/*/webpack*.js
@@ -138,6 +135,7 @@ bing.com###b_pag_chat_btn_container
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
 bing.com###syd_suggestion_wrapper
+
 ! bing.com###b_algospacing
 ! bing.com###ssa_main
 ! bing.com##.te_wrap
@@ -157,6 +155,7 @@ bing.com##.b_ans > .b_rrsr
 !!--Bing Utility Answers--!!
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
+
 ! bing.com##.b_wptmAns:not(:has(.l_ecrd_hero))
 
 !!--Bing Extended--!!
@@ -165,4 +164,5 @@ bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##.b_msg.b_canvas:has(#results_removed)
+
 ! bing.com##li.b_ans:has(#ssa_main)
