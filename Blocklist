@@ -28,15 +28,15 @@ Roboto*$font
 ||sheargovernor.com/*.js
 ||theathletic.com/*/webpack*.js
 ||klaviyo.com/media/js/*.js
+||redditstatic.com/shreddit/*/xpromo-app-selector*.js
+!||redditstatic.com/shreddit/*xpromo*.js
+!@@||redditstatic.com/shreddit/*xpromo-f5b19f79.js
 
 google.com, news.google.com##+js(cookie-remover)
 bloomberg.com, bwbx.io##+js(cookie-remover)
 businessinsider.com, insider.com, markets.businessinsider.com, my.businessinsider.com##+js(cookie-remover)
 ft.com##+js(cookie-remover) 
 nytimes.com##+js(cookie-remover)
-
-||redditstatic.com/shreddit/*xpromo*.js
-@@||redditstatic.com/shreddit/*xpromo-f5b19f79.js
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
