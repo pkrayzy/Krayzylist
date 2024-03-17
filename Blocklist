@@ -29,8 +29,6 @@ Roboto*$font
 ||theathletic.com/*/webpack*.js
 ||klaviyo.com/media/js/*.js
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js
-!||redditstatic.com/shreddit/*xpromo*.js
-!@@||redditstatic.com/shreddit/*xpromo-f5b19f79.js
 
 google.com, news.google.com##+js(cookie-remover)
 bloomberg.com, bwbx.io##+js(cookie-remover)
@@ -109,6 +107,8 @@ speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
 theintercept.com###third-party--article-mid
 thurrott.com##div[data-thurrott-section="inline-form"]
+twitter.com,x.com##[class="css-175oi2r r-14lw9ot r-184en5c"]
+twitter.com,x.com##[class="css-175oi2r r-109y4c4 r-1sw30gj"]
 wikipedia.org###centralNotice
 wsj.com##.ad-portal
 wsj.com##.aside-container
