@@ -121,16 +121,19 @@ zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
 bing.com##span[class="algoSlug_icon"]
+bing.com##.b_ad
 bing.com##.b_algo_DUIcon
+bing.com##.b_fbCont
+bing.com##.b_spa_adblock
 bing.com##.b_wikipedia_icon
 bing.com##.fdbk_thmb_root
-bing.com##.b_fbCont
 bing.com##.richrswrapper
 bing.com##.rqnaContainerwithfeedback
 bing.com##.scs_arw
 bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
+bing.com##.wpt_bc_container
 bing.com###b_pag_chat_btn_container
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
@@ -150,8 +153,6 @@ bing.com##.b_mop.b_mopb.b_vidans
 bing.com##.b_mop.b_vidAns
 bing.com##.b_vidans.b_ansb
 bing.com##.b_ans > .b_rrsr
-bing.com##.b_spa_adblock
-bing.com##.wpt_bc_container
 
 !!--Bing Utility Answers--!!
 bing.com##div[id$="Poll"].lite-entcard-blk
