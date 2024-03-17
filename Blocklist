@@ -4,8 +4,8 @@
 ! Last modified: 
 
 !!---Fonts---!!
-NotoSans*$font
-OpenSans-*00*$font
+!!NotoSans*$font
+!!OpenSans-*00*$font
 Roboto*$font
 
 !!---Rakuten---!!
@@ -29,8 +29,8 @@ Roboto*$font
 ||theathletic.com/*/webpack*.js
 ||klaviyo.com/media/js/*.js
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js
-!||redditstatic.com/shreddit/*xpromo*.js
-!@@||redditstatic.com/shreddit/*xpromo-f5b19f79.js
+!!||redditstatic.com/shreddit/*xpromo*.js
+!!@@||redditstatic.com/shreddit/*xpromo-f5b19f79.js
 
 google.com, news.google.com##+js(cookie-remover)
 bloomberg.com, bwbx.io##+js(cookie-remover)
