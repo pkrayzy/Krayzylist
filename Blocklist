@@ -120,28 +120,27 @@ zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
-bing.com#@#.b_algo.b_vtl_deeplinks
 bing.com##span[class="algoSlug_icon"]
 bing.com##.b_algo_DUIcon
-bing.com##.b_pageRecoAboveAlgo
 bing.com##.b_wikipedia_icon
 bing.com##.fdbk_thmb_root
 bing.com##.b_fbCont
-bing.com##.lcksb
 bing.com##.richrswrapper
 bing.com##.rqnaContainerwithfeedback
-bing.com##.rrr_te
 bing.com##.scs_arw
 bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
-bing.com##.te_wrap
 bing.com###b_pag_chat_btn_container
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
 bing.com###syd_suggestion_wrapper
 ! bing.com###b_algospacing
 ! bing.com###ssa_main
+! bing.com##.te_wrap
+! bing.com##.b_pageRecoAboveAlgo
+! bing.com##.lcksb
+! bing.com##.rrr_te
 
 !!--Bing Answers--!!
 bing.com##li.b_ans.b_imgans
@@ -155,9 +154,9 @@ bing.com##.b_spa_adblock
 bing.com##.wpt_bc_container
 
 !!--Bing Utility Answers--!!
-bing.com##.b_wptmAns:not(:has(.l_ecrd_hero))
 bing.com##div[id$="Poll"].lite-entcard-blk
 bing.com##div[id$="QnA"].lite-entcard-blk
+! bing.com##.b_wptmAns:not(:has(.l_ecrd_hero))
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.rs_chat)
