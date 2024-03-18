@@ -111,6 +111,7 @@ wsj.com##.ad-portal
 wsj.com##.aside-container
 wsj.com##.css-xgokil-Box
 wsj.com###cx-what-to-read-next
+wsj.com###cx-candybar
 wsj.com##.div[class^="css-xgokil-Box"]
 wsj.com##.div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
