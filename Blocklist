@@ -87,9 +87,13 @@ ft.com###sp_message_container_967339
 ft.com##.article__content-sign-up
 ft.com##div.n-layout__header-before > pg-slot
 msn.com##.articlePageIntraArticleFullWidth
-msn.com##.articlePage_riverContainer-DS-EntryPoint1-1
 msn.com##.consumption-page-banner-wrapper
-msn.com###GameCenter_r_1
+msn.com##[class="intra-article-ad-full"]
+msn.com##[class="article-cont-read-button-on-app"]
+msn.com##[data-test-id="continue-reading-button-on-app"]
+msn.com###df-design-system > ul
+msn.com##[id^="nativead-river"]
+msn.com##cs-native-ad-card-no-hover
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nypost.com##amp-video-iframe
