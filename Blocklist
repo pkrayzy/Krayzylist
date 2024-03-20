@@ -115,6 +115,7 @@ wsj.com##.ad-portal
 wsj.com##.aside-container
 wsj.com##.css-xgokil-Box
 wsj.com###cx-what-to-read-next
+wsj.com###cx-candybar
 wsj.com##.div[class^="css-xgokil-Box"]
 wsj.com##.div[data-testid="ad-container"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
@@ -135,10 +136,10 @@ bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
 bing.com##.wpt_bc_container
-bing.com###b_pag_chat_btn_container
+! bing.com###b_pag_chat_btn_container
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
-bing.com###syd_suggestion_wrapper
+! bing.com###syd_suggestion_wrapper
 
 ! bing.com###b_algospacing
 ! bing.com###ssa_main
