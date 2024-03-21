@@ -139,6 +139,10 @@ bing.com##.wpt_bc_container
 ! bing.com###b_pag_chat_btn_container
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
+bing.com###ShoppingAnswerLGFilterContainer
+bing.com###ShoppingAnswerPALGFilterContainer
+bing.com##.b_ans.b_explans.rrexqp.trirow
+bing.com##[class="b_floatR"]
 ! bing.com###syd_suggestion_wrapper
 
 ! bing.com###b_algospacing
