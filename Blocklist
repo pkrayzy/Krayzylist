@@ -21,13 +21,13 @@
 @@||linksynergy.com*$domain=rakuten.com|rakuten.ca
 
 !!---Custom---!!
-||consent-manager.ft.com/*/gdpr-tcf.*.bundle.js
 ||sheargovernor.com/*.js
 ||theathletic.com/*/webpack*.js
 ||klaviyo.com/media/js/*.js
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js
+||substackcdn.com/*/free_email_form-*.js
+||substackcdn.com/*/HoverCard-*.js
 /gdpr*.bundle.js
-
 
 google.com, news.google.com##+js(cookie-remover)
 bloomberg.com, bwbx.io##+js(cookie-remover)
