@@ -94,6 +94,7 @@ msn.com##[data-test-id="continue-reading-button-on-app"]
 msn.com###df-design-system > ul
 msn.com##[id^="nativead-river"]
 msn.com##cs-native-ad-card-no-hover
+msn.com##cs-native-ad-card
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nypost.com##amp-video-iframe
