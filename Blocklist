@@ -104,6 +104,7 @@ nytimes.com##[data-testid="standard-dock"]
 nytimes.com###gateway-content
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
+reddit.com##[class$="invisible"]
 reddit.com##xpromo-nsfw-blocking-modal
 semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##.mobile-during-test-banner
