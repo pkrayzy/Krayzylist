@@ -6,7 +6,7 @@
 !!---Fonts---!!
 NotoSans*$font
 OpenSans-*00*$font
-! Roboto*$font
+Roboto*$font
 
 !!---Rakuten---!!
 @@||rakuten.com^$important,document
