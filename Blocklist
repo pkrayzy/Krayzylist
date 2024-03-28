@@ -171,8 +171,8 @@ bing.com##.b_vidans.b_ansb
 bing.com##.b_ans > .b_rrsr
 
 !!--Bing Utility Answers--!!
-bing.com##div[id$="Poll"].lite-entcard-blk
-bing.com##div[id$="QnA"].lite-entcard-blk
+! bing.com##div[id$="Poll"].lite-entcard-blk
+! bing.com##div[id$="QnA"].lite-entcard-blk
 
 ! bing.com##.b_wptmAns:not(:has(.l_ecrd_hero))
 
