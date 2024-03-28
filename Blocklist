@@ -74,6 +74,7 @@ arstechnica.com##li[class="archive-list archive-list-insteam"]
 bloomberg.com##[button^=“FloatingCopyLink”]
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN
 bloomberg.com##.styles_ledeContainer___qNar
+bloomberg.com##[class^="media-ui-FullWidthAd"]
 bulbapedia.bulbagarden.net###siteNotice
 cnet.com##div.c-globalDisclosure
 cnet.com##.c-naviWidget
