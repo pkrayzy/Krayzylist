@@ -180,6 +180,7 @@ bing.com##.b_ans > .b_rrsr
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.rs_chat)
+bing.com##.b_ans:has(.b_mrs)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
 bing.com###b_results > li.b_ans:has(#df_listaa)
