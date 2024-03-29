@@ -93,15 +93,14 @@ ft.com###n-exponea-top-slot
 ft.com###sp_message_container_967339
 ft.com##.article__content-sign-up
 ft.com##div.n-layout__header-before > pg-slot
-msn.com##.articlePageIntraArticleFullWidth
-msn.com##.consumption-page-banner-wrapper
-msn.com##[class="intra-article-ad-full"]
-msn.com##[class="article-cont-read-button-on-app"]
-msn.com##[data-test-id="continue-reading-button-on-app"]
-msn.com###df-design-system > ul
-msn.com##[id^="nativead-river"]
-msn.com##cs-native-ad-card-no-hover
-msn.com##cs-native-ad-card
+msn.com##.end-of-content-block
+msn.com##.consumption-page-feed-wrapper
+||msn.com/*/action-tray.*.js
+||msn.com/*/mobile-app-upsell.*.js
+||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js
+||assets.msn.com/*/libs_ad-service_dist_BeaconService_js.*.js
+||assets.msn.com/*/libs_ad-service_dist_NativeAdService_js.*.js
+||assets.msn.com/*/one-footer.*.js
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nypost.com##amp-video-iframe
