@@ -10,8 +10,8 @@ Roboto*$font
 
 !!---Rakuten---!!
 @@||rakuten.com^$document
-@@||jdoqocy.com/click$domain=bing.com|rakuten.com
-@@||jdoqocy.com^$third-party,domain=bing.com|rakuten.com
+@@||jdoqocy.com/click$domain=bing.com|rakuten.com,important
+@@||jdoqocy.com^$third-party,domain=bing.com|rakuten.com,important
 @@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
 @@||datadoghq.com*$domain=rakuten.com|rakuten.ca
 @@||segment.com*$domain=rakuten.com|rakuten.ca
