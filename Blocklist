@@ -10,8 +10,8 @@ Roboto*$font
 
 !!---Rakuten---!!
 @@||rakuten.com^$document
-@@||jdoqocy.com/click$domain=bing.com|rakuten.com,important
-@@||jdoqocy.com^$third-party,domain=bing.com|rakuten.com,important
+@@||jdoqocy.com^$important
+@@||jdoqocy.com^$third-party,important
 @@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
 @@||datadoghq.com*$domain=rakuten.com|rakuten.ca
 @@||ebates.com*$domain=rakuten.com|rakuten.ca
@@ -127,6 +127,7 @@ wsj.com##.div[class^="css-xgokil-Box"]
 wsj.com##.div[data-testid="ad-container"]
 wsj.com###cx-candybar
 wsj.com###cx-what-to-read-next
+wsj.com##[aria-label="What to Read Next"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
