@@ -59,6 +59,10 @@ nytimes.com##+js(cookie-remover)
 ##.hawk-processed
 ##.how-we-test
 ##.how-we-test-review
+##.Post__inPostVideoAdMobile
+##.MobileStickyBanner
+##.MobileStickyBanner__active
+##.MobileStickyBanner__content
 ##.newsletter-form__wrapper
 ##.recirc
 ##.van_vid_carousel
@@ -68,6 +72,7 @@ nytimes.com##+js(cookie-remover)
 ##[class^="FullWidthAd_"]
 ##[class^="Header_HeaderAdvert"]
 ##[class^="ImmersiveAd_"]
+##[class^="MobileStickyBanner"]
 ##[class^="slice-container"]
 ##[class="adblock-allowlist-messaging__article-wrapper"]
 ##[class="affiliate-disclaimer"]
@@ -82,6 +87,7 @@ nytimes.com##+js(cookie-remover)
 ##[id="third-party--viewport-takeover"]
 ###third-party--viewport-takeover
 ##div[class$="ad-unit"]
+
 
 !!---Specific CSS---!!
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
