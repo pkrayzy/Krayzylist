@@ -24,8 +24,6 @@ Roboto*$font
 /gdpr*.bundle.js
 ||assets.msn.com/*/action-tray.*.js
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js
-||assets.msn.com/*/libs_ad-service_dist_BeaconService_js.*.js
-||assets.msn.com/*/libs_ad-service_dist_NativeAdService_js.*.js
 ||assets.msn.com/*/mobile-app-upsell.*.js
 ||assets.msn.com/*/one-footer.*.js
 ||klaviyo.com/media/js/*.js
@@ -102,6 +100,7 @@ ft.com###sp_message_container_967339
 ft.com##div.n-layout__header-before > pg-slot
 msn.com##.consumption-page-feed-wrapper
 msn.com##.end-of-content-block
+msn.com##views-right-rail
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nypost.com##amp-video-iframe
