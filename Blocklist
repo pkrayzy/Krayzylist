@@ -29,6 +29,9 @@ Roboto*$font
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js
 ||assets.msn.com/*/mobile-app-upsell.*.js
 ||assets.msn.com/*/one-footer.*.js
+||cdn.optimizely.com/js/*.js
+||cdn.taboola.com/*/loader.js
+||content.jwplatform.com/*.js
 ||klaviyo.com/media/js/*.js
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js
 ||sheargovernor.com/*.js
@@ -87,6 +90,9 @@ nytimes.com##+js(cookie-remover)
 ##[id="third-party--viewport-takeover"]
 ###third-party--viewport-takeover
 ##div[class$="ad-unit"]
+##div[id$="billboard-ad”]
+##div[id^="sticky-billboard-ad”]
+##div[id="mntl-sc-sticky-billboard-ad”]
 
 
 !!---Specific CSS---!!
@@ -140,6 +146,8 @@ wsj.com###cx-what-to-read-next
 wsj.com##[aria-label="What to Read Next"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
+zerohedge.com###exitModalOverlay
+
 
 !!--Bing--!!
 bing.com##.b_ad
@@ -157,6 +165,7 @@ bing.com##.scs_arw
 bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
+bing.com##.secure_icon
 bing.com##.wpt_bc_container
 bing.com##[class="b_floatR"]
 bing.com###b_alsotry
@@ -178,6 +187,7 @@ bing.com##.b_mop.b_vidAns
 bing.com##.b_vidans.b_ansb
 bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_vidAns
+bing.com###b_pole > div.b_poleContent > div.b_ans
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.b_mrs)
