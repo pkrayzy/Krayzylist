@@ -23,6 +23,7 @@ Roboto*$font
 !!---Custom---!!
 /gdpr*.bundle.js
 /*.consentdrawer.bundle.*.js
+||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js
 ||assets.adobedtm.com/*/AppMeasurement*.js
 ||assets.adobedtm.com/*/AppMeasurement.min.js
 ||assets.msn.com/*/action-tray.*.js
@@ -81,6 +82,7 @@ nytimes.com##+js(cookie-remover)
 ##[class="affiliate-disclaimer"]
 ##[class="newsletter-slice"]
 ##[data-component="immersive-ad"]
+##[id^="ad_container]
 ##[id^="div-insticator-ad-"]
 ##[id^="slice-container"]
 ##[id="affiliate-disclaimer"]
@@ -103,6 +105,8 @@ bloomberg.com##.styles_ledeContainer___qNar
 bloomberg.com##[button^=“FloatingCopyLink”]
 bloomberg.com##[class^="media-ui-FullWidthAd"]
 bulbapedia.bulbagarden.net###siteNotice
+cnet.com##.c-avStickyVideo
+cnet.com##.c-CnetAvStickyVideo
 cnet.com##.c-head_disclosure
 cnet.com##.c-naviWidget
 cnet.com##div.c-globalDisclosure
