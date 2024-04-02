@@ -137,8 +137,6 @@ speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
 theintercept.com###third-party--article-mid
 thurrott.com##div[data-thurrott-section="inline-form"]
-twitter.com,x.com##[class="css-175oi2r r-109y4c4 r-1sw30gj"]
-twitter.com,x.com##[class="css-175oi2r r-14lw9ot r-184en5c"]
 wikipedia.org###centralNotice
 wsj.com##.ad-portal
 wsj.com##.aside-container
