@@ -91,9 +91,6 @@ nytimes.com##+js(cookie-remover)
 ##[id="third-party--article-mid"]
 ##[id="third-party--viewport-takeover"]
 ###third-party--viewport-takeover
-##[id^="sticky-billboard-ad”]
-##[id="mntl-sc-sticky-billboard-ad”]
-
 
 !!---Specific CSS---!!
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
