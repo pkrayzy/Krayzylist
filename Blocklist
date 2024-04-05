@@ -82,7 +82,7 @@ nytimes.com##+js(cookie-remover)
 ##[class="affiliate-disclaimer"]
 ##[class="newsletter-slice"]
 ##[data-component="immersive-ad"]
-##[id^="ad_container]
+##[id^="ad_container"]
 ##[id^="div-insticator-ad-"]
 ##[id^="slice-container"]
 ##[id="affiliate-disclaimer"]
@@ -91,10 +91,10 @@ nytimes.com##+js(cookie-remover)
 ##[id="third-party--article-mid"]
 ##[id="third-party--viewport-takeover"]
 ###third-party--viewport-takeover
-##div[class$="ad-unit"]
-##div[id$="billboard-ad”]
-##div[id^="sticky-billboard-ad”]
-##div[id="mntl-sc-sticky-billboard-ad”]
+##[class$="ad-unit"]
+##[id$="billboard-ad”]
+##[id^="sticky-billboard-ad”]
+##[id="mntl-sc-sticky-billboard-ad”]
 
 
 !!---Specific CSS---!!
