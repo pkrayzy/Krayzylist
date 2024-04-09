@@ -42,6 +42,7 @@ Roboto*$font
 ||sheargovernor.com/$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*.js?*
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*.js
+||static.semafor.com/_next/static/chunks/$script
 ||substackcdn.com/*/free_email_form-*.js
 ||substackcdn.com/*/HoverCard-*.js
 ||theathletic.com/*/webpack*.js
