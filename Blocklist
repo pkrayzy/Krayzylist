@@ -30,12 +30,16 @@ Roboto*$font
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js
 ||assets.msn.com/*/mobile-app-upsell.*.js
 ||assets.msn.com/*/one-footer.*.js
+||cdn.cookielaw.org/$script
+||cdn.iubenda.com/cookie_solution/$script
 ||cdn.optimizely.com/js/*.js
 ||cdn.taboola.com/*/loader.js
 ||content.jwplatform.com/*.js
-||klaviyo.com/media/js/*.js
+||convertkit.com/ckjs/$script
+||jwpcdn.com/player/$script
+||klaviyo.com/media/js/$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js
-||sheargovernor.com/*.js
+||sheargovernor.com/$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*.js?*
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*.js
 ||substackcdn.com/*/free_email_form-*.js
@@ -68,6 +72,7 @@ nytimes.com##+js(cookie-remover)
 ##.MobileStickyBanner__active
 ##.MobileStickyBanner__content
 ##.newsletter-form__wrapper
+##.OPT_IN_AND_OUT.BUTTON
 ##.recirc
 ##.van_vid_carousel
 ##.vid-present
