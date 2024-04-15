@@ -155,7 +155,6 @@ zerohedge.com###exitModalOverlay
 !!--Bing--!!
 bing.com##.b_ad
 bing.com##.b_algo_DUIcon
-! bing.com##.b_ans.b_explans.rrexqp.trirow
 bing.com##.b_fbCont
 bing.com##.b_mrs
 bing.com##.b_spa_adblock
@@ -172,15 +171,16 @@ bing.com##.secure_icon
 bing.com##.wpt_bc_container
 bing.com##[class="b_floatR"]
 bing.com###b_alsotry
-bing.com###b_context
-bing.com###b_mrs_DynamicMRS
-bing.com###b_op_flyout
 bing.com###b_tween
 bing.com###relatedSearchesLGWContainer
-bing.com###rv_ta
 bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ShoppingAnswerPALGFilterContainer
 bing.com##span[class="algoSlug_icon"]
+! bing.com###b_context
+! bing.com###b_mrs_DynamicMRS
+! bing.com###b_op_flyout
+! bing.com###rv_ta
+! bing.com##.b_ans.b_explans.rrexqp.trirow
 
 !!--Bing Answers--!!
 bing.com##.b_ans > .b_rrsr
@@ -194,8 +194,8 @@ bing.com##li.b_ans.b_vidAns
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.b_mrs)
-! bing.com##.b_ans:has(.rs_chat)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
+! bing.com##.b_ans:has(.rs_chat)
