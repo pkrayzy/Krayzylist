@@ -38,6 +38,7 @@ Roboto*$font
 ||convertkit.com/ckjs/$script
 ||jwpcdn.com/player/$script
 ||klaviyo.com/media/js/$script
+||pixeledhub.com$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
 ||sheargovernor.com/$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*.js?*$script
