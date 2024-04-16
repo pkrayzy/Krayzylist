@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            Bypass Paywalls Clean - en
+// @name            Bypass Paywalls Clean
 // @version         3.6.3.0
 // @description     Bypass Paywalls of news sites
 // @author          magnolia1234
