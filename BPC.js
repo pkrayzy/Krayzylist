@@ -3,8 +3,8 @@
 // @version         3.6.3.0
 // @description     Bypass Paywalls of news sites
 // @author          magnolia1234
-// @downloadURL     https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/userscript/bpc.en.user.js
-// @updateURL       https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/raw/main/userscript/bpc.en.user.js
+// @downloadURL     https://github.com/pkrayzy/Krayzylist/raw/main/BPC.js
+// @updateURL       https://github.com/pkrayzy/Krayzylist/raw/main/BPC.js
 // @homepageURL     https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters
 // @supportURL      https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters
 // @license         MIT; https://gitlab.com/magnolia1234/bypass-paywalls-clean-filters/-/blob/main/LICENSE
