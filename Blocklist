@@ -185,6 +185,7 @@ bing.com##span[class="algoSlug_icon"]
 
 !!--Bing Answers--!!
 bing.com##.b_ans > .b_rrsr
+bing.com##.b_ans.b_dr_mod
 bing.com##.b_mop.b_imgans
 bing.com##.b_mop.b_mopb.b_vidans
 bing.com##.b_mop.b_vidAns
