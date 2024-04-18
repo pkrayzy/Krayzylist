@@ -30,6 +30,7 @@ Roboto*$font
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
 ||assets.msn.com/*/mobile-app-upsell.*.js$script
 ||assets.msn.com/*/one-footer.*.js$script
+||cdn.consentmanager.net/$script
 ||cdn.cookielaw.org/$script
 ||cdn.iubenda.com/cookie_solution/$script
 ||cdn.optimizely.com/js/*.js$script
