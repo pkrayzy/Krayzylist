@@ -37,13 +37,14 @@ Roboto*$font
 ||cdn.taboola.com/*/loader.js$script
 ||content.jwplatform.com/*.js$script
 ||convertkit.com/ckjs/$script
+||fundingchoicesmessages.google.com/
 ||jwpcdn.com/player/$script
 ||klaviyo.com/media/js/$script
 ||pixeledhub.com$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
 ||sheargovernor.com/$script
-||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*.js?*$script
-||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*.js$script
+||static.foxnews.com/static/orion/scripts/core/base/app/utils/detector.js*$script
+||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
 ||static.semafor.com/_next/static/chunks/$script
 ||substackcdn.com/*/free_email_form-*.js$script
 ||substackcdn.com/*/HoverCard-*.js$script
