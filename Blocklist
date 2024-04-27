@@ -40,6 +40,7 @@ Roboto*$font
 ||fundingchoicesmessages.google.com/
 ||jwpcdn.com/player/$script
 ||klaviyo.com/media/js/$script
+||lightboxcdn.com$script
 ||pixeledhub.com$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
 ||sheargovernor.com/$script
@@ -63,6 +64,7 @@ nytimes.com##+js(cookie-remover)
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
+##.article__broad-video-jw
 ##.billboard-overlay
 ##.bOvWNQ
 ##.div-related-embed.article-video-slot
@@ -72,6 +74,7 @@ nytimes.com##+js(cookie-remover)
 ##.how-we-test
 ##.how-we-test-review
 ##.Post__inPostVideoAdMobile
+##.mntl-jwplayer-broad
 ##.MobileStickyBanner
 ##.MobileStickyBanner__active
 ##.MobileStickyBanner__content
@@ -153,8 +156,6 @@ wsj.com##[aria-label="What to Read Next"]
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 zerohedge.com###exitModalOverlay
-
-twitter.com###react-root > div > div > div.css-175oi2r.r-1f2l425.r-13qz1uu.r-417010.r-18u37iz > main > div > div > div > div > div > div.css-175oi2r.r-14lw9ot.r-184en5c > div
 
 !!--Bing--!!
 bing.com##.b_ad
