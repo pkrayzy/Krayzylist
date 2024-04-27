@@ -154,8 +154,6 @@ zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 zerohedge.com###exitModalOverlay
 
-twitter.com###react-root > div > div > div.css-175oi2r.r-1f2l425.r-13qz1uu.r-417010.r-18u37iz > main > div > div > div > div > div > div.css-175oi2r.r-14lw9ot.r-184en5c > div
-
 !!--Bing--!!
 bing.com##.b_ad
 bing.com##.b_algo_DUIcon
