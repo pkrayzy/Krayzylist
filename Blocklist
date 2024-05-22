@@ -23,6 +23,7 @@ Roboto*$font
 !!---Custom---!!
 /gdpr*.bundle.js$script
 /*.consentdrawer.bundle.*.js$script
+/pum-site-scripts.js^
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
 ||assets.adobedtm.com/*/AppMeasurement*.js$script
 ||assets.adobedtm.com/*/AppMeasurement.min.js$script
@@ -67,6 +68,7 @@ nytimes.com##+js(cookie-remover)
 #@#div[class^="InstagramEmbedContainer"]
 ##.article__broad-video-jw
 ##.billboard-overlay
+##.block-heading.heading.default.override.commerce-disclaimer
 ##.bOvWNQ
 ##.div-related-embed.article-video-slot
 ##.fixedBottom
