@@ -24,6 +24,7 @@ Roboto*$font
 /gdpr*.bundle.js$script
 /*.consentdrawer.bundle.*.js$script
 /pum-site-scripts.js^
+/wp-content/plugins/elementor-pro/*$script
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
 ||assets.adobedtm.com/*/AppMeasurement*.js$script
 ||assets.adobedtm.com/*/AppMeasurement.min.js$script
@@ -52,6 +53,7 @@ Roboto*$font
 ||substackcdn.com/*/free_email_form-*.js$script
 ||substackcdn.com/*/HoverCard-*.js$script
 ||theathletic.com/*/webpack*.js$script
+||unknownidea.com^$third-party
 
 bloomberg.com##+js(cookie-remover)
 businessinsider.com##+js(cookie-remover)
@@ -211,5 +213,5 @@ bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
 ! bing.com##.b_ans:has(.rs_chat)
-bing.com#$##b_tween {remove, true;}
-bing.com#$#.b_rs_pole {remove, true;}
+bing.com#$##b_tween:remove()
+bing.com#$#.b_rs_pole:remove()
