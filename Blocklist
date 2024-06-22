@@ -21,10 +21,13 @@ Roboto*$font
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
 !!---Custom---!!
+/ads/adsbygoogle.js
 /gdpr*.bundle.js$script
 /*.consentdrawer.bundle.*.js$script
 /pum-site-scripts.js^
+/scripts/adslot.js
 /wp-content/plugins/elementor-pro/*$script
+
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
 ||assets.adobedtm.com/*/AppMeasurement*.js$script
 ||assets.adobedtm.com/*/AppMeasurement.min.js$script
@@ -32,6 +35,7 @@ Roboto*$font
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
 ||assets.msn.com/*/mobile-app-upsell.*.js$script
 ||assets.msn.com/*/one-footer.*.js$script
+||cdn.brandmetrics.com/*/theathletic.js$script
 ||cdn.consentmanager.net/$script
 ||cdn.cookielaw.org/$script
 ||cdn.iubenda.com/cookie_solution/$script
@@ -53,6 +57,7 @@ Roboto*$font
 ||substackcdn.com/*/free_email_form-*.js$script
 ||substackcdn.com/*/HoverCard-*.js$script
 ||theathletic.com/*/webpack*.js$script
+||transcend-cdn.com/*/airgap.js$script
 ||unknownidea.com^$third-party
 
 bloomberg.com##+js(cookie-remover)
