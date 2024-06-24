@@ -27,6 +27,7 @@ Roboto*$font
 /pum-site-scripts.js^
 /scripts/adslot.js
 /wp-content/plugins/elementor-pro/*$script
+/openads/js/*$script
 
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
 ||assets.adobedtm.com/*/AppMeasurement*.js$script
@@ -46,6 +47,7 @@ Roboto*$font
 ||fundingchoicesmessages.google.com/
 ||jwpcdn.com/player/$script
 ||klaviyo.com/media/js/$script
+||liadm.com$script
 ||lightboxcdn.com$script
 ||pixeledhub.com$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
