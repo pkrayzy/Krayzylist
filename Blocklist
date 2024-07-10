@@ -41,6 +41,7 @@ Roboto*$font
 ||cdn.iubenda.com/cookie_solution/$script
 ||cdn.optimizely.com/js/*.js$script
 ||cdn.taboola.com/*/loader.js$script
+||childlikeform.com^$third-party
 ||content.jwplatform.com/*.js$script
 ||convertkit.com/ckjs/$script
 ||fundingchoicesmessages.google.com/
