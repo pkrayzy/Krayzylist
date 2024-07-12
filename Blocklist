@@ -192,6 +192,7 @@ bing.com##.scs_rpr
 bing.com##.secure_icon
 bing.com##.tCnt
 bing.com##.wpt_bc_container
+! bing.com##[class="b_algospacing"]
 bing.com##[class="b_floatR"]
 bing.com###b_alsotry
 bing.com###b_tween
@@ -199,22 +200,20 @@ bing.com###relatedSearchesLGWContainer
 bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ShoppingAnswerPALGFilterContainer
 bing.com##span[class="algoSlug_icon"]
-! bing.com###b_context
 ! bing.com###b_mrs_DynamicMRS
 ! bing.com###b_op_flyout
 ! bing.com###rv_ta
-! bing.com##.b_ans.b_explans.rrexqp.trirow
 
 !!--Bing Answers--!!
 bing.com##.b_ans > .b_rrsr
 bing.com##.b_ans.b_dr_mod
+bing.com##.b_ans.b_explans.rrexqp.trirow
 bing.com##.b_mop.b_imgans
 bing.com##.b_mop.b_mopb.b_vidans
 bing.com##.b_mop.b_vidAns
 bing.com##.b_vidans.b_ansb
 bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_vidAns
-! bing.com###b_pole > div.b_poleContent > div.b_ans
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.b_mrs)
@@ -222,8 +221,8 @@ bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
-bing.com##[class="b_algospacing"]
-bing.com#$##b_content{ padding-top: 10px}
-! bing.com##.b_ans:has(.rs_chat)
-! bing.com#$##b_tween:remove()
-! bing.com#$#.b_rs_pole:remove()
+bing.com###b_tween:remove()
+bing.com##.b_rs_pole:remove()
+bing.com#$##b_content {padding: 20px 0 20px var(--lgutter)}
+bing.com#$##b_context.b_ans {padding: 0px 20px 0;}
+bing.com#$##b_header {margin-bottom: 0px;}
