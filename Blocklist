@@ -187,6 +187,8 @@ bing.com##.scs_arw
 bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
+bing.com##.scrv
+bing.com##.scs_rpr
 bing.com##.secure_icon
 bing.com##.tCnt
 bing.com##.wpt_bc_container
@@ -220,6 +222,8 @@ bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
+bing.com##[class="b_algospacing"]
+bing.com#$##b_content{ padding-top: 10px}
 ! bing.com##.b_ans:has(.rs_chat)
 ! bing.com#$##b_tween:remove()
 ! bing.com#$#.b_rs_pole:remove()
