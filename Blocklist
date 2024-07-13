@@ -9,28 +9,29 @@ OpenSans-*00*$font
 Roboto*$font
 
 !!---Rakuten---!!
-@@||rakuten.com^$document
-@@||jdoqocy.com^$third-party
 @@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
 @@||datadoghq.com*$domain=rakuten.com|rakuten.ca
 @@||ebates.com*$domain=rakuten.com|rakuten.ca
 @@||ecbsn.com*$domain=rakuten.com|rakuten.ca
+@@||jdoqocy.com^$third-party
 @@||linksynergy.com*$domain=rakuten.com|rakuten.ca
 @@||optimizely.com*$domain=rakuten.com|rakuten.ca
+@@||rakuten.com^$document
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
-!!---Custom---!!
+!!---General URL---!!
+/*.consentdrawer.bundle.*.js$script
 /ads/adsbygoogle.js
 /gdpr*.bundle.js$script
-/*.consentdrawer.bundle.*.js$script
+/openads/js/*$script
 /pum-site-scripts.js^
 /scripts/adslot.js
 /wp-content/plugins/elementor-pro/*$script
-/openads/js/*$script
 
+!!---Specific URL---!!
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
-||assets.adobedtm.com/*/AppMeasurement*.js$script
 ||assets.adobedtm.com/*/AppMeasurement.min.js$script
+||assets.adobedtm.com/*/AppMeasurement*.js$script
 ||assets.msn.com/*/action-tray.*.js$script
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
 ||assets.msn.com/*/mobile-app-upsell.*.js$script
@@ -62,6 +63,7 @@ Roboto*$font
 ||transcend-cdn.com/*/airgap.js$script
 ||unknownidea.com^$third-party
 
+!!---Cookie Remover---!!
 bloomberg.com##+js(cookie-remover)
 businessinsider.com##+js(cookie-remover)
 bwbx.io##+js(cookie-remover)
@@ -72,6 +74,13 @@ markets.businessinsider.com##+js(cookie-remover)
 my.businessinsider.com##+js(cookie-remover)
 news.google.com##+js(cookie-remover)
 nytimes.com##+js(cookie-remover)
+
+!!---YouTube Extended---!!
+youtube.com#%#//scriptlet('set-constant', 'google_ad_status', '1')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
@@ -85,13 +94,13 @@ nytimes.com##+js(cookie-remover)
 ##.hawk-processed
 ##.how-we-test
 ##.how-we-test-review
-##.Post__inPostVideoAdMobile
 ##.mntl-jwplayer-broad
 ##.MobileStickyBanner
 ##.MobileStickyBanner__active
 ##.MobileStickyBanner__content
 ##.newsletter-form__wrapper
 ##.OPT_IN_AND_OUT.BUTTON
+##.Post__inPostVideoAdMobile
 ##.recirc
 ##.van_vid_carousel
 ##.vid-present
@@ -138,9 +147,13 @@ ft.com##.o-banner
 ft.com###n-exponea-top-slot
 ft.com###sp_message_container_967339
 ft.com##div.n-layout__header-before > pg-slot
+msn.com##.articlePageIntraArticleFullWidth
+msn.com##.consumption-page-banner-wrapper
 msn.com##.consumption-page-feed-wrapper
 msn.com##.end-of-content-block
 msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
+msn.com##above-river-block
+msn.com##homepage-footer
 msn.com##views-right-rail
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
@@ -150,12 +163,17 @@ nytimes.com###gateway-content
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
 reddit.com##left-nav-top-section > [class$="invisible"]
+reddit.com##shreddit-ad-post
+reddit.com##shreddit-comments-page-ad
+reddit.com##shreddit-dynamic-ad-link
 reddit.com##xpromo-nsfw-blocking-modal
 semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
 theintercept.com###third-party--article-mid
+theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
+theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
 wikipedia.org###centralNotice
 wsj.com##.ad-portal
@@ -163,53 +181,61 @@ wsj.com##.aside-container
 wsj.com##.css-xgokil-Box
 wsj.com##.div[class^="css-xgokil-Box"]
 wsj.com##.div[data-testid="ad-container"]
+wsj.com##[aria-label="What to Read Next"]
 wsj.com###cx-candybar
 wsj.com###cx-what-to-read-next
-wsj.com##[aria-label="What to Read Next"]
+youtube.com##.yt-mealbar-promo-renderer
+youtube.com##[target-id="engagement-panel-ads"]
+youtube.com##ytd-ad-slot-renderer
+youtube.com##ytd-rich-item-renderer:has(ytd-ad-slot-renderer)
+zerohedge.com###exitModalOverlay
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
-zerohedge.com###exitModalOverlay
 
 !!--Bing--!!
+bing.com##.algoSlug_icon
 bing.com##.b_ad
 bing.com##.b_algo_DUIcon
+bing.com##.b_circleImage
 bing.com##.b_fbCont
-bing.com##.b_sp-ca
-bing.com##.lcksb
+bing.com##.b_floatR
 bing.com##.b_mrs
+bing.com##.b_rrsr
+bing.com##.b_sp-ca
 bing.com##.b_spa_adblock
 bing.com##.b_wikipedia_icon
+bing.com##.b_wpt_attr
 bing.com##.fdbk_thmb_root
+bing.com##.lcksb
 bing.com##.richrswrapper
 bing.com##.rqnaContainerwithfeedback
 bing.com##.rrMrsWrapper
+bing.com##.rs_chat
+bing.com##.scrv
 bing.com##.scs_arw
 bing.com##.scs_exp.b_floatrt
 bing.com##.scs_icn
 bing.com##.scs_rei
-bing.com##.scrv
 bing.com##.scs_rpr
 bing.com##.secure_icon
 bing.com##.tCnt
+bing.com##.te_wrap
 bing.com##.webSlug
 bing.com##.wpt_bc_container
-! bing.com##[class="b_algospacing"]
-bing.com##[class="b_floatR"]
 bing.com###b_alsotry
 bing.com###b_tween
+bing.com###mfa_root
 bing.com###relatedSearchesLGWContainer
 bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ShoppingAnswerPALGFilterContainer
-bing.com##span[class="algoSlug_icon"]
-! bing.com###b_mrs_DynamicMRS
-! bing.com###b_op_flyout
-! bing.com###rv_ta
 
 !!--Bing CSS--!!
-bing.com#$#b_content {padding: 0px 0 20px var(--lgutter);}
+!+ PLATFORM(ios, ext_safari, mac)
+bing.com#$##b_content {padding: 2px 0 20px var(--lgutter) !important;}
+!+ PLATFORM(ios, ext_safari, mac)
+bing.com#$#.b_scopebar {margin: 20px 0 0 var(--lgutter) !important;}
 
 !!--Bing Answers--!!
-bing.com##.b_ans > .b_rrsr
 bing.com##.b_ans.b_dr_mod
 bing.com##.b_ans.b_explans.rrexqp.trirow
 bing.com##.b_mop.b_imgans
@@ -220,8 +246,10 @@ bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_vidAns
 
 !!--Bing Extended--!!
+bing.com##.b_algo:has([data-partnertag])
 bing.com##.b_ans:has(.b_mrs)
 bing.com##.b_msg.b_canvas:has(#results_removed)
+bing.com###b_pole:has(.b_adLastChild)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
