@@ -205,6 +205,9 @@ bing.com##span[class="algoSlug_icon"]
 ! bing.com###b_op_flyout
 ! bing.com###rv_ta
 
+!!--Bing CSS--!!
+bing.com#$#b_content {padding: 0px 0 20px var(--lgutter);}
+
 !!--Bing Answers--!!
 bing.com##.b_ans > .b_rrsr
 bing.com##.b_ans.b_dr_mod
@@ -222,8 +225,3 @@ bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
-bing.com###b_tween:remove()
-bing.com##.b_rs_pole:remove()
-bing.com#$##b_content {padding: 20px 0 20px var(--lgutter)}
-bing.com#$##b_context.b_ans {padding: 0px 20px 0;}
-bing.com#$##b_header {margin-bottom: 0px;}
