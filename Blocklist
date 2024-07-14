@@ -232,7 +232,7 @@ bing.com###ShoppingAnswerPALGFilterContainer
 
 !!--Bing CSS--!!
 !+ PLATFORM(ios, ext_safari, mac)
-bing.com#$##b_content {padding: 2px 0 20px var(--lgutter) !important;}
+bing.com#$##b_content {padding: 20px 0 20px var(--lgutter) !important;}
 !+ PLATFORM(ios, ext_safari, mac)
 bing.com#$#.b_scopebar {margin: 20px 0 0 var(--lgutter) !important;}
 
