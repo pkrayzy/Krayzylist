@@ -33,6 +33,10 @@ Roboto*$font
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
 ||assets.adobedtm.com/*/AppMeasurement.min.js$script
 ||assets.adobedtm.com/*/AppMeasurement*.js$script
+||assets.msn.com/*/action-tray.*.js$script
+||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
+||assets.msn.com/*/mobile-app-upsell.*.js$script
+||assets.msn.com/*/one-footer.*.js$script
 ||cdn.brandmetrics.com/*/theathletic.js$script
 ||cdn.consentmanager.net/$script
 ||cdn.cookielaw.org/$script
@@ -75,7 +79,6 @@ markets.businessinsider.com##+js(cookie-remover)
 my.businessinsider.com##+js(cookie-remover)
 news.google.com##+js(cookie-remover)
 nytimes.com##+js(cookie-remover)
-msn.com##+js(set-local-storage-item, continuousReadingOnAppState, '')
 
 !!---YouTube Extended---!!
 youtube.com#%#//scriptlet('set-constant', 'google_ad_status', '1')
@@ -126,6 +129,7 @@ youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', '
 ##[id="third-party--article-mid"]
 ##[id="third-party--viewport-takeover"]
 ###third-party--viewport-takeover
+###transcend-consent-manager
 
 !!---Specific CSS---!!
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
@@ -149,11 +153,14 @@ ft.com##.o-banner
 ft.com###n-exponea-top-slot
 ft.com###sp_message_container_967339
 ft.com##div.n-layout__header-before > pg-slot
-msn.com##fluent-button.article-cont-read-button-on-app
-msn.com##footer
-msn.com##[data-ad-index]
+msn.com##.articlePageIntraArticleFullWidth
+msn.com##.consumption-page-banner-wrapper
+msn.com##.consumption-page-feed-wrapper
 msn.com##.end-of-content-block
-msn.com##.mcp-feed-container
+msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
+msn.com##above-river-block
+msn.com##homepage-footer
+msn.com##views-right-rail
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nypost.com##amp-video-iframe
