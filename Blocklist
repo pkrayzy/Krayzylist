@@ -75,6 +75,7 @@ markets.businessinsider.com##+js(cookie-remover)
 my.businessinsider.com##+js(cookie-remover)
 news.google.com##+js(cookie-remover)
 nytimes.com##+js(cookie-remover)
+msn.com##+js(set-local-storage-item, continuousReadingOnAppState, '')
 
 !!---YouTube Extended---!!
 youtube.com#%#//scriptlet('set-constant', 'google_ad_status', '1')
