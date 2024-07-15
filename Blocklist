@@ -22,6 +22,8 @@ Roboto*$font
 !!---General URL---!!
 /*.consentdrawer.bundle.*.js$script
 /ads/adsbygoogle.js
+/airgap.js$script
+/airgapWrapper.js$script
 /gdpr*.bundle.js$script
 /openads/js/*$script
 /pum-site-scripts.js^
