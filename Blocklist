@@ -21,12 +21,12 @@ Roboto*$font
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*.js$script
-/ads/adsbygoogle.js
+/ads/adsbygoogle.js$script
 /airgap.js$script
 /airgapWrapper.js$script
 /gdpr*.bundle.js$script
 /openads/js/*$script
-/pum-site-scripts.js^
+/pum-site-scripts.js
 /scripts/adslot.js
 /wp-content/plugins/elementor-pro/*$script
 
@@ -166,6 +166,7 @@ msn.com##views-right-rail
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nypost.com##amp-video-iframe
+nypost.com##div:has([data-adm-url])
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###gateway-content
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
