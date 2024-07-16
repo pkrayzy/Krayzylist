@@ -198,6 +198,14 @@ youtube.com##.yt-mealbar-promo-renderer
 youtube.com##[target-id="engagement-panel-ads"]
 youtube.com##ytd-ad-slot-renderer
 youtube.com##ytd-rich-item-renderer:has(ytd-ad-slot-renderer)
+zerohedge.com##.BlockContactInfo_dropdown__n9SPS
+zerohedge.com##.BlockLogin_container__f_B6j
+zerohedge.com##.BlockSearch_container__UmRtJ
+zerohedge.com##.rectangle
+zerohedge.com##.rectangle-large
+zerohedge.com##.SidebarLeft_debateCallout__mMVK8
+zerohedge.com##.TopPosts_posts__kSDL7
+zerohedge.com##.ZeroHedgeReads_container__qAqpv
 zerohedge.com###exitModalOverlay
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
