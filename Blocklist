@@ -24,6 +24,7 @@ Roboto*$font
 /ads/adsbygoogle.js$script
 /airgap.js$script
 /airgapWrapper.js$script
+/cxense-candy.js$script
 /gdpr*.bundle.js$script
 /openads/js/*$script
 /pum-site-scripts.js
@@ -42,6 +43,7 @@ Roboto*$font
 ||cdn.brandmetrics.com/*/theathletic.js$script
 ||cdn.consentmanager.net/$script
 ||cdn.cookielaw.org/$script
+||cdn.cxense.com^$script
 ||cdn.iubenda.com/cookie_solution/$script
 ||cdn.optimizely.com/js/*.js$script
 ||cdn.optimizely.com^$script
