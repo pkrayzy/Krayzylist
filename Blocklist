@@ -252,10 +252,10 @@ bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ShoppingAnswerPALGFilterContainer
 
 !!--Bing CSS--!!
-!+ PLATFORM(ios, ext_safari, mac)
-bing.com#$##b_content {padding: 20px 0 20px var(--lgutter) !important;}
-!+ PLATFORM(ios, ext_safari, mac)
-bing.com#$#.b_scopebar {margin: 20px 0 0 var(--lgutter) !important;}
+! !+ PLATFORM(ios, ext_safari, mac)
+! bing.com#$##b_content {padding: 20px 0 20px var(--lgutter) !important;}
+! !+ PLATFORM(ios, ext_safari, mac)
+! bing.com#$#.b_scopebar {margin: 20px 0 0 var(--lgutter) !important;}
 
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
