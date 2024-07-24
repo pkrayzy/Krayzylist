@@ -252,12 +252,13 @@ bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ShoppingAnswerPALGFilterContainer
 
 !!--Bing CSS--!!
-! !+ PLATFORM(ios, ext_safari, mac)
-! bing.com#$#.b_scopebar {margin-top: 10px !important;}
-! bing.com#$##b_content {padding-top: 10px !important;}
-! bing.com#$##b_header {margin-bottom: 10px !important;}
-! bing.com#$##b_mcw {margin-top: 0px !important;}
-! bing.com#$##b_pole {margin-top: -20px !important;}
+!#if (adguard_app_mac || adguard_app_ios || adguard_ext_safari)
+bing.com#$#.b_scopebar {margin-top: 10px !important;}
+bing.com#$##b_content {padding-top: 10px !important;}
+bing.com#$##b_header {margin-bottom: 10px !important;}
+bing.com#$##b_mcw {margin-top: 0px !important;}
+bing.com#$##b_pole {margin-top: -20px !important;}
+!#endif
 
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
