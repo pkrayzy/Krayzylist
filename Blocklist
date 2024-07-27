@@ -27,8 +27,8 @@ Roboto*$font
 /cxense-candy.js$script
 /gdpr*.bundle.js$script
 /openads/js/*$script
-/pum-site-scripts.js
-/scripts/adslot.js
+/pum-site-scripts.js$script
+/scripts/adslot.js$script
 /wp-content/plugins/elementor-pro/*$script
 
 !!---Specific URL---!!
@@ -83,13 +83,6 @@ markets.businessinsider.com##+js(cookie-remover)
 my.businessinsider.com##+js(cookie-remover)
 news.google.com##+js(cookie-remover)
 nytimes.com##+js(cookie-remover)
-
-!!---YouTube Extended---!!
-youtube.com#%#//scriptlet('set-constant', 'google_ad_status', '1')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
@@ -153,6 +146,7 @@ digitaltrends.com##.dtads-content
 digitaltrends.com##.dtads-location
 digitaltrends.com##.dtads-mobile
 digitaltrends.com##[class^="dtads-"]
+espn.com##.article-legal-footer
 ft.com##.article__content-sign-up
 ft.com##.o-banner
 ft.com###n-exponea-top-slot
