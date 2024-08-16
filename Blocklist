@@ -192,6 +192,7 @@ wsj.com##[class="adWrapper "]:upward(1)
 wsj.com##div[class^="css-xgokil-Box"]
 wsj.com##[data-skip-label="What To Read Next"]
 wsj.com##[data-testid="ad-container"]
+wsj.com##[aria-label="Utility Nav"]
 wsj.com##[aria-label="What to Read Next"]
 wsj.com###cx-candybar
 wsj.com###cx-what-to-read-next
