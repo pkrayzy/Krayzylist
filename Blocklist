@@ -266,7 +266,7 @@ bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_vidAns
 
 !!--Bing Extended--!!
-bing.com##.b_algo:has([data-partnertag])
+! bing.com##.b_algo:has([data-partnertag])
 bing.com##.b_ans:has(.b_mrs)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild)
