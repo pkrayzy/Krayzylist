@@ -162,6 +162,8 @@ msn.com##homepage-footer
 msn.com##views-right-rail
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
+nfl.com#$#article[class] {margin-top: 0px !important;}
+nfl.com##.d3-l-adv-row
 nypost.com##amp-video-iframe
 nypost.com##div:has([data-adm-url])
 nytimes.com##[data-testid="standard-dock"]
@@ -182,6 +184,7 @@ theintercept.com###third-party--article-mid
 theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
+twitter.com,x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 wikipedia.org###centralNotice
 wsj.com##.ad-portal
 wsj.com##.aside-container
