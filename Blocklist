@@ -246,9 +246,11 @@ bing.com###b_alsotry
 bing.com###b_shpmetis
 bing.com###b_tween
 bing.com###mfa_root
+bing.com###pole > div.irptaads
 bing.com###relatedSearchesLGWContainer
 bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ShoppingAnswerPALGFilterContainer
+
 
 !!--Bing CSS--!!
 !#if (adguard_app_mac || adguard_app_ios || adguard_ext_safari)
