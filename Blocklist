@@ -162,15 +162,14 @@ msn.com##homepage-footer
 msn.com##views-right-rail
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
-nfl.com#$#article[class] {margin-top: 0px !important;}
 nfl.com##.d3-l-adv-row
+nfl.com#$#article[class] {margin-top: 0px !important;}
 nypost.com##amp-video-iframe
 nypost.com##div:has([data-adm-url])
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###gateway-content
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id^="mntl-leaderboard"]
-! reddit.com##left-nav-top-section > [class$="invisible"]
 reddit.com##shreddit-ad-post
 reddit.com##shreddit-comments-page-ad
 reddit.com##shreddit-dynamic-ad-link
@@ -179,8 +178,8 @@ semafor.com##div[class^="styles_floatingBanner"]
 speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
-theopen.com##div.overlay.is-visible
 theintercept.com###third-party--article-mid
+theopen.com##div.overlay.is-visible
 theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
@@ -188,14 +187,14 @@ twitter.com,x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweet
 wikipedia.org###centralNotice
 wsj.com##.ad-portal
 wsj.com##.aside-container
-wsj.com##[class="adWrapper "]:upward(1)
-wsj.com##div[class^="css-xgokil-Box"]
-wsj.com##[data-skip-label="What To Read Next"]
-wsj.com##[data-testid="ad-container"]
 wsj.com##[aria-label="Utility Nav"]
 wsj.com##[aria-label="What to Read Next"]
+wsj.com##[class="adWrapper "]:upward(1)
+wsj.com##[data-skip-label="What To Read Next"]
+wsj.com##[data-testid="ad-container"]
 wsj.com###cx-candybar
 wsj.com###cx-what-to-read-next
+wsj.com##div[class^="css-xgokil-Box"]
 youtube.com##.yt-mealbar-promo-renderer
 youtube.com##[target-id="engagement-panel-ads"]
 youtube.com##ytd-ad-slot-renderer
@@ -208,6 +207,7 @@ zerohedge.com##.rectangle-large
 zerohedge.com##.SidebarLeft_debateCallout__mMVK8
 zerohedge.com##.TopPosts_posts__kSDL7
 zerohedge.com##.ZeroHedgeReads_container__qAqpv
+zerohedge.com##[id*="in-content"]
 zerohedge.com###exitModalOverlay
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
@@ -270,7 +270,6 @@ bing.com##li.b_ans.b_imgans
 bing.com##li.b_ans.b_vidAns
 
 !!--Bing Extended--!!
-! bing.com##.b_algo:has([data-partnertag])
 bing.com##.b_ans:has(.b_mrs)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild)
@@ -278,3 +277,4 @@ bing.com###b_pole:has(#ssa_main)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
+! bing.com##.b_algo:has([data-partnertag])
