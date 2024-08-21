@@ -74,16 +74,16 @@ Roboto*$font
 ||unknownidea.com^$third-party
 
 !!---Cookie Remover---!!
-bloomberg.com##+js(cookie-remover)
-businessinsider.com##+js(cookie-remover)
-bwbx.io##+js(cookie-remover)
-ft.com##+js(cookie-remover) 
-google.com##+js(cookie-remover)
-insider.com##+js(cookie-remover)
-markets.businessinsider.com##+js(cookie-remover)
-my.businessinsider.com##+js(cookie-remover)
-news.google.com##+js(cookie-remover)
-nytimes.com##+js(cookie-remover)
+bloomberg.com#%#//scriptlet('remove-cookie')
+businessinsider.com#%#//scriptlet('remove-cookie')
+bwbx.io#%#//scriptlet('remove-cookie')
+ft.com#%#//scriptlet('remove-cookie')
+google.com#%#//scriptlet('remove-cookie')
+insider.com#%#//scriptlet('remove-cookie')
+markets.businessinsider.com#%#//scriptlet('remove-cookie')
+my.businessinsider.com#%#//scriptlet('remove-cookie')
+news.google.com#%#//scriptlet('remove-cookie')
+nytimes.com#%#//scriptlet('remove-cookie')
 
 !!---Generic CSS---!!
 #@#div[class^="InstagramEmbedContainer"]
