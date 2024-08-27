@@ -73,6 +73,22 @@ Roboto*$font
 ||transcend-cdn.com/*/airgap.js$script
 ||unknownidea.com^$third-party
 
+!!---YouTube---!!
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android && !ext_ublock)
+youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|\/player|watch\?[tv]=/')
+youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|player\?|watch\?[tv]=/')
+!#endif
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
+m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('json-prune', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots')
+!#endif
+!#if (adguard_ext_safari)
+tv.youtube.com#%#//scriptlet('trusted-replace-xhr-response', '"adPlacements"', '"no_ads"', '/playlist\?list=|player\?|watch\?[tv]=/')
+youtube.com#%#//scriptlet('trusted-replace-xhr-response', '/\"adPlacements.*?([A-Z]"\}|"\}{2,4})\}\]\,/', '', '/^(?!.*(\/\/tv\.youtube\.com)).*(playlist\?list=|player\?|watch\?[tv]=)/')
+youtube.com#%#//scriptlet('trusted-replace-xhr-response', '/\"adSlots.*?\}\]\}\}\]\,/', '', '/^(?!.*(\/\/tv\.youtube\.com)).*(playlist\?list=|player\?|watch\?[tv]=)/')
+youtube.com#%#//scriptlet('trusted-replace-fetch-response', '/"adPlacements.*?([A-Z]"\}|"\}{2,4})\}\]\,/', '', 'player?')
+youtube.com#%#//scriptlet('trusted-replace-fetch-response', '"adSlots"', '"no_ads"', '/playlist\?list=|player\?|watch\?[tv]=/')
+!#endif
+
 !!---Cookie Remover---!!
 bloomberg.com#%#//scriptlet('remove-cookie')
 businessinsider.com#%#//scriptlet('remove-cookie')
