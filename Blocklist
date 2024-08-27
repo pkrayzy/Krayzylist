@@ -217,22 +217,6 @@ zerohedge.com###exitModalOverlay
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
 
-!!--YouTube--!!
-youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.playerAds, undefined)
-youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
-youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adSlots, undefined)
-youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, playerResponse.adPlacements, undefined)
-www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , /playlist\?list=|player\?|watch\?v=|youtubei\/v1\/player/)
-www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, youtubei/v1/player)
-tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|player\?|watch\?v=|youtubei\/v1\/player/)
-www.youtube.com##+js(trusted-replace-fetch-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , player?)
-www.youtube.com##+js(trusted-rpnt, script, (function serverContract(), (()=>{let e="";document.addEventListener("DOMContentLoaded"\,(function(){if(!window.yt?.config_?.EXPERIMENT_FLAGS?.html5_enable_ssap_entity_id)return;const t=()=>{const t=document.getElementById("movie_player");if(!t)return;const n=t.querySelector("video");if(!n)return;const o=t.getVideoStats()?.ssap;if(n.duration&&o&&o.includes("vid.nvd")){const i=parseInt(o.split("st.").at(-1).split(";")[0])/1e3;let r=[];for(const e of o.matchAll(/\bcpn\.([-\w]+)/g))r.push(e[1]);const s=r.join("\,");(!1===n.loop&&e!==s&&n.currentTime<i||!0===n.loop&&n.currentTime<i||.001===n.currentTime&&n.currentTime<i)&&(t.seekTo(i)\,e=s)}};t();new MutationObserver((()=>{t()})).observe(document\,{childList:!0\,subtree:!0})}))})();(function serverContract(), sedCount, 1)
-www.youtube.com##+js(nano-stb, [native code], 17000, 0.001)
-www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots, , propsToMatch, /playlist?)
-www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots, , propsToMatch, /player?)
-www.youtube.com##+js(json-prune-xhr-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots, , propsToMatch, /player?)
-m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important)
-
 !!--Bing--!!
 bing.com##.algoSlug_icon
 bing.com##.b_ad
