@@ -25,6 +25,7 @@ Roboto*$font
 /airgap.js$script
 /airgapWrapper.js$script
 /cxense-candy.js$script
+/eu_cookie_compliance.min.js$script
 /gdpr*.bundle.js$script
 /openads/js/*$script
 /pum-site-scripts.js$script
@@ -134,6 +135,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ##[id="taboola-below-article-thumbnails"]
 ##[id="third-party--article-mid"]
 ##[id="third-party--viewport-takeover"]
+###consent-placeholder-onetrust
 ###third-party--viewport-takeover
 ###transcend-consent-manager
 
