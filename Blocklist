@@ -74,20 +74,9 @@ Roboto*$font
 ||unknownidea.com^$third-party
 
 !!---YouTube---!!
-!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android && !ext_ublock)
 youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|\/player|watch\?[tv]=/')
 youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|player\?|watch\?[tv]=/')
-!#endif
-!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android)
 m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('json-prune', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots')
-!#endif
-!#if (adguard_ext_safari)
-tv.youtube.com#%#//scriptlet('trusted-replace-xhr-response', '"adPlacements"', '"no_ads"', '/playlist\?list=|player\?|watch\?[tv]=/')
-youtube.com#%#//scriptlet('trusted-replace-xhr-response', '/\"adPlacements.*?([A-Z]"\}|"\}{2,4})\}\]\,/', '', '/^(?!.*(\/\/tv\.youtube\.com)).*(playlist\?list=|player\?|watch\?[tv]=)/')
-youtube.com#%#//scriptlet('trusted-replace-xhr-response', '/\"adSlots.*?\}\]\}\}\]\,/', '', '/^(?!.*(\/\/tv\.youtube\.com)).*(playlist\?list=|player\?|watch\?[tv]=)/')
-youtube.com#%#//scriptlet('trusted-replace-fetch-response', '/"adPlacements.*?([A-Z]"\}|"\}{2,4})\}\]\,/', '', 'player?')
-youtube.com#%#//scriptlet('trusted-replace-fetch-response', '"adSlots"', '"no_ads"', '/playlist\?list=|player\?|watch\?[tv]=/')
-!#endif
 
 !!---Cookie Remover---!!
 bloomberg.com#%#//scriptlet('remove-cookie')
@@ -173,6 +162,7 @@ ft.com##.o-banner
 ft.com###n-exponea-top-slot
 ft.com###sp_message_container_967339
 ft.com##div.n-layout__header-before > pg-slot
+instagram.com##article > div[class]:has(a[href^="https://www.facebook.com/ads/"])
 msn.com##.articlePageIntraArticleFullWidth
 msn.com##.consumption-page-banner-wrapper
 msn.com##.consumption-page-feed-wrapper
@@ -205,7 +195,8 @@ theopen.com##div.overlay.is-visible
 theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
-twitter.com,x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
+x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
+whathifi.com##.ad-unit
 wikipedia.org###centralNotice
 wsj.com##.ad-portal
 wsj.com##.aside-container
