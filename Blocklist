@@ -75,15 +75,13 @@ Roboto*$font
 ||unknownidea.com^$third-party
 
 !!---YouTube---!!
-youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|player\?|watch\?[tv]=/')
-youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|\/player|watch\?[tv]=/')
-! youtube.com,youtube-nocookie.com##+js(json-prune, [].playerResponse.adPlacements [].playerResponse.playerAds playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds)
-! youtube.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
-! youtube.com,youtube-nocookie.com##+js(set, playerResponse.adPlacements, undefined)
-youtube.com,youtube-nocookie.com#%#//scriptlet('json-prune', '[].playerResponse.adPlacements [].playerResponse.playerAds playerResponse.adPlacements playerResponse.playerAds adPlacements playerAds')
-youtube.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
-youtube.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
 m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('json-prune', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots')
+youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|player\?|watch\?[tv]=/')
+youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|player\?|watch\?[tv]=/')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
 
 !!---Cookie Remover---!!
 bloomberg.com#%#//scriptlet('remove-cookie')
