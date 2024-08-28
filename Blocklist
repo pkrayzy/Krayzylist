@@ -210,6 +210,7 @@ wsj.com###cx-what-to-read-next
 wsj.com##div[class^="css-xgokil-Box"]
 youtube.com##.yt-mealbar-promo-renderer
 youtube.com##[target-id="engagement-panel-ads"]
+youtube.com###movie_player > div.ytp-paid-content-overlay
 youtube.com##ytd-ad-slot-renderer
 youtube.com##ytd-rich-item-renderer:has(ytd-ad-slot-renderer)
 zerohedge.com##.BlockContactInfo_dropdown__n9SPS
