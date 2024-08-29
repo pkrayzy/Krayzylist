@@ -169,6 +169,7 @@ digitaltrends.com##.dtads-location
 digitaltrends.com##.dtads-mobile
 digitaltrends.com##[class^="dtads-"]
 espn.com##.article-legal-footer
+faroutmagazine.co.uk##.header:style(margin-top: 0px;)
 ft.com##.article__content-sign-up
 ft.com##.o-banner
 ft.com###n-exponea-top-slot
