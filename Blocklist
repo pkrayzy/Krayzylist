@@ -183,7 +183,7 @@ msn.com##views-right-rail
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nfl.com##.d3-l-adv-row
-nfl.com#$#article[class] {margin-top: 0px !important;}
+nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##amp-video-iframe
 nypost.com##div:has([data-adm-url])
 nytimes.com##[data-testid="standard-dock"]
@@ -278,11 +278,11 @@ bing.com###ShoppingAnswerPALGFilterContainer
 
 !!--Bing CSS--!!
 !#if (adguard_app_mac || adguard_app_ios || adguard_ext_safari)
-bing.com#$#.b_scopebar {margin-top: 10px !important;}
-bing.com#$##b_content {padding-top: 10px !important;}
-bing.com#$##b_header {margin-bottom: 10px !important;}
-bing.com#$##b_mcw {margin-top: 0px !important;}
-bing.com#$##b_pole {margin-top: -20px !important;}
+bing.com##.b_scopebar:style(margin-top: 10px !important;)
+bing.com###b_content:style(padding-top: 10px !important;)
+bing.com###b_header:style(margin-bottom: 10px !important;)
+bing.com###b_mcw:style(margin-top: 0px !important;)
+bing.com###b_pole:style(margin-top: -20px !important;)
 !#endif
 
 !!--Bing Answers--!!
