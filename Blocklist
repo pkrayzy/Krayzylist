@@ -208,6 +208,7 @@ theopen.com##div.overlay.is-visible
 theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
+time.com##header > div:has([aria-label="Advertisement"])
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 whathifi.com##.ad-unit
 wikipedia.org###centralNotice
