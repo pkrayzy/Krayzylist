@@ -149,6 +149,8 @@ bloomberg.com##.styles_ledeContainer___qNar
 bloomberg.com##[button^=“FloatingCopyLink”]
 bloomberg.com##[class^="media-ui-FullWidthAd"]
 bulbapedia.bulbagarden.net###siteNotice
+cbssports.com###GlobalNavOffset
+cbssports.com###GlobalNavOffsetSpacer
 cbssports.com##body > div:has([data-adm-url])
 cnet.com##.c-avStickyVideo
 cnet.com##.c-CnetAvStickyVideo
