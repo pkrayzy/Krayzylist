@@ -5,96 +5,191 @@
 // ==/UserScript==
 (function() {
     // >>>> start of private namespace
-
+    
     ;
-      
-    function matchObjectProperties(propNeedles, ...objs) {
-        if ( matchObjectProperties.extractProperties === undefined ) {
-            matchObjectProperties.extractProperties = (src, des, props) => {
-                for ( const p of props ) {
-                    const v = src[p];
-                    if ( v === undefined ) { continue; }
-                    des[p] = src[p];
-                }
-            };
-        }
-        const safe = safeSelf();
-        const haystack = {};
-        const props = safe.Array_from(propNeedles.keys());
-        for ( const obj of objs ) {
-            if ( obj instanceof Object === false ) { continue; }
-            matchObjectProperties.extractProperties(obj, haystack, props);
-        }
-        for ( const [ prop, details ] of propNeedles ) {
-            let value = haystack[prop];
-            if ( value === undefined ) { continue; }
-            if ( typeof value !== 'string' ) {
-                try { value = safe.JSON_stringify(value); }
-                catch(ex) { }
-                if ( typeof value !== 'string' ) { continue; }
-            }
-            if ( safe.testPattern(details, value) ) { continue; }
-            return false;
-        }
-        return true;
+    
+    const scriptletGlobals = {
+        "warOrigin": "moz-extension://7e00f193-a0ca-4e10-9c2d-0704b8880fa7/web_accessible_resources",
+        "warSecret": "j1pitdear8rq822oya"
     }
     
-    function objectPruneFn(
-        obj,
-        rawPrunePaths,
-        rawNeedlePaths,
-        stackNeedleDetails = { matchAll: true },
-        extraArgs = {}
+    function setConstantFn(
+        trusted = false,
+        chain = '',
+        rawValue = ''
     ) {
-        if ( typeof rawPrunePaths !== 'string' ) { return; }
-        const prunePaths = rawPrunePaths !== ''
-            ? rawPrunePaths.split(/ +/)
-            : [];
-        const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
-            ? rawNeedlePaths.split(/ +/)
-            : [];
-        if ( stackNeedleDetails.matchAll !== true ) {
-            if ( matchesStackTrace(stackNeedleDetails, extraArgs.logstack) === false ) {
-                return;
+        if ( chain === '' ) { return; }
+        const safe = safeSelf();
+        const logPrefix = safe.makeLogPrefix('set-constant', chain, rawValue);
+        const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+        function setConstant(chain, rawValue) {
+            const trappedProp = (( ) => {
+                const pos = chain.lastIndexOf('.');
+                if ( pos === -1 ) { return chain; }
+                return chain.slice(pos+1);
+            })();
+            const cloakFunc = fn => {
+                safe.Object_defineProperty(fn, 'name', { value: trappedProp });
+                return new Proxy(fn, {
+                    defineProperty(target, prop) {
+                        if ( prop !== 'toString' ) {
+                            return Reflect.defineProperty(...arguments);
+                        }
+                        return true;
+                    },
+                    deleteProperty(target, prop) {
+                        if ( prop !== 'toString' ) {
+                            return Reflect.deleteProperty(...arguments);
+                        }
+                        return true;
+                    },
+                    get(target, prop) {
+                        if ( prop === 'toString' ) {
+                            return function() {
+                                return `function ${trappedProp}() { [native code] }`;
+                            }.bind(null);
+                        }
+                        return Reflect.get(...arguments);
+                    },
+                });
+            };
+            if ( trappedProp === '' ) { return; }
+            const thisScript = document.currentScript;
+            let normalValue = validateConstantFn(trusted, rawValue, extraArgs);
+            if ( rawValue === 'noopFunc' || rawValue === 'trueFunc' || rawValue === 'falseFunc' ) {
+                normalValue = cloakFunc(normalValue);
             }
-        }
-        if ( objectPruneFn.mustProcess === undefined ) {
-            objectPruneFn.mustProcess = (root, needlePaths) => {
-                for ( const needlePath of needlePaths ) {
-                    if ( objectFindOwnerFn(root, needlePath) === false ) {
-                        return false;
+            let aborted = false;
+            const mustAbort = function(v) {
+                if ( trusted ) { return false; }
+                if ( aborted ) { return true; }
+                aborted =
+                    (v !== undefined && v !== null) &&
+                    (normalValue !== undefined && normalValue !== null) &&
+                    (typeof v !== typeof normalValue);
+                if ( aborted ) {
+                    safe.uboLog(logPrefix, `Aborted because value set to ${v}`);
+                }
+                return aborted;
+            };
+            // https://github.com/uBlockOrigin/uBlock-issues/issues/156
+            //   Support multiple trappers for the same property.
+            const trapProp = function(owner, prop, configurable, handler) {
+                if ( handler.init(configurable ? owner[prop] : normalValue) === false ) { return; }
+                const odesc = safe.Object_getOwnPropertyDescriptor(owner, prop);
+                let prevGetter, prevSetter;
+                if ( odesc instanceof safe.Object ) {
+                    owner[prop] = normalValue;
+                    if ( odesc.get instanceof Function ) {
+                        prevGetter = odesc.get;
+                    }
+                    if ( odesc.set instanceof Function ) {
+                        prevSetter = odesc.set;
                     }
                 }
-                return true;
-            };
-        }
-        if ( prunePaths.length === 0 ) { return; }
-        let outcome = 'nomatch';
-        if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
-            for ( const path of prunePaths ) {
-                if ( objectFindOwnerFn(obj, path, true) ) {
-                    outcome = 'match';
+                try {
+                    safe.Object_defineProperty(owner, prop, {
+                        configurable,
+                        get() {
+                            if ( prevGetter !== undefined ) {
+                                prevGetter();
+                            }
+                            return handler.getter();
+                        },
+                        set(a) {
+                            if ( prevSetter !== undefined ) {
+                                prevSetter(a);
+                            }
+                            handler.setter(a);
+                        }
+                    });
+                    safe.uboLog(logPrefix, 'Trap installed');
+                } catch(ex) {
+                    safe.uboErr(logPrefix, ex);
                 }
-            }
+            };
+            const trapChain = function(owner, chain) {
+                const pos = chain.indexOf('.');
+                if ( pos === -1 ) {
+                    trapProp(owner, chain, false, {
+                        v: undefined,
+                        init: function(v) {
+                            if ( mustAbort(v) ) { return false; }
+                            this.v = v;
+                            return true;
+                        },
+                        getter: function() {
+                            if ( document.currentScript === thisScript ) {
+                                return this.v;
+                            }
+                            safe.uboLog(logPrefix, 'Property read');
+                            return normalValue;
+                        },
+                        setter: function(a) {
+                            if ( mustAbort(a) === false ) { return; }
+                            normalValue = a;
+                        }
+                    });
+                    return;
+                }
+                const prop = chain.slice(0, pos);
+                const v = owner[prop];
+                chain = chain.slice(pos + 1);
+                if ( v instanceof safe.Object || typeof v === 'object' && v !== null ) {
+                    trapChain(v, chain);
+                    return;
+                }
+                trapProp(owner, prop, true, {
+                    v: undefined,
+                    init: function(v) {
+                        this.v = v;
+                        return true;
+                    },
+                    getter: function() {
+                        return this.v;
+                    },
+                    setter: function(a) {
+                        this.v = a;
+                        if ( a instanceof safe.Object ) {
+                            trapChain(a, chain);
+                        }
+                    }
+                });
+            };
+            trapChain(window, chain);
         }
-        if ( outcome === 'match' ) { return obj; }
+        runAt(( ) => {
+            setConstant(chain, rawValue);
+        }, extraArgs.runAt);
     }
     
-    function parsePropertiesToMatch(propsToMatch, implicit = '') {
-        const safe = safeSelf();
-        const needles = new Map();
-        if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
-        const options = { canNegate: true };
-        for ( const needle of propsToMatch.split(/\s+/) ) {
-            const [ prop, pattern ] = needle.split(':');
-            if ( prop === '' ) { continue; }
-            if ( pattern !== undefined ) {
-                needles.set(prop, safe.initPattern(pattern, options));
-            } else if ( implicit !== '' ) {
-                needles.set(implicit, safe.initPattern(prop, options));
+    function runAt(fn, when) {
+        const intFromReadyState = state => {
+            const targets = {
+                'loading': 1,
+                'interactive': 2, 'end': 2, '2': 2,
+                'complete': 3, 'idle': 3, '3': 3,
+            };
+            const tokens = Array.isArray(state) ? state : [ state ];
+            for ( const token of tokens ) {
+                const prop = `${token}`;
+                if ( targets.hasOwnProperty(prop) === false ) { continue; }
+                return targets[prop];
             }
+            return 0;
+        };
+        const runAt = intFromReadyState(when);
+        if ( intFromReadyState(document.readyState) >= runAt ) {
+            fn(); return;
         }
-        return needles;
+        const onStateChange = ( ) => {
+            if ( intFromReadyState(document.readyState) < runAt ) { return; }
+            fn();
+            safe.removeEventListener.apply(document, args);
+        };
+        const safe = safeSelf();
+        const args = [ 'readystatechange', onStateChange, { capture: true } ];
+        safe.addEventListener.apply(document, args);
     }
     
     function safeSelf() {
@@ -256,6 +351,267 @@
         return safe;
     }
     
+    function validateConstantFn(trusted, raw, extraArgs = {}) {
+        const safe = safeSelf();
+        let value;
+        if ( raw === 'undefined' ) {
+            value = undefined;
+        } else if ( raw === 'false' ) {
+            value = false;
+        } else if ( raw === 'true' ) {
+            value = true;
+        } else if ( raw === 'null' ) {
+            value = null;
+        } else if ( raw === "''" || raw === '' ) {
+            value = '';
+        } else if ( raw === '[]' || raw === 'emptyArr' ) {
+            value = [];
+        } else if ( raw === '{}' || raw === 'emptyObj' ) {
+            value = {};
+        } else if ( raw === 'noopFunc' ) {
+            value = function(){};
+        } else if ( raw === 'trueFunc' ) {
+            value = function(){ return true; };
+        } else if ( raw === 'falseFunc' ) {
+            value = function(){ return false; };
+        } else if ( /^-?\d+$/.test(raw) ) {
+            value = parseInt(raw);
+            if ( isNaN(raw) ) { return; }
+            if ( Math.abs(raw) > 0x7FFF ) { return; }
+        } else if ( trusted ) {
+            if ( raw.startsWith('{') && raw.endsWith('}') ) {
+                try { value = safe.JSON_parse(raw).value; } catch(ex) { return; }
+            }
+        } else {
+            return;
+        }
+        if ( extraArgs.as !== undefined ) {
+            if ( extraArgs.as === 'function' ) {
+                return ( ) => value;
+            } else if ( extraArgs.as === 'callback' ) {
+                return ( ) => (( ) => value);
+            } else if ( extraArgs.as === 'resolved' ) {
+                return Promise.resolve(value);
+            } else if ( extraArgs.as === 'rejected' ) {
+                return Promise.reject(value);
+            }
+        }
+        return value;
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.playerAds","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.adPlacements","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.adSlots","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("playerResponse.adPlacements","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    function jsonPruneFetchResponseFn(
+        rawPrunePaths = '',
+        rawNeedlePaths = ''
+    ) {
+        const safe = safeSelf();
+        const logPrefix = safe.makeLogPrefix('json-prune-fetch-response', rawPrunePaths, rawNeedlePaths);
+        const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+        const propNeedles = parsePropertiesToMatch(extraArgs.propsToMatch, 'url');
+        const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
+        const logall = rawPrunePaths === '';
+        const applyHandler = function(target, thisArg, args) {
+            const fetchPromise = Reflect.apply(target, thisArg, args);
+            let outcome = logall ? 'nomatch' : 'match';
+            if ( propNeedles.size !== 0 ) {
+                const objs = [ args[0] instanceof Object ? args[0] : { url: args[0] } ];
+                if ( objs[0] instanceof Request ) {
+                    try {
+                        objs[0] = safe.Request_clone.call(objs[0]);
+                    } catch(ex) {
+                        safe.uboErr(logPrefix, 'Error:', ex);
+                    }
+                }
+                if ( args[1] instanceof Object ) {
+                    objs.push(args[1]);
+                }
+                if ( matchObjectProperties(propNeedles, ...objs) === false ) {
+                    outcome = 'nomatch';
+                }
+            }
+            if ( logall === false && outcome === 'nomatch' ) { return fetchPromise; }
+            if ( safe.logLevel > 1 && outcome !== 'nomatch' && propNeedles.size !== 0 ) {
+                safe.uboLog(logPrefix, `Matched optional "propsToMatch"\n${extraArgs.propsToMatch}`);
+            }
+            return fetchPromise.then(responseBefore => {
+                const response = responseBefore.clone();
+                return response.json().then(objBefore => {
+                    if ( typeof objBefore !== 'object' ) { return responseBefore; }
+                    if ( logall ) {
+                        safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+                        return responseBefore;
+                    }
+                    const objAfter = objectPruneFn(
+                        objBefore,
+                        rawPrunePaths,
+                        rawNeedlePaths,
+                        stackNeedle,
+                        extraArgs
+                    );
+                    if ( typeof objAfter !== 'object' ) { return responseBefore; }
+                    safe.uboLog(logPrefix, 'Pruned');
+                    const responseAfter = Response.json(objAfter, {
+                        status: responseBefore.status,
+                        statusText: responseBefore.statusText,
+                        headers: responseBefore.headers,
+                    });
+                    Object.defineProperties(responseAfter, {
+                        ok: { value: responseBefore.ok },
+                        redirected: { value: responseBefore.redirected },
+                        type: { value: responseBefore.type },
+                        url: { value: responseBefore.url },
+                    });
+                    return responseAfter;
+                }).catch(reason => {
+                    safe.uboErr(logPrefix, 'Error:', reason);
+                    return responseBefore;
+                });
+            }).catch(reason => {
+                safe.uboErr(logPrefix, 'Error:', reason);
+                return fetchPromise;
+            });
+        };
+        self.fetch = new Proxy(self.fetch, {
+            apply: applyHandler
+        });
+    }
+    
+    function matchObjectProperties(propNeedles, ...objs) {
+        if ( matchObjectProperties.extractProperties === undefined ) {
+            matchObjectProperties.extractProperties = (src, des, props) => {
+                for ( const p of props ) {
+                    const v = src[p];
+                    if ( v === undefined ) { continue; }
+                    des[p] = src[p];
+                }
+            };
+        }
+        const safe = safeSelf();
+        const haystack = {};
+        const props = safe.Array_from(propNeedles.keys());
+        for ( const obj of objs ) {
+            if ( obj instanceof Object === false ) { continue; }
+            matchObjectProperties.extractProperties(obj, haystack, props);
+        }
+        for ( const [ prop, details ] of propNeedles ) {
+            let value = haystack[prop];
+            if ( value === undefined ) { continue; }
+            if ( typeof value !== 'string' ) {
+                try { value = safe.JSON_stringify(value); }
+                catch(ex) { }
+                if ( typeof value !== 'string' ) { continue; }
+            }
+            if ( safe.testPattern(details, value) ) { continue; }
+            return false;
+        }
+        return true;
+    }
+    
+    function objectPruneFn(
+        obj,
+        rawPrunePaths,
+        rawNeedlePaths,
+        stackNeedleDetails = { matchAll: true },
+        extraArgs = {}
+    ) {
+        if ( typeof rawPrunePaths !== 'string' ) { return; }
+        const prunePaths = rawPrunePaths !== ''
+            ? rawPrunePaths.split(/ +/)
+            : [];
+        const needlePaths = prunePaths.length !== 0 && rawNeedlePaths !== ''
+            ? rawNeedlePaths.split(/ +/)
+            : [];
+        if ( stackNeedleDetails.matchAll !== true ) {
+            if ( matchesStackTrace(stackNeedleDetails, extraArgs.logstack) === false ) {
+                return;
+            }
+        }
+        if ( objectPruneFn.mustProcess === undefined ) {
+            objectPruneFn.mustProcess = (root, needlePaths) => {
+                for ( const needlePath of needlePaths ) {
+                    if ( objectFindOwnerFn(root, needlePath) === false ) {
+                        return false;
+                    }
+                }
+                return true;
+            };
+        }
+        if ( prunePaths.length === 0 ) { return; }
+        let outcome = 'nomatch';
+        if ( objectPruneFn.mustProcess(obj, needlePaths) ) {
+            for ( const path of prunePaths ) {
+                if ( objectFindOwnerFn(obj, path, true) ) {
+                    outcome = 'match';
+                }
+            }
+        }
+        if ( outcome === 'match' ) { return obj; }
+    }
+    
+    function parsePropertiesToMatch(propsToMatch, implicit = '') {
+        const safe = safeSelf();
+        const needles = new Map();
+        if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+        const options = { canNegate: true };
+        for ( const needle of propsToMatch.split(/\s+/) ) {
+            const [ prop, pattern ] = needle.split(':');
+            if ( prop === '' ) { continue; }
+            if ( pattern !== undefined ) {
+                needles.set(prop, safe.initPattern(pattern, options));
+            } else if ( implicit !== '' ) {
+                needles.set(implicit, safe.initPattern(prop, options));
+            }
+        }
+        return needles;
+    }
+    
     function matchesStackTrace(
         needleDetails,
         logLevel = ''
@@ -382,6 +738,26 @@
     
     try {
     // >>>> scriptlet start
+    (function jsonPruneFetchResponse(...args) {
+        jsonPruneFetchResponseFn(...args);
+    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots","","propsToMatch","/playlist?");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function jsonPruneFetchResponse(...args) {
+        jsonPruneFetchResponseFn(...args);
+    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots","","propsToMatch","/player?");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
     (function jsonPruneXhrResponse(
         rawPrunePaths = '',
         rawNeedlePaths = ''
@@ -462,93 +838,17 @@
                     : response;
             }
         };
-    })("playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots","","/playlist\\?list=|\\/player|watch\\?[tv]=/");
+    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots","","propsToMatch","/player");
     // <<<< scriptlet end
     } catch (e) {
     
-    }
-    
-    function jsonPruneFetchResponseFn(
-        rawPrunePaths = '',
-        rawNeedlePaths = ''
-    ) {
-        const safe = safeSelf();
-        const logPrefix = safe.makeLogPrefix('json-prune-fetch-response', rawPrunePaths, rawNeedlePaths);
-        const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-        const propNeedles = parsePropertiesToMatch(extraArgs.propsToMatch, 'url');
-        const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
-        const logall = rawPrunePaths === '';
-        const applyHandler = function(target, thisArg, args) {
-            const fetchPromise = Reflect.apply(target, thisArg, args);
-            let outcome = logall ? 'nomatch' : 'match';
-            if ( propNeedles.size !== 0 ) {
-                const objs = [ args[0] instanceof Object ? args[0] : { url: args[0] } ];
-                if ( objs[0] instanceof Request ) {
-                    try {
-                        objs[0] = safe.Request_clone.call(objs[0]);
-                    } catch(ex) {
-                        safe.uboErr(logPrefix, 'Error:', ex);
-                    }
-                }
-                if ( args[1] instanceof Object ) {
-                    objs.push(args[1]);
-                }
-                if ( matchObjectProperties(propNeedles, ...objs) === false ) {
-                    outcome = 'nomatch';
-                }
-            }
-            if ( logall === false && outcome === 'nomatch' ) { return fetchPromise; }
-            if ( safe.logLevel > 1 && outcome !== 'nomatch' && propNeedles.size !== 0 ) {
-                safe.uboLog(logPrefix, `Matched optional "propsToMatch"\n${extraArgs.propsToMatch}`);
-            }
-            return fetchPromise.then(responseBefore => {
-                const response = responseBefore.clone();
-                return response.json().then(objBefore => {
-                    if ( typeof objBefore !== 'object' ) { return responseBefore; }
-                    if ( logall ) {
-                        safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-                        return responseBefore;
-                    }
-                    const objAfter = objectPruneFn(
-                        objBefore,
-                        rawPrunePaths,
-                        rawNeedlePaths,
-                        stackNeedle,
-                        extraArgs
-                    );
-                    if ( typeof objAfter !== 'object' ) { return responseBefore; }
-                    safe.uboLog(logPrefix, 'Pruned');
-                    const responseAfter = Response.json(objAfter, {
-                        status: responseBefore.status,
-                        statusText: responseBefore.statusText,
-                        headers: responseBefore.headers,
-                    });
-                    Object.defineProperties(responseAfter, {
-                        ok: { value: responseBefore.ok },
-                        redirected: { value: responseBefore.redirected },
-                        type: { value: responseBefore.type },
-                        url: { value: responseBefore.url },
-                    });
-                    return responseAfter;
-                }).catch(reason => {
-                    safe.uboErr(logPrefix, 'Error:', reason);
-                    return responseBefore;
-                });
-            }).catch(reason => {
-                safe.uboErr(logPrefix, 'Error:', reason);
-                return fetchPromise;
-            });
-        };
-        self.fetch = new Proxy(self.fetch, {
-            apply: applyHandler
-        });
     }
     
     try {
     // >>>> scriptlet start
     (function jsonPruneFetchResponse(...args) {
         jsonPruneFetchResponseFn(...args);
-    })("playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots","","/playlist\\?list=|player\\?|watch\\?[tv]=/");
+    })("reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd","","propsToMatch","url:/reel_watch_sequence?");
     // <<<< scriptlet end
     } catch (e) {
     
