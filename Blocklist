@@ -152,6 +152,7 @@ bulbapedia.bulbagarden.net###siteNotice
 cbssports.com###GlobalNavOffset
 cbssports.com###GlobalNavOffsetSpacer
 cbssports.com##body > div:has([data-adm-url])
+cbssports.com##.Skybox--minHeight, .Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
 cnet.com##.c-avStickyVideo
 cnet.com##.c-CnetAvStickyVideo
 cnet.com##.c-head_disclosure
