@@ -141,8 +141,9 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ###transcend-consent-manager
 
 !!---Specific CSS---!!
-appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
 appleinsider.com##.primis-ad-wrap
+appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
+appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
 arstechnica.com##li[class="archive-list archive-list-insteam"]
 arstechnica.com##.instream-container:has(.ad-label)
