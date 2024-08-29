@@ -142,6 +142,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 
 !!---Specific CSS---!!
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
+appleinsider.com##.primis-ad-wrap
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
 arstechnica.com##li[class="archive-list archive-list-insteam"]
 arstechnica.com##.instream-container:has(.ad-label)
