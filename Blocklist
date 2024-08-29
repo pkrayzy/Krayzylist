@@ -281,7 +281,7 @@ bing.com###ShoppingAnswerPALGFilterContainer
 
 
 !!--Bing CSS--!!
-!#if (adguard_app_mac || adguard_app_ios || adguard_ext_safari)
+!#if (adguard_app_mac || adguard_ext_safari)
 bing.com##.b_scopebar:style(margin-top: 10px !important;)
 bing.com###b_content:style(padding-top: 10px !important;)
 bing.com###b_header:style(margin-bottom: 10px !important;)
