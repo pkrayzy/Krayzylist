@@ -230,6 +230,8 @@ youtube.com##ytd-rich-item-renderer:has(ytd-ad-slot-renderer)
 zerohedge.com##.BlockContactInfo_dropdown__n9SPS
 zerohedge.com##.BlockLogin_container__f_B6j
 zerohedge.com##.BlockSearch_container__UmRtJ
+zerohedge.com##.bottom-banner-container
+zerohedge.com##.native
 zerohedge.com##.rectangle
 zerohedge.com##.rectangle-large
 zerohedge.com##.SidebarLeft_debateCallout__mMVK8
