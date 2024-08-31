@@ -97,6 +97,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 
 !!---Generic CSS---!!
 #@#div[class*="InstagramEmbedContainer"]
+##.ad-unit
 ##.article__broad-video-jw
 ##.billboard-overlay
 ##.block-heading.heading.default.override.commerce-disclaimer
