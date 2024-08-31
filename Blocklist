@@ -96,7 +96,7 @@ news.google.com#%#//scriptlet('remove-cookie')
 nytimes.com#%#//scriptlet('remove-cookie')
 
 !!---Generic CSS---!!
-#@#div[class^="InstagramEmbedContainer"]
+#@#div[class*="InstagramEmbedContainer"]
 ##.article__broad-video-jw
 ##.billboard-overlay
 ##.block-heading.heading.default.override.commerce-disclaimer
@@ -117,20 +117,21 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ##.recirc
 ##.van_vid_carousel
 ##.vid-present
-##[class^="BaseAd_"]
-##[class^="email-signup"]
-##[class^="FullWidthAd_"]
-##[class^="Header_HeaderAdvert"]
-##[class^="ImmersiveAd_"]
-##[class^="MobileStickyBanner"]
-##[class^="slice-container"]
+##[class*="BaseAd_"]
+##[class*="email-signup"]
+##[class*="FullWidthAd_"]
+##[class*="Header_HeaderAdvert"]
+##[class*="ImmersiveAd_"]
+##[class*="MobileStickyBanner"]
+##[class*="slice-container"]
 ##[class="adblock-allowlist-messaging__article-wrapper"]
 ##[class="affiliate-disclaimer"]
 ##[class="newsletter-slice"]
 ##[data-component="immersive-ad"]
-##[id^="ad_container"]
-##[id^="div-insticator-ad-"]
-##[id^="slice-container"]
+##[data-widget-type="empty"]
+##[id*="ad_container"]
+##[id*="div-insticator-ad-"]
+##[id*="slice-container"]
 ##[id="affiliate-disclaimer"]
 ##[id="newsletter-slice"]
 ##[id="taboola-below-article-thumbnails"]
@@ -149,8 +150,8 @@ arstechnica.com##li[class="archive-list archive-list-insteam"]
 arstechnica.com##.instream-container:has(.ad-label)
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN
 bloomberg.com##.styles_ledeContainer___qNar
-bloomberg.com##[button^=“FloatingCopyLink”]
-bloomberg.com##[class^="media-ui-FullWidthAd"]
+bloomberg.com##[button*=“FloatingCopyLink”]
+bloomberg.com##[class*="media-ui-FullWidthAd"]
 bulbapedia.bulbagarden.net###siteNotice
 cbssports.com###GlobalNavOffset
 cbssports.com###GlobalNavOffsetSpacer
@@ -167,7 +168,7 @@ clutchpoints.com##footer
 digitaltrends.com##.dtads-content
 digitaltrends.com##.dtads-location
 digitaltrends.com##.dtads-mobile
-digitaltrends.com##[class^="dtads-"]
+digitaltrends.com##[class*="dtads-"]
 espn.com##.article-legal-footer
 faroutmagazine.co.uk##.header:style(margin-top: 0px;)
 ft.com##.article__content-sign-up
@@ -175,7 +176,7 @@ ft.com##.o-banner
 ft.com###n-exponea-top-slot
 ft.com###sp_message_container_967339
 ft.com##div.n-layout__header-before > pg-slot
-instagram.com##article > div[class]:has(a[href^="https://www.facebook.com/ads/"])
+instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
 msn.com##.articlePageIntraArticleFullWidth
 msn.com##.consumption-page-banner-wrapper
 msn.com##.consumption-page-feed-wrapper
@@ -193,12 +194,12 @@ nypost.com##div:has([data-adm-url])
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###gateway-content
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
-people.com##div[id^="mntl-leaderboard"]
+people.com##div[id*="mntl-leaderboard"]
 reddit.com##shreddit-ad-post
 reddit.com##shreddit-comments-page-ad
 reddit.com##shreddit-dynamic-ad-link
 reddit.com##xpromo-nsfw-blocking-modal
-semafor.com##div[class^="styles_floatingBanner"]
+semafor.com##div[class*="styles_floatingBanner"]
 si.com##figure.style_uhlm2
 speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
@@ -221,7 +222,7 @@ wsj.com##[data-skip-label="What To Read Next"]
 wsj.com##[data-testid="ad-container"]
 wsj.com###cx-candybar
 wsj.com###cx-what-to-read-next
-wsj.com##div[class^="css-xgokil-Box"]
+wsj.com##div[class*="css-xgokil-Box"]
 youtube.com##.yt-mealbar-promo-renderer
 youtube.com##[target-id="engagement-panel-ads"]
 youtube.com###movie_player > div.ytp-paid-content-overlay
@@ -240,7 +241,7 @@ zerohedge.com##.ZeroHedgeReads_container__qAqpv
 zerohedge.com##[id*="in-content"]
 zerohedge.com###exitModalOverlay
 zerohedge.com##div.fc-ab-root:nth-child(n)
-zerohedge.com##div[class^="TheMarketEarHomePageSidebar"]
+zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
