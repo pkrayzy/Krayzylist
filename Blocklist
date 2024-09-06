@@ -139,6 +139,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ##[id="third-party--article-mid"]
 ##[id="third-party--viewport-takeover"]
 ###consent-placeholder-onetrust
+###neoLeadAdMobile
 ###third-party--viewport-takeover
 ###transcend-consent-manager
 
@@ -146,39 +147,54 @@ nytimes.com#%#//scriptlet('remove-cookie')
 appleinsider.com##.primis-ad-wrap
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
+arstechnica.com##.instream-container:has(.ad-label)
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
 arstechnica.com##li[class="archive-list archive-list-insteam"]
-arstechnica.com##.instream-container:has(.ad-label)
+barstoolsports.com##.ad--fixedBottom
+bing.com##.b_dlWebSlug
+bing.com##.b_gwaText
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN
 bloomberg.com##.styles_ledeContainer___qNar
 bloomberg.com##[button*=“FloatingCopyLink”]
 bloomberg.com##[class*="media-ui-FullWidthAd"]
 bulbapedia.bulbagarden.net###siteNotice
+cbssports.com##.Skybox--minHeight, .Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
 cbssports.com###GlobalNavOffset
 cbssports.com###GlobalNavOffsetSpacer
 cbssports.com##body > div:has([data-adm-url])
-cbssports.com##.Skybox--minHeight, .Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
+clutchpoints.com##.aspect-video
+clutchpoints.com##.not-prose
+clutchpoints.com##footer
 cnet.com##.c-avStickyVideo
 cnet.com##.c-CnetAvStickyVideo
 cnet.com##.c-head_disclosure
 cnet.com##.c-naviWidget
 cnet.com##div.c-globalDisclosure
-clutchpoints.com##.aspect-video
-clutchpoints.com##.not-prose
-clutchpoints.com##footer
 digitaltrends.com##.dtads-content
 digitaltrends.com##.dtads-location
 digitaltrends.com##.dtads-mobile
 digitaltrends.com##[class*="dtads-"]
+economist.com##.adComponent_advert__kPVUI
+economist.com##.adComponent_incontent__boSCu
+economist.com##.advert--regwall
 espn.com##.article-legal-footer
 faroutmagazine.co.uk##.header:style(margin-top: 0px;)
+ft.com##.advert 
 ft.com##.article__content-sign-up
+ft.com##.in-article-advert
+ft.com##.o-ads
+ft.com##.o-ads--center
+ft.com##.o-ads--label-left
 ft.com##.o-banner
+ft.com###article-body > div.o-ads
 ft.com###n-exponea-top-slot
 ft.com###sp_message_container_967339
 ft.com##div.n-layout__header-before > pg-slot
 instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
+lombardiave.com##figure.style_uhlm2
+miamiherald.com##mcc-paywall
 msn.com##.articlePageIntraArticleFullWidth
+msn.com##.banner-container
 msn.com##.consumption-page-banner-wrapper
 msn.com##.consumption-page-feed-wrapper
 msn.com##.end-of-content-block
@@ -186,7 +202,9 @@ msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-but
 msn.com##above-river-block
 msn.com##homepage-footer
 msn.com##views-right-rail
+nbcsports.com##bsp-banner
 nbcsports.com##bsp-reverse-scroll-ad.Page-ad
+nbcsports.com##div.ArticlePage-actions-wrapper
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
@@ -194,6 +212,7 @@ nypost.com##amp-video-iframe
 nypost.com##div:has([data-adm-url])
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com###gateway-content
+nytimes.com###slideup-paywall
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id*="mntl-leaderboard"]
 reddit.com##shreddit-ad-post
@@ -211,8 +230,9 @@ theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
-x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 whathifi.com##.ad-unit
+whathifi.com##.ad-unit
+whathifi.com###top-leaderboard
 wikipedia.org###centralNotice
 wsj.com##.ad-portal
 wsj.com##.aside-container
@@ -224,6 +244,7 @@ wsj.com##[data-testid="ad-container"]
 wsj.com###cx-candybar
 wsj.com###cx-what-to-read-next
 wsj.com##div[class*="css-xgokil-Box"]
+x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 youtube.com##.yt-mealbar-promo-renderer
 youtube.com##[target-id="engagement-panel-ads"]
 youtube.com###movie_player > div.ytp-paid-content-overlay
