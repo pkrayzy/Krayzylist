@@ -9,14 +9,14 @@ OpenSans-*00*$font
 Roboto*$font
 
 !!---Rakuten---!!
+@@||rakuten.com^$document
 @@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
 @@||datadoghq.com*$domain=rakuten.com|rakuten.ca
 @@||ebates.com*$domain=rakuten.com|rakuten.ca
 @@||ecbsn.com*$domain=rakuten.com|rakuten.ca
-@@||jdoqocy.com^$third-party
+@@||jdoqocy.com*$domain=bing.com|rakuten.com|rakuten.ca
 @@||linksynergy.com*$domain=rakuten.com|rakuten.ca
 @@||optimizely.com*$domain=rakuten.com|rakuten.ca
-@@||rakuten.com^$document
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
 !!---General URL---!!
