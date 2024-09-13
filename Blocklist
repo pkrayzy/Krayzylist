@@ -36,7 +36,6 @@ Roboto*$font
 ||a.jsrdn.com^$script
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
 ||assets.adobedtm.com/*/AppMeasurement.min.js$script
-||assets.adobedtm.com/*/AppMeasurement*.js$script
 ||assets.msn.com/*/action-tray.*.js$script
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
 ||assets.msn.com/*/mobile-app-upsell.*.js$script
@@ -46,24 +45,18 @@ Roboto*$font
 ||cdn.cookielaw.org^$script
 ||cdn.cxense.com^$script
 ||cdn.iubenda.com/cookie_solution^$script
-||cdn.optimizely.com/js/*.js$script
 ||cdn.optimizely.com^$script
 ||cdn.taboola.com/*/loader.js$script
-||childlikeform.com^$third-party
 ||content.jwplatform.com/*.js$script
 ||convertkit.com/ckjs^$script
 ||fundingchoicesmessages.google.com^
 ||js.memberful.com^$script
 ||jwpcdn.com/player^$script
 ||klaviyo.com/media/js^$script
-||liadm.com$script
 ||lightboxcdn.com$script
 ||pixeledhub.com$script
 ||polyfill-fastly.io^$script
-||pricklypollution.com^$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
-||sail-horizon.com^$script
-||sheargovernor.com^$script
 ||sourcepoint.*.com^$script
 ||static.foxnews.com/static/orion/scripts/core/base/app/utils/detector.js*$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
@@ -72,6 +65,13 @@ Roboto*$font
 ||substackcdn.com/*/HoverCard-*.js$script
 ||theathletic.com/*/webpack*.js$script
 ||transcend-cdn.com/*/airgap.js$script
+
+!!---Admiral---!!
+||childlikeform.com^$third-party
+||liadm.com$script
+||pricklypollution.com^$script
+||sail-horizon.com^$script
+||sheargovernor.com^$script
 ||unknownidea.com^$third-party
 
 !!---YouTube---!!
