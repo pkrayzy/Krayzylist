@@ -83,6 +83,12 @@ youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', '
 youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
 youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
 
+!!---TopStreams---!!
+topstreams.info##.ui-widget-content
+topstreams.info##.ui-widget-overlay
+topstreams.info#%#//scriptlet('prevent-window-open')
+topstreams.info#%#//scriptlet('remove-node-text', 'script', 'adserverDomain')
+
 !!---Cookie Remover---!!
 bloomberg.com#%#//scriptlet('remove-cookie')
 businessinsider.com#%#//scriptlet('remove-cookie')
