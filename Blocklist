@@ -84,8 +84,11 @@ youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', '
 youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
 
 !!---TopStreams---!!
+||chatango.com
+||fgeivosgjk.com
 topstreams.info##.ui-widget-content
 topstreams.info##.ui-widget-overlay
+topstreams.info#%#//scriptlet('prevent-fetch', '')
 topstreams.info#%#//scriptlet('prevent-window-open')
 topstreams.info#%#//scriptlet('remove-node-text', 'script', 'adserverDomain')
 
