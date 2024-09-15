@@ -124,6 +124,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ##.recirc
 ##.van_vid_carousel
 ##.vid-present
+##[aria-label="cookieconsent"]
 ##[class*="BaseAd_"]
 ##[class*="email-signup"]
 ##[class*="FullWidthAd_"]
@@ -134,12 +135,14 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ##[class="adblock-allowlist-messaging__article-wrapper"]
 ##[class="affiliate-disclaimer"]
 ##[class="newsletter-slice"]
+##[class="wt-cli-cookie-bar"]
 ##[data-component="immersive-ad"]
 ##[data-widget-type="empty"]
 ##[id*="ad_container"]
 ##[id*="div-insticator-ad-"]
 ##[id*="slice-container"]
 ##[id="affiliate-disclaimer"]
+##[id="cookie-law-info-bar"]
 ##[id="newsletter-slice"]
 ##[id="taboola-below-article-thumbnails"]
 ##[id="third-party--article-mid"]
