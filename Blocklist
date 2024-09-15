@@ -135,6 +135,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ##[class="adblock-allowlist-messaging__article-wrapper"]
 ##[class="affiliate-disclaimer"]
 ##[class="newsletter-slice"]
+##[class="wt-cli-cookie-bar-container"]
 ##[class="wt-cli-cookie-bar"]
 ##[data-component="immersive-ad"]
 ##[data-widget-type="empty"]
