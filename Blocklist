@@ -35,6 +35,7 @@ Roboto*$font
 !!---Specific URL---!!
 ||a.jsrdn.com^$script
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
+||appboycdn.com^$script
 ||assets.adobedtm.com/*/AppMeasurement.min.js$script
 ||assets.msn.com/*/action-tray.*.js$script
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
@@ -50,6 +51,8 @@ Roboto*$font
 ||content.jwplatform.com/*.js$script
 ||convertkit.com/ckjs^$script
 ||fundingchoicesmessages.google.com^
+||google.com/recaptcha^$script
+||gstatic.com/recaptcha^$script
 ||js.memberful.com^$script
 ||jwpcdn.com/player^$script
 ||klaviyo.com/media/js^$script
@@ -57,6 +60,7 @@ Roboto*$font
 ||pixeledhub.com$script
 ||polyfill-fastly.io^$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
+||scripts.webcontentassessor.com^$third-party
 ||sourcepoint.*.com^$script
 ||static.foxnews.com/static/orion/scripts/core/base/app/utils/detector.js*$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
