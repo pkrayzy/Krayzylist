@@ -328,15 +328,15 @@ bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ShoppingAnswerPALGFilterContainer
 
 !!--Bing CSS--!!
-!#if (adguard_app_mac || adguard_ext_safari)
-bing.com##.b_scopebar:style(margin-left: 44px !important;)
-bing.com##.b_scopebar:style(margin-top: 10px !important;)
-bing.com###b_content:style(padding-left: 44px !important;)
-bing.com###b_content:style(padding-top: 10px !important;)
-bing.com###b_header:style(margin-bottom: 10px !important;)
-bing.com###b_mcw:style(margin-top: 0px !important;)
-bing.com###b_pole:style(margin-top: -20px !important;)
-!#endif
+! !#if (adguard_app_mac || adguard_ext_safari)
+! bing.com##.b_scopebar:style(margin-left: 44px !important;)
+! bing.com##.b_scopebar:style(margin-top: 10px !important;)
+! bing.com###b_content:style(padding-left: 44px !important;)
+! bing.com###b_content:style(padding-top: 10px !important;)
+! bing.com###b_header:style(margin-bottom: 10px !important;)
+! bing.com###b_mcw:style(margin-top: 0px !important;)
+! bing.com###b_pole:style(margin-top: -20px !important;)
+! !#endif
 
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
