@@ -69,6 +69,8 @@ Roboto*$font
 ||substackcdn.com/*/HoverCard-*.js$script
 ||theathletic.com/*/webpack*.js$script
 ||transcend-cdn.com/*/airgap.js$script
+||static01.nyt.com/ads^
+||nytimes.com/vi-assets/static-assets/adslot-*.js$script
 
 !!---Admiral---!!
 ||childlikeform.com^$third-party
@@ -235,6 +237,9 @@ nytimes.com##[data-testid="standard-dock"]
 nytimes.com###gateway-content
 nytimes.com###slideup-paywall
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
+nytimes.com###masthead-bar-one
+nytimes.com##[id="bottom-wrapper"]
+nytimes.com##[class="vi-gateway-container"] > div:has([id="after-mobile_top"])
 people.com##div[id*="mntl-leaderboard"]
 reddit.com##shreddit-ad-post
 reddit.com##shreddit-comments-page-ad
