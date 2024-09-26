@@ -47,6 +47,7 @@ Roboto*$font
 ||cdn.cxense.com^$script
 ||cdn.iubenda.com/cookie_solution^$script
 ||cdn.optimizely.com^$script
+||cdn.privacy-mgmt.com$3p
 ||cdn.taboola.com/*/loader.js$script
 ||content.jwplatform.com/*.js$script
 ||convertkit.com/ckjs^$script
