@@ -57,6 +57,7 @@ Roboto*$font
 ||jwpcdn.com/player^$script
 ||klaviyo.com/media/js^$script
 ||lightboxcdn.com$script
+||nytimes.com/vi-assets/static-assets/adslot-*.js$script
 ||pixeledhub.com$script
 ||polyfill-fastly.io^$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
@@ -65,12 +66,11 @@ Roboto*$font
 ||static.foxnews.com/static/orion/scripts/core/base/app/utils/detector.js*$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
 ||static.semafor.com/_next/static/chunks^$script
+||static01.nyt.com/ads^
 ||substackcdn.com/*/free_email_form-*.js$script
 ||substackcdn.com/*/HoverCard-*.js$script
 ||theathletic.com/*/webpack*.js$script
 ||transcend-cdn.com/*/airgap.js$script
-||static01.nyt.com/ads^
-||nytimes.com/vi-assets/static-assets/adslot-*.js$script
 
 !!---Admiral---!!
 ||childlikeform.com^$third-party
@@ -171,8 +171,6 @@ architecturaldigest.com##.wide-adrail
 arstechnica.com##.instream-container:has(.ad-label)
 arstechnica.com##aside.ad.ad_crown:nth-child(n)
 arstechnica.com##li[class="archive-list archive-list-insteam"]
-www.barrons.com##.adWrapperTopLead
-www.barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 barstoolsports.com##.ad--fixedBottom
 bing.com##.b_dlWebSlug
 bing.com##.b_gwaText
@@ -233,13 +231,13 @@ nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##amp-video-iframe
 nypost.com##div:has([data-adm-url])
+nytimes.com##[class="vi-gateway-container"] > div:has([id="after-mobile_top"])
 nytimes.com##[data-testid="standard-dock"]
+nytimes.com##[id="bottom-wrapper"]
 nytimes.com###gateway-content
+nytimes.com###masthead-bar-one
 nytimes.com###slideup-paywall
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
-nytimes.com###masthead-bar-one
-nytimes.com##[id="bottom-wrapper"]
-nytimes.com##[class="vi-gateway-container"] > div:has([id="after-mobile_top"])
 people.com##div[id*="mntl-leaderboard"]
 reddit.com##shreddit-ad-post
 reddit.com##shreddit-comments-page-ad
@@ -269,6 +267,8 @@ wsj.com##[data-testid="ad-container"]
 wsj.com###cx-candybar
 wsj.com###cx-what-to-read-next
 wsj.com##div[class*="css-xgokil-Box"]
+www.barrons.com##.adWrapperTopLead
+www.barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 youtube.com##.yt-mealbar-promo-renderer
 youtube.com##[target-id="engagement-panel-ads"]
