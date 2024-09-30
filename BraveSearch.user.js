@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         NewsRedirector
+// @name         BraveSearch
 // @namespace    http://tampermonkey.net/
 // @downloadURL  https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/BraveSearch.user.js
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/BraveSearch.user.js
