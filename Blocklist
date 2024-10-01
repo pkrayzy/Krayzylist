@@ -154,6 +154,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ##[id*="slice-container"]
 ##[id="affiliate-disclaimer"]
 ##[id="cookie-law-info-bar"]
+##[id="leaderboard-mobile"]
 ##[id="newsletter-slice"]
 ##[id="taboola-below-article-thumbnails"]
 ##[id="third-party--article-mid"]
