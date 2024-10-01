@@ -293,6 +293,10 @@ zerohedge.com##[id*="in-content"]
 zerohedge.com###exitModalOverlay
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
+zerohedge.com##section[class*="PromoButton_"]
+zerohedge.com##[class*="PromoBanner_"]
+zerohedge.com##[id*="list-display-"]
+zerohedge.com##div[id="content-pack"]
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
