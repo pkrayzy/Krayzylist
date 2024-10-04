@@ -170,9 +170,9 @@ appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
 architecturaldigest.com##.grid-layout--adrail
 architecturaldigest.com##.wide-adrail
-arstechnica.com##.instream-container:has(.ad-label)
-arstechnica.com##aside.ad.ad_crown:nth-child(n)
-arstechnica.com##li[class="archive-list archive-list-insteam"]
+! arstechnica.com##.instream-container:has(.ad-label)
+! arstechnica.com##aside.ad.ad_crown:nth-child(n)
+! arstechnica.com##li[class="archive-list archive-list-insteam"]
 barstoolsports.com##.ad--fixedBottom
 bing.com##.b_dlWebSlug
 bing.com##.b_gwaText
@@ -289,14 +289,14 @@ zerohedge.com##.rectangle-large
 zerohedge.com##.SidebarLeft_debateCallout__mMVK8
 zerohedge.com##.TopPosts_posts__kSDL7
 zerohedge.com##.ZeroHedgeReads_container__qAqpv
+zerohedge.com##[class*="PromoBanner_"]
 zerohedge.com##[id*="in-content"]
+zerohedge.com##[id*="list-display-"]
 zerohedge.com###exitModalOverlay
 zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
-zerohedge.com##section[class*="PromoButton_"]
-zerohedge.com##[class*="PromoBanner_"]
-zerohedge.com##[id*="list-display-"]
 zerohedge.com##div[id="content-pack"]
+zerohedge.com##section[class*="PromoButton_"]
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
