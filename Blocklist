@@ -21,7 +21,7 @@ Roboto*$font
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*.js$script
-/ads/adsbygoogle.js$script
+/ads/adsbygoogle.js$scripts
 /airgap.js$script
 /airgapWrapper.js$script
 /cxense-candy.js$script
@@ -75,10 +75,11 @@ Roboto*$font
 
 !!---Admiral---!!
 ||childlikeform.com^$third-party
-||liadm.com$script
-||pricklypollution.com^$script
-||sail-horizon.com^$script
-||sheargovernor.com^$script
+||fuzzybasketball.com^$third-party
+||liadm.com^$third-party
+||pricklypollution.com^$third-party
+||sail-horizon.com^$third-party
+||sheargovernor.com^$third-party
 ||unknownidea.com^$third-party
 
 !!---YouTube---!!
@@ -149,6 +150,8 @@ nytimes.com#%#//scriptlet('remove-cookie')
 ##[class="wt-cli-cookie-bar"]
 ##[data-component="immersive-ad"]
 ##[data-widget-type="empty"]
+##[href*="https://getad"]
+##[id*="acm-ad-tag"]
 ##[id*="ad_container"]
 ##[id*="div-insticator-ad-"]
 ##[id*="slice-container"]
@@ -244,6 +247,7 @@ reddit.com##shreddit-ad-post
 reddit.com##shreddit-comments-page-ad
 reddit.com##shreddit-dynamic-ad-link
 reddit.com##xpromo-nsfw-blocking-modal
+rumble.comid###premium-popup__container--aria
 search.brave.com###faq
 semafor.com##div[class*="styles_floatingBanner"]
 si.com##figure.style_uhlm2
@@ -256,6 +260,7 @@ theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
+usatoday.com##body > div:has([href*="https://getad"])
 whathifi.com##.ad-unit
 whathifi.com###top-leaderboard
 wikipedia.org###centralNotice
@@ -306,6 +311,7 @@ bing.com##.b_fbCont
 bing.com##.b_floatR
 bing.com##.b_mrs
 bing.com##.b_rrsr
+bing.com##.b_rs
 bing.com##.b_sp-ca
 bing.com##.b_spa_adblock
 bing.com##.b_wikipedia_icon
@@ -361,6 +367,7 @@ bing.com##li.b_ans.b_vidAns
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.b_mrs)
+bing.com##.b_ans:has(.b_rs)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild)
 bing.com###b_pole:has(#ssa_main)
