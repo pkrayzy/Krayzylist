@@ -234,6 +234,10 @@ nbcsports.com##div.ArticlePage-actions-wrapper
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
+nypost.com##.membership-comments-container
+nypost.com##.nyp-zephr-flyout
+nypost.com##.scrollingdown.hide
+nypost.com##.widget--vividseats
 nypost.com##amp-video-iframe
 nypost.com##div:has([data-adm-url])
 nytimes.com##[class="vi-gateway-container"] > div:has([id="after-mobile_top"])
