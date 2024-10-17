@@ -7,9 +7,10 @@
 NotoSans*$font
 OpenSans-*00*$font
 Roboto*$font
+||fonts.gstatic.com/s/googlesans/$domain=google.com,font
 
 !!---Rakuten---!!
-@@||rakuten.com^$document
+@@||rakuten.com$document
 @@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
 @@||datadoghq.com*$domain=rakuten.com|rakuten.ca
 @@||ebates.com*$domain=rakuten.com|rakuten.ca
@@ -33,40 +34,40 @@ Roboto*$font
 /wp-content/plugins/elementor-pro/*$script
 
 !!---Specific URL---!!
-||a.jsrdn.com^$script
+||a.jsrdn.com$script
 ||adtech.redventures.io/*/bidbarrel-cnet-rv.min.js$script
-||appboycdn.com^$script
+||appboycdn.com$script
 ||assets.adobedtm.com/*/AppMeasurement.min.js$script
 ||assets.msn.com/*/action-tray.*.js$script
 ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
 ||assets.msn.com/*/mobile-app-upsell.*.js$script
 ||assets.msn.com/*/one-footer.*.js$script
 ||cdn.brandmetrics.com/*/theathletic.js$script
-||cdn.consentmanager.net^$script
-||cdn.cookielaw.org^$script
-||cdn.cxense.com^$script
-||cdn.iubenda.com/cookie_solution^$script
-||cdn.optimizely.com^$script
+||cdn.consentmanager.net$script
+||cdn.cookielaw.org$script
+||cdn.cxense.com$script
+||cdn.iubenda.com/cookie_solution$script
+||cdn.optimizely.com$script
 ||cdn.privacy-mgmt.com$3p
 ||cdn.taboola.com/*/loader.js$script
 ||content.jwplatform.com/*.js$script
-||convertkit.com/ckjs^$script
+||convertkit.com/ckjs$script
 ||fundingchoicesmessages.google.com^
-||google.com/recaptcha^$script
-||gstatic.com/recaptcha^$script
-||js.memberful.com^$script
-||jwpcdn.com/player^$script
-||klaviyo.com/media/js^$script
+||google.com/recaptcha$script
+||gstatic.com/recaptcha$script
+||js.memberful.com$script
+||jwpcdn.com/player$script
+||klaviyo.com/media/js$script
 ||lightboxcdn.com$script
 ||nytimes.com/vi-assets/static-assets/adslot-*.js$script
 ||pixeledhub.com$script
-||polyfill-fastly.io^$script
+||polyfill-fastly.io$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
-||scripts.webcontentassessor.com^$third-party
-||sourcepoint.*.com^$script
+||scripts.webcontentassessor.com$third-party
+||sourcepoint.*.com$script
 ||static.foxnews.com/static/orion/scripts/core/base/app/utils/detector.js*$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
-||static.semafor.com/_next/static/chunks^$script
+||static.semafor.com/_next/static/chunks$script
 ||static01.nyt.com/ads^
 ||substackcdn.com/*/free_email_form-*.js$script
 ||substackcdn.com/*/HoverCard-*.js$script
@@ -74,13 +75,13 @@ Roboto*$font
 ||transcend-cdn.com/*/airgap.js$script
 
 !!---Admiral---!!
-||childlikeform.com^$third-party
-||fuzzybasketball.com^$third-party
-||liadm.com^$third-party
-||pricklypollution.com^$third-party
-||sail-horizon.com^$third-party
-||sheargovernor.com^$third-party
-||unknownidea.com^$third-party
+||childlikeform.com$third-party
+||fuzzybasketball.com$third-party
+||liadm.com$third-party
+||pricklypollution.com$third-party
+||sail-horizon.com$third-party
+||sheargovernor.com$third-party
+||unknownidea.com$third-party
 
 !!---YouTube---!!
 m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('json-prune', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots')
@@ -350,17 +351,6 @@ bing.com###relatedSearchesLGWContainer
 bing.com###ShoppingAnswerLGFilterContainer
 bing.com###ShoppingAnswerPALGFilterContainer
 
-!!--Bing CSS--!!
-! !#if (adguard_app_mac || adguard_ext_safari)
-! bing.com##.b_scopebar:style(margin-left: 44px !important;)
-! bing.com##.b_scopebar:style(margin-top: 10px !important;)
-! bing.com###b_content:style(padding-left: 44px !important;)
-! bing.com###b_content:style(padding-top: 10px !important;)
-! bing.com###b_header:style(margin-bottom: 10px !important;)
-! bing.com###b_mcw:style(margin-top: 0px !important;)
-! bing.com###b_pole:style(margin-top: -20px !important;)
-! !#endif
-
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
 bing.com##.b_ans.b_explans.rrexqp.trirow
@@ -380,4 +370,3 @@ bing.com###b_pole:has(#ssa_main)
 bing.com###b_results > li.b_ans:has(#df_listaa)
 bing.com##li.b_ans:has(#vidans2)
 bing.com##li.b_ans:has(#waitListDefault)
-! bing.com##.b_algo:has([data-partnertag])
