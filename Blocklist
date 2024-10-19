@@ -7,7 +7,7 @@
 NotoSans*$font
 OpenSans-*00*$font
 Roboto*$font
-||fonts.gstatic.com/s/googlesans/$domain=google.com,font
+!||fonts.gstatic.com/s/googlesans/$domain=google.com,font
 
 !!---Rakuten---!!
 @@||rakuten.com$document
@@ -214,9 +214,6 @@ ft.com###article-body > div.o-ads
 ft.com###n-exponea-top-slot
 ft.com###sp_message_container_967339
 ft.com##div.n-layout__header-before > pg-slot
-google.com##.related-question-pair
-google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
-google.com##div[data-ulkwtsb]
 instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
 lombardiave.com##figure.style_uhlm2
 miamiherald.com##mcc-paywall
@@ -308,6 +305,13 @@ zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
 zerohedge.com##div[id="content-pack"]
 zerohedge.com##section[class*="PromoButton_"]
+
+!!--Google--!!
+google.com##div[jsname="Cpkphb"]
+google.com##div[data-ulkwtsb]
+google.com##[jsname="xQjRM"]:has([jsname="Cpkphb"])
+google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
+google.com##.related-question-pair
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
