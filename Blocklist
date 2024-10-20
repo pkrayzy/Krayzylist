@@ -307,11 +307,13 @@ zerohedge.com##div[id="content-pack"]
 zerohedge.com##section[class*="PromoButton_"]
 
 !!--Google--!!
-google.com##div[jsname="Cpkphb"]
-google.com##div[data-ulkwtsb]
-google.com##[jsname="xQjRM"]:has([jsname="Cpkphb"])
-google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
+google.com##.ouy7Mc
 google.com##.related-question-pair
+google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
+google.com##[jsname="xQjRM"]:has([jsname="Cpkphb"])
+google.com###bres
+google.com##div[data-ulkwtsb]
+google.com##div[jsname="Cpkphb"]
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
