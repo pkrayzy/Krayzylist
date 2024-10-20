@@ -308,8 +308,13 @@ zerohedge.com##div[id="content-pack"]
 zerohedge.com##section[class*="PromoButton_"]
 
 !!--Google--!!
+! Bottom Releated Search !
 google.com###bres
+! Short Video !
+google.com##.MjjYud > div:has([jscontroller="k23IOe"])
+! People Also Ask !
 google.com##.ouy7Mc
+! People Also Search For !
 google.com##.related-question-pair
 google.com##div[data-ulkwtsb]
 google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
