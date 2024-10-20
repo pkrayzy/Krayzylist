@@ -73,6 +73,7 @@ Roboto*$font
 ||substackcdn.com/*/HoverCard-*.js$script
 ||theathletic.com/*/webpack*.js$script
 ||transcend-cdn.com/*/airgap.js$script
+||youtube.com/s/*/intersection-observer.min.js$script
 
 !!---Admiral---!!
 ||childlikeform.com$third-party
@@ -307,13 +308,13 @@ zerohedge.com##div[id="content-pack"]
 zerohedge.com##section[class*="PromoButton_"]
 
 !!--Google--!!
-google.com##.ouy7Mc
-google.com##.related-question-pair
-google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
-google.com##[jsname="xQjRM"]:has([jsname="Cpkphb"])
 google.com###bres
+google.com##.related-question-pair
+google.com##.MjjYud > div:has(.related-question-pair)
 google.com##div[data-ulkwtsb]
+google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
 google.com##div[jsname="Cpkphb"]
+google.com##[jsname="xQjRM"]:has([jsname="Cpkphb"])
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
