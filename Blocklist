@@ -310,7 +310,6 @@ zerohedge.com##section[class*="PromoButton_"]
 !!--Google--!!
 google.com###bres
 google.com##.related-question-pair
-google.com##.MjjYud > div:has(.related-question-pair)
 google.com##div[data-ulkwtsb]
 google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
 google.com##div[jsname="Cpkphb"]
