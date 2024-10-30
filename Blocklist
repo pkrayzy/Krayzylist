@@ -114,67 +114,10 @@ my.businessinsider.com#%#//scriptlet('remove-cookie')
 news.google.com#%#//scriptlet('remove-cookie')
 nytimes.com#%#//scriptlet('remove-cookie')
 
-!!---Generic CSS---!!
-#@#div[class*="InstagramEmbedContainer"]
-##.ad-unit
-##.article__broad-video-jw
-##.billboard-overlay
-##.block-heading.heading.default.override.commerce-disclaimer
-##.bOvWNQ
-##.div-related-embed.article-video-slot
-##.fixedBottom
-##.hawk-nest
-##.hawk-processed
-##.how-we-test
-##.how-we-test-review
-##.mntl-jwplayer-broad
-##.MobileStickyBanner
-##.MobileStickyBanner__active
-##.MobileStickyBanner__content
-##.newsletter-form__wrapper
-##.OPT_IN_AND_OUT.BUTTON
-##.Post__inPostVideoAdMobile
-##.recirc
-##.van_vid_carousel
-##.vid-present
-##[aria-label="cookieconsent"]
-##[class*="BaseAd_"]
-##[class*="email-signup"]
-##[class*="FullWidthAd_"]
-##[class*="Header_HeaderAdvert"]
-##[class*="ImmersiveAd_"]
-##[class*="MobileStickyBanner"]
-##[class*="slice-container"]
-##[class="adblock-allowlist-messaging__article-wrapper"]
-##[class="affiliate-disclaimer"]
-##[class="newsletter-slice"]
-##[class="wt-cli-cookie-bar-container"]
-##[class="wt-cli-cookie-bar"]
-##[data-component="immersive-ad"]
-##[data-widget-type="empty"]
-##[href*="https://getad"]
-##[id*="acm-ad-tag"]
-##[id*="ad_container"]
-##[id*="div-insticator-ad-"]
-##[id*="slice-container"]
-##[id="affiliate-disclaimer"]
-##[id="cookie-law-info-bar"]
-##[id="leaderboard-mobile"]
-##[id="newsletter-slice"]
-##[id="taboola-below-article-thumbnails"]
-##[id="third-party--article-mid"]
-##[id="third-party--viewport-takeover"]
-###consent-placeholder-onetrust
-###neoLeadAdMobile
-###third-party--viewport-takeover
-###transcend-consent-manager
-
 !!---Specific CSS---!!
 appleinsider.com##.primis-ad-wrap
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
-architecturaldigest.com##.grid-layout--adrail
-architecturaldigest.com##.wide-adrail
 barstoolsports.com##.ad--fixedBottom
 bing.com##.b_dlWebSlug
 bing.com##.b_gwaText
