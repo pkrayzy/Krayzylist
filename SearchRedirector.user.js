@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name BraveRedirect
 // @description Redirect Ecosia to Brave
+// @include http://*.ecosia.org/*
 // @run-at request
 // ==/UserScript==
 
