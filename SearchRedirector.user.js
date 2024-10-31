@@ -4,7 +4,7 @@
 // @description  Redirect DuckDuckGo searches to Brave Search.
 // @author       Your Name
 // @match        https://duckduckgo.com/*
-// @grant        declarativeNetRequest
+// @run-at       request
 
  declarativeNetRequest({
   id: 1,
