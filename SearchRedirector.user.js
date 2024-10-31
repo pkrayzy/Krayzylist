@@ -1,18 +1,17 @@
 // ==UserScript==
 // @name BraveRedirect
 // @description Redirect Ecosia to Brave
-// @include http://*.ecosia.org/*
 // @run-at request
 // ==/UserScript==
 
 {
-    "id": 1,
+    "id": 6,
     "priority": 1,
     "action": {
         "type": "redirect",
         "redirect": {
-            "transform": { "scheme": "https", "host": "www.search.brave.com" }
+            "transform": { "scheme": "https", "host": "search.brave.com" }
         }
     },
-    "condition": { "urlFilter": "||ecosia.org", "resourceTypes": ["main_frame"] }
+    "condition": { "urlFilter": "www.ecosia.org", "resourceTypes": ["main_frame"] }
 }
