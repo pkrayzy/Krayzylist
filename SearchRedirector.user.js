@@ -13,5 +13,5 @@
             "transform": { "scheme": "https", "host": "www.search.brave.com" }
         }
     },
-    "condition": { "urlFilter": "||ecosia.com", "resourceTypes": ["main_frame"] }
+    "condition": { "urlFilter": "||ecosia.org", "resourceTypes": ["main_frame"] }
 }
