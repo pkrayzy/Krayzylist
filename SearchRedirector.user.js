@@ -2,15 +2,17 @@
 // @description  Redirect DuckDuckGo searches to Brave Search.
 // @run-at       request
 
- {
-  id: 1,
+{
+  id: 22891,
   priority: 1,
   action: {
     type: "redirect",
-    url: "https://search.brave.com/search"
+    redirect: {
+      regexSubstitution: "https://search.brave.com/search?q=\\1"
+    },
   },
   condition: {
-    urlFilter: "https://duckduckgo.com/*",
+    regexFilter: "https://duckduckgo.com/\\?(?:.*&)?q=([^&]*).*",
     resourceTypes: ["main_frame"]
   }
 }
