@@ -1,6 +1,8 @@
+// ==/UserScript==
 // @name         DDG Redirect to Brave Search
 // @description  Redirect DuckDuckGo searches to Brave Search.
 // @run-at       request
+// ==/UserScript==
 
 {
   id: 22891,
