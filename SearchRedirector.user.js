@@ -1,20 +1,20 @@
-// ==UserScript==
-// @name BraveRedirect
-// @description Redirect Ecosia to Brave
-// @run-at request
-// ==/UserScript==
+// @name         DDG Redirect to Brave Search
+// @namespace    https://github.com/your-username/ddg-brave-search-redirect
+// @version      1.0
+// @description  Redirect DuckDuckGo searches to Brave Search.
+// @author       Your Name
+// @match        https://duckduckgo.com/*
+// @grant        declarativeNetRequest
 
-    {
-      id: 1,
-      priority: 1,
-      action: {
-        type: "redirect",
-        redirect: {
-          regexSubstitution: "https://search.brave.com/search?q=\\1"
-        }
-      },
-      condition: {
-        regexFilter: "https://(www\\.)?duckduckgo\\.com/(.*)",
-        resourceTypes: ["main_frame"]
-      }
-    };
+ declarativeNetRequest({
+  id: 1,
+  priority: 1,
+  action: {
+    type: "redirect",
+    url: "https://search.brave.com/search"
+  },
+  condition: {
+    urlFilter: "https://duckduckgo.com/*",
+    resourceTypes: ["main_frame"]
+  }
+});
