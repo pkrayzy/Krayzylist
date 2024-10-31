@@ -4,14 +4,19 @@
 // @run-at request
 // ==/UserScript==
 
-{
-    "id": 6,
+  {
+    "id": 1,
     "priority": 1,
     "action": {
-        "type": "redirect",
-        "redirect": {
-            "transform": { "scheme": "https", "host": "search.brave.com" }
-        }
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://search.brave.com/search?q=\\1"
+      }
     },
-    "condition": { "urlFilter": "www.ecosia.org", "resourceTypes": ["main_frame"] }
-}
+    "condition": {
+      "regexFilter": "https://(www\\.)?duckduckgo\\.com/(.*)",
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
+  }
