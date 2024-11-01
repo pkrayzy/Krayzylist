@@ -7,7 +7,6 @@
 NotoSans*$font
 OpenSans-*00*$font
 Roboto*$font
-!||fonts.gstatic.com/s/googlesans/$domain=google.com,font
 
 !!---Rakuten---!!
 @@||rakuten.com$document
@@ -54,6 +53,7 @@ Roboto*$font
 ||convertkit.com/ckjs$script
 ||fundingchoicesmessages.google.com^
 ||google.com/recaptcha$script
+||gstatic.com/external_hosted/lottie/lottie_light.js$script
 ||gstatic.com/recaptcha$script
 ||js.memberful.com$script
 ||jwpcdn.com/player$script
@@ -71,12 +71,15 @@ Roboto*$font
 ||static01.nyt.com/ads^
 ||substackcdn.com/*/free_email_form-*.js$script
 ||substackcdn.com/*/HoverCard-*.js$script
+||tags.tiqcdn.com$script
 ||theathletic.com/*/webpack*.js$script
+||thurrott.com$font
 ||transcend-cdn.com/*/airgap.js$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
 !!---Admiral---!!
 ||childlikeform.com$third-party
+||colossalcry.com$third-party
 ||fuzzybasketball.com$third-party
 ||liadm.com$third-party
 ||pricklypollution.com$third-party
@@ -205,6 +208,7 @@ rumble.comid###premium-popup__container--aria
 search.brave.com###faq
 semafor.com##div[class*="styles_floatingBanner"]
 si.com##figure.style_uhlm2
+smogon.com##span
 soundguys.com##.d_dk
 soundguys.com##.d_s
 soundguys.com##div[data-ad-type]
