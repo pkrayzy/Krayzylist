@@ -118,6 +118,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 appleinsider.com##.primis-ad-wrap
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
+arstechnica.com##.ad-wrapper
 barstoolsports.com##.ad--fixedBottom
 bing.com##.b_dlWebSlug
 bing.com##.b_gwaText
@@ -133,6 +134,8 @@ cbssports.com##body > div:has([data-adm-url])
 clutchpoints.com##.aspect-video
 clutchpoints.com##.not-prose
 clutchpoints.com##footer
+cnet.com##.c-adSkyBox
+cnet.com##.c-adSkyBox_expanded
 cnet.com##.c-avStickyVideo
 cnet.com##.c-CnetAvStickyVideo
 cnet.com##.c-head_disclosure
@@ -145,6 +148,9 @@ digitaltrends.com##[class*="dtads-"]
 economist.com##.adComponent_advert__kPVUI
 economist.com##.adComponent_incontent__boSCu
 economist.com##.advert--regwall
+espn.com##.ad-slot
+espn.com##.ad-slot-banner
+espn.com##.ad-wrapper
 espn.com##.article-legal-footer
 faroutmagazine.co.uk##.header:style(margin-top: 0px;)
 ft.com##.advert 
@@ -199,6 +205,9 @@ rumble.comid###premium-popup__container--aria
 search.brave.com###faq
 semafor.com##div[class*="styles_floatingBanner"]
 si.com##figure.style_uhlm2
+soundguys.com##.d_dk
+soundguys.com##.d_s
+soundguys.com##div[data-ad-type]
 speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
@@ -206,12 +215,20 @@ theintercept.com###third-party--article-mid
 theopen.com##div.overlay.is-visible
 theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
+thurrott.com##.adthrive
+thurrott.com##.adthrive-ad
+thurrott.com##.adthrive-content
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
 usatoday.com##body > div:has([href*="https://getad"])
 whathifi.com##.ad-unit
+whathifi.com###taboola-below-article-thumbnails
 whathifi.com###top-leaderboard
 wikipedia.org###centralNotice
+windowscentral.com##.ad-unit
+windowscentral.com###article-body > div.van_vid_carousel
+windowscentral.com|whathifi.com##.dfp-leaderboard-container
+windowscentral.com|whathifi.com##.newsletter-form__wrapper
 wsj.com##.ad-portal
 wsj.com##.aside-container
 wsj.com##[aria-label="Utility Nav"]
