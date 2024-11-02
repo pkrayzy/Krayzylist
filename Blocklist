@@ -231,8 +231,8 @@ whathifi.com###top-leaderboard
 wikipedia.org###centralNotice
 windowscentral.com##.ad-unit
 windowscentral.com###article-body > div.van_vid_carousel
-windowscentral.com|whathifi.com##.dfp-leaderboard-container
-windowscentral.com|whathifi.com##.newsletter-form__wrapper
+windowscentral.com,whathifi.com##.dfp-leaderboard-container
+windowscentral.com,whathifi.com##.newsletter-form__wrapper
 wsj.com##.ad-portal
 wsj.com##.aside-container
 wsj.com##[aria-label="Utility Nav"]
