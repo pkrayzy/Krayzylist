@@ -20,17 +20,17 @@ Roboto*$font
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
 !!---General URL---!!
-/*.consentdrawer.bundle.*.js$script
-/ads/adsbygoogle.js$scripts
-/airgap.js$script
-/airgapWrapper.js$script
-/cxense-candy.js$script
-/eu_cookie_compliance.min.js$script
-/gdpr*.bundle.js$script
-/openads/js/*$script
-/pum-site-scripts.js$script
-/scripts/adslot.js$script
-/wp-content/plugins/elementor-pro/*$script
+/*.consentdrawer.bundle.*.js
+/ads/adsbygoogle.js
+/airgap.js
+/airgapWrapper.js
+/cxense-candy.js
+/eu_cookie_compliance.min.js
+/gdpr*.bundle.js
+/openads/js/*
+/pum-site-scripts.js
+/scripts/adslot.js
+/wp-content/plugins/elementor-pro/*
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
