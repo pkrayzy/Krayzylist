@@ -228,18 +228,19 @@ thurrott.com##.adthrive-content
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
 usatoday.com##body > div:has([href*="https://getad"])
-whathifi.com##.ad-unit
-whathifi.com###taboola-below-article-thumbnails
-whathifi.com###top-leaderboard
 wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.dfp-leaderboard-container
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.infinite-container
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.newsletter-form__wrapper
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.van_taboola
+windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.widget-ads, .widget-ads-lightbox2, .widget-ads-ads-lightbox2, .widget-ads-static-lightbox2
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###article-body > div.van_vid_carousel
+windowscentral.com,whathifi.com,techradar.com,tomsguide.com###newsletter-slice
+windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-mobile-below-article-thumbnails
+windowscentral.com,whathifi.com,techradar.com,tomsguide.com###top-leaderboard
 wsj.com##.ad-portal
 wsj.com##.aside-container
 wsj.com##[aria-label="Utility Nav"]
