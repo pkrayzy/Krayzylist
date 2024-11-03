@@ -234,8 +234,8 @@ whathifi.com###top-leaderboard
 wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com##.dfp-leaderboard-container
 windowscentral.com,whathifi.com,techradar.com##.newsletter-form__wrapper
-windowscentral.com##.ad-unit
-windowscentral.com###article-body > div.van_vid_carousel
+windowscentral.com,whathifi.com,techradar.com##.ad-unit
+windowscentral.com,whathifi.com,techradar.com###article-body > div.van_vid_carousel
 wsj.com##.ad-portal
 wsj.com##.aside-container
 wsj.com##[aria-label="Utility Nav"]
