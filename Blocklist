@@ -126,8 +126,6 @@ appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
 arstechnica.com##.ad-wrapper
 barstoolsports.com##.ad--fixedBottom
-bing.com##.b_dlWebSlug
-bing.com##.b_gwaText
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN
 bloomberg.com##.styles_ledeContainer___qNar
 bloomberg.com##[button*=“FloatingCopyLink”]
@@ -295,21 +293,28 @@ google.com##[jsname="xQjRM"]:has([jsname="Cpkphb"])
 
 !!--Bing--!!
 bing.com##.algoSlug_icon
+bing.com##.ansTtlUndrlnWrapper
 bing.com##.b_ad
 bing.com##.b_algo_DUIcon
 bing.com##.b_circleImage
+bing.com##.b_dlWebSlug
 bing.com##.b_fbCont
 bing.com##.b_floatR
+bing.com##.b_gwaText
 bing.com##.b_rrsr
 bing.com##.b_rs
 bing.com##.b_sp-ca
 bing.com##.b_spa_adblock
-bing.com##.b_wikipedia_icon
 bing.com##.b_wpt_attr
+bing.com##.df_alaskcarousel
+bing.com##.fdbk_thmb_root
 bing.com##.fdbk_thmb_root
 bing.com##.lcksb
 bing.com##.richrswrapper
 bing.com##.rqnaContainerwithfeedback
+bing.com##.rqnaContainerwithfeedback
+bing.com##.rqnafbUlWrapper
+bing.com##.rqnASCWrapper
 bing.com##.rrMrsWrapper
 bing.com##.rs_chat
 bing.com##.scrv
@@ -331,8 +336,6 @@ bing.com###inline_rs
 bing.com###mfa_root
 bing.com###pole > div.irptaads
 bing.com###relatedSearchesLGWContainer
-bing.com###ShoppingAnswerLGFilterContainer
-bing.com###ShoppingAnswerPALGFilterContainer
 
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
@@ -348,5 +351,3 @@ bing.com##li.b_ans.b_vidAns
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild)
 bing.com###b_pole:has(#ssa_main)
-bing.com###b_results > li.b_ans:has(#df_listaa)
-bing.com##li.b_ans:has(#vidans2)
