@@ -118,6 +118,8 @@ news.google.com#%#//scriptlet('remove-cookie')
 nytimes.com#%#//scriptlet('remove-cookie')
 
 !!---Specific CSS---!!
+9to5mac.com##.ad-container
+9to5mac.com##.ad-container--leaderboard
 appleinsider.com##.primis-ad-wrap
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
@@ -229,10 +231,10 @@ whathifi.com##.ad-unit
 whathifi.com###taboola-below-article-thumbnails
 whathifi.com###top-leaderboard
 wikipedia.org###centralNotice
-windowscentral.com##.ad-unit
-windowscentral.com###article-body > div.van_vid_carousel
 windowscentral.com,whathifi.com##.dfp-leaderboard-container
 windowscentral.com,whathifi.com##.newsletter-form__wrapper
+windowscentral.com##.ad-unit
+windowscentral.com###article-body > div.van_vid_carousel
 wsj.com##.ad-portal
 wsj.com##.aside-container
 wsj.com##[aria-label="Utility Nav"]
