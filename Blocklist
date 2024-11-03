@@ -51,6 +51,7 @@ Roboto*$font
 ||cdn.taboola.com/*/loader.js$script
 ||content.jwplatform.com/*.js$script
 ||convertkit.com/ckjs$script
+||coral.coralproject.net$script
 ||fundingchoicesmessages.google.com^
 ||google.com/recaptcha$script
 ||gstatic.com/external_hosted/lottie/lottie_light.js$script
