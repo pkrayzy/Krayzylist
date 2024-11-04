@@ -292,52 +292,58 @@ google.com##div[jsname="Cpkphb"]
 google.com##[jsname="xQjRM"]:has([jsname="Cpkphb"])
 
 !!--Bing--!!
-bing.com##.algoSlug_icon
-bing.com##.ansTtlUndrlnWrapper
+! Ads !
 bing.com##.b_ad
-bing.com##.b_algo_DUIcon
-bing.com##.b_circleImage
-bing.com##.b_dlWebSlug
+bing.com##.b_spa_adblock
+
+! Visual Junk !
 bing.com##.b_fbCont
-bing.com##.b_floatR
-bing.com##.b_gwaText
+bing.com##.fdbk_thmb_root
+bing.com###b_tween
+
+! Related Searches !
 bing.com##.b_rrsr
 bing.com##.b_rs
-bing.com##.b_sp-ca
-bing.com##.b_spa_adblock
-bing.com##.b_wpt_attr
 bing.com##.df_alaskcarousel
-bing.com##.fdbk_thmb_root
-bing.com##.fdbk_thmb_root
-bing.com##.lcksb
 bing.com##.richrswrapper
-bing.com##.rqnaContainerwithfeedback
 bing.com##.rqnaContainerwithfeedback
 bing.com##.rqnafbUlWrapper
 bing.com##.rqnASCWrapper
 bing.com##.rrMrsWrapper
 bing.com##.rs_chat
-bing.com##.scrv
-bing.com##.scs_arw
-bing.com##.scs_exp.b_floatrt
-bing.com##.scs_icn
-bing.com##.scs_rei
-bing.com##.scs_rpr
-bing.com##.secure_icon
-bing.com##.tCnt
-bing.com##.te_wrap
-bing.com##.webSlug
-bing.com##.wpt_bc_container
 bing.com###b_alsotry
-bing.com###b_shpmetis
-bing.com###b_tween
 bing.com###b_typetosearchtips
 bing.com###inline_rs
-bing.com###mfa_root
-bing.com###pole > div.irptaads
 bing.com###relatedSearchesLGWContainer
 
+! bing.com##.algoSlug_icon
+! bing.com##.b_algo_DUIcon
+! bing.com##.b_circleImage
+! bing.com##.b_dlWebSlug
+! bing.com##.b_floatR
+! bing.com##.b_gwaText
+! bing.com##.b_sp-ca
+! bing.com##.b_wpt_attr
+! bing.com##.lcksb
+! bing.com##.secure_icon
+! bing.com##.tCnt
+! bing.com##.te_wrap
+! bing.com##.webSlug
+! bing.com##.wpt_bc_container
+! bing.com###b_mtp
+! bing.com###b_shpmetis
+! bing.com###mfa_root
+! bing.com###pole > div.irptaads
+
+! bing.com##.scrv
+! bing.com##.scs_arw
+! bing.com##.scs_exp.b_floatrt
+! bing.com##.scs_icn
+! bing.com##.scs_rei
+! bing.com##.scs_rpr
+
 !!--Bing Answers--!!
+bing.com##.ansTtlUndrlnWrapper
 bing.com##.b_ans.b_dr_mod
 bing.com##.b_ans.b_explans.rrexqp.trirow
 bing.com##.b_mop.b_imgans
