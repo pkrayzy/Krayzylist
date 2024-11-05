@@ -118,6 +118,9 @@ my.businessinsider.com#%#//scriptlet('remove-cookie')
 news.google.com#%#//scriptlet('remove-cookie')
 nytimes.com#%#//scriptlet('remove-cookie')
 
+!!---General CSS---!!
+##.adWrapper
+
 !!---Specific CSS---!!
 9to5mac.com##.ad-container
 9to5mac.com##.ad-container--leaderboard
