@@ -118,6 +118,10 @@ my.businessinsider.com#%#//scriptlet('remove-cookie')
 news.google.com#%#//scriptlet('remove-cookie')
 nytimes.com#%#//scriptlet('remove-cookie')
 
+!!---General CSS---!!
+##.ad-space
+##.adWrapper
+
 !!---Specific CSS---!!
 9to5mac.com##.ad-container
 9to5mac.com##.ad-container--leaderboard
@@ -156,6 +160,7 @@ espn.com##.ad-slot
 espn.com##.ad-slot-banner
 espn.com##.ad-wrapper
 espn.com##.article-legal-footer
+fantasypros.com##section.pc_advertisement-section
 faroutmagazine.co.uk##.header:style(margin-top: 0px;)
 ft.com##.advert 
 ft.com##.article__content-sign-up
@@ -196,6 +201,7 @@ nypost.com##div:has([data-adm-url])
 nytimes.com##[class="vi-gateway-container"] > div:has([id="after-mobile_top"])
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com##[id="bottom-wrapper"]
+nytimes.com###app > div.css-1ichrj1.e1xxpj0j0
 nytimes.com###gateway-content
 nytimes.com###masthead-bar-one
 nytimes.com###slideup-paywall
@@ -216,8 +222,10 @@ soundguys.com##div[data-ad-type]
 speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
+the-gadgeteer.com##.crunchify-social
 theintercept.com###third-party--article-mid
 theopen.com##div.overlay.is-visible
+theverge.com##[data-concert-ads-name]
 theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
 thurrott.com##.adthrive
@@ -225,6 +233,8 @@ thurrott.com##.adthrive-ad
 thurrott.com##.adthrive-content
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
+usatoday.com###ad--article-top-wrapper
+usatoday.com###ad--sidebar
 usatoday.com##body > div:has([href*="https://getad"])
 wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit
@@ -235,7 +245,6 @@ windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.van_taboola
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.widget-ads, .widget-ads-lightbox2, .widget-ads-ads-lightbox2, .widget-ads-static-lightbox2
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###article-body > div.van_vid_carousel
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###newsletter-slice
-windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-mobile-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###top-leaderboard
@@ -277,20 +286,6 @@ zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
 zerohedge.com##div[id="content-pack"]
 zerohedge.com##section[class*="PromoButton_"]
 
-!!--Google--!!
-! Bottom Releated Search !
-google.com###bres
-! Short Video !
-google.com##.MjjYud > div:has([jscontroller="k23IOe"])
-! People Also Ask !
-google.com##.ouy7Mc
-! People Also Search For !
-google.com##.related-question-pair
-google.com##div[data-ulkwtsb]
-google.com##[jsname="xQjRM"]:has([data-ulkwtsb])
-google.com##div[jsname="Cpkphb"]
-google.com##[jsname="xQjRM"]:has([jsname="Cpkphb"])
-
 !!--Bing--!!
 ! Ads !
 bing.com##.b_ad
@@ -299,6 +294,8 @@ bing.com##.b_spa_adblock
 ! Visual Junk !
 bing.com##.b_fbCont
 bing.com##.fdbk_thmb_root
+bing.com##.te_wrap
+bing.com###b_mtp
 bing.com###b_tween
 
 ! Related Searches !
@@ -345,7 +342,7 @@ bing.com###relatedSearchesLGWContainer
 !!--Bing Answers--!!
 bing.com##.ansTtlUndrlnWrapper
 bing.com##.b_ans.b_dr_mod
-bing.com##.b_ans.b_explans.rrexqp.trirow
+bing.com##.b_ans.b_explans.rrexqp
 bing.com##.b_mop.b_imgans
 bing.com##.b_mop.b_mopb.b_vidans
 bing.com##.b_mop.b_vidAns
