@@ -129,6 +129,7 @@ appleinsider.com##.primis-ad-wrap
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
 arstechnica.com##.ad-wrapper
+axios.com##.apexAd
 barstoolsports.com##.ad--fixedBottom
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN
 bloomberg.com##.styles_ledeContainer___qNar
