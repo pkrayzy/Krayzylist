@@ -20,17 +20,21 @@ Roboto*$font
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
 !!---General URL---!!
-/*.consentdrawer.bundle.*.js
-/ads/adsbygoogle.js
+/*.consentdrawer.bundle.*$script
+/admr.*$script
+/ads/adsbygoogle.*$script
 /airgap.js
 /airgapWrapper.js
 /cxense-candy.js
+/display-ads.*$script
 /eu_cookie_compliance.min.js
 /gdpr*.bundle.js
-/openads/js/*
+/openads/js/*$script
+/pmc-sticky-rail-ads/*$script
 /pum-site-scripts.js
 /scripts/adslot.js
-/wp-content/plugins/elementor-pro/*
+/setup-ads.*$script
+/wp-content/plugins/elementor-pro/*$script
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
@@ -136,6 +140,9 @@ bloomberg.com##.styles_ledeContainer___qNar
 bloomberg.com##[button*=“FloatingCopyLink”]
 bloomberg.com##[class*="media-ui-FullWidthAd"]
 bulbapedia.bulbagarden.net###siteNotice
+businessinsider.com##.l-ad
+businessinsider.com##.subnav-ad-layout
+businessinsider.com##.subnav-ad-position-sticky
 cbssports.com##.Skybox--minHeight, .Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
 cbssports.com###GlobalNavOffset
 cbssports.com###GlobalNavOffsetSpacer
@@ -237,6 +244,9 @@ time.com##header > div:has([aria-label="Advertisement"])
 usatoday.com###ad--article-top-wrapper
 usatoday.com###ad--sidebar
 usatoday.com##body > div:has([href*="https://getad"])
+variety.com##.pmc-contextual-player
+variety.com##[id*="adm-inline-article-ad-"]
+variety.com###sticky-rail-ad
 wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.dfp-leaderboard-container
@@ -286,6 +296,14 @@ zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
 zerohedge.com##div[id="content-pack"]
 zerohedge.com##section[class*="PromoButton_"]
+
+!!--Google--!!
+!People Also Ask!
+google.com##.cUnQKe
+!Videos!
+google.com##.uVMCKf
+!Bottom Related Searches!
+google.com###bres
 
 !!--Bing--!!
 ! Ads !
