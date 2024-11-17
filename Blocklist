@@ -298,8 +298,12 @@ zerohedge.com##section[class*="PromoButton_"]
 !!--Google--!!
 !People Also Ask!
 google.com##.cUnQKe
+google.com##.Wt5Tfe
+google.com##.wp-ms:contains(People also ask)
+google.com##.wp-ms:contains(People also search for)
 !Videos!
 google.com##.uVMCKf
+google.com##.wp-ms:contains(Videos)
 !Bottom Related Searches!
 google.com###bres
 
