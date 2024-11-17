@@ -220,7 +220,7 @@ reddit.com##xpromo-nsfw-blocking-modal
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
 semafor.com##div[class*="styles_floatingBanner"]
-si.com##figure.style_uhlm2
+si.com##figure[data-mm-id]
 smogon.com##span
 soundguys.com##.d_dk
 soundguys.com##.d_s
