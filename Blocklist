@@ -101,15 +101,6 @@ youtubekids.com,youtube-nocookie.com,youtube.com##+js(set-constant, ytInitialPla
 youtubekids.com,youtube-nocookie.com,youtube.com##+js(set-constant, ytInitialPlayerResponse.adSlots, undefined)
 youtubekids.com,youtube-nocookie.com,youtube.com##+js(set-constant, ytInitialPlayerResponse.playerAds, undefined)
 
-!!---TopStreams---!!
-||chatango.com
-||fgeivosgjk.com
-topstreams.info##.ui-widget-content
-topstreams.info##.ui-widget-overlay
-topstreams.info##+js(no-fetch-if, /^/)
-topstreams.info##+js(window.open-defuser)
-topstreams.info##+js(remove-node-text, script, adserverDomain)
-
 !!---Cookie Remover---!!
 bloomberg.com##+js(cookie-remover)
 businessinsider.com##+js(cookie-remover)
@@ -333,32 +324,6 @@ bing.com###b_alsotry
 bing.com###b_typetosearchtips
 bing.com###inline_rs
 bing.com###relatedSearchesLGWContainer
-
-! bing.com##.algoSlug_icon
-! bing.com##.b_algo_DUIcon
-! bing.com##.b_circleImage
-! bing.com##.b_dlWebSlug
-! bing.com##.b_floatR
-! bing.com##.b_gwaText
-! bing.com##.b_sp-ca
-! bing.com##.b_wpt_attr
-! bing.com##.lcksb
-! bing.com##.secure_icon
-! bing.com##.tCnt
-! bing.com##.te_wrap
-! bing.com##.webSlug
-! bing.com##.wpt_bc_container
-! bing.com###b_mtp
-! bing.com###b_shpmetis
-! bing.com###mfa_root
-! bing.com###pole > div.irptaads
-
-! bing.com##.scrv
-! bing.com##.scs_arw
-! bing.com##.scs_exp.b_floatrt
-! bing.com##.scs_icn
-! bing.com##.scs_rei
-! bing.com##.scs_rpr
 
 !!--Bing Answers--!!
 bing.com##.ansTtlUndrlnWrapper
