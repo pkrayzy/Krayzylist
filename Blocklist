@@ -37,6 +37,10 @@ Roboto*$font
 /setup-ads.*$script
 /wp-content/plugins/elementor-pro/*$script
 
+!!---General Hide---!!
+##.ad-container
+##.header-ad-container-top 
+
 !!---Specific URL---!!
 ||a.jsrdn.com$script
 ||adtech.redventures.io$script
@@ -329,11 +333,11 @@ bing.com###inline_rs
 bing.com###relatedSearchesLGWContainer
 
 ! People Also Ask !
-bing.com##.df_alaskcarousel
-bing.com##.rqnaContainerwithfeedback
-bing.com##.rqnafbUlWrapper
-bing.com##.rqnASCWrapper
-bing.com##.ansTtlUndrlnWrapper
+! bing.com##.df_alaskcarousel
+! bing.com##.rqnaContainerwithfeedback
+! bing.com##.rqnafbUlWrapper
+! bing.com##.rqnASCWrapper
+! bing.com##.ansTtlUndrlnWrapper
 
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
