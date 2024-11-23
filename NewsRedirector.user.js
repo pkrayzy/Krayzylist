@@ -20,7 +20,7 @@
         newsURL.slice(0,-1);
 
     if (referrer == window.location.host) {
-        window.location.replace( 'https://news.google.com/rss/articles/CBMiP2h0dHBzOi8v' + newsURL);
+        window.location.replace( 'https://news.google.com/read/CBMiP2h0dHBzOi8v' + newsURL);
     }
 
 })();
