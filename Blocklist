@@ -251,15 +251,7 @@ windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-below-arti
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-mobile-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###top-leaderboard
 wsj.com##.ad-portal
-wsj.com##.aside-container
-wsj.com##[aria-label="Utility Nav"]
-wsj.com##[aria-label="What to Read Next"]
-wsj.com##[class="adWrapper "]:upward(1)
-wsj.com##[data-skip-label="What To Read Next"]
 wsj.com##[data-testid="ad-container"]
-wsj.com###cx-candybar
-wsj.com###cx-what-to-read-next
-wsj.com##div[class*="css-xgokil-Box"]
 www.barrons.com##.adWrapperTopLead
 www.barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
