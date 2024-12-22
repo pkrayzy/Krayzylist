@@ -292,9 +292,9 @@ google.com##.wp-ms:contains(People also search for)
 !Images!
 google.com##[data-iu]
 !Videos!
-google.com##.uVMCKf
-google.com##.vtSz8d
-google.com##.wp-ms:contains(Videos)
+! google.com##.uVMCKf
+! google.com##.vtSz8d
+! google.com##.wp-ms:contains(Videos)
 !Bottom Related Searches!
 google.com###bres
 
