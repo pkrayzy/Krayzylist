@@ -41,6 +41,7 @@ Roboto*$font
 !!---General Hide---!!
 ##.ad-container
 ##.header-ad-container-top 
+##figure.player-wrapper.relative.aspect-video
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
