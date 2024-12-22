@@ -289,7 +289,7 @@ google.com##.Wt5Tfe
 google.com##.wp-ms:contains(People also ask)
 google.com##.wp-ms:contains(People also search for)
 !Images!
-google.com##.ULSxyf
+google.com##[data-iu]
 !Videos!
 google.com##.uVMCKf
 google.com##.vtSz8d
