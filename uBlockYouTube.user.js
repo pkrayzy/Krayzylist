@@ -10,7 +10,7 @@
     
     const scriptletGlobals = {
         "warOrigin": "moz-extension://ad4b652f-1460-4f28-873d-bcee18d1e9e0/web_accessible_resources",
-        "warSecret": "7bt0a1r1acalq6knea"
+        "warSecret": "f9axa4zne1d0taw8qw"
     }
     
     function setConstantFn(
@@ -437,10 +437,153 @@
         ...args
     ) {
         setConstantFn(false, ...args);
-    })("ytInitialPlayerResponse.auxiliaryUi.messageRenderers.upsellDialogRenderer","undefined");
+    })("ytInitialPlayerResponse.playerAds","undefined");
     // <<<< scriptlet end
     } catch (e) {
     
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.adPlacements","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.adSlots","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("playerResponse.adPlacements","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    function jsonPruneFetchResponseFn(
+        rawPrunePaths = '',
+        rawNeedlePaths = ''
+    ) {
+        const safe = safeSelf();
+        const logPrefix = safe.makeLogPrefix('json-prune-fetch-response', rawPrunePaths, rawNeedlePaths);
+        const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+        const propNeedles = parsePropertiesToMatch(extraArgs.propsToMatch, 'url');
+        const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
+        const logall = rawPrunePaths === '';
+        const applyHandler = function(target, thisArg, args) {
+            const fetchPromise = Reflect.apply(target, thisArg, args);
+            let outcome = logall ? 'nomatch' : 'match';
+            if ( propNeedles.size !== 0 ) {
+                const objs = [ args[0] instanceof Object ? args[0] : { url: args[0] } ];
+                if ( objs[0] instanceof Request ) {
+                    try {
+                        objs[0] = safe.Request_clone.call(objs[0]);
+                    } catch(ex) {
+                        safe.uboErr(logPrefix, 'Error:', ex);
+                    }
+                }
+                if ( args[1] instanceof Object ) {
+                    objs.push(args[1]);
+                }
+                if ( matchObjectProperties(propNeedles, ...objs) === false ) {
+                    outcome = 'nomatch';
+                }
+            }
+            if ( logall === false && outcome === 'nomatch' ) { return fetchPromise; }
+            if ( safe.logLevel > 1 && outcome !== 'nomatch' && propNeedles.size !== 0 ) {
+                safe.uboLog(logPrefix, `Matched optional "propsToMatch"\n${extraArgs.propsToMatch}`);
+            }
+            return fetchPromise.then(responseBefore => {
+                const response = responseBefore.clone();
+                return response.json().then(objBefore => {
+                    if ( typeof objBefore !== 'object' ) { return responseBefore; }
+                    if ( logall ) {
+                        safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+                        return responseBefore;
+                    }
+                    const objAfter = objectPruneFn(
+                        objBefore,
+                        rawPrunePaths,
+                        rawNeedlePaths,
+                        stackNeedle,
+                        extraArgs
+                    );
+                    if ( typeof objAfter !== 'object' ) { return responseBefore; }
+                    safe.uboLog(logPrefix, 'Pruned');
+                    const responseAfter = Response.json(objAfter, {
+                        status: responseBefore.status,
+                        statusText: responseBefore.statusText,
+                        headers: responseBefore.headers,
+                    });
+                    Object.defineProperties(responseAfter, {
+                        ok: { value: responseBefore.ok },
+                        redirected: { value: responseBefore.redirected },
+                        type: { value: responseBefore.type },
+                        url: { value: responseBefore.url },
+                    });
+                    return responseAfter;
+                }).catch(reason => {
+                    safe.uboErr(logPrefix, 'Error:', reason);
+                    return responseBefore;
+                });
+            }).catch(reason => {
+                safe.uboErr(logPrefix, 'Error:', reason);
+                return fetchPromise;
+            });
+        };
+        self.fetch = new Proxy(self.fetch, {
+            apply: applyHandler
+        });
+    }
+    
+    function matchObjectProperties(propNeedles, ...objs) {
+        if ( matchObjectProperties.extractProperties === undefined ) {
+            matchObjectProperties.extractProperties = (src, des, props) => {
+                for ( const p of props ) {
+                    const v = src[p];
+                    if ( v === undefined ) { continue; }
+                    des[p] = src[p];
+                }
+            };
+        }
+        const safe = safeSelf();
+        const haystack = {};
+        const props = safe.Array_from(propNeedles.keys());
+        for ( const obj of objs ) {
+            if ( obj instanceof Object === false ) { continue; }
+            matchObjectProperties.extractProperties(obj, haystack, props);
+        }
+        for ( const [ prop, details ] of propNeedles ) {
+            let value = haystack[prop];
+            if ( value === undefined ) { continue; }
+            if ( typeof value !== 'string' ) {
+                try { value = safe.JSON_stringify(value); }
+                catch(ex) { }
+                if ( typeof value !== 'string' ) { continue; }
+            }
+            if ( safe.testPattern(details, value) ) { continue; }
+            return false;
+        }
+        return true;
     }
     
     function objectPruneFn(
@@ -482,6 +625,23 @@
             }
         }
         if ( outcome === 'match' ) { return obj; }
+    }
+    
+    function parsePropertiesToMatch(propsToMatch, implicit = '') {
+        const safe = safeSelf();
+        const needles = new Map();
+        if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+        const options = { canNegate: true };
+        for ( const needle of propsToMatch.split(/\s+/) ) {
+            const [ prop, pattern ] = needle.split(':');
+            if ( prop === '' ) { continue; }
+            if ( pattern !== undefined ) {
+                needles.set(prop, safe.initPattern(pattern, options));
+            } else if ( implicit !== '' ) {
+                needles.set(implicit, safe.initPattern(prop, options));
+            }
+        }
+        return needles;
     }
     
     function matchesStackTrace(
@@ -613,6 +773,28 @@
     
     try {
     // >>>> scriptlet start
+    (function jsonPruneFetchResponse(...args) {
+        jsonPruneFetchResponseFn(...args);
+    })("reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd","","propsToMatch","url:/reel_watch_sequence?");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.auxiliaryUi.messageRenderers.upsellDialogRenderer","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
     (function jsonPrune(
         rawPrunePaths = '',
         rawNeedlePaths = '',
@@ -644,449 +826,6 @@
             },
         });
     })("auxiliaryUi.messageRenderers.upsellDialogRenderer");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function adjustSetTimeout(
-        needleArg = '',
-        delayArg = '',
-        boostArg = ''
-    ) {
-        if ( typeof needleArg !== 'string' ) { return; }
-        const safe = safeSelf();
-        const reNeedle = safe.patternToRegex(needleArg);
-        let delay = delayArg !== '*' ? parseInt(delayArg, 10) : -1;
-        if ( isNaN(delay) || isFinite(delay) === false ) { delay = 1000; }
-        let boost = parseFloat(boostArg);
-        boost = isNaN(boost) === false && isFinite(boost)
-            ? Math.min(Math.max(boost, 0.001), 50)
-            : 0.05;
-        self.setTimeout = new Proxy(self.setTimeout, {
-            apply: function(target, thisArg, args) {
-                const [ a, b ] = args;
-                if (
-                    (delay === -1 || b === delay) &&
-                    reNeedle.test(a.toString())
-                ) {
-                    args[1] = b * boost;
-                }
-                return target.apply(thisArg, args);
-            }
-        });
-    })("[native code]","17000","0.001");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    function jsonPruneFetchResponseFn(
-        rawPrunePaths = '',
-        rawNeedlePaths = ''
-    ) {
-        const safe = safeSelf();
-        const logPrefix = safe.makeLogPrefix('json-prune-fetch-response', rawPrunePaths, rawNeedlePaths);
-        const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-        const propNeedles = parsePropertiesToMatch(extraArgs.propsToMatch, 'url');
-        const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
-        const logall = rawPrunePaths === '';
-        const applyHandler = function(target, thisArg, args) {
-            const fetchPromise = Reflect.apply(target, thisArg, args);
-            let outcome = logall ? 'nomatch' : 'match';
-            if ( propNeedles.size !== 0 ) {
-                const objs = [ args[0] instanceof Object ? args[0] : { url: args[0] } ];
-                if ( objs[0] instanceof Request ) {
-                    try {
-                        objs[0] = safe.Request_clone.call(objs[0]);
-                    } catch(ex) {
-                        safe.uboErr(logPrefix, 'Error:', ex);
-                    }
-                }
-                if ( args[1] instanceof Object ) {
-                    objs.push(args[1]);
-                }
-                if ( matchObjectProperties(propNeedles, ...objs) === false ) {
-                    outcome = 'nomatch';
-                }
-            }
-            if ( logall === false && outcome === 'nomatch' ) { return fetchPromise; }
-            if ( safe.logLevel > 1 && outcome !== 'nomatch' && propNeedles.size !== 0 ) {
-                safe.uboLog(logPrefix, `Matched optional "propsToMatch"\n${extraArgs.propsToMatch}`);
-            }
-            return fetchPromise.then(responseBefore => {
-                const response = responseBefore.clone();
-                return response.json().then(objBefore => {
-                    if ( typeof objBefore !== 'object' ) { return responseBefore; }
-                    if ( logall ) {
-                        safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-                        return responseBefore;
-                    }
-                    const objAfter = objectPruneFn(
-                        objBefore,
-                        rawPrunePaths,
-                        rawNeedlePaths,
-                        stackNeedle,
-                        extraArgs
-                    );
-                    if ( typeof objAfter !== 'object' ) { return responseBefore; }
-                    safe.uboLog(logPrefix, 'Pruned');
-                    const responseAfter = Response.json(objAfter, {
-                        status: responseBefore.status,
-                        statusText: responseBefore.statusText,
-                        headers: responseBefore.headers,
-                    });
-                    Object.defineProperties(responseAfter, {
-                        ok: { value: responseBefore.ok },
-                        redirected: { value: responseBefore.redirected },
-                        type: { value: responseBefore.type },
-                        url: { value: responseBefore.url },
-                    });
-                    return responseAfter;
-                }).catch(reason => {
-                    safe.uboErr(logPrefix, 'Error:', reason);
-                    return responseBefore;
-                });
-            }).catch(reason => {
-                safe.uboErr(logPrefix, 'Error:', reason);
-                return fetchPromise;
-            });
-        };
-        self.fetch = new Proxy(self.fetch, {
-            apply: applyHandler
-        });
-    }
-    
-    function matchObjectProperties(propNeedles, ...objs) {
-        if ( matchObjectProperties.extractProperties === undefined ) {
-            matchObjectProperties.extractProperties = (src, des, props) => {
-                for ( const p of props ) {
-                    const v = src[p];
-                    if ( v === undefined ) { continue; }
-                    des[p] = src[p];
-                }
-            };
-        }
-        const safe = safeSelf();
-        const haystack = {};
-        const props = safe.Array_from(propNeedles.keys());
-        for ( const obj of objs ) {
-            if ( obj instanceof Object === false ) { continue; }
-            matchObjectProperties.extractProperties(obj, haystack, props);
-        }
-        for ( const [ prop, details ] of propNeedles ) {
-            let value = haystack[prop];
-            if ( value === undefined ) { continue; }
-            if ( typeof value !== 'string' ) {
-                try { value = safe.JSON_stringify(value); }
-                catch(ex) { }
-                if ( typeof value !== 'string' ) { continue; }
-            }
-            if ( safe.testPattern(details, value) ) { continue; }
-            return false;
-        }
-        return true;
-    }
-    
-    function parsePropertiesToMatch(propsToMatch, implicit = '') {
-        const safe = safeSelf();
-        const needles = new Map();
-        if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
-        const options = { canNegate: true };
-        for ( const needle of propsToMatch.split(/\s+/) ) {
-            const [ prop, pattern ] = needle.split(':');
-            if ( prop === '' ) { continue; }
-            if ( pattern !== undefined ) {
-                needles.set(prop, safe.initPattern(pattern, options));
-            } else if ( implicit !== '' ) {
-                needles.set(implicit, safe.initPattern(prop, options));
-            }
-        }
-        return needles;
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function jsonPruneFetchResponse(...args) {
-        jsonPruneFetchResponseFn(...args);
-    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots","","propsToMatch","/\\/(player|get_watch)\\?/");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function jsonPruneFetchResponse(...args) {
-        jsonPruneFetchResponseFn(...args);
-    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots","","propsToMatch","/playlist?");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function jsonPruneXhrResponse(
-        rawPrunePaths = '',
-        rawNeedlePaths = ''
-    ) {
-        const safe = safeSelf();
-        const logPrefix = safe.makeLogPrefix('json-prune-xhr-response', rawPrunePaths, rawNeedlePaths);
-        const xhrInstances = new WeakMap();
-        const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-        const propNeedles = parsePropertiesToMatch(extraArgs.propsToMatch, 'url');
-        const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
-        self.XMLHttpRequest = class extends self.XMLHttpRequest {
-            open(method, url, ...args) {
-                const xhrDetails = { method, url };
-                let outcome = 'match';
-                if ( propNeedles.size !== 0 ) {
-                    if ( matchObjectProperties(propNeedles, xhrDetails) === false ) {
-                        outcome = 'nomatch';
-                    }
-                }
-                if ( outcome === 'match' ) {
-                    if ( safe.logLevel > 1 ) {
-                        safe.uboLog(logPrefix, `Matched optional "propsToMatch", "${extraArgs.propsToMatch}"`);
-                    }
-                    xhrInstances.set(this, xhrDetails);
-                }
-                return super.open(method, url, ...args);
-            }
-            get response() {
-                const innerResponse = super.response;
-                const xhrDetails = xhrInstances.get(this);
-                if ( xhrDetails === undefined ) {
-                    return innerResponse;
-                }
-                const responseLength = typeof innerResponse === 'string'
-                    ? innerResponse.length
-                    : undefined;
-                if ( xhrDetails.lastResponseLength !== responseLength ) {
-                    xhrDetails.response = undefined;
-                    xhrDetails.lastResponseLength = responseLength;
-                }
-                if ( xhrDetails.response !== undefined ) {
-                    return xhrDetails.response;
-                }
-                let objBefore;
-                if ( typeof innerResponse === 'object' ) {
-                    objBefore = innerResponse;
-                } else if ( typeof innerResponse === 'string' ) {
-                    try {
-                        objBefore = safe.JSON_parse(innerResponse);
-                    } catch(ex) {
-                    }
-                }
-                if ( typeof objBefore !== 'object' ) {
-                    return (xhrDetails.response = innerResponse);
-                }
-                const objAfter = objectPruneFn(
-                    objBefore,
-                    rawPrunePaths,
-                    rawNeedlePaths,
-                    stackNeedle,
-                    extraArgs
-                );
-                let outerResponse;
-                if ( typeof objAfter === 'object' ) {
-                    outerResponse = typeof innerResponse === 'string'
-                        ? safe.JSON_stringify(objAfter)
-                        : objAfter;
-                    safe.uboLog(logPrefix, 'Pruned');
-                } else {
-                    outerResponse = innerResponse;
-                }
-                return (xhrDetails.response = outerResponse);
-            }
-            get responseText() {
-                const response = this.response;
-                return typeof response !== 'string'
-                    ? super.responseText
-                    : response;
-            }
-        };
-    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots","","propsToMatch","/\\/player(?:\\?.+)?$/");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    function proxyApplyFn(
-        target = '',
-        handler = ''
-    ) {
-        let context = globalThis;
-        let prop = target;
-        for (;;) {
-            const pos = prop.indexOf('.');
-            if ( pos === -1 ) { break; }
-            context = context[prop.slice(0, pos)];
-            if ( context instanceof Object === false ) { return; }
-            prop = prop.slice(pos+1);
-        }
-        const fn = context[prop];
-        if ( typeof fn !== 'function' ) { return; }
-        if ( proxyApplyFn.CtorContext === undefined ) {
-            proxyApplyFn.ctorContexts = [];
-            proxyApplyFn.CtorContext = class {
-                constructor(...args) {
-                    this.init(...args);
-                }
-                init(callFn, callArgs) {
-                    this.callFn = callFn;
-                    this.callArgs = callArgs;
-                    return this;
-                }
-                reflect() {
-                    const r = Reflect.construct(this.callFn, this.callArgs);
-                    this.callFn = this.callArgs = undefined;
-                    proxyApplyFn.ctorContexts.push(this);
-                    return r;
-                }
-                static factory(...args) {
-                    return proxyApplyFn.ctorContexts.length !== 0
-                        ? proxyApplyFn.ctorContexts.pop().init(...args)
-                        : new proxyApplyFn.CtorContext(...args);
-                }
-            };
-            proxyApplyFn.applyContexts = [];
-            proxyApplyFn.ApplyContext = class {
-                constructor(...args) {
-                    this.init(...args);
-                }
-                init(callFn, thisArg, callArgs) {
-                    this.callFn = callFn;
-                    this.thisArg = thisArg;
-                    this.callArgs = callArgs;
-                    return this;
-                }
-                reflect() {
-                    const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
-                    this.callFn = this.thisArg = this.callArgs = undefined;
-                    proxyApplyFn.applyContexts.push(this);
-                    return r;
-                }
-                static factory(...args) {
-                    return proxyApplyFn.applyContexts.length !== 0
-                        ? proxyApplyFn.applyContexts.pop().init(...args)
-                        : new proxyApplyFn.ApplyContext(...args);
-                }
-            };
-        }
-        const fnStr = fn.toString();
-        const toString = (function toString() { return fnStr; }).bind(null);
-        const proxyDetails = {
-            apply(target, thisArg, args) {
-                return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
-            },
-            get(target, prop) {
-                if ( prop === 'toString' ) { return toString; }
-                return Reflect.get(target, prop);
-            },
-        };
-        if ( fn.prototype?.constructor === fn ) {
-            proxyDetails.construct = function(target, args) {
-                return handler(proxyApplyFn.CtorContext.factory(target, args));
-            };
-        }
-        context[prop] = new Proxy(fn, proxyDetails);
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function trustedPreventDomBypass(
-        methodPath = '',
-        targetProp = ''
-    ) {
-        if ( methodPath === '' ) { return; }
-        const safe = safeSelf();
-        const logPrefix = safe.makeLogPrefix('trusted-prevent-dom-bypass', methodPath, targetProp);
-        proxyApplyFn(methodPath, function(context) {
-            const elems = new Set(context.callArgs.filter(e => e instanceof HTMLElement));
-            const r = context.reflect();
-            if ( elems.length === 0 ) { return r; }
-            for ( const elem of elems ) {
-                try {
-                    if ( `${elem.contentWindow}` !== '[object Window]' ) { continue; }
-                    if ( elem.contentWindow.location.href !== 'about:blank' ) {
-                        if ( elem.contentWindow.location.href !== self.location.href ) {
-                            continue;
-                        }
-                    }
-                    if ( targetProp !== '' ) {
-                        elem.contentWindow[targetProp] = self[targetProp];
-                    } else {
-                        Object.defineProperty(elem, 'contentWindow', { value: self });
-                    }
-                    safe.uboLog(logPrefix, 'Bypass prevented');
-                } catch(_) {
-                }
-            }
-            return r;
-        });
-    })("Node.prototype.appendChild","fetch");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function setConstant(
-        ...args
-    ) {
-        setConstantFn(false, ...args);
-    })("ytInitialPlayerResponse.playerAds","undefined");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function setConstant(
-        ...args
-    ) {
-        setConstantFn(false, ...args);
-    })("ytInitialPlayerResponse.adPlacements","undefined");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function setConstant(
-        ...args
-    ) {
-        setConstantFn(false, ...args);
-    })("ytInitialPlayerResponse.adSlots","undefined");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function setConstant(
-        ...args
-    ) {
-        setConstantFn(false, ...args);
-    })("playerResponse.adPlacements","undefined");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function jsonPruneFetchResponse(...args) {
-        jsonPruneFetchResponseFn(...args);
-    })("reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd","","propsToMatch","url:/reel_watch_sequence?");
     // <<<< scriptlet end
     } catch (e) {
     
