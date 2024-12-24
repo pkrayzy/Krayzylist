@@ -9,8 +9,8 @@
     ;
     
     const scriptletGlobals = {
-        "warOrigin": "moz-extension://7e00f193-a0ca-4e10-9c2d-0704b8880fa7/web_accessible_resources",
-        "warSecret": "j1pitdear8rq822oya"
+        "warOrigin": "moz-extension://ad4b652f-1460-4f28-873d-bcee18d1e9e0/web_accessible_resources",
+        "warSecret": "qw2hbs5603i6rrfgoe"
     }
     
     function setConstantFn(
@@ -166,7 +166,7 @@
     function runAt(fn, when) {
         const intFromReadyState = state => {
             const targets = {
-                'loading': 1,
+                'loading': 1, 'asap': 1,
                 'interactive': 2, 'end': 2, '2': 2,
                 'complete': 3, 'idle': 3, '3': 3,
             };
@@ -248,7 +248,7 @@
             },
             initPattern(pattern, options = {}) {
                 if ( pattern === '' ) {
-                    return { matchAll: true };
+                    return { matchAll: true, expect: true };
                 }
                 const expect = (options.canNegate !== true || pattern.startsWith('!') === false);
                 if ( expect === false ) {
@@ -314,40 +314,68 @@
                 }
                 return self.requestAnimationFrame(fn);
             },
+            offIdle(id) {
+                if ( self.requestIdleCallback ) {
+                    return self.cancelIdleCallback(id);
+                }
+                return self.cancelAnimationFrame(id);
+            }
         };
         scriptletGlobals.safeSelf = safe;
         if ( scriptletGlobals.bcSecret === undefined ) { return safe; }
         // This is executed only when the logger is opened
-        const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
-        let bcBuffer = [];
         safe.logLevel = scriptletGlobals.logLevel || 1;
-        safe.sendToLogger = (type, ...args) => {
+        let lastLogType = '';
+        let lastLogText = '';
+        let lastLogTime = 0;
+        safe.toLogText = (type, ...args) => {
             if ( args.length === 0 ) { return; }
             const text = `[${document.location.hostname || document.location.href}]${args.join(' ')}`;
-            if ( bcBuffer === undefined ) {
-                return bc.postMessage({ what: 'messageToLogger', type, text });
+            if ( text === lastLogText && type === lastLogType ) {
+                if ( (Date.now() - lastLogTime) < 5000 ) { return; }
             }
-            bcBuffer.push({ type, text });
+            lastLogType = type;
+            lastLogText = text;
+            lastLogTime = Date.now();
+            return text;
         };
-        bc.onmessage = ev => {
-            const msg = ev.data;
-            switch ( msg ) {
-            case 'iamready!':
-                if ( bcBuffer === undefined ) { break; }
-                bcBuffer.forEach(({ type, text }) =>
-                    bc.postMessage({ what: 'messageToLogger', type, text })
-                );
-                bcBuffer = undefined;
-                break;
-            case 'setScriptletLogLevelToOne':
-                safe.logLevel = 1;
-                break;
-            case 'setScriptletLogLevelToTwo':
-                safe.logLevel = 2;
-                break;
-            }
-        };
-        bc.postMessage('areyouready?');
+        try {
+            const bc = new self.BroadcastChannel(scriptletGlobals.bcSecret);
+            let bcBuffer = [];
+            safe.sendToLogger = (type, ...args) => {
+                const text = safe.toLogText(type, ...args);
+                if ( text === undefined ) { return; }
+                if ( bcBuffer === undefined ) {
+                    return bc.postMessage({ what: 'messageToLogger', type, text });
+                }
+                bcBuffer.push({ type, text });
+            };
+            bc.onmessage = ev => {
+                const msg = ev.data;
+                switch ( msg ) {
+                case 'iamready!':
+                    if ( bcBuffer === undefined ) { break; }
+                    bcBuffer.forEach(({ type, text }) =>
+                        bc.postMessage({ what: 'messageToLogger', type, text })
+                    );
+                    bcBuffer = undefined;
+                    break;
+                case 'setScriptletLogLevelToOne':
+                    safe.logLevel = 1;
+                    break;
+                case 'setScriptletLogLevelToTwo':
+                    safe.logLevel = 2;
+                    break;
+                }
+            };
+            bc.postMessage('areyouready?');
+        } catch(_) {
+            safe.sendToLogger = (type, ...args) => {
+                const text = safe.toLogText(type, ...args);
+                if ( text === undefined ) { return; }
+                safe.log(`uBO ${text}`);
+            };
+        }
         return safe;
     }
     
@@ -374,12 +402,16 @@
             value = function(){ return true; };
         } else if ( raw === 'falseFunc' ) {
             value = function(){ return false; };
+        } else if ( raw === 'throwFunc' ) {
+            value = function(){ throw ''; };
         } else if ( /^-?\d+$/.test(raw) ) {
             value = parseInt(raw);
             if ( isNaN(raw) ) { return; }
             if ( Math.abs(raw) > 0x7FFF ) { return; }
         } else if ( trusted ) {
-            if ( raw.startsWith('{') && raw.endsWith('}') ) {
+            if ( raw.startsWith('json:') ) {
+                try { value = safe.JSON_parse(raw.slice(5)); } catch(ex) { return; }
+            } else if ( raw.startsWith('{') && raw.endsWith('}') ) {
                 try { value = safe.JSON_parse(raw).value; } catch(ex) { return; }
             }
         } else {
@@ -722,10 +754,7 @@
     }
     
     function getExceptionToken() {
-        const safe = safeSelf();
-        const token =
-            safe.String_fromCharCode(Date.now() % 26 + 97) +
-            safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+        const token = getRandomToken();
         const oe = self.onerror;
         self.onerror = function(msg, ...args) {
             if ( typeof msg === 'string' && msg.includes(token) ) { return true; }
@@ -736,11 +765,51 @@
         return token;
     }
     
+    function getRandomToken() {
+        const safe = safeSelf();
+        return safe.String_fromCharCode(Date.now() % 26 + 97) +
+            safe.Math_floor(safe.Math_random() * 982451653 + 982451653).toString(36);
+    }
+    
     try {
     // >>>> scriptlet start
     (function jsonPruneFetchResponse(...args) {
         jsonPruneFetchResponseFn(...args);
-    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots","","propsToMatch","/playlist?");
+    })("reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd","","propsToMatch","url:/reel_watch_sequence?");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function adjustSetTimeout(
+        needleArg = '',
+        delayArg = '',
+        boostArg = ''
+    ) {
+        if ( typeof needleArg !== 'string' ) { return; }
+        const safe = safeSelf();
+        const reNeedle = safe.patternToRegex(needleArg);
+        let delay = delayArg !== '*' ? parseInt(delayArg, 10) : -1;
+        if ( isNaN(delay) || isFinite(delay) === false ) { delay = 1000; }
+        let boost = parseFloat(boostArg);
+        boost = isNaN(boost) === false && isFinite(boost)
+            ? Math.min(Math.max(boost, 0.001), 50)
+            : 0.05;
+        self.setTimeout = new Proxy(self.setTimeout, {
+            apply: function(target, thisArg, args) {
+                const [ a, b ] = args;
+                if (
+                    (delay === -1 || b === delay) &&
+                    reNeedle.test(a.toString())
+                ) {
+                    args[1] = b * boost;
+                }
+                return target.apply(thisArg, args);
+            }
+        });
+    })("[native code]","17000","0.001");
     // <<<< scriptlet end
     } catch (e) {
     
@@ -750,7 +819,17 @@
     // >>>> scriptlet start
     (function jsonPruneFetchResponse(...args) {
         jsonPruneFetchResponseFn(...args);
-    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots","","propsToMatch","/player?");
+    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots","","propsToMatch","/\\/(player|get_watch)\\?/");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function jsonPruneFetchResponse(...args) {
+        jsonPruneFetchResponseFn(...args);
+    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots","","propsToMatch","/playlist?");
     // <<<< scriptlet end
     } catch (e) {
     
@@ -838,7 +917,126 @@
                     : response;
             }
         };
-    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots","","propsToMatch","/player");
+    })("playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots","","propsToMatch","/\\/player(?:\\?.+)?$/");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    function proxyApplyFn(
+        target = '',
+        handler = ''
+    ) {
+        let context = globalThis;
+        let prop = target;
+        for (;;) {
+            const pos = prop.indexOf('.');
+            if ( pos === -1 ) { break; }
+            context = context[prop.slice(0, pos)];
+            if ( context instanceof Object === false ) { return; }
+            prop = prop.slice(pos+1);
+        }
+        const fn = context[prop];
+        if ( typeof fn !== 'function' ) { return; }
+        if ( proxyApplyFn.CtorContext === undefined ) {
+            proxyApplyFn.ctorContexts = [];
+            proxyApplyFn.CtorContext = class {
+                constructor(...args) {
+                    this.init(...args);
+                }
+                init(callFn, callArgs) {
+                    this.callFn = callFn;
+                    this.callArgs = callArgs;
+                    return this;
+                }
+                reflect() {
+                    const r = Reflect.construct(this.callFn, this.callArgs);
+                    this.callFn = this.callArgs = undefined;
+                    proxyApplyFn.ctorContexts.push(this);
+                    return r;
+                }
+                static factory(...args) {
+                    return proxyApplyFn.ctorContexts.length !== 0
+                        ? proxyApplyFn.ctorContexts.pop().init(...args)
+                        : new proxyApplyFn.CtorContext(...args);
+                }
+            };
+            proxyApplyFn.applyContexts = [];
+            proxyApplyFn.ApplyContext = class {
+                constructor(...args) {
+                    this.init(...args);
+                }
+                init(callFn, thisArg, callArgs) {
+                    this.callFn = callFn;
+                    this.thisArg = thisArg;
+                    this.callArgs = callArgs;
+                    return this;
+                }
+                reflect() {
+                    const r = Reflect.apply(this.callFn, this.thisArg, this.callArgs);
+                    this.callFn = this.thisArg = this.callArgs = undefined;
+                    proxyApplyFn.applyContexts.push(this);
+                    return r;
+                }
+                static factory(...args) {
+                    return proxyApplyFn.applyContexts.length !== 0
+                        ? proxyApplyFn.applyContexts.pop().init(...args)
+                        : new proxyApplyFn.ApplyContext(...args);
+                }
+            };
+        }
+        const fnStr = fn.toString();
+        const toString = (function toString() { return fnStr; }).bind(null);
+        const proxyDetails = {
+            apply(target, thisArg, args) {
+                return handler(proxyApplyFn.ApplyContext.factory(target, thisArg, args));
+            },
+            get(target, prop) {
+                if ( prop === 'toString' ) { return toString; }
+                return Reflect.get(target, prop);
+            },
+        };
+        if ( fn.prototype?.constructor === fn ) {
+            proxyDetails.construct = function(target, args) {
+                return handler(proxyApplyFn.CtorContext.factory(target, args));
+            };
+        }
+        context[prop] = new Proxy(fn, proxyDetails);
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function trustedPreventDomBypass(
+        methodPath = '',
+        targetProp = ''
+    ) {
+        if ( methodPath === '' ) { return; }
+        const safe = safeSelf();
+        const logPrefix = safe.makeLogPrefix('trusted-prevent-dom-bypass', methodPath, targetProp);
+        proxyApplyFn(methodPath, function(context) {
+            const elems = new Set(context.callArgs.filter(e => e instanceof HTMLElement));
+            const r = context.reflect();
+            if ( elems.length === 0 ) { return r; }
+            for ( const elem of elems ) {
+                try {
+                    if ( `${elem.contentWindow}` !== '[object Window]' ) { continue; }
+                    if ( elem.contentWindow.location.href !== 'about:blank' ) {
+                        if ( elem.contentWindow.location.href !== self.location.href ) {
+                            continue;
+                        }
+                    }
+                    if ( targetProp !== '' ) {
+                        elem.contentWindow[targetProp] = self[targetProp];
+                    } else {
+                        Object.defineProperty(elem, 'contentWindow', { value: self });
+                    }
+                    safe.uboLog(logPrefix, 'Bypass prevented');
+                } catch(_) {
+                }
+            }
+            return r;
+        });
+    })("Node.prototype.appendChild","fetch");
     // <<<< scriptlet end
     } catch (e) {
     
@@ -846,9 +1044,49 @@
     
     try {
     // >>>> scriptlet start
-    (function jsonPruneFetchResponse(...args) {
-        jsonPruneFetchResponseFn(...args);
-    })("reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd","","propsToMatch","url:/reel_watch_sequence?");
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.auxiliaryUi.messageRenderers.upsellDialogRenderer","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function jsonPrune(
+        rawPrunePaths = '',
+        rawNeedlePaths = '',
+        stackNeedle = ''
+    ) {
+        const safe = safeSelf();
+        const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
+        const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
+        const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+        JSON.parse = new Proxy(JSON.parse, {
+            apply: function(target, thisArg, args) {
+                const objBefore = Reflect.apply(target, thisArg, args);
+                if ( rawPrunePaths === '' ) {
+                    safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+                }
+                const objAfter = objectPruneFn(
+                    objBefore,
+                    rawPrunePaths,
+                    rawNeedlePaths,
+                    stackNeedleDetails,
+                    extraArgs
+                );
+                if ( objAfter === undefined ) { return objBefore; }
+                safe.uboLog(logPrefix, 'Pruned');
+                if ( safe.logLevel > 1 ) {
+                    safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+                }
+                return objAfter;
+            },
+        });
+    })("auxiliaryUi.messageRenderers.upsellDialogRenderer");
     // <<<< scriptlet end
     } catch (e) {
     
