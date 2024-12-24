@@ -284,18 +284,8 @@ zerohedge.com##section[class*="PromoButton_"]
 
 !!--Google--!!
 !People Also Ask!
-google.com##.cUnQKe
-google.com##.ouy7Mc
-google.com##.Wt5Tfe
 google.com##.wp-ms:contains(People also ask)
 google.com##.wp-ms:contains(People also search for)
-!Images!
-google.com##[data-iu]
-!Videos!
-! google.com##.uVMCKf
-! google.com##.vtSz8d
-! google.com##.wp-ms:contains(Videos)
-!Bottom Related Searches!
 google.com###bres
 
 !!--Bing--!!
