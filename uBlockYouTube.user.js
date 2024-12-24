@@ -10,7 +10,7 @@
     
     const scriptletGlobals = {
         "warOrigin": "moz-extension://ad4b652f-1460-4f28-873d-bcee18d1e9e0/web_accessible_resources",
-        "warSecret": "qw2hbs5603i6rrfgoe"
+        "warSecret": "7bt0a1r1acalq6knea"
     }
     
     function setConstantFn(
@@ -437,153 +437,10 @@
         ...args
     ) {
         setConstantFn(false, ...args);
-    })("ytInitialPlayerResponse.playerAds","undefined");
+    })("ytInitialPlayerResponse.auxiliaryUi.messageRenderers.upsellDialogRenderer","undefined");
     // <<<< scriptlet end
     } catch (e) {
     
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function setConstant(
-        ...args
-    ) {
-        setConstantFn(false, ...args);
-    })("ytInitialPlayerResponse.adPlacements","undefined");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function setConstant(
-        ...args
-    ) {
-        setConstantFn(false, ...args);
-    })("ytInitialPlayerResponse.adSlots","undefined");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function setConstant(
-        ...args
-    ) {
-        setConstantFn(false, ...args);
-    })("playerResponse.adPlacements","undefined");
-    // <<<< scriptlet end
-    } catch (e) {
-    
-    }
-    
-    function jsonPruneFetchResponseFn(
-        rawPrunePaths = '',
-        rawNeedlePaths = ''
-    ) {
-        const safe = safeSelf();
-        const logPrefix = safe.makeLogPrefix('json-prune-fetch-response', rawPrunePaths, rawNeedlePaths);
-        const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
-        const propNeedles = parsePropertiesToMatch(extraArgs.propsToMatch, 'url');
-        const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
-        const logall = rawPrunePaths === '';
-        const applyHandler = function(target, thisArg, args) {
-            const fetchPromise = Reflect.apply(target, thisArg, args);
-            let outcome = logall ? 'nomatch' : 'match';
-            if ( propNeedles.size !== 0 ) {
-                const objs = [ args[0] instanceof Object ? args[0] : { url: args[0] } ];
-                if ( objs[0] instanceof Request ) {
-                    try {
-                        objs[0] = safe.Request_clone.call(objs[0]);
-                    } catch(ex) {
-                        safe.uboErr(logPrefix, 'Error:', ex);
-                    }
-                }
-                if ( args[1] instanceof Object ) {
-                    objs.push(args[1]);
-                }
-                if ( matchObjectProperties(propNeedles, ...objs) === false ) {
-                    outcome = 'nomatch';
-                }
-            }
-            if ( logall === false && outcome === 'nomatch' ) { return fetchPromise; }
-            if ( safe.logLevel > 1 && outcome !== 'nomatch' && propNeedles.size !== 0 ) {
-                safe.uboLog(logPrefix, `Matched optional "propsToMatch"\n${extraArgs.propsToMatch}`);
-            }
-            return fetchPromise.then(responseBefore => {
-                const response = responseBefore.clone();
-                return response.json().then(objBefore => {
-                    if ( typeof objBefore !== 'object' ) { return responseBefore; }
-                    if ( logall ) {
-                        safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-                        return responseBefore;
-                    }
-                    const objAfter = objectPruneFn(
-                        objBefore,
-                        rawPrunePaths,
-                        rawNeedlePaths,
-                        stackNeedle,
-                        extraArgs
-                    );
-                    if ( typeof objAfter !== 'object' ) { return responseBefore; }
-                    safe.uboLog(logPrefix, 'Pruned');
-                    const responseAfter = Response.json(objAfter, {
-                        status: responseBefore.status,
-                        statusText: responseBefore.statusText,
-                        headers: responseBefore.headers,
-                    });
-                    Object.defineProperties(responseAfter, {
-                        ok: { value: responseBefore.ok },
-                        redirected: { value: responseBefore.redirected },
-                        type: { value: responseBefore.type },
-                        url: { value: responseBefore.url },
-                    });
-                    return responseAfter;
-                }).catch(reason => {
-                    safe.uboErr(logPrefix, 'Error:', reason);
-                    return responseBefore;
-                });
-            }).catch(reason => {
-                safe.uboErr(logPrefix, 'Error:', reason);
-                return fetchPromise;
-            });
-        };
-        self.fetch = new Proxy(self.fetch, {
-            apply: applyHandler
-        });
-    }
-    
-    function matchObjectProperties(propNeedles, ...objs) {
-        if ( matchObjectProperties.extractProperties === undefined ) {
-            matchObjectProperties.extractProperties = (src, des, props) => {
-                for ( const p of props ) {
-                    const v = src[p];
-                    if ( v === undefined ) { continue; }
-                    des[p] = src[p];
-                }
-            };
-        }
-        const safe = safeSelf();
-        const haystack = {};
-        const props = safe.Array_from(propNeedles.keys());
-        for ( const obj of objs ) {
-            if ( obj instanceof Object === false ) { continue; }
-            matchObjectProperties.extractProperties(obj, haystack, props);
-        }
-        for ( const [ prop, details ] of propNeedles ) {
-            let value = haystack[prop];
-            if ( value === undefined ) { continue; }
-            if ( typeof value !== 'string' ) {
-                try { value = safe.JSON_stringify(value); }
-                catch(ex) { }
-                if ( typeof value !== 'string' ) { continue; }
-            }
-            if ( safe.testPattern(details, value) ) { continue; }
-            return false;
-        }
-        return true;
     }
     
     function objectPruneFn(
@@ -625,23 +482,6 @@
             }
         }
         if ( outcome === 'match' ) { return obj; }
-    }
-    
-    function parsePropertiesToMatch(propsToMatch, implicit = '') {
-        const safe = safeSelf();
-        const needles = new Map();
-        if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
-        const options = { canNegate: true };
-        for ( const needle of propsToMatch.split(/\s+/) ) {
-            const [ prop, pattern ] = needle.split(':');
-            if ( prop === '' ) { continue; }
-            if ( pattern !== undefined ) {
-                needles.set(prop, safe.initPattern(pattern, options));
-            } else if ( implicit !== '' ) {
-                needles.set(implicit, safe.initPattern(prop, options));
-            }
-        }
-        return needles;
     }
     
     function matchesStackTrace(
@@ -773,9 +613,37 @@
     
     try {
     // >>>> scriptlet start
-    (function jsonPruneFetchResponse(...args) {
-        jsonPruneFetchResponseFn(...args);
-    })("reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd","","propsToMatch","url:/reel_watch_sequence?");
+    (function jsonPrune(
+        rawPrunePaths = '',
+        rawNeedlePaths = '',
+        stackNeedle = ''
+    ) {
+        const safe = safeSelf();
+        const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
+        const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
+        const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
+        JSON.parse = new Proxy(JSON.parse, {
+            apply: function(target, thisArg, args) {
+                const objBefore = Reflect.apply(target, thisArg, args);
+                if ( rawPrunePaths === '' ) {
+                    safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+                }
+                const objAfter = objectPruneFn(
+                    objBefore,
+                    rawPrunePaths,
+                    rawNeedlePaths,
+                    stackNeedleDetails,
+                    extraArgs
+                );
+                if ( objAfter === undefined ) { return objBefore; }
+                safe.uboLog(logPrefix, 'Pruned');
+                if ( safe.logLevel > 1 ) {
+                    safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
+                }
+                return objAfter;
+            },
+        });
+    })("auxiliaryUi.messageRenderers.upsellDialogRenderer");
     // <<<< scriptlet end
     } catch (e) {
     
@@ -813,6 +681,130 @@
     // <<<< scriptlet end
     } catch (e) {
     
+    }
+    
+    function jsonPruneFetchResponseFn(
+        rawPrunePaths = '',
+        rawNeedlePaths = ''
+    ) {
+        const safe = safeSelf();
+        const logPrefix = safe.makeLogPrefix('json-prune-fetch-response', rawPrunePaths, rawNeedlePaths);
+        const extraArgs = safe.getExtraArgs(Array.from(arguments), 2);
+        const propNeedles = parsePropertiesToMatch(extraArgs.propsToMatch, 'url');
+        const stackNeedle = safe.initPattern(extraArgs.stackToMatch || '', { canNegate: true });
+        const logall = rawPrunePaths === '';
+        const applyHandler = function(target, thisArg, args) {
+            const fetchPromise = Reflect.apply(target, thisArg, args);
+            let outcome = logall ? 'nomatch' : 'match';
+            if ( propNeedles.size !== 0 ) {
+                const objs = [ args[0] instanceof Object ? args[0] : { url: args[0] } ];
+                if ( objs[0] instanceof Request ) {
+                    try {
+                        objs[0] = safe.Request_clone.call(objs[0]);
+                    } catch(ex) {
+                        safe.uboErr(logPrefix, 'Error:', ex);
+                    }
+                }
+                if ( args[1] instanceof Object ) {
+                    objs.push(args[1]);
+                }
+                if ( matchObjectProperties(propNeedles, ...objs) === false ) {
+                    outcome = 'nomatch';
+                }
+            }
+            if ( logall === false && outcome === 'nomatch' ) { return fetchPromise; }
+            if ( safe.logLevel > 1 && outcome !== 'nomatch' && propNeedles.size !== 0 ) {
+                safe.uboLog(logPrefix, `Matched optional "propsToMatch"\n${extraArgs.propsToMatch}`);
+            }
+            return fetchPromise.then(responseBefore => {
+                const response = responseBefore.clone();
+                return response.json().then(objBefore => {
+                    if ( typeof objBefore !== 'object' ) { return responseBefore; }
+                    if ( logall ) {
+                        safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
+                        return responseBefore;
+                    }
+                    const objAfter = objectPruneFn(
+                        objBefore,
+                        rawPrunePaths,
+                        rawNeedlePaths,
+                        stackNeedle,
+                        extraArgs
+                    );
+                    if ( typeof objAfter !== 'object' ) { return responseBefore; }
+                    safe.uboLog(logPrefix, 'Pruned');
+                    const responseAfter = Response.json(objAfter, {
+                        status: responseBefore.status,
+                        statusText: responseBefore.statusText,
+                        headers: responseBefore.headers,
+                    });
+                    Object.defineProperties(responseAfter, {
+                        ok: { value: responseBefore.ok },
+                        redirected: { value: responseBefore.redirected },
+                        type: { value: responseBefore.type },
+                        url: { value: responseBefore.url },
+                    });
+                    return responseAfter;
+                }).catch(reason => {
+                    safe.uboErr(logPrefix, 'Error:', reason);
+                    return responseBefore;
+                });
+            }).catch(reason => {
+                safe.uboErr(logPrefix, 'Error:', reason);
+                return fetchPromise;
+            });
+        };
+        self.fetch = new Proxy(self.fetch, {
+            apply: applyHandler
+        });
+    }
+    
+    function matchObjectProperties(propNeedles, ...objs) {
+        if ( matchObjectProperties.extractProperties === undefined ) {
+            matchObjectProperties.extractProperties = (src, des, props) => {
+                for ( const p of props ) {
+                    const v = src[p];
+                    if ( v === undefined ) { continue; }
+                    des[p] = src[p];
+                }
+            };
+        }
+        const safe = safeSelf();
+        const haystack = {};
+        const props = safe.Array_from(propNeedles.keys());
+        for ( const obj of objs ) {
+            if ( obj instanceof Object === false ) { continue; }
+            matchObjectProperties.extractProperties(obj, haystack, props);
+        }
+        for ( const [ prop, details ] of propNeedles ) {
+            let value = haystack[prop];
+            if ( value === undefined ) { continue; }
+            if ( typeof value !== 'string' ) {
+                try { value = safe.JSON_stringify(value); }
+                catch(ex) { }
+                if ( typeof value !== 'string' ) { continue; }
+            }
+            if ( safe.testPattern(details, value) ) { continue; }
+            return false;
+        }
+        return true;
+    }
+    
+    function parsePropertiesToMatch(propsToMatch, implicit = '') {
+        const safe = safeSelf();
+        const needles = new Map();
+        if ( propsToMatch === undefined || propsToMatch === '' ) { return needles; }
+        const options = { canNegate: true };
+        for ( const needle of propsToMatch.split(/\s+/) ) {
+            const [ prop, pattern ] = needle.split(':');
+            if ( prop === '' ) { continue; }
+            if ( pattern !== undefined ) {
+                needles.set(prop, safe.initPattern(pattern, options));
+            } else if ( implicit !== '' ) {
+                needles.set(implicit, safe.initPattern(prop, options));
+            }
+        }
+        return needles;
     }
     
     try {
@@ -1048,7 +1040,7 @@
         ...args
     ) {
         setConstantFn(false, ...args);
-    })("ytInitialPlayerResponse.auxiliaryUi.messageRenderers.upsellDialogRenderer","undefined");
+    })("ytInitialPlayerResponse.playerAds","undefined");
     // <<<< scriptlet end
     } catch (e) {
     
@@ -1056,37 +1048,45 @@
     
     try {
     // >>>> scriptlet start
-    (function jsonPrune(
-        rawPrunePaths = '',
-        rawNeedlePaths = '',
-        stackNeedle = ''
+    (function setConstant(
+        ...args
     ) {
-        const safe = safeSelf();
-        const logPrefix = safe.makeLogPrefix('json-prune', rawPrunePaths, rawNeedlePaths, stackNeedle);
-        const stackNeedleDetails = safe.initPattern(stackNeedle, { canNegate: true });
-        const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
-        JSON.parse = new Proxy(JSON.parse, {
-            apply: function(target, thisArg, args) {
-                const objBefore = Reflect.apply(target, thisArg, args);
-                if ( rawPrunePaths === '' ) {
-                    safe.uboLog(logPrefix, safe.JSON_stringify(objBefore, null, 2));
-                }
-                const objAfter = objectPruneFn(
-                    objBefore,
-                    rawPrunePaths,
-                    rawNeedlePaths,
-                    stackNeedleDetails,
-                    extraArgs
-                );
-                if ( objAfter === undefined ) { return objBefore; }
-                safe.uboLog(logPrefix, 'Pruned');
-                if ( safe.logLevel > 1 ) {
-                    safe.uboLog(logPrefix, `After pruning:\n${safe.JSON_stringify(objAfter, null, 2)}`);
-                }
-                return objAfter;
-            },
-        });
-    })("auxiliaryUi.messageRenderers.upsellDialogRenderer");
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.adPlacements","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("ytInitialPlayerResponse.adSlots","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function setConstant(
+        ...args
+    ) {
+        setConstantFn(false, ...args);
+    })("playerResponse.adPlacements","undefined");
+    // <<<< scriptlet end
+    } catch (e) {
+    
+    }
+    
+    try {
+    // >>>> scriptlet start
+    (function jsonPruneFetchResponse(...args) {
+        jsonPruneFetchResponseFn(...args);
+    })("reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd","","propsToMatch","url:/reel_watch_sequence?");
     // <<<< scriptlet end
     } catch (e) {
     
