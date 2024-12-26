@@ -4,6 +4,12 @@
 // @match       *://*.youtube.com/*
 // ==/UserScript==
 
+// ==UserScript==
+// @name        uBlockYouTube
+// @description uBLock Origin YouTube Scriptlet
+// @match       *://*.youtube.com/*
+// ==/UserScript==
+
 (function() {
     // >>>> start of private namespace
     
@@ -11,7 +17,7 @@
     
     const scriptletGlobals = {
         "warOrigin": "moz-extension://ad4b652f-1460-4f28-873d-bcee18d1e9e0/web_accessible_resources",
-        "warSecret": "niv8vshj8umu1cepig"
+        "warSecret": "cbjxztwlzz9p8p8ccm"
     }
     
     function safeSelf() {
@@ -464,18 +470,6 @@
             }
         }
         return value;
-    }
-    
-    try {
-    // >>>> scriptlet start
-    (function setConstant(
-        ...args
-    ) {
-        setConstantFn(false, ...args);
-    })("google_ad_status","1");
-    // <<<< scriptlet end
-    } catch (e) {
-    
     }
     
     try {
