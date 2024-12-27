@@ -11,7 +11,7 @@
     
     const scriptletGlobals = {
         "warOrigin": "moz-extension://ad4b652f-1460-4f28-873d-bcee18d1e9e0/web_accessible_resources",
-        "warSecret": "2l9z2wfpflqy1rjpah"
+        "warSecret": "mofsf8ysgkl29psplp"
     }
     
     function safeSelf() {
