@@ -4,6 +4,7 @@
 // @description  Automatically switches between light and dark themes on Twitter.com (web version) based on system settings. Based on https://greasyfork.org/en/scripts/452575-twitter-auto-theme/code
 // @author       13xforever
 // @match        https://twitter.com/*
+// @match        https://x.com/*
 // @run-at       document-start
 // @license MIT
 // ==/UserScript==
