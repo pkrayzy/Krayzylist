@@ -283,11 +283,12 @@ zerohedge.com##section[class*="PromoButton_"]
 
 !!--Google--!!
 !People Also Ask!
-google.com##.cUnQKe 
-google.com##.ouy7Mc
-google.com##.Wt5Tfe 
+google.com##[jsname="xQjRM"]:has(.cUnQKe)
+google.com##[jsname="xQjRM"]:has(.Wt5Tfe)
+google.com##[jsname="xQjRM"]:has(.ouy7Mc)
 !Images!
-google.com##[data-iu]
+google.com##[data-ie]:contains(/Images/)
+google.com##[data-iu]:contains(/Images/)
 !Bottom Related Searches!
 google.com###bres
 
