@@ -57,7 +57,7 @@ Roboto*$font
 ||cdn.cxense.com$script
 ||cdn.iubenda.com/cookie_solution$script
 ||cdn.optimizely.com$script
-||cdn.privacy-mgmt.com$3p
+||cdn.privacy-mgmt.com$third-party
 ||cdn.taboola.com/*/loader.js$script
 ||convertkit.com/ckjs$script
 ||coral.coralproject.net$script
@@ -107,16 +107,16 @@ youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', '
 youtube.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
 
 !!---Cookie Remover---!!
-bloomberg.com##+js(cookie-remover)
-businessinsider.com##+js(cookie-remover)
-bwbx.io##+js(cookie-remover)
-ft.com##+js(cookie-remover)
-google.com##+js(cookie-remover)
-insider.com##+js(cookie-remover)
-markets.businessinsider.com##+js(cookie-remover)
-my.businessinsider.com##+js(cookie-remover)
-news.google.com##+js(cookie-remover)
-nytimes.com##+js(cookie-remover)
+bloomberg.com#%#//scriptlet('remove-cookie')
+businessinsider.com#%#//scriptlet('remove-cookie')
+bwbx.io#%#//scriptlet('remove-cookie')
+ft.com#%#//scriptlet('remove-cookie')
+google.com#%#//scriptlet('remove-cookie')
+insider.com#%#//scriptlet('remove-cookie')
+markets.businessinsider.com#%#//scriptlet('remove-cookie')
+my.businessinsider.com#%#//scriptlet('remove-cookie')
+news.google.com#%#//scriptlet('remove-cookie')
+nytimes.com#%#//scriptlet('remove-cookie')
 
 !!---Specific CSS---!!
 9to5mac.com##.ad-container
