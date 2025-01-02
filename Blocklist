@@ -312,9 +312,9 @@ bing.com###relatedSearchesLGWContainer
 
 ! People Also Ask !
 ! bing.com##.df_alaskcarousel
-! bing.com##.rqnaContainerwithfeedback
-! bing.com##.rqnafbUlWrapper
-! bing.com##.rqnASCWrapper
+bing.com##.rqnaContainerwithfeedback
+bing.com##.rqnafbUlWrapper
+bing.com##.rqnASCWrapper
 ! bing.com##.ansTtlUndrlnWrapper
 
 !!--Bing Answers--!!
