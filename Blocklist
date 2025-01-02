@@ -289,8 +289,8 @@ google.com###bres
 
 !!--Bing--!!
 ! Ads !
-bing.com##.b_ad
-bing.com##.b_spa_adblock
+! bing.com##.b_ad
+! bing.com##.b_spa_adblock
 
 ! Visual Junk !
 bing.com##.b_fbCont
@@ -329,6 +329,6 @@ bing.com##li.b_ans.b_vidAns
 
 !!--Bing Extended--!!
 bing.com##.b_msg.b_canvas:has(#results_removed)
-bing.com###b_pole:has(.b_adLastChild)
-bing.com###b_pole:has(#ssa_main)
+! bing.com###b_pole:has(.b_adLastChild)
+! bing.com###b_pole:has(#ssa_main)
 bing.com##.b_ans:has(.b_rs)
