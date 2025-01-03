@@ -11,10 +11,10 @@
     type: "redirect",
     redirect: {
       regexSubstitution: "https://search.brave.com/search?q=\\1"
-    },
+    }
   },
   condition: {
-    regexFilter: "https://duckduckgo.com/\\?(?:.*&)?q=([^&]*).*",
+    regexFilter: "https://www.bing.com/search?q\\?(?:.*&)?q=([^&]*).*",
     resourceTypes: ["main_frame"]
   }
 }
