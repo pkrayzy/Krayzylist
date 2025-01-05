@@ -102,6 +102,7 @@ Roboto*$font
 
 !!---Cookie Remover---!!
 bloomberg.com#%#//scriptlet('remove-cookie')
+bloomberg.com#%#//scriptlet('trusted-replace-fetch-response', 'eligible:false', 'true:false', 'gatehouse')
 businessinsider.com#%#//scriptlet('remove-cookie')
 bwbx.io#%#//scriptlet('remove-cookie')
 ft.com#%#//scriptlet('remove-cookie')
@@ -130,7 +131,7 @@ clutchpoints.com##.aspect-video
 clutchpoints.com##.not-prose
 clutchpoints.com##footer
 cnet.com##.c-adSkyBox, .c-adSkyBox_expanded
-cnet.com##.c-avStickyVideo, .c-CnetAvStickyVideo
+cnet.com##.c-avStickyVideo, .c-CnetAvStickyVideo, .c-avLazyStickyVideo-sticky
 cnet.com##.c-head_disclosure, .c-globalDisclosure
 cnet.com##.c-naviWidget
 digitaltrends.com##.dtads-content, .dtads-location, .dtads-mobile
