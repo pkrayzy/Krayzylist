@@ -287,46 +287,46 @@ google.com###bres
 
 !!--Bing--!!
 ! Ads !
-bing.com##.b_ad
-bing.com##.b_spa_adblock
+bing.com##.b_ad.b_adTop, .b_ad.b_adBottom, .b_ad.b_adMiddle
+bing.com##.b_algospacingab_title, .b_vList.b_divsec, .b_algospacingab_seemore
 
 ! Visual Junk !
-bing.com##.b_fbCont
-bing.com##.fdbk_thmb_root
-bing.com##.te_wrap
-bing.com###b_mtp
-! bing.com###b_tween
+bing.com##.fdbk_thmb_root.fdbk_thmb_root_mob
+bing.com###qs_searchBoxOuter
 
 ! Related Searches !
 bing.com##.b_rrsr
 bing.com##.b_rs
 bing.com##.richrswrapper
 bing.com##.rrMrsWrapper
-bing.com##.rs_chat
+!bing.com##.rs_chat
 bing.com###b_alsotry
 bing.com###b_typetosearchtips
 bing.com###inline_rs
+bing.com###relatedQnAListDisplay
 bing.com###relatedSearchesLGWContainer
 
 ! People Also Ask !
-! bing.com##.df_alaskcarousel
+bing.com##.ansTtlUndrlnWrapper
+bing.com##.df_alaskcarousel
+bing.com##.df_hd
+bing.com##.fbans
 bing.com##.rqnaContainerwithfeedback
 bing.com##.rqnafbUlWrapper
 bing.com##.rqnASCWrapper
-! bing.com##.ansTtlUndrlnWrapper
 
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
 bing.com##.b_ans.b_explans.rrexqp
+bing.com##.b_ans.b_imgans
+bing.com##.b_ans.b_vidAns
+bing.com##.b_ans.opal_serpftrc
 bing.com##.b_mop.b_imgans
 bing.com##.b_mop.b_mopb.b_vidans
 bing.com##.b_mop.b_vidAns
 bing.com##.b_vidans.b_ansb
-bing.com##li.b_ans.b_imgans
-bing.com##li.b_ans.b_vidAns
 
 !!--Bing Extended--!!
+bing.com##.b_ans:has(.b_rs)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild)
-! bing.com###b_pole:has(#ssa_main)
-bing.com##.b_ans:has(.b_rs)
