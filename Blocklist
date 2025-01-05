@@ -39,7 +39,6 @@ Roboto*$font
 /wp-content/plugins/elementor-pro/*$script
 
 !!---General Hide---!!
-##.ad-container
 ##.header-ad-container-top 
 ##figure.player-wrapper.relative.aspect-video
 
@@ -114,65 +113,41 @@ news.google.com#%#//scriptlet('remove-cookie')
 nytimes.com#%#//scriptlet('remove-cookie')
 
 !!---Specific CSS---!!
-9to5mac.com##.ad-container
-9to5mac.com##.ad-container--leaderboard
-appleinsider.com##.primis-ad-wrap
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
-arstechnica.com##.ad-wrapper
-axios.com##.apexAd
+barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 barstoolsports.com##.ad--fixedBottom
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN
 bloomberg.com##.styles_ledeContainer___qNar
 bloomberg.com##[button*=“FloatingCopyLink”]
 bloomberg.com##[class*="media-ui-FullWidthAd"]
 bulbapedia.bulbagarden.net###siteNotice
-businessinsider.com##.l-ad
-businessinsider.com##.subnav-ad-layout
 businessinsider.com##.subnav-ad-position-sticky
 cbssports.com##.Skybox--minHeight, .Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
-cbssports.com###GlobalNavOffset
-cbssports.com###GlobalNavOffsetSpacer
+cbssports.com###GlobalNavOffset, #GlobalNavOffsetSpacer
 cbssports.com##body > div:has([data-adm-url])
 clutchpoints.com##.aspect-video
 clutchpoints.com##.not-prose
 clutchpoints.com##footer
-cnet.com##.c-adSkyBox
-cnet.com##.c-adSkyBox_expanded
-cnet.com##.c-avStickyVideo
-cnet.com##.c-CnetAvStickyVideo
-cnet.com##.c-head_disclosure
+cnet.com##.c-adSkyBox, .c-adSkyBox_expanded
+cnet.com##.c-avStickyVideo, .c-CnetAvStickyVideo
+cnet.com##.c-head_disclosure, .c-globalDisclosure
 cnet.com##.c-naviWidget
-cnet.com##div.c-globalDisclosure
-digitaltrends.com##.dtads-content
-digitaltrends.com##.dtads-location
-digitaltrends.com##.dtads-mobile
+digitaltrends.com##.dtads-content, .dtads-location, .dtads-mobile
 digitaltrends.com##[class*="dtads-"]
-economist.com##.adComponent_advert__kPVUI
-economist.com##.adComponent_incontent__boSCu
-economist.com##.advert--regwall
-espn.com##.ad-slot
-espn.com##.ad-slot-banner
-espn.com##.ad-wrapper
+economist.com##.adComponent_advert__kPVUI, .adComponent_incontent__boSCu, .advert--regwall
 espn.com##.article-legal-footer
 fantasypros.com##.leaderboard-footer-wrap
 fantasypros.com##.mpb-upgrade-modal-container
 fantasypros.com##section.pc_advertisement-section
-faroutmagazine.co.uk##.header:style(margin-top: 0px;)
-ft.com##.advert 
+ft.com##.advert, .in-article-advert
 ft.com##.article__content-sign-up
-ft.com##.in-article-advert
-ft.com##.o-ads
-ft.com##.o-ads--center
-ft.com##.o-ads--label-left
-ft.com##.o-banner
+ft.com##.o-ads, .o-ads--center, .o-ads--label-left, .o-banner
 ft.com###article-body > div.o-ads
 ft.com###n-exponea-top-slot
 ft.com###sp_message_container_967339
 ft.com##div.n-layout__header-before > pg-slot
 instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
-lombardiave.com##figure.style_uhlm2
-miamiherald.com##mcc-paywall
 msn.com##.articlePageIntraArticleFullWidth
 msn.com##.banner-container
 msn.com##.consumption-page-banner-wrapper
@@ -225,9 +200,6 @@ theopen.com##div.overlay.is-visible
 theverge.com##[data-concert-ads-name]
 theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
-thurrott.com##.adthrive
-thurrott.com##.adthrive-ad
-thurrott.com##.adthrive-content
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
 usatoday.com###ad--article-top-wrapper
@@ -237,35 +209,24 @@ variety.com##.pmc-contextual-player
 variety.com##[id*="adm-inline-article-ad-"]
 variety.com###sticky-rail-ad
 wikipedia.org###centralNotice
-windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit
-windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.dfp-leaderboard-container
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.infinite-container
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.newsletter-form__wrapper
-windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.van_taboola
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.widget-ads, .widget-ads-lightbox2, .widget-ads-ads-lightbox2, .widget-ads-static-lightbox2
-windowscentral.com,whathifi.com,techradar.com,tomsguide.com###article-body > div.van_vid_carousel
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###newsletter-slice
-windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-mobile-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###top-leaderboard
 wsj.com##.ad-portal
 wsj.com##[data-testid="ad-container"]
-www.barrons.com##.adWrapperTopLead
-www.barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 youtube.com##.yt-mealbar-promo-renderer
 youtube.com##[target-id="engagement-panel-ads"]
 youtube.com###movie_player > div.ytp-paid-content-overlay
 youtube.com###offer-module
-youtube.com##ytd-ad-slot-renderer
-youtube.com##ytd-rich-item-renderer:has(ytd-ad-slot-renderer)
 zerohedge.com##.BlockContactInfo_dropdown__n9SPS
 zerohedge.com##.BlockLogin_container__f_B6j
 zerohedge.com##.BlockSearch_container__UmRtJ
 zerohedge.com##.bottom-banner-container
 zerohedge.com##.native
-zerohedge.com##.rectangle
-zerohedge.com##.rectangle-large
 zerohedge.com##.SidebarLeft_debateCallout__mMVK8
 zerohedge.com##.TopPosts_posts__kSDL7
 zerohedge.com##.ZeroHedgeReads_container__qAqpv
