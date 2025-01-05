@@ -189,7 +189,9 @@ nbcsports.com##div.ArticlePage-actions-wrapper
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
+nypost.com##.entry-content.featured-image.featured-image__wrapper
 nypost.com##.membership-comments-container
+nypost.com##.membership-reactions-module
 nypost.com##.nyp-zephr-flyout
 nypost.com##.scrollingdown.hide
 nypost.com##.widget--vividseats
@@ -281,7 +283,10 @@ zerohedge.com##section[class*="PromoButton_"]
 google.com##.cUnQKe:has(.related-question-pair)
 google.com##.related-question-pair
 google.com##.ULSxyf > .MjjYud:has(.vRy7rc)
+google.com##[jsname="Cpkphb"]:has(.U11f3c)
 !Images!
+google.com##.MjjYud > div > .vt6azd:has(.DyfMyc)
+google.com##.ULSxyf > .MjjYud:has(#iur)
 !Bottom Related Searches!
 google.com###bres
 
