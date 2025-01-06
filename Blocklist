@@ -255,7 +255,6 @@ google.com###bres
 !!--Bing--!!
 ! Ads !
 bing.com##.b_ad.b_adTop, .b_ad.b_adBottom, .b_ad.b_adMiddle
-bing.com##.b_algospacingab_title, .b_vList.b_divsec, .b_algospacingab_seemore
 
 ! Visual Junk !
 bing.com##.fdbk_thmb_root.fdbk_thmb_root_mob
