@@ -261,11 +261,11 @@ bing.com##.fdbk_thmb_root.fdbk_thmb_root_mob
 bing.com###qs_searchBoxOuter
 
 ! Related Searches !
+!bing.com##.rs_chat
 bing.com##.b_rrsr
 bing.com##.b_rs
 bing.com##.richrswrapper
 bing.com##.rrMrsWrapper
-!bing.com##.rs_chat
 bing.com###b_alsotry
 bing.com###b_typetosearchtips
 bing.com###inline_rs
@@ -275,11 +275,11 @@ bing.com###relatedSearchesLGWContainer
 ! People Also Ask !
 !bing.com##.ansTtlUndrlnWrapper
 !bing.com##.df_alaskcarousel
+!bing.com##.rqnafbUlWrapper
+!bing.com##.rqnASCWrapper
 bing.com##.df_hd
 bing.com##.fbans
 bing.com##.rqnaContainerwithfeedback
-!bing.com##.rqnafbUlWrapper
-!bing.com##.rqnASCWrapper
 
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
@@ -294,5 +294,6 @@ bing.com##.b_vidans.b_ansb
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.b_rs)
+bing.com##.b_ans:has(#ssa_main)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild)
