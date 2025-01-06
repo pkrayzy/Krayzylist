@@ -263,9 +263,9 @@ bing.com###qs_searchBoxOuter
 
 ! Related Searches !
 !bing.com##.rs_chat
-!bing.com##.richrswrapper
 bing.com##.b_rrsr
 bing.com##.b_rs
+bing.com##.richrswrapper
 bing.com##.rrMrsWrapper
 bing.com###b_alsotry
 bing.com###b_typetosearchtips
