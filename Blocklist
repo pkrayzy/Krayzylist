@@ -273,13 +273,13 @@ bing.com###relatedQnAListDisplay
 bing.com###relatedSearchesLGWContainer
 
 ! People Also Ask !
-bing.com##.ansTtlUndrlnWrapper
-bing.com##.df_alaskcarousel
+!bing.com##.ansTtlUndrlnWrapper
+!bing.com##.df_alaskcarousel
 bing.com##.df_hd
 bing.com##.fbans
 bing.com##.rqnaContainerwithfeedback
-bing.com##.rqnafbUlWrapper
-bing.com##.rqnASCWrapper
+!bing.com##.rqnafbUlWrapper
+!bing.com##.rqnASCWrapper
 
 !!--Bing Answers--!!
 bing.com##.b_ans.b_dr_mod
