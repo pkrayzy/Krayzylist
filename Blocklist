@@ -257,7 +257,7 @@ google.com###bres
 bing.com##.b_ad.b_adTop, .b_ad.b_adBottom, .b_ad.b_adMiddle
 
 ! Visual Junk !
-bing.com##.fdbk_thmb_root.fdbk_thmb_root_mob
+bing.com##.fdbk_thmb_root
 bing.com###qs_searchBoxOuter
 
 ! Related Searches !
