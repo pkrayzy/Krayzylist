@@ -186,6 +186,8 @@ reddit.com##shreddit-ad-post
 reddit.com##shreddit-comments-page-ad
 reddit.com##shreddit-dynamic-ad-link
 reddit.com##xpromo-nsfw-blocking-modal
+reuters.com##[data-testid="RefinitivPromoBar"]
+reuters.com##[data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
 semafor.com##div[class*="styles_floatingBanner"]
