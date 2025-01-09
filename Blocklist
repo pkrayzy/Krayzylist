@@ -37,6 +37,7 @@ Roboto*$font
 /scripts/adslot.js
 /setup-ads.*$script
 /wp-content/plugins/elementor-pro/*$script
+@@/trackit.js$domain=click.americanexpress.com
 
 !!---General Hide---!!
 ##.header-ad-container-top 
