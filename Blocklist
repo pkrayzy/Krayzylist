@@ -318,7 +318,7 @@ bing.com##.b_vidans.b_ansb
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.b_rs)
 bing.com##.b_ans:has(.tna_ads_container)
-bing.com##.b_ans:has(#ssa_main)
+! bing.com##.b_ans:has(#ssa_main)
 bing.com##.b_mop:has(.rqnaContainer)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild)
