@@ -69,6 +69,7 @@ Roboto*$font
 ||klaviyo.com/media/js$script
 ||lightboxcdn.com$script
 ||nytimes.com/vi-assets/static-assets/adslot-*.js$script
+||piratewires.com/_next/static/chunks/app/$script
 ||pixeledhub.com$script
 ||polyfill-fastly.io$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
