@@ -102,12 +102,13 @@ Roboto*$font
 /youtubei/v*/player?$jsonprune=\$..[adPlacements\, adSlots\, playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
 .com/playlist?list=$jsonprune=\$..[adPlacements\, adSlots\, playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
 youtube.com##+js(set-constant, google_ad_status, 1)
-youtubekids.com,youtube-nocookie.com,youtube.com##+js(set-constant, ytInitialPlayerResponse.adPlacements, undefined)
-youtubekids.com,youtube-nocookie.com,youtube.com##+js(set-constant, ytInitialPlayerResponse.adSlots, undefined)
-youtubekids.com,youtube-nocookie.com,youtube.com##+js(set-constant, ytInitialPlayerResponse.playerAds, undefined)
-youtubekids.com,youtube-nocookie.com,youtube.com##+js(set-constant, playerResponse.adPlacements, undefined)
-m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots)
-www.youtube.com##+js(adjust-setTimeout, [native code], 17000, 0.001)
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
+youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|\/player(?!.*(get_drm_license))|watch\?[tv]=|get_watch\?/')
+youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|player\?|watch\?[tv]=|get_watch\?/')
+www.youtube.com#%#//scriptlet('adjust-setTimeout', '[native code]', '17000', '0.001')
 
 !!---Cookie Remover---!!
 bloomberg.com#%#//scriptlet('remove-cookie')
@@ -126,6 +127,7 @@ news.google.com#%#//scriptlet('remove-cookie')
 nytimes.com#%#//scriptlet('remove-cookie')
 
 !!---Specific CSS---!!
+apartmenttherapy.com##.MobileStickyBanner
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
 barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
@@ -133,7 +135,6 @@ barstoolsports.com##.ad--fixedBottom
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN
 bloomberg.com##.styles_ledeContainer___qNar
 bloomberg.com##[button*=“FloatingCopyLink”]
-bloomberg.com##[class*="media-ui-FullWidthAd"]
 bulbapedia.bulbagarden.net###siteNotice
 businessinsider.com##.subnav-ad-position-sticky
 cbssports.com##.Skybox--minHeight, .Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
@@ -225,6 +226,8 @@ usatoday.com##body > div:has([href*="https://getad"])
 variety.com##.pmc-contextual-player
 variety.com##[id*="adm-inline-article-ad-"]
 variety.com###sticky-rail-ad
+wellandgood.com##.wg__inline-ad-wrapper
+wellandgood.com###votd-player-mobile
 wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.infinite-container
@@ -254,6 +257,7 @@ zerohedge.com##[class*="PromoBanner_"]
 zerohedge.com##[id*="in-content"]
 zerohedge.com##[id*="list-display-"]
 zerohedge.com###exitModalOverlay
+zerohedge.com###footer
 zerohedge.com###footer
 zerohedge.com###store-promo
 zerohedge.com##div.fc-ab-root:nth-child(n)
@@ -285,6 +289,7 @@ bing.com##.b_widgetContainer.slide-in
 bing.com##.ca_top_sec
 bing.com##.fdbk_thmb_root
 bing.com###b_mtp
+bing.com###fbtop
 bing.com###qs_searchBoxOuter
 
 ! Related Searches !
