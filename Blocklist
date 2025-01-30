@@ -241,6 +241,8 @@ windowscentral.com,whathifi.com,techradar.com,tomsguide.com###newsletter-slice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-mobile-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###top-leaderboard
 wsj.com##.ad-portal
+wsj.com##.e1cp7uwz8:has([class="adWrapper "])
+wsj.com##[class="adWrapper "]
 wsj.com##[data-testid="ad-container"]
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 youtube.com##.yt-mealbar-promo-renderer
