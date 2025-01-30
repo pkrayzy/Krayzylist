@@ -192,6 +192,7 @@ nypost.com##.scrollingdown.hide
 nypost.com##.widget--vividseats
 nypost.com##amp-video-iframe
 nypost.com##div:has([data-adm-url])
+nypost.com##div.recirc
 nytimes.com##[class="vi-gateway-container"] > div:has([id="after-mobile_top"])
 nytimes.com##[data-testid="standard-dock"]
 nytimes.com##[id="bottom-wrapper"]
@@ -217,6 +218,7 @@ speedtest.net##.mobile-during-test-banner
 speedtest.net##.mobile-pretest
 speedtest.net##.modal-overlay
 the-gadgeteer.com##.crunchify-social
+thehill.com##.article__featured-media
 theintercept.com###third-party--article-mid
 theopen.com##div.overlay.is-visible
 theverge.com##[data-concert-ads-name]
@@ -294,6 +296,7 @@ bing.com###adstop_gradiant_separator
 bing.com##.b_widgetContainer.slide-in
 bing.com##.ca_top_sec
 bing.com##.fdbk_thmb_root
+bing.com##.fdbk-cntr
 bing.com###b_mtp
 bing.com###fbtop
 bing.com###qs_searchBoxOuter
