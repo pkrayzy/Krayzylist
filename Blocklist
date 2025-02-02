@@ -232,7 +232,6 @@ usatoday.com##body > div:has([href*="https://getad"])
 variety.com##.pmc-contextual-player
 variety.com##[id*="adm-inline-article-ad-"]
 variety.com###sticky-rail-ad
-wellandgood.com##.wg__inline-ad-wrapper
 wellandgood.com###votd-player-mobile
 wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit
