@@ -252,13 +252,10 @@ windowscentral.com,whathifi.com,techradar.com,tomsguide.com###newsletter-slice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-mobile-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###top-leaderboard
 wsj.com##.ad-portal
-wsj.com##.ad-portal
-wsj.com##.e1cp7uwz8:has([class="adWrapper "])
 wsj.com##.e1cp7uwz8:has([class="adWrapper "])
 wsj.com##[class="adWrapper "]
-wsj.com##[class="adWrapper "]
+wsj.com##[aria-label="What To Read Next"]
 wsj.com##[data-skip-label="What to Read Next"]
-wsj.com##[data-testid="ad-container"]
 wsj.com##[data-testid="ad-container"]
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 youtube.com##.yt-mealbar-promo-renderer
@@ -279,7 +276,6 @@ zerohedge.com##[class*="PromoBanner_"]
 zerohedge.com##[id*="in-content"]
 zerohedge.com##[id*="list-display-"]
 zerohedge.com###exitModalOverlay
-zerohedge.com###footer
 zerohedge.com###footer
 zerohedge.com###store-promo
 zerohedge.com##div.fc-ab-root:nth-child(n)
