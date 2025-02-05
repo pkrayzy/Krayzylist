@@ -40,6 +40,8 @@ Roboto*$font
 @@/trackit.js$domain=click.americanexpress.com
 
 !!---General Hide---!!
+##.adblock-allowlist-messaging__article-wrapper
+##.c-toaster
 ##.header-ad-container-top 
 ##figure.player-wrapper.relative.aspect-video
 
@@ -226,9 +228,17 @@ theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
+usatoday.com##[aria-label="advertisement"]
+usatoday.com##[aria-label="Newsletter signup form"]
+usatoday.com##[class="gnt_flp"]
+usatoday.com##[class="gnt_rr"]
+usatoday.com##[data-gl-method="llx"]
 usatoday.com###ad--article-top-wrapper
 usatoday.com###ad--sidebar
+usatoday.com##aside.gnt_nb
 usatoday.com##body > div:has([href*="https://getad"])
+usatoday.com##header.gnt_n:style(margin: 0px 0 0)
+usatoday.com##header.gnt_n:style(top: 0px)
 variety.com##.pmc-contextual-player
 variety.com##[id*="adm-inline-article-ad-"]
 variety.com###sticky-rail-ad
@@ -242,8 +252,13 @@ windowscentral.com,whathifi.com,techradar.com,tomsguide.com###newsletter-slice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###taboola-mobile-below-article-thumbnails
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com###top-leaderboard
 wsj.com##.ad-portal
+wsj.com##.ad-portal
+wsj.com##.e1cp7uwz8:has([class="adWrapper "])
 wsj.com##.e1cp7uwz8:has([class="adWrapper "])
 wsj.com##[class="adWrapper "]
+wsj.com##[class="adWrapper "]
+wsj.com##[data-skip-label="What to Read Next"]
+wsj.com##[data-testid="ad-container"]
 wsj.com##[data-testid="ad-container"]
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 youtube.com##.yt-mealbar-promo-renderer
@@ -290,6 +305,9 @@ google.com###bres
 ! Ads !
 bing.com##.b_ad.b_adTop, .b_ad.b_adBottom, .b_ad.b_adMiddle
 bing.com###adstop_gradiant_separator
+bing.com###ssa_main
+bing.com###rv_ta 
+bing.com##.rvrv_ic
 
 ! Visual Junk !
 bing.com##.b_widgetContainer.slide-in
