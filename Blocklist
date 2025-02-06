@@ -225,6 +225,8 @@ theintercept.com###third-party--article-mid
 theopen.com##div.overlay.is-visible
 theverge.com##[data-concert-ads-name]
 theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
+theverge.com###content > div:has([data-concert="desktop_leaderboard_variable"])
+theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"])
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
@@ -300,10 +302,11 @@ google.com###bres
 !!--Bing--!!
 ! Ads !
 bing.com##.b_ad.b_adTop, .b_ad.b_adBottom, .b_ad.b_adMiddle
-bing.com###adstop_gradiant_separator
-bing.com###ssa_main
-bing.com###rv_ta 
+bing.com##.b_ad.sb_genserp_pa
 bing.com##.rvrv_ic
+bing.com###adstop_gradiant_separator
+bing.com###rv_ta 
+bing.com###ssa_main
 
 ! Visual Junk !
 bing.com##.b_widgetContainer.slide-in
@@ -316,11 +319,13 @@ bing.com###qs_searchBoxOuter
 
 ! Related Searches !
 !bing.com##.rs_chat
+bing.com##.ans:has(.b_mrs)
 bing.com##.b_rrsr
 bing.com##.b_rs
 bing.com##.richrswrapper
 bing.com##.rrMrsWrapper
 bing.com###b_alsotry
+bing.com###b_mrs_DynamicMRS, .b_mrs
 bing.com###b_typetosearchtips
 bing.com###inline_rs
 bing.com###relatedQnAListDisplay
