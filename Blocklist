@@ -223,10 +223,8 @@ the-gadgeteer.com##.crunchify-social
 thehill.com##.article__featured-media
 theintercept.com###third-party--article-mid
 theopen.com##div.overlay.is-visible
-theverge.com##[data-concert-ads-name]
-theverge.com##[data-concert="leaderboard_top_tablet_desktop"]
-theverge.com###content > div:has([data-concert="desktop_leaderboard_variable"])
-theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"])
+theverge.com##[data-concert-ads-name], [data-concert="leaderboard_top_tablet_desktop"], [data-concert="tablet_leaderboard"]
+theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"], [data-concert="desktop_leaderboard_variable"], [data-concert="tablet_leaderboard"])
 theverge.com##div[data-concert]
 thurrott.com##div[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
