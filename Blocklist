@@ -99,35 +99,35 @@ Roboto*$font
 
 !!---YouTube---!!
 ||googlevideo.com/initplayback?source=youtube&*&c=TVHTML5&oad=$xmlhttprequest,domain=youtube.com
-.com/watch?$xmlhttprequest,jsonprune=\$..[adPlacements\, adSlots\, playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
-/youtubei/v*/get_watch?$jsonprune=\$..[adPlacements\, adSlots\, playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
-/youtubei/v*/player?$jsonprune=\$..[adPlacements\, adSlots\, playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
-.com/playlist?list=$jsonprune=\$..[adPlacements\, adSlots\, playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
-youtube.com##+js(set-constant, google_ad_status, 1)
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
-youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|\/player(?!.*(get_drm_license))|watch\?[tv]=|get_watch\?/')
-youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|player\?|watch\?[tv]=|get_watch\?/')
-www.youtube.com#%#//scriptlet('adjust-setTimeout', '[native code]', '17000', '0.001')
+.com/watch?$xmlhttprequest,jsonprune=\$..[adPlacements\,adSlots\,playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
+/youtubei/v*/get_watch?$jsonprune=\$..[adPlacements\,adSlots\,playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
+/youtubei/v*/player?$jsonprune=\$..[adPlacements\,adSlots\,playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
+.com/playlist?list=$jsonprune=\$..[adPlacements\,adSlots\,playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
+youtube.com##+js(set-constant,google_ad_status,1)
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant','ytInitialPlayerResponse.adPlacements','undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant','ytInitialPlayerResponse.adSlots','undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant','ytInitialPlayerResponse.playerAds','undefined')
+youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant','playerResponse.adPlacements','undefined')
+youtube.com#%#//scriptlet('json-prune-xhr-response','playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots','','/playlist\?list=|\/player(?!.*(get_drm_license))|watch\?[tv]=|get_watch\?/')
+youtube.com#%#//scriptlet('json-prune-fetch-response','playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots','','/playlist\?list=|player\?|watch\?[tv]=|get_watch\?/')
+www.youtube.com#%#//scriptlet('adjust-setTimeout','[native code]','17000','0.001')
 
 !!---Cookie Remover---!!
 bloomberg.com#%#//scriptlet('remove-cookie')
-bloomberg.com#%#//scriptlet('trusted-replace-fetch-response', 'eligible:false', 'true:false', 'gatehouse')
-bloomberg.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
-bloomberg.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
+bloomberg.com#%#//scriptlet('trusted-replace-fetch-response','eligible:false','true:false','gatehouse')
+bloomberg.com#%#//scriptlet('set-local-storage-item','/*/','$remove$')
+bloomberg.com#%#//scriptlet('set-session-storage-item','/*/','$remove$')
 businessinsider.com#%#//scriptlet('remove-cookie')
 bwbx.io#%#//scriptlet('remove-cookie')
 ft.com#%#//scriptlet('remove-cookie')
-ft.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
-ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
+ft.com#%#//scriptlet('set-local-storage-item','/*/','$remove$')
+ft.com#%#//scriptlet('set-session-storage-item','/*/','$remove$')
 google.com#%#//scriptlet('remove-cookie')
 insider.com#%#//scriptlet('remove-cookie')
 markets.businessinsider.com#%#//scriptlet('remove-cookie')
 msn.com#%#//scriptlet('remove-cookie')
-msn.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
-msn.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
+msn.com#%#//scriptlet('set-local-storage-item','/*/','$remove$')
+msn.com#%#//scriptlet('set-session-storage-item','/*/','$remove$')
 my.businessinsider.com#%#//scriptlet('remove-cookie')
 news.google.com#%#//scriptlet('remove-cookie')
 nytimes.com#%#//scriptlet('remove-cookie')
@@ -142,17 +142,17 @@ bloomberg.com##.ledeVideo_ledeVideo__MkrSN,.styles_ledeContainer___qNar
 bloomberg.com##[button*=“FloatingCopyLink”]
 bulbapedia.bulbagarden.net###siteNotice
 businessinsider.com##.subnav-ad-position-sticky
-cbssports.com###GlobalNavOffset, #GlobalNavOffsetSpacer
-cbssports.com##.Skybox--minHeight, .Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
+cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer
+cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
 cbssports.com##body > div:has([data-adm-url])
 clutchpoints.com##.aspect-video,.not-prose,footer
-cnet.com##.c-adSkyBox, .c-adSkyBox_expanded,.c-avStickyVideo, .c-CnetAvStickyVideo, .c-avLazyStickyVideo-sticky,.c-head_disclosure, .c-globalDisclosure,.c-naviWidget
-digitaltrends.com##.dtads-content, .dtads-location, .dtads-mobile
+cnet.com##.c-adSkyBox,.c-adSkyBox_expanded,.c-avStickyVideo,.c-CnetAvStickyVideo,.c-avLazyStickyVideo-sticky,.c-head_disclosure,.c-globalDisclosure,.c-naviWidget
+digitaltrends.com##.dtads-content,.dtads-location,.dtads-mobile
 digitaltrends.com##[class*="dtads-"]
-economist.com##.adComponent_advert__kPVUI, .adComponent_incontent__boSCu, .advert--regwall
+economist.com##.adComponent_advert__kPVUI,.adComponent_incontent__boSCu,.advert--regwall
 espn.com##.article-legal-footer
 fantasypros.com##.leaderboard-footer-wrap,.mpb-upgrade-modal-container,section.pc_advertisement-section
-ft.com##.advert, .in-article-advert,.article__content-sign-up,.o-ads, .o-ads--center, .o-ads--label-left, .o-banner,#n-exponea-top-slot,#sp_message_container_967339
+ft.com##.advert,.in-article-advert,.article__content-sign-up,.o-ads,.o-ads--center,.o-ads--label-left,.o-banner,#n-exponea-top-slot,#sp_message_container_967339
 ft.com###article-body > div.o-ads
 ft.com##div.n-layout__header-before > pg-slot
 instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
@@ -183,8 +183,8 @@ the-gadgeteer.com##.crunchify-social
 thehill.com##.article__featured-media
 theintercept.com###third-party--article-mid
 theopen.com##div.overlay.is-visible
-theverge.com##[data-concert-ads-name], [data-concert="leaderboard_top_tablet_desktop"], [data-concert="tablet_leaderboard"]
-theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"], [data-concert="desktop_leaderboard_variable"], [data-concert="tablet_leaderboard"])
+theverge.com##[data-concert-ads-name],[data-concert="leaderboard_top_tablet_desktop"],[data-concert="tablet_leaderboard"]
+theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"],[data-concert="desktop_leaderboard_variable"],[data-concert="tablet_leaderboard"])
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
 usatoday.com##[aria-label="advertisement"],[aria-label="Newsletter signup form"],[class="gnt_flp"],[class="gnt_rr"],[data-gl-method="llx"]
@@ -196,7 +196,7 @@ variety.com##.pmc-contextual-player,#sticky-rail-ad
 variety.com##[id*="adm-inline-article-ad-"]
 wellandgood.com###votd-player-mobile
 wikipedia.org###centralNotice
-windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit,.infinite-container,.newsletter-form__wrapper,.widget-ads, .widget-ads-lightbox2, .widget-ads-ads-lightbox2, .widget-ads-static-lightbox2, #newsletter-slice,#taboola-mobile-below-article-thumbnails,#top-leaderboard
+windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit,.infinite-container,.newsletter-form__wrapper,.widget-ads,.widget-ads-lightbox2,.widget-ads-ads-lightbox2,.widget-ads-static-lightbox2,#newsletter-slice,#taboola-mobile-below-article-thumbnails,#top-leaderboard
 wsj.com##.ad-portal
 wsj.com##.e1cp7uwz8:has([class="adWrapper "])
 wsj.com##[class="adWrapper "],[aria-label="What To Read Next"],[data-skip-label="What to Read Next"],[data-testid="ad-container"]
@@ -225,56 +225,23 @@ google.com###bres
 
 !!--Bing--!!
 ! Ads !
-bing.com##.b_ad.b_adTop, .b_ad.b_adBottom, .b_ad.b_adMiddle,.b_ad.sb_genserp_pa,.rvrv_ic
-bing.com###adstop_gradiant_separator,#rv_ta,#ssa_main
+bing.com##.b_ad.b_adTop,.b_ad.b_adBottom,.b_ad.b_adMiddle,.b_ad.sb_genserp_pa,.rvrv_ic,#adstop_gradiant_separator,#rv_ta,#ssa_main
 
 ! Visual Junk !
-bing.com##.b_widgetContainer.slide-in
-bing.com##.ca_top_sec
-bing.com##.fdbk_thmb_root
-bing.com##.fdbk-cntr
-bing.com###b_mtp
-bing.com###fbtop
-bing.com###qs_searchBoxOuter
+bing.com##.b_widgetContainer.slide-in,.ca_top_sec,.fdbk_thmb_root,.fdbk-cntr,#b_mtp,#fbtop,#qs_searchBoxOuter
 
 ! Related Searches !
-!bing.com##.rs_chat
-bing.com##.ans:has(.b_mrs)
-bing.com##.b_rrsr
-bing.com##.b_rs
-bing.com##.richrswrapper
-bing.com##.rrMrsWrapper
-bing.com###b_alsotry
-bing.com###b_mrs_DynamicMRS, .b_mrs
-bing.com###b_typetosearchtips
-bing.com###inline_rs
-bing.com###relatedQnAListDisplay
-bing.com###relatedSearchesLGWContainer
+
+bing.com##.b_mrs,.b_rrsr,.b_rs,.richrswrapper,.rrMrsWrapper,#b_alsotry,#b_mrs_DynamicMRS,#b_typetosearchtips,#inline_rs,#relatedQnAListDisplay,#relatedSearchesLGWContainer
 
 ! People Also Ask !
-!bing.com##.ansTtlUndrlnWrapper
-!bing.com##.df_alaskcarousel
-!bing.com##.rqnafbUlWrapper
-!bing.com##.rqnASCWrapper
-bing.com##.df_hd
-bing.com##.fbans
-bing.com##.rqnaContainerwithfeedback
+bing.com##.df_hd,.fbans,.rqnaContainerwithfeedback
 
 !!--Bing Answers--!!
-bing.com##.b_ans.b_dr_mod
-bing.com##.b_ans.b_explans.rrexqp
-bing.com##.b_ans.b_imgans
-bing.com##.b_ans.b_vidAns
-bing.com##.b_ans.opal_serpftrc
-bing.com##.b_mop.b_imgans
-bing.com##.b_mop.b_mopb.b_vidans
-bing.com##.b_mop.b_vidAns
-bing.com##.b_vidans.b_ansb
+bing.com##.b_ans.b_dr_mod,.b_ans.b_explans.rrexqp,.b_ans.b_imgans,.b_ans.b_vidAns,.b_ans.opal_serpftrc,.b_mop.b_imgans,.b_mop.b_mopb.b_vidans,.b_mop.b_vidAns,.b_vidans.b_ansb
 
 !!--Bing Extended--!!
-bing.com##.b_ans:has(.b_rs)
-bing.com##.b_ans:has(.tna_ads_container)
-bing.com##.b_ans:has(#ssa_main)
+bing.com##.b_ans:has(.b_mrs,.b_rs,.tna_ads_container,#ssa_main)
 bing.com##.b_mop:has(.rqnaContainer)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild)
