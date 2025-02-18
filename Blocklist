@@ -136,6 +136,7 @@ nytimes.com#%#//scriptlet('remove-cookie')
 apartmenttherapy.com##.MobileStickyBanner
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
 appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
+architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
 barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 barstoolsports.com##.ad--fixedBottom
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN,.styles_ledeContainer___qNar
@@ -221,11 +222,13 @@ zerohedge.com##section[class*="PromoButton_"]
 google.com##.cUnQKe:has(.related-question-pair)
 google.com##.related-question-pair
 google.com##.MjjYud > .vt6azd > .Wt5Tfe:has(.ouy7Mc)
+google.com##.vt6azd > [jsname="xQjRM"] > .sATSHe:has(.Wt5Tfe) 
 !Bottom Related Searches!
 google.com###bres
 !Images!
 google.com##.ULSxyf > .MjjYud:has(#iur)
 google.com##.MjjYud > div > .vt6azd:has(.DyfMyc)
+google.com##.vt6azd > [jsname="xQjRM"] > .sATSHe:has(#media_result_group)
 
 !!--Bing--!!
 ! Ads !
