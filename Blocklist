@@ -218,21 +218,17 @@ zerohedge.com##section[class*="PromoButton_"]
 /images/marketing/zh_store.jpg$domain=zerohedge.com
 
 !!--Google--!!
-!People Also Ask!
 google.com##.cUnQKe:has(.related-question-pair)
-google.com##.related-question-pair
 google.com##.MjjYud > .vt6azd > .Wt5Tfe:has(.ouy7Mc)
-google.com##.vt6azd > [jsname="xQjRM"] > .sATSHe:has(.Wt5Tfe) 
-!Bottom Related Searches!
-google.com###bres
-!Images!
-google.com##.ULSxyf > .MjjYud:has(#iur)
-google.com##.MjjYud > div > .vt6azd:has(.DyfMyc)
-google.com##.vt6azd > [jsname="xQjRM"] > .sATSHe:has(#media_result_group)
+google.com##.MjjYud > [data-hveid] > .vt6azd:has(.DyfMyc)
+google.com##.related-question-pair
+google.com##.ULSxyf > .MjjYud:has(.vRy7rc, #iur)
+google.com##.vt6azd > [jsname="xQjRM"] > .sATSHe:has(.Wt5Tfe, #media_result_group)
+google.com##[jsname="xQjRM"] > .sATSHe:has(.cUnQKe)
 
 !!--Bing--!!
 ! Ads !
-bing.com##.b_ad.b_adTop,.b_ad.b_adBottom,.b_ad.b_adMiddle,.b_ad.sb_genserp_pa,.rvrv_ic,#adstop_gradiant_separator,#rv_ta,#ssa_main
+bing.com##.b_ad.b_adTop,.b_ad.b_adBottom,.b_ad.b_adMiddle,.b_ad.sb_genserp_pa,.gs_header_img_vid,.rvrv_ic,#adstop_gradiant_separator,#rv_ta,#ssa_main
 
 ! Visual Junk !
 bing.com##.b_widgetContainer.slide-in,.ca_top_sec,.fdbk_thmb_root,.fdbk-cntr,#b_mtp,#fbtop,#qs_searchBoxOuter
@@ -251,4 +247,4 @@ bing.com##.b_ans.b_dr_mod,.b_ans.b_explans.rrexqp,.b_ans.b_imgans,.b_ans.b_vidAn
 bing.com##.b_ans:has(.b_mrs,.b_rs,.tna_ads_container,#ssa_main)
 bing.com##.b_mop:has(.rqnaContainer)
 bing.com##.b_msg.b_canvas:has(#results_removed)
-bing.com###b_pole:has(.b_adLastChild)
+bing.com###b_pole:has(.b_adLastChild, #brspole)
