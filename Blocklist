@@ -195,6 +195,7 @@ usatoday.com##header.gnt_n:style(margin: 0px 0 0)
 usatoday.com##header.gnt_n:style(top: 0px)
 variety.com##.pmc-contextual-player,#sticky-rail-ad
 variety.com##[id*="adm-inline-article-ad-"]
+vilebrequin.com##div.ui-widget-overlay
 wellandgood.com###votd-player-mobile
 wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit,.infinite-container,.newsletter-form__wrapper,.widget-ads,.widget-ads-lightbox2,.widget-ads-ads-lightbox2,.widget-ads-static-lightbox2,#newsletter-slice,#taboola-mobile-below-article-thumbnails,#top-leaderboard
@@ -221,9 +222,10 @@ zerohedge.com##section[class*="PromoButton_"]
 google.com##.cUnQKe:has(.related-question-pair)
 google.com##.MjjYud > .vt6azd > .Wt5Tfe:has(.ouy7Mc)
 google.com##.MjjYud > [data-hveid] > .vt6azd:has(.DyfMyc)
+google.com##.MjjYud > div > .vt6azd:has(img[alt])
 google.com##.related-question-pair
 google.com##.ULSxyf > .MjjYud:has(.vRy7rc, #iur)
-google.com##.vt6azd > [jsname="xQjRM"] > .sATSHe:has(.Wt5Tfe, #media_result_group)
+google.com##.vt6azd > [jsname="xQjRM"] > .sATSHe:has(.cUnQKe, .Wt5Tfe, #media_result_group)
 google.com##[jsname="xQjRM"] > .sATSHe:has(.cUnQKe)
 
 !!--Bing--!!
