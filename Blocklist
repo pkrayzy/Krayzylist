@@ -112,26 +112,6 @@ youtube.com#%#//scriptlet('json-prune-xhr-response','playerResponse.adPlacements
 youtube.com#%#//scriptlet('json-prune-fetch-response','playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots','','/playlist\?list=|player\?|watch\?[tv]=|get_watch\?/')
 www.youtube.com#%#//scriptlet('adjust-setTimeout','[native code]','17000','0.001')
 
-!!---Cookie Remover---!!
-bloomberg.com#%#//scriptlet('remove-cookie')
-bloomberg.com#%#//scriptlet('trusted-replace-fetch-response','eligible:false','true:false','gatehouse')
-bloomberg.com#%#//scriptlet('set-local-storage-item','/*/','$remove$')
-bloomberg.com#%#//scriptlet('set-session-storage-item','/*/','$remove$')
-businessinsider.com#%#//scriptlet('remove-cookie')
-bwbx.io#%#//scriptlet('remove-cookie')
-ft.com#%#//scriptlet('remove-cookie')
-ft.com#%#//scriptlet('set-local-storage-item','/*/','$remove$')
-ft.com#%#//scriptlet('set-session-storage-item','/*/','$remove$')
-google.com#%#//scriptlet('remove-cookie')
-insider.com#%#//scriptlet('remove-cookie')
-markets.businessinsider.com#%#//scriptlet('remove-cookie')
-msn.com#%#//scriptlet('remove-cookie')
-msn.com#%#//scriptlet('set-local-storage-item','/*/','$remove$')
-msn.com#%#//scriptlet('set-session-storage-item','/*/','$remove$')
-my.businessinsider.com#%#//scriptlet('remove-cookie')
-news.google.com#%#//scriptlet('remove-cookie')
-nytimes.com#%#//scriptlet('remove-cookie')
-
 !!---Specific CSS---!!
 apartmenttherapy.com##.MobileStickyBanner
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
