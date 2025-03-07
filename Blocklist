@@ -199,14 +199,7 @@ zerohedge.com##section[class*="PromoButton_"]
 /images/marketing/zh_store.jpg$domain=zerohedge.com
 
 !!--Google--!!
-google.com##.cUnQKe:has(.related-question-pair)
-google.com##.MjjYud > .vt6azd > .Wt5Tfe:has(.ouy7Mc)
-google.com##.MjjYud > [data-hveid] > .vt6azd:has(.DyfMyc)
-google.com##.MjjYud > div > .vt6azd:has(img[alt])
 google.com##.related-question-pair
-google.com##.ULSxyf > .MjjYud:has(.vRy7rc, #iur)
-google.com##.vt6azd > [jsname="xQjRM"] > .sATSHe:has(.cUnQKe, .Wt5Tfe, #media_result_group)
-google.com##[jsname="xQjRM"] > .sATSHe:has(.cUnQKe)
 
 !!--Bing--!!
 ! Ads !
