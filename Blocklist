@@ -87,31 +87,6 @@ Roboto*$font
 ||thurrott.com$font
 ||youtube.com/s/*/intersection-observer.min.js$script
 
-!!---Admiral---!!
-||childlikeform.com$third-party
-||colossalcry.com$third-party
-||fuzzybasketball.com$third-party
-||liadm.com$third-party
-||pricklypollution.com$third-party
-||sail-horizon.com$third-party
-||sheargovernor.com$third-party
-||unknownidea.com$third-party
-
-!!---YouTube---!!
-||googlevideo.com/initplayback?source=youtube&*&c=TVHTML5&oad=$xmlhttprequest,domain=youtube.com
-.com/watch?$xmlhttprequest,jsonprune=\$..[adPlacements\,adSlots\,playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
-/youtubei/v*/get_watch?$jsonprune=\$..[adPlacements\,adSlots\,playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
-/youtubei/v*/player?$jsonprune=\$..[adPlacements\,adSlots\,playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
-.com/playlist?list=$jsonprune=\$..[adPlacements\,adSlots\,playerAds],domain=youtubekids.com|youtube-nocookie.com|youtube.com
-youtube.com##+js(set-constant,google_ad_status,1)
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant','ytInitialPlayerResponse.adPlacements','undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant','ytInitialPlayerResponse.adSlots','undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant','ytInitialPlayerResponse.playerAds','undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant','playerResponse.adPlacements','undefined')
-youtube.com#%#//scriptlet('json-prune-xhr-response','playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots','','/playlist\?list=|\/player(?!.*(get_drm_license))|watch\?[tv]=|get_watch\?/')
-youtube.com#%#//scriptlet('json-prune-fetch-response','playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots','','/playlist\?list=|player\?|watch\?[tv]=|get_watch\?/')
-www.youtube.com#%#//scriptlet('adjust-setTimeout','[native code]','17000','0.001')
-
 !!---Specific CSS---!!
 apartmenttherapy.com##.MobileStickyBanner
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
@@ -199,7 +174,13 @@ zerohedge.com##section[class*="PromoButton_"]
 /images/marketing/zh_store.jpg$domain=zerohedge.com
 
 !!--Google--!!
-google.com##.related-question-pair
+google.com###bres, [data-initq], .cUnQKe, .ouy7Mc, .vRy7rc
+google.com###kp-wp-tab-overview > [data-hveid] > [jsname="xQjRM"] > .sATSHe:has(.ouy7Mc)
+google.com###kp-wp-tab-overview > [data-hveid] > [jsname="xQjRM"] > .sATSHe:has([data-initq]) 
+google.com###media_result_group, #iur, .related-question-pair
+google.com###rso > .ULSxyf > .MjjYud > [data-iu] > #iur, .vRy7rc
+google.com###rso > .ULSxyf:has(.MjjYud > [data-iu] > #iur, .vRy7rc)
+google.com###kp-wp-tab-overview > [data-hveid] > [jsname="xQjRM"] > .sATSHe:has(#media_result_group)
 
 !!--Bing--!!
 ! Ads !
