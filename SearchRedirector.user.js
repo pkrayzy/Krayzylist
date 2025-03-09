@@ -30,6 +30,7 @@
       },
       "condition": {
           "regexFilter": "^https://www.bing.com/maps(?:.*q=)(.*)",
-          "resourceTypes": ["main_frame", "other", "script", "sub_frame", "xmlhttprequest"]        }
+          "resourceTypes": ["main_frame", "other", "script", "sub_frame", "xmlhttprequest"]
+        }
   }
 ]
