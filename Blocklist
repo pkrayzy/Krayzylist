@@ -178,13 +178,11 @@ zerohedge.com##section[class*="PromoButton_"]
 /images/marketing/zh_store.jpg$domain=zerohedge.com
 
 !!--Google--!!
-google.com###bres, [data-initq], .cUnQKe, .ouy7Mc, .vRy7rc
-google.com###kp-wp-tab-overview > [data-hveid] > [jsname="xQjRM"] > .sATSHe:has(.ouy7Mc)
-google.com###kp-wp-tab-overview > [data-hveid] > [jsname="xQjRM"] > .sATSHe:has([data-initq]) 
+google.com##[jsname="Ypkwb"], [data-initq], #bres, .cUnQKe, .ouy7Mc, .vRy7rc
 google.com###media_result_group, #iur, .related-question-pair
+google.com##[jsname="xQjRM"]:has([data-initq], #media_result_group, .ouy7Mc)
 google.com###rso > .ULSxyf > .MjjYud > [data-iu] > #iur, .vRy7rc
-google.com###rso > .ULSxyf:has(.MjjYud > [data-iu] > #iur, .vRy7rc)
-google.com###kp-wp-tab-overview > [data-hveid] > [jsname="xQjRM"] > .sATSHe:has(#media_result_group)
+google.com###rso > .ULSxyf > .MjjYud > [data-iu] :has(#iur, .vRy7rc)
 
 !!--Bing--!!
 ! Ads !
