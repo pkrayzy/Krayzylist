@@ -61,6 +61,7 @@ Roboto*$font
 ||cdn.optimizely.com$script
 ||cdn.privacy-mgmt.com$third-party
 ||cdn.taboola.com/*/loader.js$script
+||cmp.inmobi.com$script
 ||convertkit.com/ckjs$script
 ||coral.coralproject.net$script
 ||fundingchoicesmessages.google.com^
@@ -76,6 +77,7 @@ Roboto*$font
 ||polyfill-fastly.io$script
 ||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
 ||scripts.webcontentassessor.com$third-party
+||snap.licdn.com$script
 ||sourcepoint.*.com$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
 ||static.semafor.com/_next/static/chunks$script
@@ -85,6 +87,7 @@ Roboto*$font
 ||tags.tiqcdn.com$script
 ||theathletic.com/*/webpack*.js$script
 ||thurrott.com$font
+||whoami-static.barstoolsports.com$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
 !!---Specific CSS---!!
@@ -94,6 +97,7 @@ appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"]
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
 barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 barstoolsports.com##.ad--fixedBottom
+barstoolsports.com##div.h-\[600px\].pt-6.pb-10.px-\[18px\].md\:h-\[900px\]
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN,.styles_ledeContainer___qNar
 bloomberg.com##[button*=“FloatingCopyLink”]
 bulbapedia.bulbagarden.net###siteNotice
