@@ -125,6 +125,7 @@ nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##.entry-content.featured-image.featured-image__wrapper..membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
 nypost.com##div:has([data-adm-url])
 nytimes.com##[class="vi-gateway-container"] > div:has([id="after-mobile_top"])
+nytimes.com##[data-hierarchy="feed"] > [class*="css-"]:has([data-testid="StandardAd"])
 nytimes.com##[data-testid="standard-dock"],[id="bottom-wrapper"]
 nytimes.com###app > div.css-1ichrj1.e1xxpj0j0
 nytimes.com###gateway-content,#masthead-bar-one,#slideup-paywall
@@ -137,7 +138,7 @@ search.brave.com###faq
 semafor.com##div[class*="styles_floatingBanner"]
 si.com##figure[data-mm-id]
 smogon.com##span
-soundguys.com##div[data-ad-type]
+soundguys.com##div[data-ad-type], .e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
 the-gadgeteer.com##.crunchify-social
 thehill.com##.article__featured-media
