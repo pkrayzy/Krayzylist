@@ -20,6 +20,11 @@ Roboto*$font
 @@||optimizely.com*$domain=rakuten.com|rakuten.ca
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
+!!--Scriptlets--!!
+ft.com#%#//scriptlet('remove-cookie')
+ft.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
+ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
+
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
 /AppMeasurement.min.js$script
