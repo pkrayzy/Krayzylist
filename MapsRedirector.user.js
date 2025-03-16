@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        MapRedirector
+// @name        MapsRedirector
 // @description Redirects to Apple Maps
 // @run-at request
 // ==/UserScript==
@@ -42,7 +42,7 @@
         }
     },
         "condition": {
-            "regexFilter": "^https:\/\/www.google.com\/maps\/dir\/.(.*)(?:/data=!)",
+            "regexFilter": "^https:\/\/(?:.*).google.com\/maps\/dir\/.(.*)(?:/data=!)",
             "resourceTypes": ["main_frame", "other", "script", "sub_frame", "xmlhttprequest"]
         }
     },
@@ -56,7 +56,7 @@
             }
         },
         "condition": {
-            "regexFilter": "^https:\/\/www.google.com\/maps?(?:.*search&q=)(.*)(?:&source.*)",
+            "regexFilter": "^https:\/\/(?:.*).google.com\/maps?(?:.*search&q=)(.*)(?:&source.*)",
             "resourceTypes": ["main_frame", "other", "script", "sub_frame", "xmlhttprequest"]
         }
     },
@@ -70,7 +70,7 @@
             }
         },
         "condition": {
-            "regexFilter": "^https:\/\/www.google.com\/maps?(?:.*&daddr=)(.*)",
+            "regexFilter": "^https:\/\/(?:.*).google.com\/maps?(?:.*&daddr=)(.*)",
             "resourceTypes": ["main_frame", "other", "script", "sub_frame", "xmlhttprequest"]
         }
     },
@@ -84,7 +84,35 @@
             }
         },
         "condition": {
-            "regexFilter": "^https:\/\/maps.google.com\/maps\/place\/(.*)(?:/data.*)",
+            "regexFilter": "^https:\/\/(?:.*).google.com\/maps\/place\/(.*)(?:/data.*)",
+            "resourceTypes": ["main_frame", "other", "script", "sub_frame", "xmlhttprequest"]
+        }
+    },
+    {
+        "id": 125,
+        "priority": 1,
+        "action": {
+            "type": "redirect",
+            "redirect": {
+                "regexSubstitution": "http://maps.apple.com/?q=\\1"
+            }
+        },
+        "condition": {
+            "regexFilter": "^https:\/\/(?:.*).google.com\/maps\/(?:search\/)(.*)(?:.entry=)",
+            "resourceTypes": ["main_frame", "other", "script", "sub_frame", "xmlhttprequest"]
+        }
+    },
+    {
+        "id": 126,
+        "priority": 1,
+        "action": {
+            "type": "redirect",
+            "redirect": {
+                "regexSubstitution": "http://maps.apple.com/?q=\\1"
+            }
+        },
+        "condition": {
+            "regexFilter": "^https:\/\/(?:.*).google.com\/maps?(?:/search.*=)(.*)(?:&query_place_id=.*)",
             "resourceTypes": ["main_frame", "other", "script", "sub_frame", "xmlhttprequest"]
         }
     }
