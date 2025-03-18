@@ -26,22 +26,28 @@ ft.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
 ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 
 !!--YouTube--!!
-youtube.com#%#//scriptlet('set-constant', 'google_ad_status', '1')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
-youtubekids.com,youtube-nocookie.com,youtube.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
-youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|\/player(?!.*(get_drm_license))|watch\?[tv]=|get_watch\?/')
-youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/playlist\?list=|player\?|watch\?[tv]=|get_watch\?/')
-www.youtube.com#%#(()=>{const t={apply:(t,e,n)=>{const o=Reflect.apply(t,e,n);try{o instanceof HTMLIFrameElement&&"about:blank"===o.src&&o.contentWindow&&(o.contentWindow.fetch=window.fetch)}catch(t){}return o}};Node.prototype.appendChild=new Proxy(Node.prototype.appendChild,t)})();
-m.youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('json-prune', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots')
-||googlevideo.com/initplayback?source=youtube&*&c=TVHTML5&oad=$xmlhttprequest,domain=youtube.com
-[$path=/tv]youtube.com#%#//scriptlet('json-prune', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots', '', '/https:\/\/www\.youtube\.com\/s\/player\/.*\/tv-player-ias\.vflset\/tv-player-ias\.js:/')
-www.youtube.com#%#//scriptlet('adjust-setTimeout', '[native code]', '17000', '0.001')
-www.youtube.com#%#(()=>{let t=document.location.href,e=[],n=[],o="",r=!1;const i=Array.prototype.push,a={apply:(t,o,a)=>(window.yt?.config_?.EXPERIMENT_FLAGS?.html5_enable_ssap_entity_id&&a[0]&&a[0]!==window&&"number"==typeof a[0].start&&a[0].end&&"ssap"===a[0].namespace&&a[0].id&&(r||0!==a[0]?.start||n.includes(a[0].id)||(e.length=0,n.length=0,r=!0,i.call(e,a[0]),i.call(n,a[0].id)),r&&0!==a[0]?.start&&!n.includes(a[0].id)&&(i.call(e,a[0]),i.call(n,a[0].id))),Reflect.apply(t,o,a))};window.Array.prototype.push=new Proxy(window.Array.prototype.push,a),document.addEventListener("DOMContentLoaded",(function(){if(!window.yt?.config_?.EXPERIMENT_FLAGS?.html5_enable_ssap_entity_id)return;const i=()=>{const t=document.querySelector("video");if(t&&e.length){const i=Math.round(t.duration),a=Math.round(e.at(-1).end/1e3),c=n.join(",");if(!1===t.loop&&o!==c&&i&&i===a){const n=e.at(-1).start/1e3;t.currentTime<n&&(t.currentTime=n,r=!1,o=c)}else if(!0===t.loop&&i&&i===a){const n=e.at(-1).start/1e3;t.currentTime<n&&(t.currentTime=n,r=!1,o=c)}}};i();new MutationObserver((()=>{t!==document.location.href&&(t=document.location.href,e.length=0,n.length=0,r=!1),i()})).observe(document,{childList:!0,subtree:!0})}))})();
-www.youtube.com#%#(()=>{window.JSON.parse=new Proxy(JSON.parse,{apply(r,e,t){const n=Reflect.apply(r,e,t);if(!location.pathname.startsWith("/shorts/"))return n;const a=n?.entries;return a&&Array.isArray(a)&&(n.entries=n.entries.filter((r=>{if(!r?.command?.reelWatchEndpoint?.adClientParams?.isAd)return r}))),n}});})();
-||youtube.com/get_video_info?*=adunit&$important
-||youtube.com/get_video_info?$~third-party,badfilter
+||googlevideo.com/initplayback?source=youtube*&c=TVHTML5&oad=$xhr,domain=youtube.com
+||googlevideo.com/videoplayback*&ctier=L&*%2Cctier%2C$xhr,3p,domain=m.youtube.com|music.youtube.com|www.youtube.com
+||youtube.com/youtubei/v1/get_watch?$xhr,1p,replace=/"adPlacements"/"no_ads"/
+||youtube.com/youtubei/v1/get_watch?$xhr,1p,replace=/"adSlots"/"no_ads"/
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune-fetch-response, reelWatchSequenceResponse.entries.[-].command.reelWatchEndpoint.adClientParams.isAd entries.[-].command.reelWatchEndpoint.adClientParams.isAd, , propsToMatch, url:/reel_watch_sequence?)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, playerResponse.adPlacements, undefined)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.adSlots, undefined)
+m.youtube.com,music.youtube.com,tv.youtube.com,www.youtube.com,youtubekids.com,youtube-nocookie.com##+js(set, ytInitialPlayerResponse.playerAds, undefined)
+m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important)
+tv.youtube.com##+js(trusted-replace-xhr-response, '"adPlacements"', '"no_ads"', /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
+www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /\/(player|get_watch)\?/)
+www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads, , propsToMatch, /playlist?)
+www.youtube.com##+js(json-prune-xhr-response, playerAds adPlacements adSlots no_ads playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots playerResponse.no_ads [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots [].playerResponse.no_ads, , propsToMatch, /\/player(?:\?.+)?$/)
+www.youtube.com##+js(nano-stb, [native code], 17000, 0.001)
+www.youtube.com##+js(trusted-replace-fetch-response, '"adPlacements"', '"no_ads"', player?)
+www.youtube.com##+js(trusted-replace-fetch-response, '"adSlots"', '"no_ads"', player?)
+www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?("adSlots"|"adBreakHeartbeatParams")/gms, $1, /\/player(?:\?.+)?$/)
+www.youtube.com##+js(trusted-replace-xhr-response, /"adPlacements.*?([A-Z]"\}|"\}{2\,4})\}\]\,/, , /playlist\?list=|\/player(?:\?.+)?$|watch\?[tv]=/)
+www.youtube.com##+js(trusted-rpnt, script, (function serverContract(), /*START*/"YOUTUBE_PREMIUM_LOGO"!==ytInitialData?.topbar?.desktopTopbarRenderer?.logo?.topbarLogoRenderer?.iconImage?.iconType&&(location.href.startsWith("https://www.youtube.com/tv#/")||location.href.startsWith("https://www.youtube.com/embed/")||document.addEventListener("DOMContentLoaded"\,(function(){const t=()=>{const t=document.getElementById("movie_player");if(!t)return;if(!t.getStatsForNerds?.()?.debug_info?.startsWith?.("SSAP\, AD"))return;const e=t.getProgressState?.();e&&e.duration>0&&(e.loaded<e.duration||e.duration-e.current>1)&&t.seekTo?.(e.duration)};t()\,new MutationObserver((()=>{t()})).observe(document\,{childList:!0\,subtree:!0})})));(function serverContract(), sedCount, 1)
+youtube.com##.ytlr-horizontal-list-renderer__items > .yt-virtual-list__container > .yt-virtual-list__item--visible.yt-virtual-list__item--selected.yt-virtual-list__item:has-text(Ad)
+youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots legacyImportant)
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
