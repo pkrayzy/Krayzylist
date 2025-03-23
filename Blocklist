@@ -68,10 +68,7 @@ youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAd
 @@/trackit.js$domain=click.americanexpress.com
 
 !!---General Hide---!!
-##.adblock-allowlist-messaging__article-wrapper
-##.c-toaster
-##.header-ad-container-top 
-##figure.player-wrapper.relative.aspect-video
+##.adblock-allowlist-messaging__article-wrapper, .c-toaster, .header-ad-container-top, [data-testid="qualtrics-container"], #bottom-footer-fixed-slot, ##nav-ad, figure.player-wrapper.relative.aspect-video
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
@@ -127,7 +124,7 @@ barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 barstoolsports.com##.ad--fixedBottom
 barstoolsports.com##div.h-\[600px\].pt-6.pb-10.px-\[18px\].md\:h-\[900px\]
 bloomberg.com##.ledeVideo_ledeVideo__MkrSN,.styles_ledeContainer___qNar
-bloomberg.com##[button*=“FloatingCopyLink”]
+bloomberg.com##button.floating-copy-link
 bulbapedia.bulbagarden.net###siteNotice
 businessinsider.com##.subnav-ad-position-sticky
 cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer
@@ -144,6 +141,8 @@ ft.com##.advert,.in-article-advert,.article__content-sign-up,.o-ads,.o-ads--cent
 ft.com###article-body > div.o-ads
 ft.com##div.n-layout__header-before > pg-slot
 instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
+laptopmag.com##[id*=“ad-unit-“]
+laptopmag.com###mobile-in-article, #top-leaderboard
 msn.com##.articlePageIntraArticleFullWidth,.banner-container,.consumption-page-banner-wrapper,.consumption-page-feed-wrapper,.end-of-content-block,.mcp-feed-container,above-river-block,homepage-footer,mobile-footer,views-right-rail
 msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
 nbcsports.com##.ArticlePage-lead,bsp-banner,bsp-reverse-scroll-ad.Page-ad,.ArticlePage-actions-wrapper
@@ -160,6 +159,7 @@ nytimes.com###gateway-content,#masthead-bar-one,#slideup-paywall
 nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id*="mntl-leaderboard"]
 reddit.com##shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal
+reddit.com##faceplate-bottom-sheet[id="xpromo-bottom-sheet"]
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
@@ -207,11 +207,12 @@ zerohedge.com##section[class*="PromoButton_"]
 /images/marketing/zh_store.jpg$domain=zerohedge.com
 
 !!--Google--!!
-google.com##[jsname="Ypkwb"], [data-initq], #bres, .cUnQKe, .ouy7Mc, .vRy7rc
-google.com###media_result_group, #iur, .related-question-pair
-google.com##[jsname="xQjRM"]:has([data-initq], #media_result_group, .ouy7Mc)
+google.com##.MjjYud  .vt6azd > [jscontroller="aD8OEe"]:has(.DyfMyc)
 google.com##.ULSxyf > .MjjYud > [data-iu] > #iur, .vRy7rc
 google.com##.ULSxyf > .MjjYud > [data-iu]:has(#iur, .vRy7rc)
+google.com##[jsname="xQjRM"]:has([data-initq], #media_result_group, .ouy7Mc)
+google.com##[jsname="Ypkwb"], [data-initq], #bres, .cUnQKe, .ouy7Mc, .vRy7rc
+google.com###media_result_group, #iur, .related-question-pair
 
 !!--Bing--!!
 ! Ads !
