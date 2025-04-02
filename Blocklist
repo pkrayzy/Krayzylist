@@ -67,6 +67,7 @@ ft.com,rtings.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 ||convertkit.com/ckjs$script
 ||coral.coralproject.net$script
 ||fundingchoicesmessages.google.com^
+||fundingchoicesmessages.google.com^$script
 ||google.com/recaptcha$script
 ||gstatic.com/external_hosted/lottie/lottie_light.js$script
 ||gstatic.com/recaptcha$script
