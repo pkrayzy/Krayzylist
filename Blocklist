@@ -7,7 +7,7 @@
 NotoSans*$font
 OpenSans-*00*$font
 Roboto*$font
-||fonts.gstatic.com/s/googlesans/$font,domain=www.google.com
+! ||fonts.gstatic.com/s/googlesans/$font,domain=www.google.com
 
 !!---Rakuten---!!
 @@||rakuten.com$document
