@@ -1,0 +1,145 @@
+/* ==UserScript==
+@name         YouTube Ad Remover
+@namespace    http://example.com
+@version      0.1
+@description  Remove ad-related properties from YouTube player responses, emulating adblock rules.
+@author       Your Name
+@match        ://.youtube.com/*
+@match        ://.youtubekids.com/*
+@match        ://.youtube-nocookie.com/*
+@match        ://m.youtube.com/
+@match        ://music.youtube.com/
+@grant        none
+@run-at       document-start
+==/UserScript== */
+
+(function() {
+    "use strict";
+// Helper to override a property on given object
+function setConstant(obj, prop, value) {
+    try {
+        Object.defineProperty(obj, prop, {
+            configurable: false,
+            enumerable: true,
+            get: function() { return value; },
+            set: function() {}
+        });
+    } catch(e) {
+        // May fail if property is nonconfigurable already.
+        console.log("setConstant failed for", prop, e);
+    }
+}
+
+// Remove ad-related properties from an object (used in our JSON pruner implementations)
+function removeAdProperties(obj) {
+    if (!obj || typeof obj !== "object") return obj;
+    const adProps = ["playerAds", "adPlacements", "adSlots"];
+
+    adProps.forEach(function(key) {
+        if (obj.hasOwnProperty(key)) {
+            obj[key] = undefined;
+        }
+    });
+    // Also, check for nested structures if they are in an array, etc.
+    for (let k in obj) {
+        if (obj.hasOwnProperty(k)) {
+            if (Array.isArray(obj[k])) {
+                obj[k].forEach(removeAdProperties);
+            } else if (typeof obj[k] === "object") {
+                removeAdProperties(obj[k]);
+            }
+        }
+    }
+    return obj;
+}
+
+// Override global constants/variables if defined.
+function overrideGlobals() {
+    if (window.ytInitialPlayerResponse) {
+        setConstant(window.ytInitialPlayerResponse, "playerAds", undefined);
+        setConstant(window.ytInitialPlayerResponse, "adPlacements", undefined);
+        setConstant(window.ytInitialPlayerResponse, "adSlots", undefined);
+    }
+    if (window.playerResponse) {
+        setConstant(window.playerResponse, "adPlacements", undefined);
+    }
+    // Disable experiment flag that binds fetch if possible.
+    if (window.yt && window.yt.config_ && window.yt.config_.EXPERIMENT_FLAGS) {
+        setConstant(window.yt.config_.EXPERIMENT_FLAGS, "web_bind_fetch", false);
+    }
+}
+
+// Adjust setTimeout for delays if needed (simulate adjust-setTimeout)
+(function() {
+    let nativeSetTimeout = window.setTimeout;
+    window.setTimeout = function(fn, delay) {
+        // if the function string is native code (or you detect it by other means), adjust delay
+        // For demonstration, if delay equals 17000, reduce it slightly.
+        if (delay === 17000) {
+            delay = 0.001;
+        }
+        return nativeSetTimeout(fn, delay);
+    };
+})();
+
+// Intercept fetch responses (simulate json-prune-fetch-response)
+(function() {
+    if (!window.fetch) return;
+    let nativeFetch = window.fetch;
+    window.fetch = function() {
+        return nativeFetch.apply(this, arguments).then(function(response) {
+            // Clone the response so we can modify JSON content.
+            let contentType = response.headers.get("content-type") || "";
+            if (contentType.indexOf("application/json") > -1) {
+                return response.clone().json().then(function(data) {
+                    // Remove ad-related properties from the response JSON
+                    let cleaned = removeAdProperties(data);
+                    // Return a new response with the cleaned JSON.
+                    return new Response(
+                        JSON.stringify(cleaned),
+                        {
+                            status: response.status,
+                            statusText: response.statusText,
+                            headers: response.headers
+                        }
+                    );
+                }).catch(function() {
+                    // If JSON parsing fails, just return the original response.
+                    return response;
+                });
+            }
+            return response;
+        });
+    };
+})();
+
+// Intercept XHR responses (simulate json-prune-xhr-response)
+(function() {
+    let origOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function() {
+        this.addEventListener("readystatechange", function() {
+            if (this.readyState === 4 && this.getResponseHeader("content-type") &&
+                this.getResponseHeader("content-type").indexOf("application/json") > -1) {
+                try {
+                    let responseObj = JSON.parse(this.responseText);
+                    let cleaned = removeAdProperties(responseObj);
+                    // Overwrite responseText. Note: This won't change the native property,
+                    // so libraries using responseXML or other properties might not see the change.
+                    Object.defineProperty(this, "responseText", { value: JSON.stringify(cleaned) });
+                } catch(e) {
+                    // JSON parse error; do nothing.
+                }
+            }
+        });
+        origOpen.apply(this, arguments);
+    };
+})();
+
+// Continuously override globals in case they are redefined dynamically.
+(function pollGlobals() {
+    overrideGlobals();
+    setTimeout(pollGlobals, 500);
+})();
+
+console.log("YouTube Ad Remover Userscript loaded.");
+})();

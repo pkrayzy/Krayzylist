@@ -1,0 +1,59 @@
+// ==UserScript==
+// @name         YouTube Ad Blocker
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Blocks ads on YouTube
+// @match        *://youtube.com/*
+// @match        *://www.youtube.com/*
+// @match        *://music.youtube.com/*
+// @match        *://m.youtube.com/*
+// @match        *://youtubekids.com/*
+// @match        *://youtube-nocookie.com/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Block ads by overriding properties
+    function blockAds() {
+        if (window.ytInitialPlayerResponse) {
+            window.ytInitialPlayerResponse.playerAds = undefined;
+            window.ytInitialPlayerResponse.adPlacements = undefined;
+            window.ytInitialPlayerResponse.adSlots = undefined;
+        }
+        if (window.playerResponse) {
+            window.playerResponse.adPlacements = undefined;
+            window.playerResponse.playerAds = undefined;
+            window.playerResponse.adSlots = undefined;
+        }
+        if (window.yt && window.yt.config_ && window.yt.config_.EXPERIMENT_FLAGS) {
+            window.yt.config_.EXPERIMENT_FLAGS.web_bind_fetch = false;
+        }
+    }
+
+    // Override fetch to remove ad-related properties
+    function patchFetch() {
+        const originalFetch = window.fetch;
+        window.fetch = function(...args) {
+            return originalFetch(...args).then(response => {
+                return response.json().then(json => {
+                    if (json && json.playerResponse) {
+                        json.playerResponse.adPlacements = undefined;
+                        json.playerResponse.playerAds = undefined;
+                        json.playerResponse.adSlots = undefined;
+                    }
+                    return new Response(JSON.stringify(json), response);
+                });
+            });
+        };
+    }
+
+    // Run blocking functions
+    blockAds();
+    patchFetch();
+
+    // Observe DOM for changes and reapply ad blocking
+    const observer = new MutationObserver(blockAds);
+    observer.observe(document, { childList: true, subtree: true });
+})();

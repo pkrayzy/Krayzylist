@@ -1,0 +1,100 @@
+// ==UserScript==
+// @name         YouTube Ad Blocker
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Block ads on YouTube and related sites
+// @author       Your Name
+// @match        *://youtube.com/*
+// @match        *://youtubekids.com/*
+// @match        *://youtube-nocookie.com/*
+// @match        *://m.youtube.com/*
+// @match        *://music.youtube.com/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Set constants to undefined
+    const setConstant = (name, value) => {
+        Object.defineProperty(window, name, {
+            value: value,
+            writable: false,
+            configurable: false
+        });
+    };
+
+    // Block ad-related properties
+    setConstant('ytInitialPlayerResponse', { playerAds: undefined, adPlacements: undefined, adSlots: undefined });
+    setConstant('playerResponse', { adPlacements: undefined, playerAds: undefined, adSlots: undefined });
+    
+    // Adjust setTimeout
+    const originalSetTimeout = window.setTimeout;
+    window.setTimeout = function(callback, delay, ...args) {
+        return originalSetTimeout(callback, Math.max(delay - 17000, 0), ...args);
+    };
+
+    // Prune JSON responses
+    const pruneResponse = (response, propsToMatch) => {
+        if (response && typeof response === 'object') {
+            propsToMatch.forEach(prop => {
+                if (response.hasOwnProperty(prop)) {
+                    delete response[prop];
+                }
+            });
+        }
+    };
+
+    // Intercept fetch and XHR requests
+    const originalFetch = window.fetch;
+    window.fetch = function(...args) {
+        return originalFetch.apply(this, args).then(response => {
+            const clonedResponse = response.clone();
+            clonedResponse.json().then(data => {
+                pruneResponse(data, ['playerAds', 'adPlacements', 'adSlots']);
+            });
+            return response;
+        });
+    };
+
+    const originalXHRSend = XMLHttpRequest.prototype.send;
+    XMLHttpRequest.prototype.send = function(...args) {
+        const onload = this.onload;
+        this.onload = function() {
+            if (this.responseText) {
+                const data = JSON.parse(this.responseText);
+                pruneResponse(data, ['playerAds', 'adPlacements', 'adSlots']);
+            }
+            if (onload) onload.apply(this, arguments);
+        };
+        return originalXHRSend.apply(this, args);
+    };
+
+    // Block ad-related properties in JSON responses
+    const pruneProps = ['playerAds', 'adPlacements', 'adSlots'];
+    const pruneImportantProps = ['important'];
+
+    // Prune important properties
+    const pruneImportant = (response) => {
+        if (response && typeof response === 'object') {
+            pruneImportantProps.forEach(prop => {
+                if (response.hasOwnProperty(prop)) {
+                    delete response[prop];
+                }
+            });
+        }
+    };
+
+    // Override the fetch and XHR response handling
+    const originalFetchResponse = window.fetch;
+    window.fetch = function(...args) {
+        return originalFetchResponse.apply(this, args).then(response => {
+            const clonedResponse = response.clone();
+            clonedResponse.json().then(data => {
+                pruneImportant(data);
+            });
+            return response;
+        });
+    };
+
+})();
