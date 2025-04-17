@@ -7,7 +7,7 @@
 NotoSans*$font
 OpenSans-*00*$font
 Roboto*$font
-! ||fonts.gstatic.com/s/googlesans/$font,domain=www.google.com
+||fonts.gstatic.com/s/googlesans/$font,domain=www.google.com
 
 !!---Rakuten---!!
 @@||rakuten.com$document
@@ -26,16 +26,16 @@ ft.com##+js(set-local-storage-item, /*/, $remove$)
 ft.com##+js(set-session-storage-item, /*/, $remove$)
 
 !!--YouTube--!!
-youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('ubo-set.js', 'ytInitialPlayerResponse.playerAds', 'undefined')
-youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('ubo-set.js', 'ytInitialPlayerResponse.adPlacements', 'undefined')
-youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('ubo-set.js', 'ytInitialPlayerResponse.adSlots', 'undefined')
-youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('ubo-set.js', 'playerResponse.adPlacements', 'undefined')
-www.youtube.com#%#//scriptlet('ubo-nano-stb.js', '[native code]', '17000', '0.001')
-www.youtube.com#%#//scriptlet('ubo-json-prune-fetch-response.js', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots', '', 'propsToMatch', '/playlist?')
-www.youtube.com#%#//scriptlet('ubo-json-prune-fetch-response.js', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots', '', 'propsToMatch', '/player?')
-www.youtube.com#%#//scriptlet('ubo-json-prune-xhr-response.js', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots', '', 'propsToMatch', '/\/player(?:\?.+)?$/')
-m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('ubo-json-prune.js', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important')
-www.youtube.com#%#//scriptlet('ubo-set.js', 'yt.config_.EXPERIMENT_FLAGS.web_bind_fetch', 'false')
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(set-constant, ytInitialPlayerResponse.playerAds, undefined)
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(set-constant, ytInitialPlayerResponse.adPlacements, undefined)
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(set-constant, ytInitialPlayerResponse.adSlots, undefined)
+youtube.com,youtubekids.com,youtube-nocookie.com##+js(set-constant, playerResponse.adPlacements, undefined)
+www.youtube.com##+js(adjust-setTimeout, [native code], 17000, 0.001)
+www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots, , propsToMatch, /playlist?)
+www.youtube.com##+js(json-prune-fetch-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots, , propsToMatch, /player?)
+www.youtube.com##+js(json-prune-xhr-response, playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots, , propsToMatch, /\/player(?:\?.+)?$/)
+m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important)
+www.youtube.com##+js(set-constant, yt.config_.EXPERIMENT_FLAGS.web_bind_fetch, false)
 m.youtube.com##ytm-companion-slot[data-content-type] > ytm-companion-ad-renderer
 m.youtube.com##ytm-rich-item-renderer > ad-slot-renderer
 youtube.com##ytd-rich-item-renderer:has(> #content > ytd-ad-slot-renderer)
