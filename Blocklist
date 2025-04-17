@@ -21,9 +21,9 @@ Roboto*$font
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
 !!--Scriptlets--!!
-ft.com#%#//scriptlet('remove-cookie')
-ft.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
-ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
+ft.com##+js(cookie-remover)
+ft.com##+js(set-local-storage-item, /*/, $remove$)
+ft.com##+js(set-session-storage-item, /*/, $remove$)
 
 !!--YouTube--!!
 youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('ubo-set.js', 'ytInitialPlayerResponse.playerAds', 'undefined')
