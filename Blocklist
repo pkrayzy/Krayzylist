@@ -146,12 +146,6 @@ nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##.entry-content.featured-image.featured-image__wrapper..membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
 nypost.com##div:has([data-adm-url])
-nytimes.com##[class="vi-gateway-container"] > div:has([id="after-mobile_top"])
-nytimes.com##[data-hierarchy="feed"] > [class*="css-"]:has([data-testid="StandardAd"])
-nytimes.com##[data-testid="standard-dock"],[id="bottom-wrapper"]
-nytimes.com###app > div.css-1ichrj1.e1xxpj0j0
-nytimes.com###gateway-content,#masthead-bar-one,#slideup-paywall
-nytimes.com###story > div.MAG_web_Athena.shown.expanded.expanded-dock
 people.com##div[id*="mntl-leaderboard"]
 reddit.com##shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal
 reddit.com##faceplate-bottom-sheet[id="xpromo-bottom-sheet"]
