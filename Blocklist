@@ -92,6 +92,7 @@ youtube.com###shorts-inner-container > .ytd-shorts:has(> .ytd-reel-video-rendere
 ||klaviyo.com/media/js$script
 ||lightboxcdn.com$script
 ||nytimes.com/vi-assets/static-assets/adslot-*.js$script
+||nyt.com/ads/
 ||piratewires.com/_next/static/chunks/app/$script
 ||pixeledhub.com$script
 ||polyfill-fastly.io$script
@@ -146,6 +147,8 @@ nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##.entry-content.featured-image.featured-image__wrapper..membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
 nypost.com##div:has([data-adm-url])
+nytimes.com###app > div[class]:has([data-testid="StandardAd"])
+nytimes.com##[data-hierarchy] > div[class]:has([data-testid="StandardAd"])
 people.com##div[id*="mntl-leaderboard"]
 !reddit.com##shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal
 !reddit.com##faceplate-bottom-sheet[id="xpromo-bottom-sheet"]
