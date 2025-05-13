@@ -119,76 +119,76 @@ architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitch
 barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
 barstoolsports.com##.ad--fixedBottom
 barstoolsports.com##div.h-\[600px\].pt-6.pb-10.px-\[18px\].md\:h-\[900px\]
-bloomberg.com##.ledeVideo_ledeVideo__MkrSN,.styles_ledeContainer___qNar
+bloomberg.com##.ledeVideo_ledeVideo__MkrSN, .styles_ledeContainer___qNar
 bloomberg.com##button.floating-copy-link
 bulbapedia.bulbagarden.net###siteNotice
 businessinsider.com##.subnav-ad-position-sticky
-cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer
-cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
+cbssports.com###GlobalNavOffset, #GlobalNavOffsetSpacer
+cbssports.com##.Skybox--minHeight, .Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
 cbssports.com##body > div:has([data-adm-url])
-clutchpoints.com##.aspect-video,.not-prose,footer
-cnet.com##.c-adSkyBox,.c-adSkyBox_expanded,.c-avStickyVideo,.c-CnetAvStickyVideo,.c-avLazyStickyVideo-sticky,.c-head_disclosure,.c-globalDisclosure,.c-naviWidget
-digitaltrends.com##.dtads-content,.dtads-location,.dtads-mobile
+clutchpoints.com##.aspect-video, .not-prose, footer
+cnet.com##.c-adSkyBox, .c-adSkyBox_expanded, .c-avStickyVideo, .c-CnetAvStickyVideo, .c-avLazyStickyVideo-sticky, .c-head_disclosure, .c-globalDisclosure, .c-naviWidget
+digitaltrends.com##.dtads-content, .dtads-location, .dtads-mobile
 digitaltrends.com##[class*="dtads-"]
-economist.com##.adComponent_advert__kPVUI,.adComponent_incontent__boSCu,.advert--regwall
+economist.com##.adComponent_advert__kPVUI, .adComponent_incontent__boSCu, .advert--regwall
 espn.com##.article-legal-footer
-fantasypros.com##.leaderboard-footer-wrap,.mpb-upgrade-modal-container,section.pc_advertisement-section
-ft.com##.advert,.in-article-advert,.article__content-sign-up,.o-ads,.o-ads--center,.o-ads--label-left,.o-banner,#n-exponea-top-slot,#sp_message_container_967339
+fantasypros.com##.leaderboard-footer-wrap, .mpb-upgrade-modal-container, section.pc_advertisement-section
+ft.com##.advert, .in-article-advert, .article__content-sign-up, .o-ads, .o-ads--center, .o-ads--label-left, .o-banner, #n-exponea-top-slot, #sp_message_container_967339
 ft.com###article-body > div.o-ads
 ft.com##div.n-layout__header-before > pg-slot
 instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
 laptopmag.com##[id*=“ad-unit-“]
 laptopmag.com###mobile-in-article, #top-leaderboard
-msn.com##.articlePageIntraArticleFullWidth,.banner-container,.consumption-page-banner-wrapper,.consumption-page-feed-wrapper,.end-of-content-block,.mcp-feed-container,above-river-block,homepage-footer,mobile-footer,views-right-rail
+msn.com##.articlePageIntraArticleFullWidth, .banner-container, .consumption-page-banner-wrapper, .consumption-page-feed-wrapper, .end-of-content-block, .mcp-feed-container, above-river-block, homepage-footer, mobile-footer, views-right-rail
 msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
-nbcsports.com##.ArticlePage-lead,bsp-banner,bsp-reverse-scroll-ad.Page-ad,.ArticlePage-actions-wrapper
+nbcsports.com##.ArticlePage-lead, bsp-banner, bsp-reverse-scroll-ad.Page-ad, .ArticlePage-actions-wrapper
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
-nypost.com##.entry-content.featured-image.featured-image__wrapper..membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
+nypost.com##.entry-content.featured-image.featured-image__wrapper..membership-comments-container, .membership-reactions-module, .nyp-zephr-flyout, .scrollingdown.hide, .widget--vividseats, amp-video-iframe, .recirc
 nypost.com##div:has([data-adm-url])
 nytimes.com###app > div[class]:has([data-testid="StandardAd"])
 nytimes.com##[data-hierarchy] > div[class]:has([data-testid="StandardAd"])
 people.com##div[id*="mntl-leaderboard"]
-reddit.com##shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal,shreddit-good-visit-tracker,reputation-recaptcha
+reddit.com##shreddit-ad-post, shreddit-comments-page-ad, shreddit-dynamic-ad-link, xpromo-nsfw-blocking-modal, shreddit-good-visit-tracker, reputation-recaptcha
 reddit.com##faceplate-bottom-sheet[id="xpromo-bottom-sheet"]
-reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
+reuters.com##[data-testid="RefinitivPromoBar"], [data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
 semafor.com##div[class*="styles_floatingBanner"]
 si.com##figure[data-mm-id]
 si.com##figure.style_uhlm2
 soundguys.com##div[data-ad-type], .e_gd.e_f
-speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
+speedtest.net##.mobile-during-test-banner, .mobile-pretest, .modal-overlay
 the-gadgeteer.com##.crunchify-social
 thehill.com##.article__featured-media
 theintercept.com###third-party--article-mid
 theopen.com##div.overlay.is-visible
-theverge.com##[data-concert-ads-name],[data-concert="leaderboard_top_tablet_desktop"],[data-concert="tablet_leaderboard"]
-theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"],[data-concert="desktop_leaderboard_variable"],[data-concert="tablet_leaderboard"])
-thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
+theverge.com##[data-concert-ads-name], [data-concert="leaderboard_top_tablet_desktop"], [data-concert="tablet_leaderboard"]
+theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"], [data-concert="desktop_leaderboard_variable"], [data-concert="tablet_leaderboard"])
+thurrott.com##div[data-concert], [data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
-usatoday.com##[aria-label="advertisement"],[aria-label="Newsletter signup form"],[class="gnt_flp"],[class="gnt_rr"],[data-gl-method="llx"]
-usatoday.com###ad--article-top-wrapper,#ad--sidebar,.gnt_nb
+usatoday.com##[aria-label="advertisement"], [aria-label="Newsletter signup form"], [class="gnt_flp"], [class="gnt_rr"], [data-gl-method="llx"]
+usatoday.com###ad--article-top-wrapper, #ad--sidebar, .gnt_nb
 usatoday.com##body > div:has([href*="https://getad"])
 usatoday.com##header.gnt_n:style(margin: 0px 0 0)
 usatoday.com##header.gnt_n:style(top: 0px)
-variety.com##.pmc-contextual-player,#sticky-rail-ad
+variety.com##.pmc-contextual-player, #sticky-rail-ad
 variety.com##[id*="adm-inline-article-ad-"]
 vilebrequin.com##div.ui-widget-overlay
 wellandgood.com###votd-player-mobile
 wikipedia.org###centralNotice
-windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit,.infinite-container,.newsletter-form__wrapper,.widget-ads,.widget-ads-lightbox2,.widget-ads-ads-lightbox2,.widget-ads-static-lightbox2,#newsletter-slice,#taboola-mobile-below-article-thumbnails,#top-leaderboard
+windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit, .infinite-container, .newsletter-form__wrapper, .widget-ads, .widget-ads-lightbox2, .widget-ads-ads-lightbox2, .widget-ads-static-lightbox2, #newsletter-slice, #taboola-mobile-below-article-thumbnails, #top-leaderboard
 wsj.com##.ad-portal
 wsj.com##.e1cp7uwz8:has([class="adWrapper "])
-wsj.com##[class="adWrapper "],[aria-label="What To Read Next"],[data-skip-label="What to Read Next"],[data-testid="ad-container"]
+wsj.com##[class="adWrapper "], [aria-label="What To Read Next"], [data-skip-label="What to Read Next"], [data-testid="ad-container"]
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 youtube.com##.yt-mealbar-promo-renderer
 youtube.com##[target-id="engagement-panel-ads"]
 youtube.com###movie_player > div.ytp-paid-content-overlay
 youtube.com###offer-module
-zerohedge.com##.BlockContactInfo_dropdown__n9SPS,.BlockLogin_container__f_B6j,.BlockSearch_container__UmRtJ,.bottom-banner-container,.leaderboard-mobile,.leaderboard-tablet-container,.native,.SidebarLeft_debateCallout__mMVK8,.TopPosts_posts__kSDL7,.ZeroHedgeReads_container__qAqpv,.leaderboard-container
-zerohedge.com###exitModalOverlay,#footer,#store-promo
+zerohedge.com##.BlockContactInfo_dropdown__n9SPS, .BlockLogin_container__f_B6j, .BlockSearch_container__UmRtJ, .bottom-banner-container, .leaderboard-mobile, .leaderboard-tablet-container, .native, .SidebarLeft_debateCallout__mMVK8, .TopPosts_posts__kSDL7, .ZeroHedgeReads_container__qAqpv, .leaderboard-container
+zerohedge.com###exitModalOverlay, #footer, #store-promo
 zerohedge.com##[class*="PromoBanner_"]
 zerohedge.com##[id*="in-content"]
 zerohedge.com##[id*="list-display-"]
@@ -203,8 +203,8 @@ google.com##.ULSxyf > .MjjYud > [data-iu] > #iur, .vRy7rc
 google.com##.ULSxyf > .MjjYud > [data-iu]:has(#iur, .vRy7rc)
 google.com###rcnt #Odp5De:has(#iur)
 
-google.com##.MjjYud  .vt6azd > .Wt5Tfe:has([jsname="Cpkphb"])
-google.com##.MjjYud  .vt6azd > [jscontroller="aD8OEe"]:has(.DyfMyc)
+google.com##.MjjYud .vt6azd > .Wt5Tfe:has([jsname="Cpkphb"])
+google.com##.MjjYud .vt6azd > [jscontroller="aD8OEe"]:has(.DyfMyc)
 
 google.com###media_result_group, #iur, .related-question-pair
 google.com##[jsname="xQjRM"]:has([data-initq], #media_result_group, .cUnQKe)
@@ -214,23 +214,23 @@ google.com##[jsname="xQjRM"] > .sATSHe:has([jsname="Cpkphb"])
 
 !!--Bing--!!
 ! Ads !
-bing.com##.b_ad.b_adTop,.b_ad.b_adBottom,.b_ad.b_adMiddle,.b_ad.sb_genserp_pa,.gs_header_img_vid,.rvrv_ic,#adstop_gradiant_separator,#rv_ta,#ssa_main
+bing.com##.b_ad.b_adTop, .b_ad.b_adBottom, .b_ad.b_adMiddle, .b_ad.sb_genserp_pa, .gs_header_img_vid, .rvrv_ic, #adstop_gradiant_separator, #rv_ta, #ssa_main
 
 ! Visual Junk !
-bing.com##.b_widgetContainer.slide-in,.ca_top_sec,.fdbk_thmb_root,.fdbk-cntr,#b_mtp,#fbtop,#qs_searchBoxOuter
+bing.com##.b_widgetContainer.slide-in, .ca_top_sec, .fdbk_thmb_root, .fdbk-cntr, #b_mtp, #fbtop, #qs_searchBoxOuter
 
 ! Related Searches !
 
-bing.com##.b_mrs,.b_rrsr,.b_rs,.richrswrapper,.rrMrsWrapper,#b_alsotry,#b_mrs_DynamicMRS,#b_typetosearchtips,#inline_rs,#relatedQnAListDisplay,#relatedSearchesLGWContainer
+bing.com##.b_mrs, .b_rrsr, .b_rs, .richrswrapper, .rrMrsWrapper, #b_alsotry, #b_mrs_DynamicMRS, #b_typetosearchtips, #inline_rs, #relatedQnAListDisplay, #relatedSearchesLGWContainer
 
 ! People Also Ask !
-bing.com##.df_hd,.fbans,.rqnaContainerwithfeedback
+bing.com##.df_hd, .fbans, .rqnaContainerwithfeedback
 
 !!--Bing Answers--!!
-bing.com##.b_ans.b_dr_mod,.b_ans.b_explans.rrexqp,.b_ans.b_imgans,.b_ans.b_vidAns,.b_ans.opal_serpftrc,.b_mop.b_imgans,.b_mop.b_mopb.b_vidans,.b_mop.b_vidAns,.b_vidans.b_ansb
+bing.com##.b_ans.b_dr_mod, .b_ans.b_explans.rrexqp, .b_ans.b_imgans, .b_ans.b_vidAns, .b_ans.opal_serpftrc, .b_mop.b_imgans, .b_mop.b_mopb.b_vidans, .b_mop.b_vidAns, .b_vidans.b_ansb
 
 !!--Bing Extended--!!
-bing.com##.b_ans:has(.b_mrs,.b_rs,.tna_ads_container,#ssa_main)
+bing.com##.b_ans:has(.b_mrs, .b_rs, .tna_ads_container, #ssa_main)
 bing.com##.b_mop:has(.rqnaContainer)
 bing.com##.b_msg.b_canvas:has(#results_removed)
 bing.com###b_pole:has(.b_adLastChild, #brspole)
