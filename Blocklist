@@ -223,7 +223,7 @@ bing.com##.b_mrs,.b_rrsr,.b_rs,.richrswrapper,.rrMrsWrapper,#b_alsotry,#b_mrs_Dy
 bing.com##.df_hd,.fbans,.rqnaContainerwithfeedback
 
 !!--Bing Answers--!!
-bing.com##.b_ans.b_dr_mod,.b_ans.b_explans.rrexqp,.b_ans.b_imgans,.b_ans.b_vidAns,.b_ans.opal_serpftrc,.b_mop.b_imgans,.b_mop.b_mopb.b_vidans,.b_mop.b_vidAns,.b_vidans.b_ansb
+bing.com##.b_ans.b_dr_mod,.b_ans.b_explans.rrexqp,.b_ans.b_imgans,.b_ans.b_vidAns,.b_ans.opal_serpftrc,.b_mop.b_imgans,.b_mop.b_mopb.b_vidans,.b_mop.b_vidAns,.b_vidans.b_ansb,#b_pag_sh_btn_container
 
 !!--Bing Extended--!!
 bing.com##.b_ans:has(.b_mrs,.b_rs,.tna_ads_container,#ssa_main)
