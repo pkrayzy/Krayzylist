@@ -214,10 +214,9 @@ google.com##[jsname="xQjRM"] > .sATSHe:has([jsname="Cpkphb"])
 bing.com##.b_ad.b_adTop,.b_ad.b_adBottom,.b_ad.b_adMiddle,.b_ad.sb_genserp_pa,.gs_header_img_vid,.rvrv_ic,#adstop_gradiant_separator,#rv_ta,#ssa_main
 
 ! Visual Junk !
-bing.com##.b_widgetContainer.slide-in,.ca_top_sec,.fdbk_thmb_root,.fdbk-cntr,#b_mtp,#fbtop,#qs_searchBoxOuter
+bing.com##.b_widgetContainer.slide-in,.ca_top_sec,.fdbk_thmb_root,.fdbk-cntr,#b_mtp,#fbtop,#qs_searchBoxOuter,.b_caption :before
 
 ! Related Searches !
-
 bing.com##.b_mrs,.b_rrsr,.b_rs,.richrswrapper,.rrMrsWrapper,#b_alsotry,#b_mrs_DynamicMRS,#b_typetosearchtips,#inline_rs,#relatedQnAListDisplay,#relatedSearchesLGWContainer
 
 ! People Also Ask !
