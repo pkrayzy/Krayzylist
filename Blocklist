@@ -62,7 +62,6 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
-||abs.twimg.com/responsive-web/client-web/shared~bundle.AccountAnalytics*.js$script
 ||adtech.redventures.io$script
 ||appboycdn.com$script
 ||assets.msn.com/*/action-tray.*.js$script
@@ -115,10 +114,7 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 ||redditstatic.com/shreddit/*/sidebar-ad-client-js-*.js$script
 ||redditstatic.com/shreddit/*/with-ad-observer-*.js$script
 ||redditstatic.com/shreddit/*/xpromo-*.js$script
-reddit.com##[id="shreddit-skip-link"]
-reddit.com##faceplate-bottom-sheet[id="xpromo-bottom-sheet"]
-reddit.com##shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal,shreddit-good-visit-tracker,reputation-recaptcha
-reddit.com##shreddit-async-loader[bundlename="reputation_recaptcha"]
+reddit.com##[id="shreddit-skip-link"],faceplate-bottom-sheet[id="xpromo-bottom-sheet"],shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal,shreddit-good-visit-tracker,reputation-recaptcha,shreddit-async-loader[bundlename="reputation_recaptcha"]
 
 !!---Specific CSS---!!
 apartmenttherapy.com##.MobileStickyBanner
@@ -160,12 +156,12 @@ nytimes.com###app > div[class]:has([data-testid="StandardAd"])
 nytimes.com##[data-hierarchy] > div[class]:has([data-testid="StandardAd"])
 nytimes.com###top-wrapper,#bottom-wrapper:has(.ad)
 people.com##div[id*="mntl-leaderboard"]
+pff.com##.ads-medium
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
 semafor.com##div[class*="styles_floatingBanner"]
-si.com##figure[data-mm-id]
-si.com##figure.style_uhlm2
+si.com##figure[data-mm-id],figure.style_uhlm2
 soundguys.com##div[data-ad-type],.e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
 the-gadgeteer.com##.crunchify-social
@@ -187,14 +183,10 @@ vilebrequin.com##div.ui-widget-overlay
 wellandgood.com###votd-player-mobile
 wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit,.infinite-container,.newsletter-form__wrapper,.widget-ads,.widget-ads-lightbox2,.widget-ads-ads-lightbox2,.widget-ads-static-lightbox2,#newsletter-slice,#taboola-mobile-below-article-thumbnails,#top-leaderboard
-wsj.com##.ad-portal
 wsj.com##.e1cp7uwz8:has([class="adWrapper "])
-wsj.com##[class="adWrapper "],[aria-label="What To Read Next"],[data-skip-label="What to Read Next"],[data-testid="ad-container"]
+wsj.com##.ad-portal,[class="adWrapper "],[aria-label="What To Read Next"],[data-skip-label="What to Read Next"],[data-testid="ad-container"]
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
-youtube.com##.yt-mealbar-promo-renderer
-youtube.com##[target-id="engagement-panel-ads"]
-youtube.com###movie_player > div.ytp-paid-content-overlay
-youtube.com###offer-module
+youtube.com##.yt-mealbar-promo-renderer,[target-id="engagement-panel-ads"],#movie_player > div.ytp-paid-content-overlay,#offer-module
 zerohedge.com##.BlockContactInfo_dropdown__n9SPS,.BlockLogin_container__f_B6j,.BlockSearch_container__UmRtJ,.bottom-banner-container,.leaderboard-mobile,.leaderboard-tablet-container,.native,.SidebarLeft_debateCallout__mMVK8,.TopPosts_posts__kSDL7,.ZeroHedgeReads_container__qAqpv,.leaderboard-container
 zerohedge.com###exitModalOverlay,#footer,#store-promo
 zerohedge.com##[class*="PromoBanner_"]
@@ -225,7 +217,7 @@ google.com##[jsname="xQjRM"] > .sATSHe:has([jsname="Cpkphb"])
 bing.com##.b_ad.b_adTop,.b_ad.b_adBottom,.b_ad.b_adMiddle,.b_ad.sb_genserp_pa,.gs_header_img_vid,.rvrv_ic,#adstop_gradiant_separator,#rv_ta,#ssa_main
 
 ! Visual Junk !
-bing.com##.b_widgetContainer.slide-in,.ca_top_sec,.fdbk_thmb_root,.fdbk-cntr,#b_mtp,#fbtop,#qs_searchBoxOuter,.b_caption :before
+bing.com##.b_widgetContainer.slide-in,.ca_top_sec,.fdbk_thmb_root,.fdbk-cntr,#b_mtp,#fbtop,#qs_searchBoxOuter,.b_caption :before,.gs_pre_cont
 
 ! Related Searches !
 bing.com##.b_mrs,.b_rrsr,.b_rs,.richrswrapper,.rrMrsWrapper,#b_alsotry,#b_mrs_DynamicMRS,#b_typetosearchtips,#inline_rs,#relatedQnAListDisplay,#relatedSearchesLGWContainer
