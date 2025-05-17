@@ -110,7 +110,6 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 
 !!---Reddit---!!
 ||redditstatic.com/shreddit/*/ad-event-tracker-*.js$script
-||redditstatic.com/shreddit/*/ads-carousel-*.js$script
 ||redditstatic.com/shreddit/*/pdp-ad-client-js-*.js$script
 ||redditstatic.com/shreddit/*/shreddit-dynamic-ad-link-*.js$script
 ||redditstatic.com/shreddit/*/sidebar-ad-client-js-*.js$script
