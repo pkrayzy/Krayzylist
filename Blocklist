@@ -107,6 +107,19 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 ||whoami-static.barstoolsports.com$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
+!!---Reddit---!!
+||redditstatic.com/shreddit/*/ad-event-tracker-*.js$script
+||redditstatic.com/shreddit/*/ads-carousel-*.js$script
+||redditstatic.com/shreddit/*/pdp-ad-client-js-*.js$script
+||redditstatic.com/shreddit/*/shreddit-dynamic-ad-link-*.js$script
+||redditstatic.com/shreddit/*/sidebar-ad-client-js-*.js$script
+||redditstatic.com/shreddit/*/with-ad-observer-*.js$script
+||redditstatic.com/shreddit/*/xpromo-*.js$script
+reddit.com##[id="shreddit-skip-link"]
+reddit.com##faceplate-bottom-sheet[id="xpromo-bottom-sheet"]
+reddit.com##shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal,shreddit-good-visit-tracker,reputation-recaptcha
+reddit.com##shreddit-async-loader[bundlename="reputation_recaptcha"]
+
 !!---Specific CSS---!!
 apartmenttherapy.com##.MobileStickyBanner
 appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
@@ -147,8 +160,6 @@ nytimes.com###app > div[class]:has([data-testid="StandardAd"])
 nytimes.com##[data-hierarchy] > div[class]:has([data-testid="StandardAd"])
 nytimes.com###top-wrapper,#bottom-wrapper:has(.ad)
 people.com##div[id*="mntl-leaderboard"]
-reddit.com##shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal,shreddit-good-visit-tracker,reputation-recaptcha
-reddit.com##faceplate-bottom-sheet[id="xpromo-bottom-sheet"]
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
