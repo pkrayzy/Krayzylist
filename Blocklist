@@ -62,6 +62,7 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
+||abs.twimg.com/responsive-web/client-web/shared~bundle.AccountAnalytics*.js$script
 ||adtech.redventures.io$script
 ||appboycdn.com$script
 ||assets.msn.com/*/action-tray.*.js$script
@@ -87,8 +88,8 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 ||js.memberful.com$script
 ||klaviyo.com/media/js$script
 ||lightboxcdn.com$script
-||nytimes.com/vi-assets/static-assets/adslot-*.js$script
 ||nyt.com/ads/
+||nytimes.com/vi-assets/static-assets/adslot-*.js$script
 ||piratewires.com/_next/static/chunks/app/$script
 ||pixeledhub.com$script
 ||polyfill-fastly.io$script
