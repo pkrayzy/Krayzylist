@@ -92,7 +92,7 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 ||piratewires.com/_next/static/chunks/app/$script
 ||pixeledhub.com$script
 ||polyfill-fastly.io$script
-||redditstatic.com/shreddit/*/xpromo-app-selector*.js$script
+||redditstatic.com/shreddit/*/xpromo-*.js$script
 ||scripts.webcontentassessor.com$third-party
 ||snap.licdn.com$script
 ||sourcepoint.*.com$script
@@ -106,15 +106,6 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 ||thurrott.com$font
 ||whoami-static.barstoolsports.com$script
 ||youtube.com/s/*/intersection-observer.min.js$script
-
-!!---Reddit---!!
-||redditstatic.com/shreddit/*/ad-event-tracker-*.js$script
-||redditstatic.com/shreddit/*/pdp-ad-client-js-*.js$script
-||redditstatic.com/shreddit/*/shreddit-dynamic-ad-link-*.js$script
-||redditstatic.com/shreddit/*/sidebar-ad-client-js-*.js$script
-||redditstatic.com/shreddit/*/with-ad-observer-*.js$script
-||redditstatic.com/shreddit/*/xpromo-*.js$script
-reddit.com##[id="shreddit-skip-link"],faceplate-bottom-sheet[id="xpromo-bottom-sheet"],shreddit-ad-post,shreddit-comments-page-ad,shreddit-dynamic-ad-link,xpromo-nsfw-blocking-modal,shreddit-good-visit-tracker,reputation-recaptcha,shreddit-async-loader[bundlename="reputation_recaptcha"]
 
 !!---Specific CSS---!!
 apartmenttherapy.com##.MobileStickyBanner
