@@ -7,7 +7,7 @@
 NotoSans*$font
 OpenSans-*00*$font
 Roboto*$font
-||fonts.gstatic.com/s/googlesans/$font,domain=www.google.com
+! ||fonts.gstatic.com/s/googlesans/$font,domain=www.google.com
 
 !!---Rakuten---!!
 @@||rakuten.com$document
@@ -202,6 +202,9 @@ google.com##[jsname="xQjRM"]:has([data-initq],#media_result_group,.cUnQKe)
 
 google.com##[jsname="Ypkwb"],[jsname="Cpkphb"],[data-initq],#bres,.cUnQKe,.vRy7rc
 google.com##[jsname="xQjRM"] > .sATSHe:has([jsname="Cpkphb"])
+
+!!--DuckDuckGo--!!
+duckduckgo.com##span[data-testid="feedback-prompt"]
 
 !!--Bing--!!
 ! Ads !
