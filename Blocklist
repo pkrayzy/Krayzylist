@@ -141,7 +141,7 @@ nbcsports.com##.ArticlePage-lead,bsp-banner,bsp-reverse-scroll-ad.Page-ad,.Artic
 news.google.com###ZCHFDb > div.tGUGyc:first-child
 nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
-nypost.com##.entry-content.featured-image.featured-image__wrapper.,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
+nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
 nypost.com##div:has([data-adm-url])
 nytimes.com###app > div[class]:has([data-testid="StandardAd"])
 nytimes.com##[data-hierarchy] > div[class]:has([data-testid="StandardAd"])
