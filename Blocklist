@@ -148,6 +148,8 @@ nytimes.com##[data-hierarchy] > div[class]:has([data-testid="StandardAd"])
 nytimes.com###top-wrapper,#bottom-wrapper:has(.ad)
 people.com##div[id*="mntl-leaderboard"]
 pff.com##.ads-medium
+reddit.com##shreddit-good-visit-tracker,faceplate-bottom-sheet
+reddit.com###xpromo-bottom-sheet,#shreddit-skip-link
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
