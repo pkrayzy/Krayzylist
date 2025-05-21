@@ -161,6 +161,7 @@ theintercept.com###third-party--article-mid
 theopen.com##div.overlay.is-visible
 theverge.com##[data-concert-ads-name],[data-concert="leaderboard_top_tablet_desktop"],[data-concert="tablet_leaderboard"]
 theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"],[data-concert="desktop_leaderboard_variable"],[data-concert="tablet_leaderboard"])
+theverge.com##div[class]:has(> div[data-concert])
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
 time.com##header > div:has([aria-label="Advertisement"])
 usatoday.com##[aria-label="advertisement"],[aria-label="Newsletter signup form"],[class="gnt_flp"],[class="gnt_rr"],[data-gl-method="llx"]
@@ -176,6 +177,7 @@ wikipedia.org###centralNotice
 windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit,.infinite-container,.newsletter-form__wrapper,.widget-ads,.widget-ads-lightbox2,.widget-ads-ads-lightbox2,.widget-ads-static-lightbox2,#newsletter-slice,#taboola-mobile-below-article-thumbnails,#top-leaderboard
 wsj.com##.e1cp7uwz8:has([class="adWrapper "])
 wsj.com##.ad-portal,[class="adWrapper "],[aria-label="What To Read Next"],[data-skip-label="What to Read Next"],[data-testid="ad-container"]
+wsj.com##main[class] > div[class] > div[class] > div[class^="css-"]:has(#AD_MOBILE1,.adContainer,.staticAd)
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 youtube.com##.yt-mealbar-promo-renderer,[target-id="engagement-panel-ads"],#movie_player > div.ytp-paid-content-overlay,#offer-module
 zerohedge.com##.BlockContactInfo_dropdown__n9SPS,.BlockLogin_container__f_B6j,.BlockSearch_container__UmRtJ,.bottom-banner-container,.leaderboard-mobile,.leaderboard-tablet-container,.native,.SidebarLeft_debateCallout__mMVK8,.TopPosts_posts__kSDL7,.ZeroHedgeReads_container__qAqpv,.leaderboard-container
