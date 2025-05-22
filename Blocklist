@@ -144,7 +144,8 @@ nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
 nypost.com##div:has([data-adm-url])
 nytimes.com###site-content > div[class^="css"]:has(> [data-testid="StandardAd"])
-nytimes.com###top-wrapper,#bottom-wrapper:has(.ad)
+nytimes.com##:xpath(//div[starts-with(@id, "dfp-ad")]/../..)
+nytimes.com##[id^="story-ad"][id$="wrapper"]
 people.com##div[id*="mntl-leaderboard"]
 pff.com##.ads-medium
 reddit.com##shreddit-good-visit-tracker,faceplate-bottom-sheet
