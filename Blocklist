@@ -26,16 +26,16 @@ ft.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
 ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 
 !!--YouTube--!!
-! youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
-! youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
-! youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
-! youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
-! www.youtube.com#%#//scriptlet('adjust-setTimeout', '[native code]', '17000', '0.001')
-! www.youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots', '', 'propsToMatch', '/playlist?')
-! www.youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots', '', 'propsToMatch', '/player?')
-! www.youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots', '', 'propsToMatch', '/\/player(?:\?.+)?$/')
-! m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('json-prune', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important')
-! www.youtube.com#%#//scriptlet('set-constant', 'yt.config_.EXPERIMENT_FLAGS.web_bind_fetch', 'false')
+youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.playerAds', 'undefined')
+youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adPlacements', 'undefined')
+youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'ytInitialPlayerResponse.adSlots', 'undefined')
+youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('set-constant', 'playerResponse.adPlacements', 'undefined')
+www.youtube.com#%#//scriptlet('adjust-setTimeout', '[native code]', '17000', '0.001')
+www.youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots', '', 'propsToMatch', '/playlist?')
+www.youtube.com#%#//scriptlet('json-prune-fetch-response', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots', '', 'propsToMatch', '/player?')
+www.youtube.com#%#//scriptlet('json-prune-xhr-response', 'playerAds adPlacements adSlots playerResponse.playerAds playerResponse.adPlacements playerResponse.adSlots [].playerResponse.adPlacements [].playerResponse.playerAds [].playerResponse.adSlots', '', 'propsToMatch', '/\/player(?:\?.+)?$/')
+m.youtube.com,music.youtube.com,youtubekids.com,youtube-nocookie.com#%#//scriptlet('json-prune', 'playerResponse.adPlacements playerResponse.playerAds playerResponse.adSlots adPlacements playerAds adSlots important')
+www.youtube.com#%#//scriptlet('set-constant', 'yt.config_.EXPERIMENT_FLAGS.web_bind_fetch', 'false')
 ||googlevideo.com/videoplayback*&ctier=L&*%2Cctier%2C$xmlhttprequest,third-party,domain=m.youtube.com|music.youtube.com|www.youtube.com
 
 !!---General URL---!!
