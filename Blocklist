@@ -58,7 +58,7 @@ www.youtube.com#%#//scriptlet('set-constant', 'yt.config_.EXPERIMENT_FLAGS.web_b
 @@/trackit.js$domain=click.americanexpress.com
 
 !!---General Hide---!!
-##.adblock-allowlist-messaging__article-wrapper,.c-toaster,.header-ad-container-top,[data-testid="qualtrics-container"],#bottom-footer-fixed-slot,#nav-ad,figure.player-wrapper.relative.aspect-video
+##.adblock-allowlist-messaging__article-wrapper,.c-toaster,.header-ad-container-top,[data-testid="qualtrics-container"],#bottom-footer-fixed-slot,#nav-ad,figure.player-wrapper.relative.aspect-video,#affiliate-disclaimer
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
