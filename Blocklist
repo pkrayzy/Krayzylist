@@ -4,9 +4,9 @@
 ! Last modified: 
 
 !!---Fonts---!!
-NotoSans*$font
-OpenSans-*00*$font
-Roboto*$font
+! NotoSans*$font
+! OpenSans-*00*$font
+! Roboto*$font
 ! ||fonts.gstatic.com/s/googlesans/$font,domain=www.google.com
 
 !!---Rakuten---!!
