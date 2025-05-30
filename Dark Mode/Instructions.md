@@ -89,7 +89,7 @@ RunAtLoad: Ensures the script runs immediately when the agent is loaded.
 3. Load the launchd Agent
 To load the agent, open Terminal and run:
 sh
-launchctl load ~/Library/LaunchAgents/com.user.darkmode.plist
+launchctl load /Library/LaunchAgents/com.user.darkmode.plist
 You can check that it’s loaded with:
 sh
 launchctl list | grep com.user.darkmode
