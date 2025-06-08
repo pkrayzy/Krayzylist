@@ -62,7 +62,7 @@ www.youtube.com#%#//scriptlet('set-constant', 'yt.config_.EXPERIMENT_FLAGS.web_b
 
 
 !!---Admiral---!!
-/\.g(%[0-9A-Fa-f]{2}|e)(%[0-9A-Fa-f]{2}|t)(%[0-9A-Fa-f]{2}|a)(%[0-9A-Fa-f]{2}|d)(%[0-9A-Fa-f]{2}|m)(%[0-9A-Fa-f]{2}|i)(%[0-9A-Fa-f]{2}|r)(%[0-9A-Fa-f]{2}|a)(%[0-9A-Fa-f]{2}|l)\.com/
+/\.g(%[0-9A-Fa-f]{2}|e)(%[0-9A-Fa-f]{2}|t)(%[0-9A-Fa-f]{2}|a)(%[0-9A-Fa-f]{2}|d)(%[0-9A-Fa-f]{2}|m)(%[0-9A-Fa-f]{2}|i)(%[0-9A-Fa-f]{2}|r)(%[0-9A-Fa-f]{2}|a)(%[0-9A-Fa-f]{2}|l)\.com/$third-party
 ||g%65%74admir%61%6c.com^
 
 !!---Specific URL---!!
