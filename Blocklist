@@ -106,7 +106,6 @@ www.youtube.com#%#//scriptlet('set-constant', 'yt.config_.EXPERIMENT_FLAGS.web_b
 ||substackcdn.com/*/HoverCard-*.js$script
 ||tags.tiqcdn.com$script
 ||theathletic.com/*/webpack*.js$script
-||thurrott.com$font
 ||whoami-static.barstoolsports.com$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
