@@ -83,7 +83,6 @@ www.youtube.com#%#//scriptlet('set-constant', 'yt.config_.EXPERIMENT_FLAGS.web_b
 ||cdn.taboola.com/*/loader.js$script
 ||cmp.inmobi.com$script
 ||convertkit.com/ckjs$script
-||fundingchoicesmessages.google.com^
 ||fundingchoicesmessages.google.com^$script
 ||google.com/recaptcha$script
 ||gstatic.com/external_hosted/lottie/lottie_light.js$script
