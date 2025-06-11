@@ -1,261 +1,243 @@
 // ==UserScript==
-// @name        uBlockYouTube
-// @description  Tries to emulate several uBlock Origin scriptlets for YouTube by modifying global variables and intercepting JSON responses.
+// @name         YouTube
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Disable YouTube ads and prune ad-related data on youtube.com, youtubekids.com, youtube-nocookie.com, and m.youtube.com
+// @author       AI Assistant
 // @match        *://www.youtube.com/*
+// @match        *://youtube.com/*
 // @match        *://m.youtube.com/*
-// @match        *://music.youtube.com/*
 // @match        *://youtubekids.com/*
 // @match        *://youtube-nocookie.com/*
-// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
 
-    /**************************************************************************
-    Scriptlet 1–4: ubo-set.js for ytInitialPlayerResponse and playerResponse properties
-    ---------------------------------------------------------------------------
-    These set the following properties to undefined:
-      - ytInitialPlayerResponse.playerAds
-      - ytInitialPlayerResponse.adPlacements
-      - ytInitialPlayerResponse.adSlots
-      - playerResponse.adPlacements
-    **************************************************************************/
-    function uboSetProperties() {
-        try {
-            if (window.ytInitialPlayerResponse && typeof window.ytInitialPlayerResponse === 'object') {
-                window.ytInitialPlayerResponse.playerAds = undefined;
-                window.ytInitialPlayerResponse.adPlacements = undefined;
-                window.ytInitialPlayerResponse.adSlots = undefined;
-            }
-        } catch(e) { /* ignore errors */ }
-        try {
-            if (window.playerResponse && typeof window.playerResponse === 'object') {
-                window.playerResponse.adPlacements = undefined;
-            }
-        } catch(e) { /* ignore errors */ }
-    }
+    /* ─────────── UTILITY FUNCTIONS ─────────── */
 
-    // Run early; if these objects later get redefined by YouTube, we use a setter observer below.
-    uboSetProperties();
-
-    // Observe when script defines these properties.
-    function definePropertyInterceptor(objName, propName, value) {
-        try {
-            let originalDescriptor = Object.getOwnPropertyDescriptor(window, objName) || {};
-            let currentValue = window[objName];
-            Object.defineProperty(window, objName, {
-                configurable: true,
-                enumerable: originalDescriptor.enumerable !== false,
-                get() {
-                    return currentValue;
-                },
-                set(newVal) {
-                    currentValue = newVal;
-                    // When the object is set, remove the ad properties if present.
-                    if (newVal && typeof newVal === 'object' && propName in newVal) {
-                        newVal[propName] = value;
-                    }
-                }
-            });
-        } catch(e) {
-            // Fallback silently.
-        }
-    }
-
-    // Intercept setting for ytInitialPlayerResponse and playerResponse if they are redefined.
-    definePropertyInterceptor('ytInitialPlayerResponse', 'playerAds', undefined);
-    definePropertyInterceptor('ytInitialPlayerResponse', 'adPlacements', undefined);
-    definePropertyInterceptor('ytInitialPlayerResponse', 'adSlots', undefined);
-    definePropertyInterceptor('playerResponse', 'adPlacements', undefined);
-
-    /**************************************************************************
-    Scriptlet 10: Set yt.config_.EXPERIMENT_FLAGS.web_bind_fetch to false
-    **************************************************************************/
-    function disableWebBindFetch() {
-        try {
-            if (window.yt && window.yt.config_ && window.yt.config_.EXPERIMENT_FLAGS) {
-                window.yt.config_.EXPERIMENT_FLAGS.web_bind_fetch = false;
-            }
-        } catch(e) { /* ignore errors */ }
-    }
-    disableWebBindFetch();
-
-    /**************************************************************************
-    Scriptlets 6–9: JSON response pruning for fetch and XHR
-    ---------------------------------------------------------------------------
-    For URL patterns matching /playlist? and /player? (and similar), we modify
-    fetched JSON responses to remove ad-related properties.
-    
-    The following properties are intended for removal anywhere they are found:
-      playerAds, adPlacements, adSlots, and also within nested "playerResponse" objects.
-    **************************************************************************/
-
-    // The list of property names we want to prune.
-    const propsToPrune = [
-        'playerAds',
-        'adPlacements',
-        'adSlots'
-    ];
-
-    // Deeply search an object (or array) and for any property matching our list,
-    // delete it. Also, if a property is an object with a nested "playerResponse", prune it.
-    function deepPrune(obj) {
+    // Deeply remove keys related to ads from any object.
+    function removeAdProps(obj) {
         if (obj && typeof obj === 'object') {
-            // If it's an array, iterate each element.
-            if (Array.isArray(obj)) {
-                obj.forEach(item => deepPrune(item));
-            } else {
-                for (let key in obj) {
-                    if (!obj.hasOwnProperty(key)) continue;
-                    // If the key is in our list, delete it.
-                    if (propsToPrune.includes(key)) {
-                        delete obj[key];
-                    } else {
-                        // Also check if the property is an object or array.
-                        let val = obj[key];
-                        if (val && typeof val === 'object') {
-                            deepPrune(val);
-                        }
-                    }
+            // These keys are removed whether on a top-level object or nested.
+            const keysToRemove = ['adPlacements', 'playerAds', 'adSlots'];
+            for (const key in obj) {
+                if (keysToRemove.includes(key)) {
+                    delete obj[key];
+                } else {
+                    removeAdProps(obj[key]);
                 }
             }
         }
     }
 
-    // Utility: Check if URL matches one of our patterns.
-    function urlMatches(url, pattern) {
-        // We consider 'pattern' as a substring or regex-like if delimited by /.../
-        if (pattern.startsWith('/') && pattern.endsWith('/')) {
-            let regexStr = pattern.slice(1, -1);
-            let regex = new RegExp(regexStr);
-            return regex.test(url);
-        } else {
-            return url.indexOf(pattern) !== -1;
+    // Create or override a property using Object.defineProperty so that it always reads as constant.
+    function setConstant(fullProp, value) {
+        const parts = fullProp.split('.');
+        let obj = window;
+        for (let i = 0; i < parts.length - 1; i++) {
+            if (!(parts[i] in obj)) {
+                Object.defineProperty(obj, parts[i], { configurable: true, enumerable: true, value: {} });
+            }
+            obj = obj[parts[i]];
         }
+        Object.defineProperty(obj, parts[parts.length - 1], {
+            configurable: false,
+            enumerable: true,
+            get() { return value; },
+            set() {}
+        });
     }
 
-    // For fetch: intercept responses for specific URL patterns.
-    const originalFetch = window.fetch.bind(window);
-    window.fetch = async function(input, init) {
-        let url = typeof input === 'string' ? input : (input && input.url);
-        let needsPruning = false;
-        if (url) {
-            // Check several patterns used in the rules:
-            if (url.indexOf('/playlist?') !== -1 ||
-                url.indexOf('/player?') !== -1 ||
-                urlMatches(url, '/\\/player(?:\\?.+)?$/')) {
-                needsPruning = true;
+    /* ─────────── SET-CONSTANT SCRIPTLETS ─────────── */
+    // These mimic:
+    // • set-constant('ytInitialPlayerResponse.adPlacements', 'undefined')
+    // • set-constant('ytInitialPlayerResponse.adSlots', 'undefined')
+    // • set-constant('ytInitialPlayerResponse.playerAds', 'undefined')
+    // • set-constant('playerResponse.adPlacements', 'undefined')
+    setConstant('ytInitialPlayerResponse.adPlacements', undefined);
+    setConstant('ytInitialPlayerResponse.adSlots', undefined);
+    setConstant('ytInitialPlayerResponse.playerAds', undefined);
+    setConstant('playerResponse.adPlacements', undefined);
+
+    /* ─────────── JSON PARSE PATCH ─────────── */
+    // This patch will catch JSON.parse calls and remove ad–related keys.
+    // It also adjusts data for "/shorts/" pages by filtering out entries flagged as ads.
+    const originalJSONParse = JSON.parse;
+    JSON.parse = new Proxy(originalJSONParse, {
+        apply(target, thisArg, args) {
+            let result = Reflect.apply(target, thisArg, args);
+            try {
+                // Recursively prune any ad keys we know about.
+                removeAdProps(result);
+                // For Shorts pages, remove any entries whose command indicates an ad.
+                if (location.pathname.startsWith("/shorts/") && result && Array.isArray(result.entries)) {
+                    result.entries = result.entries.filter(entry =>
+                        !entry?.command?.reelWatchEndpoint?.adClientParams?.isAd
+                    );
+                }
+            } catch (e) {
+                // swallow errors on purpose
             }
+            return result;
         }
-        try {
-            const response = await originalFetch(input, init);
-            const clone = response.clone();
-            // Only process JSON responses.
-            const contentType = response.headers.get('content-type') || "";
-            if (needsPruning && contentType.includes("application/json")) {
-                let data = await clone.json();
-                deepPrune(data);
-                // Create a new response with pruned JSON.
-                const prunedBody = JSON.stringify(data);
-                const modifiedResponse = new Response(prunedBody, {
-                    status: response.status,
-                    statusText: response.statusText,
-                    headers: response.headers
-                });
-                return modifiedResponse;
-            }
-            return response;
-        } catch (err) {
-            console.error("[uBO Scriptlet Userscript] Error intercepting fetch:", err);
-            return originalFetch(input, init);
-        }
+    });
+
+    /* ─────────── INTERCEPT XHR RESPONSES ─────────── */
+    // These modifications act like the json-prune-xhr-response scriptlets.
+    const xhrOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function(method, url) {
+        this._url = url;
+        return xhrOpen.apply(this, arguments);
     };
 
-    // For XMLHttpRequest responses, override the onreadystatechange callback.
-    const originalXHR = window.XMLHttpRequest;
-    function ModifiedXHR() {
-        const xhr = new originalXHR();
+    // When the responseText property is accessed and the URL matches certain YouTube endpoints,
+    // attempt to parse and prune out ad properties.
+    const xhrRegex = /playlist\?list=|\/player(?!.*(get_drm_license))|watch\?[tv]=|get_watch\?/;
+    const originalResponseTextDescriptor = Object.getOwnPropertyDescriptor(XMLHttpRequest.prototype, "responseText");
+    Object.defineProperty(XMLHttpRequest.prototype, "responseText", {
+        get: function() {
+            let original = "";
+            if (originalResponseTextDescriptor && originalResponseTextDescriptor.get)
+                original = originalResponseTextDescriptor.get.call(this);
+            else
+                original = this.response;
+            if (this._url && xhrRegex.test(this._url)) {
+                try {
+                    let json = JSON.parse(original);
+                    removeAdProps(json);
+                    return JSON.stringify(json);
+                } catch (e) {
+                    return original;
+                }
+            }
+            return original;
+        }
+    });
 
-        // Save original open method.
-        const originalOpen = xhr.open;
-        xhr.open = function(method, url) {
-            xhr._url = url;
-            originalOpen.apply(xhr, arguments);
+    /* ─────────── INTERCEPT FETCH RESPONSES ─────────── */
+    // These modifications mimic the json-prune-fetch-response scriptlets.
+    const fetchRegex = /playlist\?list=|player\?|watch\?[tv]=|get_watch\?/;
+    const originalFetch = window.fetch;
+    window.fetch = function(input, init) {
+        let url = "";
+        if (typeof input === "string") url = input;
+        else if (input instanceof Request) url = input.url;
+        return originalFetch(input, init).then(response => {
+            if (response && response.clone && url && fetchRegex.test(url)) {
+                try {
+                    const cloned = response.clone();
+                    return cloned.json().then(data => {
+                        removeAdProps(data);
+                        const modifiedBody = JSON.stringify(data);
+                        const newResponse = new Response(modifiedBody, {
+                            status: response.status,
+                            statusText: response.statusText,
+                            headers: response.headers,
+                        });
+                        return newResponse;
+                    }).catch(() => response);
+                } catch (e) {
+                    return response;
+                }
+            }
+            return response;
+        });
+    };
+
+    /* ─────────── ADJUST SETTIMEOUT ─────────── */
+    // This patch mimics the adjust-setTimeout scriptlets by checking if the callback’s source
+    // code (via toString()) contains “[native code]” and if the delay is 17000; if so, it changes the delay.
+    (function() {
+        const originalSetTimeout = window.setTimeout;
+        window.setTimeout = function(callback, delay, ...args) {
+            try {
+                if (typeof callback === 'function' &&
+                    callback.toString().includes('[native code]') &&
+                    delay === 17000)
+                {
+                    delay = 0.001;
+                }
+            } catch (e) {}
+            return originalSetTimeout(callback, delay, ...args);
         };
+    })();
 
-        // Save original send method.
-        const originalSend = xhr.send;
-        xhr.send = function() {
-            // Add readystatechange listener.
-            xhr.addEventListener('readystatechange', function() {
-                if (xhr.readyState === 4) {
-                    let url = xhr._url || "";
-                    if ((url.indexOf('/player?') !== -1 || urlMatches(url, '/\\/player(?:\\?.+)?$/')) &&
-                        xhr.getResponseHeader("content-type") &&
-                        xhr.getResponseHeader("content-type").includes("application/json")
-                    ) {
-                        try {
-                            // Attempt to override the responseText using a getter.
-                            let originalResponseText = xhr.responseText;
-                            let data = JSON.parse(originalResponseText);
-                            deepPrune(data);
-                            let prunedText = JSON.stringify(data);
-                            
-                            // Redefine responseText and response properties.
-                            Object.defineProperty(xhr, "responseText", { value: prunedText });
-                            Object.defineProperty(xhr, "response", { value: prunedText });
-                        } catch(e) {
-                            // Parsing failed.
-                            console.error("[uBO Scriptlet Userscript] Error pruning XHR response:", e);
+    /* ─────────── HANDLE SSAP ENTITY ID EVENTS ─────────── */
+    // This block implements the inline code that proxies Array.prototype.push.
+    // It intercepts objects with a “ssap” namespace and (if the experiment flag is enabled)
+    // records events so that—on DOMContentLoaded—the video time is adjusted if needed.
+    (function() {
+        let currentURL = document.location.href,
+            ssapEvents = [],
+            ssapIds = [],
+            previousIds = "",
+            ssapTriggered = false;
+        const originalPush = Array.prototype.push;
+        Array.prototype.push = new Proxy(Array.prototype.push, {
+            apply(target, thisArg, args) {
+                if (
+                    window.yt?.config_?.EXPERIMENT_FLAGS?.html5_enable_ssap_entity_id &&
+                    args[0] && args[0] !== window &&
+                    typeof args[0].start === 'number' &&
+                    args[0].end &&
+                    args[0].namespace === 'ssap' &&
+                    args[0].id
+                ) {
+                    if (!ssapTriggered && args[0].start === 0 && !ssapIds.includes(args[0].id)) {
+                        ssapEvents.length = 0;
+                        ssapIds.length = 0;
+                        ssapTriggered = true;
+                        originalPush.call(ssapEvents, args[0]);
+                        originalPush.call(ssapIds, args[0].id);
+                    } else if (ssapTriggered && args[0].start !== 0 && !ssapIds.includes(args[0].id)) {
+                        originalPush.call(ssapEvents, args[0]);
+                        originalPush.call(ssapIds, args[0].id);
+                    }
+                }
+                return Reflect.apply(target, thisArg, args);
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (!(window.yt && window.yt.config_ && window.yt.config_.EXPERIMENT_FLAGS &&
+                  window.yt.config_.EXPERIMENT_FLAGS.html5_enable_ssap_entity_id))
+                return;
+            const checkVideo = () => {
+                const video = document.querySelector("video");
+                if (video && ssapEvents.length) {
+                    const duration = Math.round(video.duration);
+                    const lastEnd = Math.round(ssapEvents.at(-1).end / 1000);
+                    const joinedIds = ssapIds.join(",");
+                    if (!video.loop && previousIds !== joinedIds && duration && duration === lastEnd) {
+                        const startSec = ssapEvents.at(-1).start / 1000;
+                        if (video.currentTime < startSec) {
+                            video.currentTime = startSec;
+                            ssapTriggered = false;
+                            previousIds = joinedIds;
+                        }
+                    } else if (video.loop && duration && duration === lastEnd) {
+                        const startSec = ssapEvents.at(-1).start / 1000;
+                        if (video.currentTime < startSec) {
+                            video.currentTime = startSec;
+                            ssapTriggered = false;
+                            previousIds = joinedIds;
                         }
                     }
                 }
-            });
-            originalSend.apply(xhr, arguments);
-        };
-
-        return xhr;
-    }
-
-    // Override the global XMLHttpRequest with our modified version.
-    window.XMLHttpRequest = ModifiedXHR;
-
-    /**************************************************************************
-    Scriptlet 5: ubo-nano-stb.js (stub-delay workaround)
-    ---------------------------------------------------------------------------
-    The ubo-nano-stb.js scriptlet (with arguments "[native code]", "17000", "0.001")
-    is generally aimed at bypassing ad-block bypass techniques. Here we provide a stub
-    that delays the execution of a specified function by a small amount if needed.
-    
-    In this example we simply log that such a stub is in place. (A full emulation
-    might require wrapping native functions like Function.prototype.toString.)
-    **************************************************************************/
-    (function uboNanoSTB() {
-        // This is a simplified stub. In practice, uBlock Origin’s nano-stb scriptlet
-        // rewrites native code functions to hide ad blocking.
-        // For demonstration purposes, we do not modify native functions here.
-        // Instead, we log an informational message.
-        console.log("[uBO Nano-STB] Stub active: native function alterations are not performed in userscripts.");
-        // If desired, one might override Function.prototype.toString here, but that can break page functionality.
+            };
+            checkVideo();
+            new MutationObserver(() => {
+                if (currentURL !== document.location.href) {
+                    currentURL = document.location.href;
+                    ssapEvents.length = 0;
+                    ssapIds.length = 0;
+                    ssapTriggered = false;
+                }
+                checkVideo();
+            }).observe(document, { childList: true, subtree: true });
+        });
     })();
 
-    /**************************************************************************
-    Scriptlet 9: Additional JSON pruning via deep scan
-    ---------------------------------------------------------------------------
-    The above fetch and XHR patches already perform a deep prune of the JSON responses.
-    If additional pruning is needed on objects available on page load, you could call:
-          deepPrune(window.someObject)
-    This script does not automatically traverse all globals.
-    **************************************************************************/
-
-    /**************************************************************************
-    Final notes:
-      • This userscript is an approximate conversion of the uBlock Origin scriptlets.
-      • Due to the limited ability of userscripts to intercept requests and modify native functions,
-        it might not be 100% equivalent.
-      • uBlock Origin itself uses a privileged API and low-level interception which is not fully reproducible here.
-    **************************************************************************/
-
-})();
+})(); 
