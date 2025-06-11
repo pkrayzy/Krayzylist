@@ -90,8 +90,6 @@ youtube.com/get_video_info?*=adunit&
 ||cdn.taboola.com/*/loader.js$script
 ||cmp.inmobi.com$script
 ||convertkit.com/ckjs$script
-||coral.coralproject.net$script
-||fundingchoicesmessages.google.com^
 ||fundingchoicesmessages.google.com^$script
 ||google.com/recaptcha$script
 ||gstatic.com/external_hosted/lottie/lottie_light.js$script
@@ -115,7 +113,6 @@ youtube.com/get_video_info?*=adunit&
 ||substackcdn.com/*/HoverCard-*.js$script
 ||tags.tiqcdn.com$script
 ||theathletic.com/*/webpack*.js$script
-||thurrott.com$font
 ||whoami-static.barstoolsports.com$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
