@@ -20,10 +20,10 @@ current_time=$(date -u +"%H:%M:%S")
 # echo "Current time   : $current_time"
 
 # Compare current time with sunrise and sunset to toggle appearance mode:
-if [[ "$current_time" < "$sunrise_local" && "$current_time" > "$sunset_local" ]]; then
+if [[ "$current_time" = "$sunset_local"]]; then
     # Nighttime: set to dark mode
     osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
-else
+if [[ "$current_time" = "$sunset_local"]]; then
     # Daytime: set to light mode
     osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
 fi
