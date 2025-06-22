@@ -4,8 +4,8 @@
 ! Last modified: 
 
 !!---Fonts---!!
-! NotoSans*$font
-! OpenSans-*00*$font
+NotoSans*$font
+OpenSans-*00*$font
 ||fonts.gstatic.com/s/googlesans/$font
 ||fonts.gstatic.com/s/roboto/$font
 
