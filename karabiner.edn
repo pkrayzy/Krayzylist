@@ -1,0 +1,176 @@
+{
+:devices {
+    :msft [{:vendor_id 1118 :product_id 2071}]
+    :mouse [{:vendor_id 1118 :product_id 2081},{:vendor_id 1118 :product_id 2082} ]
+    :mac [{:vendor_id 0 :product_id 0}]
+    }
+
+:applications {
+    :rdp ["^com.citrix.receiver.icaviewer.mac$" "^com.microsoft.rdc.macos$" "^com.utmapp.UTM$" "^com.vmware.fusion$"]
+    :safari ["^com.apple.Safari$"]
+    :excel ["^com.microsoft.Excel$"]
+    :windows ["^com.citrix.receiver.icaviewer.mac$" "^com.microsoft.rdc.macos$" "^com.utmapp.UTM$" "^com.vmware.fusion$" "^com.microsoft.Excel$"]
+    }
+
+:main [
+    {:des "Microsoft Keyboard"
+        :rules [ 
+
+        ;;  RDP Rules
+            ; General Changes
+                [:##left_option :left_option [:rdp :msft] {:alone :left_command}]
+                ;; [:##left_option :left_command [:rdp :msft]]
+                [:##left_command :##right_command [:rdp :msft]]
+
+            ; Alt-S Email Send
+                [:!Os :!Cs [:rdp :msft]]
+            ; Alt Excel
+                [:!Of :!Cf [:rdp :msft]] ; Alt-F Save As
+                [:!On :!Cn [:rdp :msft]] ; Don't Save
+                [:!Oa :!Ca [:rdp :msft]] ; Data
+                [:!TOv :!TCv [:rdp :msft]] ; Paste Special
+                [:!Od :!Cd [:rdp :msft]] ; Pivot Table
+                [:!Oh :!Ch [:rdp :msft]] ; Clear filter
+                [:!Oequal_sign :!Cequal_sign [:rdp :msft]] ; Quick Sum 
+                [:!Op :!Cp [:rdp :msft]] ; Print Settings
+                [:!Ow :!Cw [:rdp :msft]] ; View Settings
+                [:!OFf4 :!CFf4 [:rdp :msft]] ; Close Window
+
+             ; Digital Assistant
+                [:!TOg :!CTg [:rdp :msft]]
+           ; Quick Acccess Toolbar
+                [:!O1 :!C1 [:rdp :msft]]
+                [:!O2 :!C2 [:rdp :msft]]
+                [:!O3 :!C3 [:rdp :msft]]
+                [:!O4 :!C4 [:rdp :msft]]
+                [:!O5 :!C5 [:rdp :msft]]
+                [:!O6 :!C6 [:rdp :msft]]
+                [:!O7 :!C7 [:rdp :msft]]
+                [:!O8 :!C8 [:rdp :msft]]
+
+        ;; Excel Rules    
+            [:!Cspacebar :!Tspacebar [:excel :msft]]
+
+        ;; System Wide Rules    
+            [:##left_control :##left_command [:!rdp :msft]]
+            [:##left_command :##left_control [:!rdp :msft]]
+            [:!O#Stab :!C#Stab [:!rdp :msft]]
+            [:application :!SFf10 [:msft]]
+
+        ;; Rectangle Rules
+            [:!CO#Sleft_arrow :!TO#Sleft_arrow [:!rdp :msft]]
+            [:!CO#Sright_arrow :!TO#Sright_arrow [:!rdp :msft]]
+            [:!COdown_arrow :!TOdown_arrow [:!rdp :msft]]
+            [:!COup_arrow :!TOup_arrow [:!rdp :msft]]
+
+            ;; Function Keys            
+                [:f1 :mute [:!rdp :msft]]
+                [:#SOf2 :#SOvolume_decrement [:!rdp :!windows :msft]]
+                [:#SOf3 :#SOvolume_increment [:!rdp :msft]]
+                [:f7 :!SOdisplay_brightness_decrement [:!rdp :msft]]
+                [:f8 :!SOdisplay_brightness_increment [:!windows :msft]]
+                [:!SOf7 :display_brightness_decrement [:!rdp :msft]]
+                [:!SOf8 :display_brightness_increment [:!windows :msft]]
+
+        ;; System Wide Mouse
+            [{:pkey :button4} :!Copen_bracket [:!rdp :mouse]]
+            [{:pkey :button5} :!Cclose_bracket [:!rdp :mouse]]
+            [{:pkey :button6} :!Cclose_bracket [:!rdp :mouse]]
+            [:!Ctab :mission_control [:mouse]]
+        ;; RDP Mouse
+            [{:pkey :button4} :!Oleft_arrow [:rdp :mouse]]
+            [{:pkey :button5} :!Cright_arrow [:rdp :mouse]]
+            [{:pkey :button6} :!Cright_arrow [:rdp :mouse]]
+        ]}
+
+    {:des "Mac Keyboard"
+        :rules [ 
+            ;; RDP Rules
+                [:##left_command :##left_control [:rdp :mac]]
+                [:##left_option :left_option [:rdp :mac] {:alone :left_command}]
+                [:##left_control :##right_command [:rdp :mac]]
+                [:##Tfn :##right_command [:rdp :mac]]
+
+            ;; Alt-Tab
+                [:!T#Stab :!O#Stab [:rdp :mac]]
+
+            ; Alt-S Email Send
+                [:!Os :!Cs [:rdp :mac]]
+
+            ; Alt Excel
+                [:!Of :!Cf [:rdp :mac]] ; Alt-F Save As
+                [:!On :!Cn [:rdp :mac]] ; Don't Save
+                [:!Oa :!Ca [:rdp :mac]] ; Data
+                [:!TSv :!TCv [:rdp :mac]] ; Paste Special
+                [:!Oh :!Ch [:rdp :mac]] ; Clear filter
+                [:!Oequal_sign :!Cequal_sign [:rdp :mac]] ; Quick Sum 
+                [:!Op :!Cp [:rdp :mac]] ; Print Settings
+                [:!Ow :!Cw [:rdp :mac]] ; View Settings
+                [:!OFf4 :!CFf4 [:rdp :mac]] ; Close Window
+                [:!Odown_arrow :!Cdown_arrow [:rdp :mac]] ; Arrow Down
+                [:!OSleft_arrow :!CSleft_arrow [:rdp :mac]] ; Ungroup
+                [:!OSright_arrow :!CSright_arrow [:rdp :mac]] ; Group
+                [:!TSequal_sign :!Tkeypad_plus [:rdp :mac]] ; Insert Row
+
+             ; Digital Assistant
+                [:!TOg :!CTg [:rdp :mac]]
+                
+           ; Quick Acccess Toolbar
+                [:!O1 :!C1 [:rdp :mac]]
+                [:!O2 :!C2 [:rdp :mac]]
+                [:!O3 :!C3 [:rdp :mac]]
+                [:!O4 :!C4 [:rdp :mac]]
+                [:!O5 :!C5 [:rdp :mac]]
+                [:!O6 :!C6 [:rdp :mac]]
+                [:!O7 :!C7 [:rdp :mac]]
+                [:!O8 :!C8 [:rdp :mac]]
+                
+            ;; System Wide Rules
+                [:right_option :!Sf10 [:mac]]
+                [:!Fdelete_or_backspace :delete_forward [:mac]]
+
+            ;; Function Keys            
+                [:f1 :!SOdisplay_brightness_decrement [:!rdp :mac]]
+                [:f2 :!SOdisplay_brightness_increment [:!windows :mac]]
+                [:!SOf1 :display_brightness_decrement [:!rdp :mac]]
+                [:!SOf2 :display_brightness_increment [:!windows :mac]]
+                [:f3 :mission_control [:!rdp :mac]]
+                [:f4 :f4 [:excel :mac]]
+                [:f4 :!Cspacebar [:!rdp :mac]]
+                [:f4 :!Cspacebar [:!windows :mac]]
+                [:f5 :dictation [:!rdp :mac]]
+                [:f6 :illumination_increment [:!rdp :mac]] ; F6 Controls Keyboard Brightness
+                [:!Sf6 :illumination_decrement [:!rdp :mac]] ; F6 Controls Keyboard Brightness
+                [:f7 :rewind [:!rdp :mac]]
+                [:f8 :play_or_pause [:!rdp :mac]]
+                [:f9 :fast_forward [:!rdp :mac]]
+                [:f10 :mute [:!rdp :mac]]
+                [:#SOf11 :#SOvolume_decrement [:!rdp :mac]]
+                [:#SOf12 :#SOvolume_increment [:!rdp :mac]]
+
+                [:!F#Sright_arrow :#Send [:mac]] ; End
+                [:!F#Sleft_arrow :#Shome [:mac]] ; Home
+                [:!F#Sup_arrow :#Spage_up [:mac]] ; Page Up
+                [:!F#Sdown_arrow :#Spage_down [:mac]] ; Page Down
+
+            [:!CSv :!OTv [:excel :mac]] ;; paste special
+            [:!Ch :!Th [:excel :mac]] ;; find and replace
+            [:!CSreturn_or_enter :!TSreturn_or_enter [:excel :mac]]  ;; array formuals
+            [:!Cspacebar :!Tspacebar [:excel :mac]] ;; select column
+            [:!Tspacebar :!Cspacebar [:excel :mac]] ;; Allow Spotlight
+        ]}
+    ]}
+
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
