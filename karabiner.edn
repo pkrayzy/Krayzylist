@@ -89,10 +89,13 @@
                 [:##left_command :##left_control [:rdp :mac]]
                 [:##left_option :left_option [:rdp :mac] {:alone :left_command}]
                 [:##left_control :##right_command [:rdp :mac]]
-                [:##Tfn :##right_command [:rdp :mac]]
 
             ;; Alt-Tab
                 [:!T#Stab :!O#Stab [:rdp :mac]]
+                [:!QFright_arrow :!Qright_arrow [:rdp :mac]]
+                [:!QFleft_arrow :!Qleft_arrow [:rdp :mac]]
+                [:!QFup_arrow :!Qup_arrow [:rdp :mac]]
+                [:!QFdown_arrow :!Qdown_arrow [:rdp :mac]]
 
             ; Alt-S Email Send
                 [:!Os :!Cs [:rdp :mac]]
