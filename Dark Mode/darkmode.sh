@@ -5,6 +5,7 @@
 # Extract sunrise and sunset times in UTC from the API response
 sunrise_local=$(/usr/libexec/corebrightnessdiag nightshift-internal | grep -E "sunrise" | awk '{print $4}')
 sunset_local=$(/usr/libexec/corebrightnessdiag nightshift-internal | grep -E "sunset" | awk '{print $4}')
+night_shift=$(/usr/libexec/corebrightnessdiag nightshift-internal | grep -w "BlueReductionEnabled" | awk '{print $3}' | sed 's/;//')
 
 # Convert the UTC times to local time (in HH:MM format)
 # sunrise_local=$(date -jf "%Y-%M-%D %H:%M:%S" "$sunrise_utc" +"%H:%M:%S")
@@ -20,7 +21,8 @@ current_time=$(date -u +"%H:%M:%S")
 # echo "Current time   : $current_time"
 
 # Compare current time with sunrise and sunset to toggle appearance mode:
-if [[ "$current_time" < "$sunrise_local" && "$current_time" > "$sunset_local" ]]; then
+# if [[ "$current_time" < "$sunrise_local" && "$current_time" > "$sunset_local" ]]; then
+if [ "$night_shift" -eq 1 ]; then
     # Nighttime: set to dark mode
     osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
 else
