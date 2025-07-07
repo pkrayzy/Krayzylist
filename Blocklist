@@ -47,7 +47,6 @@ ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 !!---General Hide---!!
 ##.adblock-allowlist-messaging__article-wrapper,#affiliate-disclaimer,#bottom-footer-fixed-slot,#nav-ad,figure.player-wrapper.relative.aspect-video,[data-testid="qualtrics-container"],.c-toaster,.header-ad-container-top,.standard-article-vertical-ad
 
-
 !!---Admiral---!!
 /\.g(%[0-9A-Fa-f]{2}|e)(%[0-9A-Fa-f]{2}|t)(%[0-9A-Fa-f]{2}|a)(%[0-9A-Fa-f]{2}|d)(%[0-9A-Fa-f]{2}|m)(%[0-9A-Fa-f]{2}|i)(%[0-9A-Fa-f]{2}|r)(%[0-9A-Fa-f]{2}|a)(%[0-9A-Fa-f]{2}|l)\.com/$third-party
 ||g%65%74admir%61%6c.com^
