@@ -21,9 +21,9 @@ OpenSans-*00*$font
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
 !!--Scriptlets--!!
-ft.com#%#//scriptlet('remove-cookie')
-ft.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
-ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
+ft.com,allure.com,architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,vanityfair.com,vogue.com,wired.com#%#//scriptlet('remove-cookie')
+ft.com,allure.com,architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,vanityfair.com,vogue.com,wired.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
+ft.com,allure.com,architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,vanityfair.com,vogue.com,wired.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
