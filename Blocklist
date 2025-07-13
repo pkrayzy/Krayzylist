@@ -203,7 +203,7 @@ google.com##[jsname="xQjRM"] > .sATSHe:has([jsname="Cpkphb"])
 google.com###kp-wp-tab-overview > div > [jsname="xQjRM"]:has(.vt6azd > .Wt5Tfe > .ouy7Mc)
 
 !!--DuckDuckGo--!!
-duckduckgo.com##span[data-testid="feedback-prompt"],[data-testid="related_searches"],[data-testid="images"]
+duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],[data-testid="related_searches"],span[data-testid="feedback-prompt"]
 
 !!--Bing--!!
 ! Ads !
