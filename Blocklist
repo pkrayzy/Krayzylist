@@ -226,3 +226,15 @@ duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],
 ! bing.com##.b_mop:has(.rqnaContainer)
 ! bing.com##.b_msg.b_canvas:has(#results_removed)
 ! bing.com###b_pole:has(.b_adLastChild,#brspole)
+
+!MoP Answers!
+bing.com##.b_ans.b_mop.b_imgansacf
+!Related Searches!
+bing.com###relatedSearchesLGWContainer,.richrswrapper,.b_rs,.b_msg.b_canvas,.b_rrsr
+bing.com##.b_ans:has(.b_rs)
+!CoPilot Logos!
+bing.com##.b_phead_chat_link,.ca_top_sec
+!Unnecessary Labels!
+bing.com##.df_multisrc,#fbtop,.gs_pre_cont,.gs_hv2,.gs_notitle,.b_ans.opal_serpftrc,#b_pag_sh_btn_container
+!People Also Ask!
+bing.com##.rqnaContainerwithfeedback,.df_alaskcarousel,.rqnafbUlWrapper,.rqnASCWrapper,.ansTtlUndrlnWrapper,#sa_requery
