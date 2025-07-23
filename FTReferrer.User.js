@@ -1,6 +1,3 @@
-Sure! Here's a simple userscript using the [Tampermonkey](https://www.tampermonkey.net/) format that automatically clears cookies, localStorage, and sessionStorage when you visit `ft.com`. Just be aware that this might log you out or break some functionality on the site.
-
-```javascript
 // ==UserScript==
 // @name         FT.com Privacy Sweeper
 // @namespace    http://tampermonkey.net/
