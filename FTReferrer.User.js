@@ -1,31 +1,37 @@
+Sure! Here's a simple userscript using the [Tampermonkey](https://www.tampermonkey.net/) format that automatically clears cookies, localStorage, and sessionStorage when you visit `ft.com`. Just be aware that this might log you out or break some functionality on the site.
+
+```javascript
 // ==UserScript==
-// @name         Clear Storage and Set Referrer
+// @name         FT.com Privacy Sweeper
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Clears local and session storage and sets the referrer to google.com
-// @author       Your Name
+// @version      1.0
+// @description  Clears cookies, localStorage, and sessionStorage on ft.com
+// @author       You
 // @match        *://*.ft.com/*
 // @grant        none
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
 
-    // Clear local storage
-    localStorage.clear();
+    // Clear cookies
+    document.cookie.split(";").forEach(function(c) {
+        document.cookie = c.trim().replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
 
-    // Clear session storage
-    sessionStorage.clear();
-
-    // Set referrer to google.com
-    document.referrer = "https://www.google.com";
-
-    // Optionally, you can also clear cookies
-    var cookies = document.cookie.split(";");
-    for (var i = 0; i < cookies.length; ++i) {
-        var myCookie = cookies[i];
-        var pos = myCookie.indexOf("=");
-        var name = pos > -1 ? myCookie.substr(0, pos) : myCookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    // Clear localStorage
+    try {
+        localStorage.clear();
+    } catch (e) {
+        console.warn("Could not clear localStorage:", e);
     }
+
+    // Clear sessionStorage
+    try {
+        sessionStorage.clear();
+    } catch (e) {
+        console.warn("Could not clear sessionStorage:", e);
+    }
+
+    console.log("FT.com storage cleared.");
 })();
