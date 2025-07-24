@@ -224,3 +224,7 @@ bing.com##.b_ans.opal_serpftrc,.b_caption :before,.b_widgetContainer.slide-in,.c
 
 ! People Also Ask !
 bing.com##.ansTtlUndrlnWrapper,.df_alaskcarousel,.rqnaContainerwithfeedback,.rqnafbUlWrapper,.rqnASCWrapper,#sa_requery
+
+! Shopping Ads !
+bing.com##.sa_productAds,[data-ans="BingMon_SponsoredAdsBlock"]
+bing.com##.b_ans:has(.sa_productAds,[data-ans="BingMon_SponsoredAdsBlock"])
