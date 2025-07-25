@@ -223,7 +223,7 @@ bing.com##.b_phead_chat_link,.ca_top_sec
 bing.com##.b_ans.opal_serpftrc,.b_caption :before,.b_widgetContainer.slide-in,.ca_top_sec,.df_multisrc,.fdbk_thmb_root,.fdbk-cntr,.gs_hv2,.gs_notitle,.gs_pre_cont,.gs_secctrl,#b_mtp,#b_pag_sh_btn_container,#fbtop,#qs_searchBoxOuter,#sacs_win
 
 ! People Also Ask !
-bing.com##.ansTtlUndrlnWrapper,.df_alaskcarousel,.rqnaContainerwithfeedback,.rqnafbUlWrapper,.rqnASCWrapper,#sa_requery
+bing.com##.b_ans > .rqnaContainerwithfeedback,.df_alaskcarousel,#sa_requery
 
 ! Shopping Ads !
 bing.com##.sa_productAds,[data-ans="BingMon_SponsoredAdsBlock"]
