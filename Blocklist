@@ -138,8 +138,6 @@ nytimes.com###site-content > [class^="css-"]:has(> [data-testid="StandardAd"],[i
 people.com##div[id*="mntl-leaderboard"]
 pff.com##.ads-medium
 pgatour.com##tbody.css-0 > tr.no-print.css-0
-reddit.com###xpromo-bottom-sheet,#shreddit-skip-link
-reddit.com##shreddit-good-visit-tracker,faceplate-bottom-sheet
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
