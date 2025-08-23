@@ -79,7 +79,6 @@ ft.com,allure.com,architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,n
 ||piratewires.com/_next/static/chunks/app/$script
 ||pixeledhub.com$script
 ||polyfill-fastly.io$script
-||redditstatic.com/shreddit/*/xpromo-*.js$script
 ||scripts.webcontentassessor.com$third-party
 ||snap.licdn.com$script
 ||sourcepoint.*.com$script
@@ -138,6 +137,8 @@ nytimes.com###site-content > [class^="css-"]:has(> [data-testid="StandardAd"],[i
 people.com##div[id*="mntl-leaderboard"]
 pff.com##.ads-medium
 pgatour.com##tbody.css-0 > tr.no-print.css-0
+reddit.com###xpromo-bottom-sheet,#shreddit-skip-link
+reddit.com##shreddit-good-visit-tracker,faceplate-bottom-sheet
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
