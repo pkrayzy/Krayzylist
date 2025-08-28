@@ -119,6 +119,7 @@ ft.com##.advert,.in-article-advert,.article__content-sign-up,.o-ads,.o-ads--cent
 ft.com###article-body > div.o-ads
 ft.com##div.n-layout__header-before > pg-slot
 gq.com##[component="sticky-hero-ad"]
+healthline.com##.wp-block-healthline-jwplayer
 instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
 laptopmag.com##[id*=“ad-unit-“]
 laptopmag.com###mobile-in-article,#top-leaderboard
