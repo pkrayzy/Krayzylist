@@ -23,7 +23,7 @@ OpenSans-*00*$font
 !!--Scriptlets--!!
 ft.com#%#//scriptlet('remove-cookie')
 ft.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
-ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$'
+ft.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
