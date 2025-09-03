@@ -210,7 +210,7 @@ duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],
 bing.com##.b_ans.b_mop.b_imgansacf,.b_mop.b_imgans,.b_mop.b_mopb.b_vidans,.b_mop.b_vidAns
 
 ! Related Searches !
-bing.com##.b_mrs,.b_msg.b_canvas,.b_rrsr,.b_rs,.richrswrapper,.rrMrsWrapper,#b_alsotry,#b_mrs_DynamicMRS,#b_typetosearchtips,#inline_rs,#relatedQnAListDisplay,#relatedSearchesLGWContainer
+bing.com##.b_mrs,.b_msg.b_canvas,.b_rrsr,.b_rs,.richrswrapper,.rrMrsWrapper,#b_alsotry,#b_mrs_DynamicMRS,#b_typetosearchtips,#inline_rs,#relatedQnAListDisplay,#relatedSearchesLGWContainer,.b_inline_ajax_rs
 bing.com##.b_ans:has(.b_rs)
 bing.com##.b_mop:has(.rqnaContainer)
 
