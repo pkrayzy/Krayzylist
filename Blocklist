@@ -66,9 +66,6 @@ www.youtube.com#%#(()=>{window.JSON.parse=new Proxy(JSON.parse,{apply(r,e,t){con
 /wp-content/plugins/elementor-pro/*$script
 @@/trackit.js$domain=click.americanexpress.com
 
-!!---General Hide---!!
-! ##.adblock-allowlist-messaging__article-wrapper,#affiliate-disclaimer,#bottom-footer-fixed-slot,#nav-ad,figure.player-wrapper.relative.aspect-video,[data-testid="qualtrics-container"],.c-toaster,.header-ad-container-top,.standard-article-vertical-ad
-
 !!---Specific URL---!!
 ||a.jsrdn.com$script
 ||adtech.redventures.io$script
@@ -160,8 +157,8 @@ nytimes.com###top-league-content-root
 people.com##div[id*="mntl-leaderboard"]
 pff.com##.ads-medium
 pgatour.com##tbody.css-0 > tr.no-print.css-0
-reddit.com###xpromo-bottom-sheet,#shreddit-skip-link
-reddit.com##shreddit-good-visit-tracker,faceplate-bottom-sheet
+! reddit.com###xpromo-bottom-sheet,#shreddit-skip-link
+! reddit.com##shreddit-good-visit-tracker,faceplate-bottom-sheet
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 rumble.comid###premium-popup__container--aria
 search.brave.com###faq
