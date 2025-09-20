@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        NewsReferrer
-// @description Changes the referrer to Google News
+// @description Changes the referrer
 // @run-at request
 // ==/UserScript==
 
@@ -14,7 +14,7 @@
                 {
                     "header": "Referer",
                     "operation": "set",
-                    "value": "news.google.com"
+                    "value": "https://www.google.com/"
                 }
             ]
         },
@@ -23,4 +23,4 @@
             "resourceTypes": ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "xmlhttprequest", "ping", "media", "websocket", "other"]
         }
     }
-  ]
+]
