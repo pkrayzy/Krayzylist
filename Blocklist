@@ -49,7 +49,6 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'a', 'n')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'be', '3')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bj', '1')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
-duckduckgo.com#%#//scriptlet('remove-cookie', 'ae')
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
