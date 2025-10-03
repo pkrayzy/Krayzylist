@@ -1,51 +1,51 @@
 // ==UserScript==
-// @name         DuckDuckGo Theme-Based Cookie Setter
-// @namespace    http://tampermonkey.net/
-// @version      1.0
-// @description  Set cookies based on system theme for DuckDuckGo
-// @match        *://*.duckduckgo.com/*
-// @match        https://www.duckduckgo.com/*
+// @name         DuckDuckGoTheme
+// @namespace    https://duckduckgo.com/
+// @version      1.3
+// @description  Sets DuckDuckGo's 'ae' cookie to match the OS light/dark preference with session expiration
 // @match        https://duckduckgo.com/*
+// @match        https://www.duckduckgo.com/*
+// @match        *://*.duckduckgo.com/*
 // @grant        none
 // ==/UserScript==
 
 (function () {
     'use strict';
 
-    // Cookie parameters
-    const name = 'ae';
-    const dark = 'd';
-    const light = '-1';
+    // DuckDuckGo reads the "ae" cookie:
+    //   "-1" → force light theme
+    //   "d"  → force dark theme
+    const COOKIE_NAME = 'ae';
+    const LIGHT_VALUE = '-1';
+    const DARK_VALUE = 'd';
+    const COOKIE_PATH = '/';
 
-    function isDarkTheme() {
-        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Helper to set a session cookie (no expiration = browser session)
+    function setSessionCookie(name, value) {
+        document.cookie = `${name}=${value}; path=${COOKIE_PATH}; SameSite=Lax`;
     }
 
-    if (isDarkTheme()) {
-        // Set cookie for current domain and path root, expires in 1 year
-        const days = 365;
-        const expires = new Date(Date.now() + days * 864e5).toUTCString();
-        document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(dark)}; expires=${expires}; path=/; SameSite=Lax`;
-
-        // If reddit uses a specific host cookie (e.g., .reddit.com), try setting that too.
-        try {
-            document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(dark)}; expires=${expires}; domain=.reddit.com; path=/; SameSite=Lax`;
-        } catch (e) {
-            // ignore domain setting failures (cross-site-frame or browser restrictions)
+    // Apply the correct cookie based on the current media query
+    function syncTheme(isDark) {
+        const desired = isDark ? DARK_VALUE : LIGHT_VALUE;
+        // Only update if the cookie differs to avoid unnecessary reloads
+        const current = document.cookie.split('; ').find(row => row.startsWith(`${COOKIE_NAME}=`));
+        const currentValue = current ? current.split('=')[1] : null;
+        if (currentValue !== desired) {
+            setSessionCookie(COOKIE_NAME, desired);
+            // DuckDuckGo applies the theme on page load, so reload to take effect
+            location.reload();
         }
     }
 
-    else {  // Set cookie for current domain and path root, expires in 1 year
-        const days = 365;
-        const expires = new Date(Date.now() + days * 864e5).toUTCString();
-        document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(light)}; expires=${expires}; path=/; SameSite=Lax`;
+    // Detect system theme
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
 
-        // If reddit uses a specific host cookie (e.g., .reddit.com), try setting that too.
-        try {
-            document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(light)}; expires=${expires}; domain=.reddit.com; path=/; SameSite=Lax`;
-        } catch (e) {
-            // ignore domain setting failures (cross-site-frame or browser restrictions)
-        }
-    }
+    // Initial sync
+    syncTheme(mq.matches);
 
+    // Listen for changes in the OS theme
+    mq.addEventListener('change', e => {
+        syncTheme(e.matches);
+    });
 })();
