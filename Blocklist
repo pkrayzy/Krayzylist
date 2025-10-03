@@ -192,7 +192,7 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 ! wsj.com##.ad-portal,[class="adWrapper "],[aria-label="What To Read Next"],[data-skip-label="What to Read Next"],[data-testid="ad-container"]
 ! wsj.com##.e1cp7uwz8:has([class="adWrapper "])
 ! wsj.com##main[class] > div[class] > div[class] > div[class^="css-"]:has(#AD_MOBILE1,.adContainer,.staticAd)
-! x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
+x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 ! zerohedge.com##.BlockContactInfo_dropdown__n9SPS,.BlockLogin_container__f_B6j,.BlockSearch_container__UmRtJ,.bottom-banner-container,.leaderboard-mobile,.leaderboard-tablet-container,.native,.SidebarLeft_debateCallout__mMVK8,.TopPosts_posts__kSDL7,.ZeroHedgeReads_container__qAqpv,.leaderboard-container
 ! zerohedge.com##[class*="PromoBanner_"]
 ! zerohedge.com##[id*="in-content"]
