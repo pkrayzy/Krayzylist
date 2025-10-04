@@ -113,96 +113,51 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 ||youtube.com/s/*/intersection-observer.min.js$script
 
 !!---Specific CSS---!!
-! apartmenttherapy.com##.MobileStickyBanner
-! appleinsider.com##div.article-body > div:has(#prebid-mid-article-ad)
-! appleinsider.com##header > div:has([href="https://appleinsider.com/help/ethics"])
-! architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
-! barrons.com##[class*="RenderBlock__AdNativeWrapper-"]
-! barstoolsports.com##.ad--fixedBottom
-! barstoolsports.com##div.h-\[600px\].pt-6.pb-10.px-\[18px\].md\:h-\[900px\]
-! bloomberg.com##.ledeVideo_ledeVideo__MkrSN,.styles_ledeContainer___qNar
-! bloomberg.com##button.floating-copy-link
-! bulbapedia.bulbagarden.net###siteNotice
-! businessinsider.com##.subnav-ad-position-sticky
-! cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
-! cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer
-! cbssports.com##body > div:has([data-adm-url])
-! clutchpoints.com##.aspect-video,.not-prose,footer
-! cnbc.com##.PortfolioBannerAd-adContainer
-! cnet.com##.c-adSkyBox,.c-adSkyBox_expanded,.c-avStickyVideo,.c-CnetAvStickyVideo,.c-avLazyStickyVideo-sticky,.c-head_disclosure,.c-globalDisclosure,.c-naviWidget
-! daringfireball.net##.ookiaks
-! digitaltrends.com##.dtads-content,.dtads-location,.dtads-mobile
-! digitaltrends.com##[class*="dtads-"]
-! economist.com##.adComponent_advert__kPVUI,.adComponent_incontent__boSCu,.advert--regwall
-! espn.com##.article-legal-footer
-! fantasypros.com##.leaderboard-footer-wrap,.mpb-upgrade-modal-container,section.pc_advertisement-section
-! ft.com##.advert,.in-article-advert,.article__content-sign-up,.o-ads,.o-ads--center,.o-ads--label-left,.o-banner,#n-exponea-top-slot,#sp_message_container_967339
-! ft.com###article-body > div.o-ads
-! ft.com##div.n-layout__header-before > pg-slot
-! gq.com##[component="sticky-hero-ad"]
-! healthline.com##.wp-block-healthline-jwplayer
-! instagram.com##article > div[class]:has(a[href*="https://www.facebook.com/ads/"])
-! laptopmag.com##[id*=“ad-unit-“]
-! laptopmag.com###mobile-in-article,#top-leaderboard
-! msn.com##.articlePageIntraArticleFullWidth,.banner-container,.consumption-page-banner-wrapper,.consumption-page-feed-wrapper,.end-of-content-block,.mcp-feed-container,above-river-block,homepage-footer,mobile-footer,views-right-rail
-! msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
-! mygolfspy.com##form
-! nbcsports.com##.ArticlePage-lead,bsp-banner,bsp-reverse-scroll-ad.Page-ad,.ArticlePage-actions-wrapper
-! news.google.com###ZCHFDb > div.tGUGyc:first-child
-! nfl.com##.d3-l-adv-row
-! nfl.com##article[class]:style(margin-top: 0px !important;)
-! nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
-! nypost.com##div:has([data-adm-url])
-! nytimes.com##.e1xxpj0j0
-! nytimes.com##[id^="story-ad"][id$="wrapper"],[id="mid1-wrapper"]
-! nytimes.com###site-content > [class^="css-"]:has(> [data-testid="StandardAd"],[id="top-wrapper"])
-! nytimes.com###top-league-content-root
-! people.com##div[id*="mntl-leaderboard"]
-! pff.com##.ads-medium
-! pgatour.com##tbody.css-0 > tr.no-print.css-0
-! ! reddit.com###xpromo-bottom-sheet,#shreddit-skip-link
-! ! reddit.com##shreddit-good-visit-tracker,faceplate-bottom-sheet
-! reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
-! rumble.comid###premium-popup__container--aria
-! search.brave.com###faq
-! semafor.com##div[class*="styles_floatingBanner"]
-! si.com##figure[data-mm-id],figure.style_uhlm2
-! soundguys.com##div[data-ad-type],.e_gd.e_f
-! speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
-! the-gadgeteer.com##.crunchify-social
-! thehill.com##.article__featured-media
-! theintercept.com###third-party--article-mid
-! theopen.com##div.overlay.is-visible
-! theverge.com##[data-concert-ads-name],[data-concert="leaderboard_top_tablet_desktop"],[data-concert="tablet_leaderboard"]
-! theverge.com###content > div:has([data-concert="outbrain_post_tablet_and_desktop"],[data-concert="desktop_leaderboard_variable"],[data-concert="tablet_leaderboard"])
-! theverge.com##div[class]:has(> div[data-concert])
-! thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
-! time.com##header > div:has([aria-label="Advertisement"])
-! usatoday.com##[aria-label="advertisement"],[aria-label="Newsletter signup form"],[class="gnt_flp"],[class="gnt_rr"],[data-gl-method="llx"]
-! usatoday.com###ad--article-top-wrapper,#ad--sidebar,.gnt_nb
-! usatoday.com##body > div:has([href*="https://getad"])
-! usatoday.com##header.gnt_n:style(margin: 0px 0 0)
-! usatoday.com##header.gnt_n:style(top: 0px)
-! variety.com##.pmc-contextual-player,#sticky-rail-ad
-! variety.com##[id*="adm-inline-article-ad-"]
-! vilebrequin.com##div.ui-widget-overlay
-! wellandgood.com###votd-player-mobile
-! wikipedia.org###centralNotice
-! windowscentral.com,whathifi.com,techradar.com,tomsguide.com##.ad-unit,.infinite-container,.newsletter-form__wrapper,.widget-ads,.widget-ads-lightbox2,.widget-ads-ads-lightbox2,.widget-ads-static-lightbox2,#newsletter-slice,#taboola-mobile-below-article-thumbnails,#top-leaderboard
-! wsj.com##.ad-portal,[class="adWrapper "],[aria-label="What To Read Next"],[data-skip-label="What to Read Next"],[data-testid="ad-container"]
-! wsj.com##.e1cp7uwz8:has([class="adWrapper "])
-! wsj.com##main[class] > div[class] > div[class] > div[class^="css-"]:has(#AD_MOBILE1,.adContainer,.staticAd)
+architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
+bulbapedia.bulbagarden.net###siteNotice
+cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
+cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer
+cbssports.com##body > div:has([data-adm-url])
+cnbc.com##.PortfolioBannerAd-adContainer
+cnet.com##.c-adSkyBox,.c-adSkyBox_expanded,.c-avStickyVideo,.c-CnetAvStickyVideo,.c-avLazyStickyVideo-sticky,.c-head_disclosure,.c-globalDisclosure,.c-naviWidget
+daringfireball.net##.ookiaks
+digitaltrends.com##.dtads-content,.dtads-location,.dtads-mobile
+digitaltrends.com##[class*="dtads-"]
+espn.com##.article-legal-footer
+fantasypros.com##.leaderboard-footer-wrap,.mpb-upgrade-modal-container,section.pc_advertisement-section
+healthline.com##.wp-block-healthline-jwplayer
+msn.com##.articlePageIntraArticleFullWidth,.banner-container,.consumption-page-banner-wrapper,.consumption-page-feed-wrapper,.end-of-content-block,.mcp-feed-container,above-river-block,homepage-footer,mobile-footer,views-right-rail
+msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
+mygolfspy.com##form
+nbcsports.com##.ArticlePage-lead,bsp-banner,bsp-reverse-scroll-ad.Page-ad,.ArticlePage-actions-wrapper
+nfl.com##.d3-l-adv-row
+nfl.com##article[class]:style(margin-top: 0px !important;)
+nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
+nypost.com##div:has([data-adm-url])
+pgatour.com##tbody.css-0 > tr.no-print.css-0
+reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
+semafor.com##div[class*="styles_floatingBanner"]
+si.com##figure[data-mm-id],figure.style_uhlm2
+soundguys.com##div[data-ad-type],.e_gd.e_f
+speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
+thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
+usatoday.com##body > div:has([href*="https://getad"])
+usatoday.com##header.gnt_n:style(margin: 0px 0 0)
+usatoday.com##header.gnt_n:style(top: 0px)
+variety.com##.pmc-contextual-player,#sticky-rail-ad
+variety.com##[id*="adm-inline-article-ad-"]
+wikipedia.org###centralNotice
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
-! zerohedge.com##.BlockContactInfo_dropdown__n9SPS,.BlockLogin_container__f_B6j,.BlockSearch_container__UmRtJ,.bottom-banner-container,.leaderboard-mobile,.leaderboard-tablet-container,.native,.SidebarLeft_debateCallout__mMVK8,.TopPosts_posts__kSDL7,.ZeroHedgeReads_container__qAqpv,.leaderboard-container
-! zerohedge.com##[class*="PromoBanner_"]
-! zerohedge.com##[id*="in-content"]
-! zerohedge.com##[id*="list-display-"]
-! zerohedge.com###exitModalOverlay,#footer,#store-promo
-! zerohedge.com##div.fc-ab-root:nth-child(n)
-! zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
-! zerohedge.com##div[id="content-pack"]
-! zerohedge.com##section[class*="PromoButton_"]
-! /images/marketing/zh_store.jpg$domain=zerohedge.com
+zerohedge.com##.BlockContactInfo_dropdown__n9SPS,.BlockLogin_container__f_B6j,.BlockSearch_container__UmRtJ,.bottom-banner-container,.leaderboard-mobile,.leaderboard-tablet-container,.native,.SidebarLeft_debateCallout__mMVK8,.TopPosts_posts__kSDL7,.ZeroHedgeReads_container__qAqpv,.leaderboard-container
+zerohedge.com##[class*="PromoBanner_"]
+zerohedge.com##[id*="in-content"]
+zerohedge.com##[id*="list-display-"]
+zerohedge.com###exitModalOverlay,#footer,#store-promo
+zerohedge.com##div.fc-ab-root:nth-child(n)
+zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
+zerohedge.com##div[id="content-pack"]
+zerohedge.com##section[class*="PromoButton_"]
+/images/marketing/zh_store.jpg$domain=zerohedge.com
 
 !!--Google--!!
 google.com##.ULSxyf > .MjjYud > [data-iu] > #iur,.vRy7rc
