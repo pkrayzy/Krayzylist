@@ -132,7 +132,7 @@ mygolfspy.com##form
 nbcsports.com##.ArticlePage-lead,bsp-banner,bsp-reverse-scroll-ad.Page-ad,.ArticlePage-actions-wrapper
 nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
-nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc
+nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc,.wp-block-nypost-editor-newsletter
 nypost.com##div:has([data-adm-url])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
