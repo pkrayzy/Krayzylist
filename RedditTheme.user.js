@@ -22,7 +22,7 @@
 
   // If reddit uses a specific host cookie (e.g., .reddit.com), try setting that too.
   try {
-    document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${expires}; domain=.reddit.com; path=/; SameSite=Lax`;
+    document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${expires}; domain=reddit.com; path=/; SameSite=Lax`;
   } catch (e) {
     // ignore domain setting failures (cross-site-frame or browser restrictions)
   }
