@@ -136,19 +136,10 @@ nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc,.wp-block-nypost-editor-newsletter
 nypost.com##div:has([data-adm-url])
 nytimes.com##[id*="story-ad-"]
+nytimes.com##.e1xxpj0j0:has([data-testid="StandardAd"])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 semafor.com##div[class*="styles_floatingBanner"]
-si.com##figure[data-mm-id],figure.style_uhlm2
-/mm-recirculation-injector.js$script
-||cdn.userway.org^$domain=si.com
-||players.voltaxservices.io^
-||prebid.media.net^
-||vms-videos.minutemediaservices.com^
-||html-load.com/player/www.si.com^$xhr
-si.com##[class^="img_"]:has([data-google-query-id])
-si.com##[id^="tout_"]
-si.com##[id="mmvid"]
 soundguys.com##div[data-ad-type],.e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
@@ -160,6 +151,20 @@ variety.com##[id*="adm-inline-article-ad-"]
 whathifi.com###top-leaderboard
 wikipedia.org###centralNotice
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
+
+! SI.com
+/mm-recirculation-injector.js$script
+||cdn.userway.org^$domain=si.com
+||html-load.com/player/www.si.com^$xhr
+||players.voltaxservices.io^
+||prebid.media.net^
+||vms-videos.minutemediaservices.com^
+si.com##[class^="img_"]:has([data-google-query-id])
+si.com##[id^="tout_"]
+si.com##figure[data-mm-id],figure.style_uhlm2,[id="mmvid"]
+
+! Zerohedge
+/images/marketing/zh_store.jpg$domain=zerohedge.com
 zerohedge.com##.BlockContactInfo_dropdown__n9SPS,.BlockLogin_container__f_B6j,.BlockSearch_container__UmRtJ,.bottom-banner-container,.leaderboard-mobile,.leaderboard-tablet-container,.native,.SidebarLeft_debateCallout__mMVK8,.TopPosts_posts__kSDL7,.ZeroHedgeReads_container__qAqpv,.leaderboard-container
 zerohedge.com##[class*="PromoBanner_"]
 zerohedge.com##[id*="in-content"]
@@ -169,7 +174,6 @@ zerohedge.com##div.fc-ab-root:nth-child(n)
 zerohedge.com##div[class*="TheMarketEarHomePageSidebar"]
 zerohedge.com##div[id="content-pack"]
 zerohedge.com##section[class*="PromoButton_"]
-/images/marketing/zh_store.jpg$domain=zerohedge.com
 
 !!--Google--!!
 google.com##.ULSxyf > .MjjYud > [data-iu] > #iur,.vRy7rc
