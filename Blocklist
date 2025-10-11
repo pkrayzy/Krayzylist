@@ -140,6 +140,15 @@ pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 semafor.com##div[class*="styles_floatingBanner"]
 si.com##figure[data-mm-id],figure.style_uhlm2
+/mm-recirculation-injector.js$script
+||cdn.userway.org^$domain=si.com
+||players.voltaxservices.io^
+||prebid.media.net^
+||vms-videos.minutemediaservices.com^
+||html-load.com/player/www.si.com^$xhr
+si.com##[class^="img_"]:has([data-google-query-id])
+si.com##[id^="tout_"]
+si.com##[id="mmvid"]
 soundguys.com##div[data-ad-type],.e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
