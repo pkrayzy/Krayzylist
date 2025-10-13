@@ -125,7 +125,7 @@ digitaltrends.com##.dtads-content,.dtads-location,.dtads-mobile
 digitaltrends.com##[class*="dtads-"]
 espn.com##.article-legal-footer
 fantasypros.com##.leaderboard-footer-wrap,.mpb-upgrade-modal-container,section.pc_advertisement-section
-ft.com##[data-config-key="leaderboard"]
+ft.com##[data-config-key="leaderboard"],.article__content-sign-up,[data-o-component="o-message"]
 healthline.com##.wp-block-healthline-jwplayer
 msn.com##.articlePageIntraArticleFullWidth,.banner-container,.consumption-page-banner-wrapper,.consumption-page-feed-wrapper,.end-of-content-block,.mcp-feed-container,above-river-block,homepage-footer,mobile-footer,views-right-rail
 msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
