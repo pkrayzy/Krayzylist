@@ -51,23 +51,26 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bj', '1')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 
 !!---General URL---!!
+@@/trackit.js$domain=click.americanexpress.com
 /*.consentdrawer.bundle.*$script
-/AppMeasurement.min.js$script
 /admr.*$script
 /ads/adsbygoogle.*$script
 /airgap.js
 /airgapWrapper.js
+/analytics-library-entry-getCustomTrackingId.js$script
+/AppMeasurement.min.js$script
 /cxense-candy.js
 /display-ads.*$script
 /eu_cookie_compliance.min.js
+/gdpr-footer-link.ts-*.js$script
 /gdpr*.bundle.js
 /openads/js/*$script
 /pmc-sticky-rail-ads/*$script
 /pum-site-scripts.js
 /scripts/adslot.js
 /setup-ads.*$script
+/web-pixelator-marketing-pixels-effect.*.js$script
 /wp-content/plugins/elementor-pro/*$script
-@@/trackit.js$domain=click.americanexpress.com
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
@@ -112,12 +115,38 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 ||whoami-static.barstoolsports.com$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
+!!---Third Party---!!
+||adsafeprotected.com^$third-party
+||affilimate.io^$third-party
+||amazon-adsystem.com^$third-party
+||analytics.authoritymedia.com^$third-party
+||api.parsely.com^$third-party
+||cdn.p-n.io^$third-party
+||cloudflare.com/cdn-cgi/trace$third-party
+||doubleverify.com^$third-party
+||geoedge.be^$third-party
+||google.com^$third-party
+||googlesyndication.com^$third-party
+||googletagservices.com^$third-party
+||gstatic.com^$third-party
+||js-agent.newrelic.com^$third-party
+||newassets.hcaptcha.com^$third-party
+||players.brightcove.net^$third-party
+||px-cloud.net^$third-party
+||realtimeeventfeeds.viafoura.co^$third-party
+||resources.digital-cloud.medallia.com^$third-party
+||static-cdn.spot.im^$script,third-party
+||static.narrativ.com/tags/androidauthority.js$script
+||tag.wknd.ai^$third-party
+||worldrealize.com^$third-party
+
 !!---Specific CSS---!!
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
 bulbapedia.bulbagarden.net###siteNotice
 cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
 cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer
 cbssports.com##body > div:has([data-adm-url])
+clutchpoints.com##.aspect-video
 cnbc.com##.PortfolioBannerAd-adContainer
 cnet.com##.c-adSkyBox,.c-adSkyBox_expanded,.c-avStickyVideo,.c-CnetAvStickyVideo,.c-avLazyStickyVideo-sticky,.c-head_disclosure,.c-globalDisclosure,.c-naviWidget
 daringfireball.net##.ookiaks
@@ -125,7 +154,7 @@ digitaltrends.com##.dtads-content,.dtads-location,.dtads-mobile
 digitaltrends.com##[class*="dtads-"]
 espn.com##.article-legal-footer
 fantasypros.com##.leaderboard-footer-wrap,.mpb-upgrade-modal-container,section.pc_advertisement-section
-ft.com##[data-config-key="leaderboard"],.article__content-sign-up,[data-o-component="o-message"]
+ft.com##[data-config-key="leaderboard"],.article__content-sign-up,[data-o-component="o-message"],#n-exponea-bottom-slot
 healthline.com##.wp-block-healthline-jwplayer
 msn.com##.articlePageIntraArticleFullWidth,.banner-container,.consumption-page-banner-wrapper,.consumption-page-feed-wrapper,.end-of-content-block,.mcp-feed-container,above-river-block,homepage-footer,mobile-footer,views-right-rail
 msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
@@ -135,22 +164,24 @@ nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc,.wp-block-nypost-editor-newsletter
 nypost.com##div:has([data-adm-url])
-nytimes.com##[id*="story-ad-"]
 nytimes.com##.e1xxpj0j0:has([data-testid="StandardAd"])
+nytimes.com##[id*="story-ad-"]
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 semafor.com##div[class*="styles_floatingBanner"]
 soundguys.com##div[data-ad-type],.e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
+thekitchentoday.com##.inline-subscribe
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
 usatoday.com##body > div:has([href*="https://getad"])
 usatoday.com##header.gnt_n:style(margin: 0px 0 0)
 usatoday.com##header.gnt_n:style(top: 0px)
 variety.com##.pmc-contextual-player,#sticky-rail-ad
 variety.com##[id*="adm-inline-article-ad-"]
-whathifi.com###top-leaderboard
+whathifi.com##.slice-container-newsletterForm,.sponsored-post--placeholder,#top-leaderboard
 wikipedia.org###centralNotice
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
+yahoo.com##[data-testid="video-player"]
 
 ! SI.com
 /mm-recirculation-injector.js$script
