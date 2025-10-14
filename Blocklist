@@ -129,6 +129,7 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 ||googlesyndication.com^$third-party
 ||googletagservices.com^$third-party
 ||gstatic.com^$third-party
+@@||gstatic.com^$third-party,domain=youtube.com
 ||js-agent.newrelic.com^$third-party
 ||newassets.hcaptcha.com^$third-party
 ||players.brightcove.net^$third-party
