@@ -115,32 +115,6 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 ||whoami-static.barstoolsports.com$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
-!!---Third Party---!!
-||adsafeprotected.com^$third-party
-||affilimate.io^$third-party
-||amazon-adsystem.com^$third-party
-||analytics.authoritymedia.com^$third-party
-||api.parsely.com^$third-party
-||cdn.p-n.io^$third-party
-||cloudflare.com/cdn-cgi/trace$third-party
-||doubleverify.com^$third-party
-||geoedge.be^$third-party
-||google.com^$third-party
-||googlesyndication.com^$third-party
-||googletagservices.com^$third-party
-||gstatic.com^$third-party
-@@||gstatic.com^$third-party,domain=youtube.com
-||js-agent.newrelic.com^$third-party
-||newassets.hcaptcha.com^$third-party
-||players.brightcove.net^$third-party
-||px-cloud.net^$third-party
-||realtimeeventfeeds.viafoura.co^$third-party
-||resources.digital-cloud.medallia.com^$third-party
-||static-cdn.spot.im^$script,third-party
-||static.narrativ.com/tags/androidauthority.js$script
-||tag.wknd.ai^$third-party
-||worldrealize.com^$third-party
-
 !!---Specific CSS---!!
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
 bulbapedia.bulbagarden.net###siteNotice
