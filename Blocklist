@@ -164,7 +164,7 @@ yahoo.com##[data-testid="video-player"]
 /mm-recirculation-injector.js$script
 ||cdn.p-n.io/pushly-sdk.min.js$script
 ||cdn.userway.org^$domain=si.com|fansided.com
-||html-load.com/loader.min.js$script
+! ||html-load.com/loader.min.js$script
 ||players.voltaxservices.io^$domain=si.com|fansided.com
 ||prebid.media.net^$domain=si.com|fansided.com
 ||uds-selector.bqstreamer.com^$domain=si.com|fansided.com
