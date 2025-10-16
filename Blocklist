@@ -174,6 +174,7 @@ fansided.com,si.com##[id*="img_"]
 fansided.com,si.com##[id^="tout_"]
 fansided.com,si.com##figure[class$="style_uhlm2"]
 fansided.com,si.com##figure[data-mm-id],figure.style_uhlm2,[id="mmvid"]
+fansided.com,si.com##iframe
 
 ! Zerohedge
 /images/marketing/zh_store.jpg$domain=zerohedge.com
