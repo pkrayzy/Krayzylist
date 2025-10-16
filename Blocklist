@@ -160,13 +160,16 @@ yahoo.com##[data-testid="video-player"]
 
 ! SI.com
 /mm-recirculation-injector.js$script
+||cdn.p-n.io/pushly-sdk.min.js$script
 ||cdn.userway.org^$domain=si.com|fansided.com
-||players.voltaxservices.io^
-||prebid.media.net^
-||vms-videos.minutemediaservices.com^
-si.com##[class^="img_"]:has([data-google-query-id])
-si.com##[id^="tout_"]
-si.com##figure[data-mm-id],figure.style_uhlm2,[id="mmvid"]
+||html-load.com/loader.min.js$script
+||players.voltaxservices.io^$domain=si.com|fansided.com
+||prebid.media.net^$domain=si.com|fansided.com
+||uds-selector.bqstreamer.com^$domain=si.com|fansided.com
+||vms-videos.minutemediaservices.com^$domain=si.com|fansided.com
+fansided.com,si.com##[class^="img_"]:has([data-google-query-id])
+fansided.com,si.com##[id^="tout_"]
+fansided.com,si.com##figure[data-mm-id],figure.style_uhlm2,[id="mmvid"]
 
 ! Zerohedge
 /images/marketing/zh_store.jpg$domain=zerohedge.com
