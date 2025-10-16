@@ -160,7 +160,7 @@ yahoo.com##[data-testid="video-player"]
 
 ! SI.com
 /mm-recirculation-injector.js$script
-||cdn.userway.org^$domain=si.com
+||cdn.userway.org^$domain=si.com|fansided.com
 ||players.voltaxservices.io^
 ||prebid.media.net^
 ||vms-videos.minutemediaservices.com^
