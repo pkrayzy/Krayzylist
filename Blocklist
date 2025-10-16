@@ -161,7 +161,6 @@ yahoo.com##[data-testid="video-player"]
 ! SI.com
 /mm-recirculation-injector.js$script
 ||cdn.userway.org^$domain=si.com
-||html-load.com/player/www.si.com^$xhr
 ||players.voltaxservices.io^
 ||prebid.media.net^
 ||vms-videos.minutemediaservices.com^
