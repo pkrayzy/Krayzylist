@@ -167,8 +167,12 @@ yahoo.com##[data-testid="video-player"]
 ||prebid.media.net^$domain=si.com|fansided.com
 ||uds-selector.bqstreamer.com^$domain=si.com|fansided.com
 ||vms-videos.minutemediaservices.com^$domain=si.com|fansided.com
+fansided.com,si.com##["ad"]
+fansided.com,si.com##[class*="sidebar_"]
 fansided.com,si.com##[class^="img_"]:has([data-google-query-id])
+fansided.com,si.com##[id*="img_"]
 fansided.com,si.com##[id^="tout_"]
+fansided.com,si.com##figure[class$="style_uhlm2"]
 fansided.com,si.com##figure[data-mm-id],figure.style_uhlm2,[id="mmvid"]
 
 ! Zerohedge
