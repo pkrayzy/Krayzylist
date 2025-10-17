@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        MapsRedirector
+// @name        Maps-Redirector
 // @description Redirects to Apple Maps
 // @run-at request
 // ==/UserScript==

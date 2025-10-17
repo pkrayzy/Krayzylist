@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         RedditTheme
+// @name         Reddit-Set-Cookie
 // @namespace    https://reddit.com/
 // @version      1.0
 // @description  Set cookie "theme=0" for reddit.com

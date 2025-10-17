@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         BloombergBypass
+// @name         Bloomberg-Bypass
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Bypass the paywall on Bloomberg

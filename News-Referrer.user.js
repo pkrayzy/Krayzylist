@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        NewsReferrer
+// @name        News-Referrer
 // @description Changes the referrer
 // @run-at request
 // ==/UserScript==
