@@ -117,6 +117,7 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 
 !!---Specific CSS---!!
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
+bloomberg.com##[class^="bvp-"]
 bulbapedia.bulbagarden.net###siteNotice
 cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
 cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer
@@ -149,6 +150,7 @@ speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
 thekitchentoday.com##.inline-subscribe
 vox.com,theverge.com##.duet--layout--rail > div[class]:has(> div[class] > div[data-concert])
 theverge.com##div[class]:has(> div[data-concert])
+theverge.com##[data-concert-ads-name]
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
 usatoday.com##body > div:has([href*="https://getad"])
 usatoday.com##header.gnt_n:style(margin: 0px 0 0)
