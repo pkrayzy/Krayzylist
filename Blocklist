@@ -160,7 +160,8 @@ variety.com##[id*="adm-inline-article-ad-"]
 whathifi.com##.slice-container-newsletterForm,.sponsored-post--placeholder,#top-leaderboard
 wikipedia.org###centralNotice
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
-yahoo.com##[data-testid="video-player"]
+yahoo.com##[class*="max-md"]:has(.ad-container)
+yahoo.com##[data-testid="video-player"],.ad-container
 
 ! SI.com
 /mm-recirculation-injector.js$script
