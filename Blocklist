@@ -129,6 +129,9 @@ daringfireball.net##.ookiaks
 digitaltrends.com##.dtads-content,.dtads-location,.dtads-mobile
 digitaltrends.com##[class*="dtads-"]
 espn.com##.article-legal-footer
+espn.com##.next-gen-gamecast .GameBreak
+espn.com##.next-gen-gamecast .GameBreak--triggered
+espn.com##.next-gen-gamecast .WebPlayerContainer
 espn.com##.next-gen-gamecast espn-web-player-ui
 fantasypros.com##.leaderboard-footer-wrap,.mpb-upgrade-modal-container,section.pc_advertisement-section
 ft.com##[data-config-key="leaderboard"],.article__content-sign-up,[data-o-component="o-message"],#n-exponea-bottom-slot,.n-layout__header-before
