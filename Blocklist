@@ -71,6 +71,7 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 /setup-ads.*$script
 /web-pixelator-marketing-pixels-effect.*.js$script
 /wp-content/plugins/elementor-pro/*$script
+/\.com\/[a-zA-Z0-9-_]+$/$script,domain=architecturaldigest.com|bonappetit.com|cntraveler.com|epicurious.com|gq.com|newyorker.com|vanityfair.com|vogue.com|wired.com
 
 !!---Specific URL---!!
 ||a.jsrdn.com$script
