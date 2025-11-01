@@ -162,7 +162,9 @@ usatoday.com##body > div:has([href*="https://getad"])
 usatoday.com##header.gnt_n:style(margin: 0px 0 0)
 usatoday.com##header.gnt_n:style(top: 0px)
 variety.com##.pmc-contextual-player,#sticky-rail-ad
+variety.com##[class^="img_"]:has([data-is-adhesion-ad])
 variety.com##[id*="adm-inline-article-ad-"]
+variety.com##[spottype="dynamic_mc"]
 whathifi.com##.slice-container-newsletterForm,.sponsored-post--placeholder,#top-leaderboard
 wikipedia.org###centralNotice
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
