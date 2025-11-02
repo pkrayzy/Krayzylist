@@ -240,7 +240,7 @@ bing.com##.b_ans:has(.b_mrs,.b_rs,#b_mrs_DynamicMRS)
 
 ! Answers
 bing.com##.b_imgcap_img
-bing.com##.b_ans.b_mop.b_imgansacf
+bing.com##.b_ans.b_mop.b_imgansacf,.b_ans.b_mop.b_vidAns
 
 ! People Also Ask !
 bing.com##.b_ans > .rqnaContainerwithfeedback,.df_alaskcarousel,#sa_requery
