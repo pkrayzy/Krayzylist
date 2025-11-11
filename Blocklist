@@ -52,69 +52,69 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 
 !!---General URL---!!
 @@/trackit.js$domain=click.americanexpress.com
-/*.consentdrawer.bundle.*$script
-/admr.*$script
-/ads/adsbygoogle.*$script
-/airgap.js
-/airgapWrapper.js
-/analytics-library-entry-getCustomTrackingId.js$script
-/AppMeasurement.min.js$script
-/cxense-candy.js
-/display-ads.*$script
-/eu_cookie_compliance.min.js
-/gdpr-footer-link.ts-*.js$script
-/gdpr*.bundle.js
-/openads/js/*$script
-/pmc-sticky-rail-ads/*$script
-/pum-site-scripts.js
-/scripts/adslot.js
-/setup-ads.*$script
-/web-pixelator-marketing-pixels-effect.*.js$script
-/wp-content/plugins/elementor-pro/*$script
+! /*.consentdrawer.bundle.*$script
+! /admr.*$script
+! /ads/adsbygoogle.*$script
+! /airgap.js
+! /airgapWrapper.js
+! /analytics-library-entry-getCustomTrackingId.js$script
+! /AppMeasurement.min.js$script
+! /cxense-candy.js
+! /display-ads.*$script
+! /eu_cookie_compliance.min.js
+! /gdpr-footer-link.ts-*.js$script
+! /gdpr*.bundle.js
+! /openads/js/*$script
+! /pmc-sticky-rail-ads/*$script
+! /pum-site-scripts.js
+! /scripts/adslot.js
+! /setup-ads.*$script
+! /web-pixelator-marketing-pixels-effect.*.js$script
+! /wp-content/plugins/elementor-pro/*$script
 /\.com\/[a-zA-Z0-9-_]+$/$script,domain=architecturaldigest.com|bonappetit.com|cntraveler.com|epicurious.com|gq.com|newyorker.com|vanityfair.com|vogue.com|wired.com
 
 !!---Specific URL---!!
-||a.jsrdn.com$script
-||adtech.redventures.io$script
-||appboycdn.com$script
-||assets.msn.com/*/action-tray.*.js$script
-||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
-||assets.msn.com/*/mobile-app-upsell.*.js$script
-||assets.msn.com/*/one-footer.*.js$script
-||cdn.brandmetrics.com/*/theathletic.js$script
-||cdn.consentmanager.net$script
-||cdn.cookielaw.org$script
-||cdn.cxense.com$script
-||cdn.iubenda.com/cookie_solution$script
-||cdn.jwplayer.com^$script
-||cdn.optimizely.com$script
-||cdn.privacy-mgmt.com$third-party
-||cdn.taboola.com/*/loader.js$script
-||cmp.inmobi.com$script
-||convertkit.com/ckjs$script
-||fundingchoicesmessages.google.com^$script
-||gstatic.com/external_hosted/lottie/lottie_light.js$script
-||js.memberful.com$script
-||jwpcdn.com^$script
-||klaviyo.com/media/js$script
-||lightboxcdn.com$script
-||nyt.com/ads/
-||nytimes.com/vi-assets/static-assets/adslot-*.js$script
-||piratewires.com/_next/static/chunks/app/$script
-||pixeledhub.com$script
-||polyfill-fastly.io$script
-||scripts.webcontentassessor.com$third-party
-||snap.licdn.com$script
-||sourcepoint.*.com$script
-||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
-||static.semafor.com/_next/static/chunks$script
-||static01.nyt.com/ads^
-||substackcdn.com/*/free_email_form-*.js$script
-||substackcdn.com/*/HoverCard-*.js$script
-||tags.tiqcdn.com$script
-||theathletic.com/*/webpack*.js$script
-||whoami-static.barstoolsports.com$script
-||youtube.com/s/*/intersection-observer.min.js$script
+! ||a.jsrdn.com$script
+! ||adtech.redventures.io$script
+! ||appboycdn.com$script
+! ||assets.msn.com/*/action-tray.*.js$script
+! ||assets.msn.com/*/libs_ad-service_dist_AdRequestManager*.js$script
+! ||assets.msn.com/*/mobile-app-upsell.*.js$script
+! ||assets.msn.com/*/one-footer.*.js$script
+! ||cdn.brandmetrics.com/*/theathletic.js$script
+! ||cdn.consentmanager.net$script
+! ||cdn.cookielaw.org$script
+! ||cdn.cxense.com$script
+! ||cdn.iubenda.com/cookie_solution$script
+! ||cdn.jwplayer.com^$script
+! ||cdn.optimizely.com$script
+! ||cdn.privacy-mgmt.com$third-party
+! ||cdn.taboola.com/*/loader.js$script
+! ||cmp.inmobi.com$script
+! ||convertkit.com/ckjs$script
+! ||fundingchoicesmessages.google.com^$script
+! ||gstatic.com/external_hosted/lottie/lottie_light.js$script
+! ||js.memberful.com$script
+! ||jwpcdn.com^$script
+! ||klaviyo.com/media/js$script
+! ||lightboxcdn.com$script
+! ||nyt.com/ads/
+! ||nytimes.com/vi-assets/static-assets/adslot-*.js$script
+! ||piratewires.com/_next/static/chunks/app/$script
+! ||pixeledhub.com$script
+! ||polyfill-fastly.io$script
+! ||scripts.webcontentassessor.com$third-party
+! ||snap.licdn.com$script
+! ||sourcepoint.*.com$script
+! ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
+! ||static.semafor.com/_next/static/chunks$script
+! ||static01.nyt.com/ads^
+! ||substackcdn.com/*/free_email_form-*.js$script
+! ||substackcdn.com/*/HoverCard-*.js$script
+! ||tags.tiqcdn.com$script
+! ||theathletic.com/*/webpack*.js$script
+! ||whoami-static.barstoolsports.com$script
+! ||youtube.com/s/*/intersection-observer.min.js$script
 
 !!---Specific CSS---!!
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
