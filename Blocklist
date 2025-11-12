@@ -202,22 +202,22 @@ zerohedge.com##section[class*="PromoButton_"]
 
 !!--Google--!!
 ! Image Results !
-! google.com##.ULSxyf > .MjjYud > [data-iu] > #iur,.vRy7rc
-! google.com##.ULSxyf > .MjjYud > [data-iu]:has(#iur,.vRy7rc)
-! google.com##.ULSxyf:has(.MjjYud > [class] > [jsmodel] > #iur)
-! google.com###rcnt #Odp5De:has(#iur)
+google.com##.ULSxyf > .MjjYud > [data-iu] > #iur,.vRy7rc
+google.com##.ULSxyf > .MjjYud > [data-iu]:has(#iur,.vRy7rc)
+google.com##.ULSxyf:has(.MjjYud > [class] > [jsmodel] > #iur)
+google.com###rcnt #Odp5De:has(#iur)
 
-! google.com##.MjjYud .vt6azd > .Wt5Tfe:has([jsname="Cpkphb"])
-! google.com##.MjjYud .vt6azd > [jscontroller="aD8OEe"]:has(.DyfMyc)
-! google.com###kp-wp-tab-overview > div > [jsname="xQjRM"]:has(.vt6azd > .Wt5Tfe > .ouy7Mc)
+google.com##.MjjYud .vt6azd > .Wt5Tfe:has([jsname="Cpkphb"])
+google.com##.MjjYud .vt6azd > [jscontroller="aD8OEe"]:has(.DyfMyc)
+google.com###kp-wp-tab-overview > div > [jsname="xQjRM"]:has(.vt6azd > .Wt5Tfe > .ouy7Mc)
 
 ! ! People Also Ask !
-! google.com###media_result_group,#iur,.related-question-pair
-! google.com##[jsname="xQjRM"]:has([data-initq],#media_result_group,.cUnQKe)
+google.com###media_result_group,#iur,.related-question-pair
+google.com##[jsname="xQjRM"]:has([data-initq],#media_result_group,.cUnQKe)
 
 ! ! Related Searches !
-! google.com##[jsname="Ypkwb"],[jsname="Cpkphb"],[data-initq],#bres,.cUnQKe,.vRy7rc
-! google.com##[jsname="xQjRM"] > .sATSHe:has([jsname="Cpkphb"])
+google.com##[jsname="Ypkwb"],[jsname="Cpkphb"],[data-initq],#bres,.cUnQKe,.vRy7rc
+google.com##[jsname="xQjRM"] > .sATSHe:has([jsname="Cpkphb"])
 
 ! App Promos !
 google.com##.fbar.ouy7Mc
@@ -225,7 +225,6 @@ google.com##[aria-labelledby="promo_label_id"]
 
 google.com##.eMLgL
 google.com##[data-rpos]:has(.cUnQKe,.vtSz8d,[data-abe],[data-initq],[data-iu])
-google.com##[data-initq],#bres,.cUnQKe,[data-hb="isv"]
 
 
 !!--DuckDuckGo--!!
