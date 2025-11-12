@@ -45,10 +45,8 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'dcs', '0')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'psb', '-1')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'sn', '5')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'v', 'm')
-duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'a', 'n')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'be', '3')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bj', '1')
-duckduckgo.com#%#//scriptlet('trusted-set-cookie', 't', 'n')
 
 !!---General URL---!!
 @@/trackit.js$domain=click.americanexpress.com
