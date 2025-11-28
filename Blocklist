@@ -94,10 +94,11 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bj', '1')
 ||fundingchoicesmessages.google.com^$script
 ||gstatic.com/external_hosted/lottie/lottie_light.js$script
 ||js.memberful.com$script
-! ||jwpcdn.com^$script
 ||klaviyo.com/media/js$script
 ||lightboxcdn.com$script
+||meter-svc.nytimes.com/meter.js$xmlhttprequest,~third-party
 ||nyt.com/ads/
+||nytimes.com/svc/onsite-messaging/query$xmlhttprequest,~third-party
 ||nytimes.com/vi-assets/static-assets/adslot-*.js$script
 ||piratewires.com/_next/static/chunks/app/$script
 ||pixeledhub.com$script
