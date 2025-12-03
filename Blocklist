@@ -171,6 +171,7 @@ wikipedia.org###centralNotice
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 yahoo.com##[class*="max-md"]:has(.ad-container)
 yahoo.com##[data-testid="video-player"],.ad-container
+yahoo.com##.responsive-sda,#sda-body,#sda-top
 
 ! SI.com
 ! /mm-recirculation-injector.js$script
