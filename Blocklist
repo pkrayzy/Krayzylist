@@ -50,6 +50,26 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'v', 'm')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'be', '3')
 duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bj', '1')
 
+!!---General URL---!!
+/*.consentdrawer.bundle.*$script
+/admr.*$script
+/ads/adsbygoogle.*$script
+/airgap.js
+/airgapWrapper.js
+/analytics-library-entry-getCustomTrackingId.js$script
+/AppMeasurement.min.js$script
+/cxense-candy.js
+/display-ads.*$script
+/eu_cookie_compliance.min.js
+/gdpr-footer-link.ts-*.js$script
+/gdpr*.bundle.js
+/openads/js/*$script
+/pmc-sticky-rail-ads/*$script
+/pum-site-scripts.js
+/scripts/adslot.js
+/setup-ads.*$script
+/web-pixelator-marketing-pixels-effect.*.js$script
+/wp-content/plugins/elementor-pro/*$script
 
 !!---Specific URL---!!
 @@/trackit.js$domain=click.americanexpress.com
