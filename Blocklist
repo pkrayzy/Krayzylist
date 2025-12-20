@@ -9,7 +9,7 @@
 ||fonts.gstatic.com/s/googlesans/v29/$font
 !||fonts.gstatic.com/s/googlesans/$font,domain=google.com|youtube.com
 ||fonts.gstatic.com/s/roboto/$font,domain=google.com|youtube.com
-@@||google.com/logos/doodles/$image
+! @@||google.com/logos/doodles/$image
 
 !!---Rakuten---!!
 @@||rakuten.com$document
