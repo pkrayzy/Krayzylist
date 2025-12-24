@@ -166,7 +166,7 @@ variety.com##.pmc-contextual-player,#sticky-rail-ad
 variety.com##[class^="img_"]:has([data-is-adhesion-ad])
 variety.com##[id*="adm-inline-article-ad-"]
 variety.com##[spottype="dynamic_mc"]
-whathifi.com##.slice-container-newsletterForm,.sponsored-post--placeholder,#top-leaderboard
+whathifi.com##.slice-container-newsletterForm,.sponsored-post--placeholder,#top-leaderboard,.ad-unit
 wikipedia.org###centralNotice
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 yahoo.com##[class*="max-md"]:has(.ad-container)
