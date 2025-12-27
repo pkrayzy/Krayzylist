@@ -73,6 +73,7 @@ duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bj', '1')
 
 !!---Specific URL---!!
 @@/trackit.js$domain=click.americanexpress.com
+@@/otBannerSdk.js$domain=theverge.com
 /\.com\/[a-zA-Z0-9-_]+$/$script,domain=architecturaldigest.com|bonappetit.com|cntraveler.com|epicurious.com|gq.com|newyorker.com|vanityfair.com|vogue.com|wired.com
 ||a.jsrdn.com$script
 ||adtech.redventures.io$script
