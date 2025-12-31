@@ -156,7 +156,8 @@ semafor.com##div[class*="styles_floatingBanner"]
 soundguys.com##div[data-ad-type],.e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
 thekitchentoday.com##.inline-subscribe
-theverge.com###content > div > div:has([data-concert$="leaderboard"])
+vox.com,theverge.com##.duet--layout--rail > div[class]:has(> div[class] > div[data-concert])
+theverge.com##div[class]:has(> div[data-concert])
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
 usatoday.com##body > div:has([href*="https://getad"])
 usatoday.com##header.gnt_n:style(margin: 0px 0 0)
