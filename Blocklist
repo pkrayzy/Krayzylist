@@ -150,6 +150,12 @@ nypost.com##div:has([data-adm-url])
 nypost.com##iframe[src^="https://embeds.nypost.com/protected-iframe/"]
 nytimes.com##.e1xxpj0j0:has([data-testid="StandardAd"])
 nytimes.com##[id*="story-ad-"]
+nytimes.com##app > #site-content > div[class] > div[class^="css-"] > div[class^="css-"][class*=" "]:has( div[class^="css-"][class*=" "] > .ad)
+nytimes.com##div[data-hierarchy] div:has(> div > div[class] > div[class] > div[data-testid="StandardAd"])
+nytimes.com##div[data-testid="block-Well"] > div[class] > div[data-well-section="well-section"]:has( > div[class] > .ad)
+nytimes.com##div[data-testid="block-Well"] > div[class^="css-"] > [class^="css-"][data-well-section="well-section"]:has(> div[class^="css-"] > div > .ad)
+nytimes.com##ection[data-testid="most-popular-play"] + div[class]:has(> div[class] > div[data-testid="StandardAd"])
+nytimes.com##section > div[class^="css-"] > div[class^="css-"]:has(> div#pp_morein-wrapper > div.ad)
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 semafor.com##div[class*="styles_floatingBanner"]
