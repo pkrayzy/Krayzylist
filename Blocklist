@@ -22,34 +22,6 @@
 @@||optimizely.com*$domain=rakuten.com|rakuten.ca
 @@||segment.com*$domain=rakuten.com|rakuten.ca
 
-!!--Scriptlets--!!
-! bloomberg.com#%#(()=>const{log,warn,error,debug}=window.console;const subs={BLOOMBERG_ALL:'bbg-all',BLOOMBERG_DIGITAL:'bbg-digital',BUSINESSWEEK_PRINT:'bw-print',BUSINESSWEEK_DIGITAL:'bw-digital',BUSINESSWEEK_ZINIO:'bw-zinio'};const subStrings=Object.values(subs);const _searchParamsGet=URLSearchParams.prototype.get;URLSearchParams.prototype.get=function get(){let params=_searchParamsGet.apply(this,arguments);if(arguments[0]==='mockSub'){return 'bbg'}if(arguments[0]==='showPaywall'){return null}return params};const _arraySome=Array.prototype.some;Array.prototype.some=function some(){let includesSubs=false;subStrings.forEach(str=>{if(this.includes(str)){includesSubs=true}});if(includesSubs){return true}return _arraySome.apply(this,arguments)};Object.defineProperty(window,'_regUserInfo',{get(){return window._regUserInfo_},set(v){v.subscription={type:'BBW'};window._regUserInfo_=v}});Object.defineProperties(Object.prototype,{_isTerminalSubscriber:{get(){return true},set(){}},_isBBGSubscriber:{get(){return true},set(){}},_isBWSubscriber:{get(){return true},set(){}}});)();
-! bloomberg.com,ft.com,nytimes.com#%#//scriptlet('remove-cookie')
-! bloomberg.com,ft.com,nytimes.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
-! bloomberg.com,ft.com,nytimes.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
-! reddit.com#%#//scriptlet('set-cookie', 'theme', '0')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', '1', '-1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', '5', '1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'aj', 'u')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'ak', '-1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'ao', '-1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'ap', '-1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'aq', '-1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'ar', '1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'au', '-1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'av', '1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'ax', '-1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'ay', 'b')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bc', '1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bi', '1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'dcm', '3')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'dcs', '0')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'psb', '-1')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'sn', '5')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'v', 'm')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'be', '3')
-! duckduckgo.com#%#//scriptlet('trusted-set-cookie', 'bj', '1')
-
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
 /admr.*$script
