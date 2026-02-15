@@ -118,6 +118,11 @@
 ||whoami-static.barstoolsports.com$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
+!!---JW Player---!!
+||jwplayer.com^
+||jwcdn.com^
+||content.jwplatform.com^
+
 !!---Specific CSS---!!
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
 bloomberg.com##[class^="bvp-"]
