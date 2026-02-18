@@ -190,10 +190,14 @@ zerohedge.com##section[class*="PromoButton_"]
 
 !!--Google--!!
 ! Doodles
-@@||google.com/logos/doodles/$image
+! @@||google.com/logos/doodles/$image
 
 ! Desktop Answers
 google.com##[data-rpos]:has(.cUnQKe,.vtSz8d,[data-abe],[data-initq],[data-iu])
+! Things to Know
+google.com##.ULSxyf:has(.MjjYud [jsname="Ypkwb"])
+! Mobile Things to Know
+google.com##.MjjYud [jsname="Ypkwb"]:has(.vt6azd)
 
 ! Mobile People Also Search For
 google.com##.MjjYud .vt6azd > .Wt5Tfe:has(.ouy7Mc)
@@ -205,6 +209,8 @@ google.com##.MjjYud .vt6azd > [jscontroller="aD8OEe"]
 ! google.com##.mnr-c // blocks the product tab
 ! Short Videos
 ! google.com##.MjjYud .Ww4FFb.vt6azd
+! Related Searches
+google.com###HbKV2c:has(.ouy7Mc)
 
 ! Related Searchs
 google.com###bres,[data-hb="isv"]
