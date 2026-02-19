@@ -137,6 +137,7 @@ nytimes.com##section > div[class^="css-"] > div[class^="css-"]:has(> div#pp_more
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 semafor.com##div[class*="styles_floatingBanner"]
+semafor.com##[data-testid="ad-sticky-header"]
 soundguys.com##div[data-ad-type],.e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
 thekitchentoday.com##.inline-subscribe
