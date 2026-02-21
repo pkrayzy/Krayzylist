@@ -99,8 +99,9 @@
 
 !!--Generic CSS---!!
 ##.ad-unit
-###top-leaderboard.hidden.ad-unit
+##[class*="AdSlot_"]
 ##[data-mrf-recirculation="article-river-ads"]
+###top-leaderboard.hidden.ad-unit
 
 !!---Specific CSS---!!
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
