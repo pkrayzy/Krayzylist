@@ -174,6 +174,7 @@ yahoo.com##.responsive-sda,#sda-body,#sda-top
 ! ||prebid.media.net^$domain=si.com|fansided.com
 ! ||uds-selector.bqstreamer.com^$domain=si.com|fansided.com
 ! ||vms-videos.minutemediaservices.com^$domain=si.com|fansided.com
+fansided.com,si.com##.player-wrapper
 fansided.com,si.com##["ad"]
 fansided.com,si.com##[class*="sidebar_"]
 fansided.com,si.com##[class^="img_"]:has([data-google-query-id])
