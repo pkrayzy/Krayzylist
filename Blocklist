@@ -12,6 +12,8 @@
 ! ||fonts.gstatic.com/s/roboto/$font,domain=google.com|youtube.com
 ! @@||google.com/logos/$image
 
+||html-load.com^$script,xhr
+
 !!---Rakuten---!!
 @@||rakuten.com$document
 @@||datadoghq-browser-agent.com*$domain=rakuten.com|rakuten.ca
