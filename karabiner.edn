@@ -1,6 +1,6 @@
 {
 :devices {
-    :mouse [{:vendor_id 1118 :product_id 2081},{:vendor_id 1118 :product_id 2082}]
+    :mouse [{:vendor_id 1118 :product_id 2081},{:vendor_id 1118 :product_id 2082}, {:vendor_id 14145 :product_id 1957}]
     :mac [{:vendor_id 0 :product_id 0},{:vendor_id 76 :product_id 802},{:vendor_id 1452 :product_id 802}]
     }
 
@@ -29,7 +29,8 @@
     {:des "Mac Keyboard"
         :rules [ 
             ;; RDP Rules
-                [:##left_command :##left_control [:rdp :mac]]
+                [:##left_command :##left_control [:rdp :mac] {:alone :left_command :lazy true}]
+                ;; [:##left_command :##left_control [:rdp :mac]]
                 [:##left_option :left_option [:rdp :mac] {:alone :left_command}]
                 [:##left_control :##right_command [:rdp :mac]]
 
