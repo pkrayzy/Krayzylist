@@ -104,6 +104,7 @@
 ##.jwplayer__wrapper
 
 !!--Generic CSS---!!
+##.ad-placement
 ##.ad-unit
 ##[class*="AdSlot_"]
 ##[data-mrf-recirculation="article-river-ads"]
