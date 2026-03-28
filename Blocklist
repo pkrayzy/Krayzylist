@@ -115,7 +115,7 @@ architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitch
 bloomberg.com##[class^="bvp-"]
 bulbapedia.bulbagarden.net###siteNotice
 cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
-cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer
+cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer,.native-story-ad,.gambling-partner-ad
 cbssports.com##body > div:has([data-adm-url])
 clutchpoints.com##.aspect-video
 cnbc.com##.PortfolioBannerAd-adContainer
