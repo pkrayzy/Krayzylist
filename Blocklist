@@ -242,6 +242,7 @@ duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],
 !!--Bing--!!
 @@||bing.com/fd/ls/
 bing.com###b_wpt_adst,[class="b_wpt_adstop “]
+bing.com##.slide:has(.top_ads_magazine)
 
 ! Info Flyouts
 bing.com##[data-viewname="VerticalHeaderFlyout"]
