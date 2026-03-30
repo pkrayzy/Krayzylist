@@ -66,6 +66,7 @@ nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-co
 nypost.com##div:has([data-adm-url])
 nypost.com##iframe[src^="https://embeds.nypost.com/protected-iframe/"]
 nytimes.com##.e1xxpj0j0:has([data-testid="StandardAd"])
+nytimes.com##[data-audience="eligible_for_all_access_promo_offer"]
 nytimes.com##[id*="story-ad-"]
 nytimes.com##app > #site-content > div[class] > div[class^="css-"] > div[class^="css-"][class*=" "]:has( div[class^="css-"][class*=" "] > .ad)
 nytimes.com##div[data-hierarchy] div:has(> div > div[class] > div[class] > div[data-testid="StandardAd"])
