@@ -57,7 +57,6 @@
 ||assets.msn.com/*/one-footer.*.js$script
 ||cdn.brandmetrics.com/*/theathletic.js$script
 ||cdn.consentmanager.net$script
-! ||cdn.cookielaw.org$script
 ||cdn.cxense.com$script
 ||cdn.iubenda.com/cookie_solution$script
 ||cdn.jwplayer.com^$script
@@ -80,12 +79,16 @@
 ||polyfill-fastly.io$script
 ||scripts.webcontentassessor.com$third-party
 ||snap.licdn.com$script
+||sndimg.com/*/ad-helpers.*.js$script
+||sndimg.com/*/brightcove-scripts.*.js$script
+||sndimg.com/etc/clientlibs/*/video-controller/$script
 ||sourcepoint.*.com$script
 ||static.klaviyo.com/*/default~signup_forms~onsite-triggering.*$script
 ||static.semafor.com/_next/static/chunks$script
 ||static01.nyt.com/ads^
 ||substackcdn.com/*/free_email_form-*.js$script
 ||substackcdn.com/*/HoverCard-*.js$script
+||succeedscene.com/pagead/
 ||tags.tiqcdn.com$script
 ||theathletic.com/*/webpack*.js$script
 ||whoami-static.barstoolsports.com$script
