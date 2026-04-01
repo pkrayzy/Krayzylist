@@ -141,14 +141,14 @@ nytimes.com##div[data-testid="block-Well"] > div[class] > div[data-well-section=
 nytimes.com##div[data-testid="block-Well"] > div[class^="css-"] > [class^="css-"][data-well-section="well-section"]:has(> div[class^="css-"] > div > .ad)
 nytimes.com##ection[data-testid="most-popular-play"] + div[class]:has(> div[class] > div[data-testid="StandardAd"])
 nytimes.com##section > div[class^="css-"] > div[class^="css-"]:has(> div#pp_morein-wrapper > div.ad)
+outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft/assets/ads/adbarmetrochoice.svg"])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
-semafor.com##div[class*="styles_floatingBanner"]
 semafor.com##[data-testid="ad-sticky-header"]
+semafor.com##div[class*="styles_floatingBanner"]
 soundguys.com##div[data-ad-type],.e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
 thekitchentoday.com##.inline-subscribe
-vox.com,theverge.com##.duet--layout--rail > div[class]:has(> div[class] > div[data-concert])
 theverge.com##div[class]:has(> div[data-concert])
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
 usatoday.com##body > div:has([href*="https://getad"])
@@ -158,6 +158,7 @@ variety.com##.pmc-contextual-player,#sticky-rail-ad
 variety.com##[class^="img_"]:has([data-is-adhesion-ad])
 variety.com##[id*="adm-inline-article-ad-"]
 variety.com##[spottype="dynamic_mc"]
+vox.com,theverge.com##.duet--layout--rail > div[class]:has(> div[class] > div[data-concert])
 whathifi.com##.slice-container-newsletterForm,.sponsored-post--placeholder,#top-leaderboard,.ad-unit,.sponsored-card
 wikipedia.org###centralNotice
 windowscentral.com##[class="ad-unit"]
