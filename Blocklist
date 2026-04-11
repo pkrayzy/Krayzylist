@@ -225,6 +225,7 @@ bing.com##.wptSld:has(.top_ads_magazine,.b_adcard,.satpc-container)
 ! Styles
 bing.com###ca_main:style(padding-top: 0px !important;)
 bing.com##.b_wpTabsWrapper:style(margin-top: 0px !important;)
+bing.com###copans_container:style(margin-top: 0px !important;)
 
 ! Info Flyouts
 bing.com##[data-viewname="VerticalHeaderFlyout"]
