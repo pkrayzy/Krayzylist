@@ -148,6 +148,7 @@ nytimes.com##section > div[class^="css-"] > div[class^="css-"]:has(> div#pp_more
 outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft/assets/ads/adbarmetrochoice.svg"])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
+si.com##.mm-player-embed
 semafor.com##[data-testid="ad-sticky-header"]
 semafor.com##div[class*="styles_floatingBanner"]
 soundguys.com##div[data-ad-type],.e_gd.e_f
