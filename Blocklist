@@ -222,7 +222,7 @@ duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],
 !!--Bing--!!
 @@||bing.com/fd/ls/
 bing.com##.wptSld:has(.top_ads_magazine,.b_adcard,.satpc-container)
-bing.com###b_pole:has(.b_ad)
+bing.com###b_pole:has(.b_ad,.b_adLastChild)
 bing.com###b_wpt_adst
 
 ! Styles
