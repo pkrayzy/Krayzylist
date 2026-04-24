@@ -109,6 +109,7 @@
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##figure[data-testid="cne-interlude-container"]
 bloomberg.com##[class^="bvp-"]
 bulbapedia.bulbagarden.net###siteNotice
+||bulbapedia.bulbagarden.net$font
 cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
 cbssports.com###GlobalNavOffset,#GlobalNavOffsetSpacer,.native-story-ad,.gambling-partner-ad
 cbssports.com##body > div:has([data-adm-url])
