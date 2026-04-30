@@ -139,10 +139,12 @@ nypost.com##div:has([data-adm-url])
 nypost.com##iframe[src^="https://embeds.nypost.com/protected-iframe/"]
 nytimes.com#?#div[data-hierarchy] div:has(> div > div[class] > div[class] > div[data-testid="StandardAd"])
 nytimes.com###mid1-wrapper
+nytimes.com###masthead-bar-one
 nytimes.com##app > #site-content > div[class] > div[class^="css-"] > div[class^="css-"][class*=" "]:has( div[class^="css-"][class*=" "] > .ad)
 nytimes.com##div:has(> div[data-testid="StandardAd"]:only-child)
 nytimes.com##div[data-hierarchy] div:has(> div > div[class] > div[class] > div[data-testid="StandardAd"])
 nytimes.com##div[id^="ad-"]
+nytimes.com##div[id^="story-ad-"]
 outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft/assets/ads/adbarmetrochoice.svg"])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
@@ -251,6 +253,6 @@ bing.com##.b_ans > .rqnaContainerwithfeedback,.df_alaskcarousel,#sa_requery
 bing.com##.b_mop:has(.rqnaContainerwithfeedback,.df_alaskcarousel)
 
 !!--Scriptlets--!!
-bloomberg.com,ft.com,nytimes.com,theverge.com#%#//scriptlet('remove-cookie')
+bloomberg.com,ft.com,theverge.com#%#//scriptlet('remove-cookie')
 bloomberg.com,ft.com,nytimes.com,theverge.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 bloomberg.com,ft.com,nytimes.com,theverge.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
