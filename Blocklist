@@ -137,13 +137,17 @@ nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc,.wp-block-nypost-editor-newsletter
 nypost.com##div:has([data-adm-url])
 nypost.com##iframe[src^="https://embeds.nypost.com/protected-iframe/"]
+nytimes.com#?#div[data-hierarchy] div:has(> div > div[class] > div[class] > div[data-testid="StandardAd"])
 nytimes.com##.e1xxpj0j0:has([data-testid="StandardAd"])
 nytimes.com##[data-audience="eligible_for_all_access_promo_offer"]
 nytimes.com##[id*="story-ad-"]
 nytimes.com##app > #site-content > div[class] > div[class^="css-"] > div[class^="css-"][class*=" "]:has( div[class^="css-"][class*=" "] > .ad)
+nytimes.com##div:has(> div[data-testid="StandardAd"]:only-child)
+nytimes.com##div[data-ad-element]
 nytimes.com##div[data-hierarchy] div:has(> div > div[class] > div[class] > div[data-testid="StandardAd"])
 nytimes.com##div[data-testid="block-Well"] > div[class] > div[data-well-section="well-section"]:has( > div[class] > .ad)
 nytimes.com##div[data-testid="block-Well"] > div[class^="css-"] > [class^="css-"][data-well-section="well-section"]:has(> div[class^="css-"] > div > .ad)
+nytimes.com##div[id^="ad-"]
 nytimes.com##ection[data-testid="most-popular-play"] + div[class]:has(> div[class] > div[data-testid="StandardAd"])
 nytimes.com##section > div[class^="css-"] > div[class^="css-"]:has(> div#pp_morein-wrapper > div.ad)
 outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft/assets/ads/adbarmetrochoice.svg"])
