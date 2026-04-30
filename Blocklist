@@ -148,7 +148,6 @@ nytimes.com##ection[data-testid="most-popular-play"] + div[class]:has(> div[clas
 nytimes.com##section > div[class^="css-"] > div[class^="css-"]:has(> div#pp_morein-wrapper > div.ad)
 outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft/assets/ads/adbarmetrochoice.svg"])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
-reddit.com##shreddit-ad-post
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
 si.com##.mm-player-embed
 semafor.com##[data-testid="ad-sticky-header"]
