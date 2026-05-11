@@ -92,6 +92,7 @@
 ||tags.tiqcdn.com$script
 ||theathletic.com/*/webpack*.js$script
 ||whoami-static.barstoolsports.com$script
+||yotpo.com^$script
 ||youtube.com/s/*/intersection-observer.min.js$script
 
 !!---JW Player---!!
