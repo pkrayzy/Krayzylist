@@ -171,7 +171,8 @@ vox.com,theverge.com##.duet--layout--rail > div[class]:has(> div[class] > div[da
 whathifi.com##.slice-container-newsletterForm,.sponsored-post--placeholder,#top-leaderboard,.ad-unit,.sponsored-card
 wikipedia.org###centralNotice
 windowscentral.com##[class="ad-unit"]
-wsj.com##[aria-label="What to Read Next"]
+wsj.com##[aria-label="What to Read Next"],[data-inset_type="newsletterinset"]
+wsj.com##article > [class^="css-"] > [class^="css-"]:has([class$="-VideoWrapper"])
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
 yahoo.com##.responsive-sda,#sda-body,#sda-top
 yahoo.com##[class*="max-md"]:has(.ad-container)
