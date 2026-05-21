@@ -132,9 +132,7 @@ nytimes.com###mid1-wrapper,[aria-label="Disclosure",]#masthead-bar-one
 nytimes.com##app > #site-content > div[class] > div[class^="css-"] > div[class^="css-"][class*=" "]:has( div[class^="css-"][class*=" "] > .ad)
 nytimes.com##div:has(> div[data-testid="StandardAd"]:only-child)
 nytimes.com##div[data-hierarchy] div:has(> div > div[class] > div[class] > div[data-testid="StandardAd"])
-nytimes.com##div[data-hierarchy] div:has(> div > div[class] > div[class] > div[data-testid="StandardAd"])
-nytimes.com##div[id^="ad-"]
-nytimes.com##div[id^="story-ad-"]
+nytimes.com##div[id^="ad-"],div[id^="story-ad-"]
 outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft/assets/ads/adbarmetrochoice.svg"])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
@@ -161,9 +159,7 @@ windowscentral.com##[class="ad-unit"]
 wsj.com##[aria-label="What to Read Next"],[data-inset_type="newsletterinset"]
 wsj.com##article > [class^="css-"] > [class^="css-"]:has([class$="-VideoWrapper"])
 x.com##div[aria-label="Home timeline"] > div:has([data-testid="tweetTextarea_0_label"])
-yahoo.com##.responsive-sda,#sda-body,#sda-top
-yahoo.com##[class*="max-md"]:has(.ad-container)
-yahoo.com##[data-testid="video-player"],.ad-container
+yahoo.com##.responsive-sda,#sda-body,#sda-top,[class*="max-md"]:has(.ad-container),[data-testid="video-player"],.ad-container
 
 ! Zerohedge
 /images/marketing/zh_store.jpg$domain=zerohedge.com
