@@ -210,7 +210,7 @@ duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],
 @@||bing.com/fd/ls/
 bing.com##.wptSld:has(.top_ads_magazine,.b_adcard,.satpc-container)
 bing.com###b_pole:has(.b_ad,.b_adLastChild)
-bing.com###b_wpt_adst
+bing.com###b_wpt_adst,#b_bop_pin_placehold,#b_ads_magazine_container
 
 ! Styles
 bing.com##[elementtiming="frp.WideTop"]
