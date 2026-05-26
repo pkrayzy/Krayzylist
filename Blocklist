@@ -134,7 +134,7 @@ nytimes.com##div[id^="ad-"]
 nytimes.com##div[id^="story-ad-"]
 outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft/assets/ads/adbarmetrochoice.svg"])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
-reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"]
+reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"],[data-testid="LeaderboardSpace"]
 si.com##.mm-player-embed
 semafor.com##[data-testid="ad-sticky-header"]
 semafor.com##div[class^="styles_floatingBanner"]
