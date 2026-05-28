@@ -86,10 +86,10 @@
 ||youtube.com/s/*/intersection-observer.min.js$script
 
 !!---JW Player---!!
-||jwplayer.com^
-||jwcdn.com^
-||content.jwplatform.com^
-##.jwplayer__wrapper
+! ||jwplayer.com^
+! ||jwcdn.com^
+! ||content.jwplatform.com^
+! ##.jwplayer__wrapper
 
 !!---General CSS---!!
 ##.ad-unit
