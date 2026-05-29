@@ -12,6 +12,7 @@
 ! ||fonts.gstatic.com/s/roboto/$font
 ||fonts.gstatic.com/s/roboto/v18/$font
 ||fonts.gstatic.com/s/roboto/v48/$font
+||media-amazon.com$font
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
