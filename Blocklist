@@ -270,7 +270,7 @@ bing.com###b_mtp
 
 bing.com###b_pole:style(margin-bottom: 0px !important;)
 bing.com###copans_container.copans_container:style(margin-block-start: 0px !important;)
-bing.com###copans_container.copans_container::after:style(margin-block-start: -12px !important;)
+! bing.com###copans_container.copans_container::after:style(margin-block-start: -12px !important;)
 
 !!--Scriptlets--!!
 bloomberg.com,ft.com,theverge.com#%#//scriptlet('remove-cookie')
