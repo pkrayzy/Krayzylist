@@ -255,6 +255,7 @@ bing.com##.wptSld:has(.b_ad)
 !copilot
 bing.com###ca_main:style(padding-top: 0px !important;)
 bing.com##.ca_top_sec
+bing.com##.cht_header
 bing.com##.gs_pre_cont
 bing.com##.fdbk_thmb_root
 !videos & images
