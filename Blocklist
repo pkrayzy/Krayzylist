@@ -122,7 +122,7 @@ ft.com##[data-config-key="leaderboard"],.article__content-sign-up,[data-o-compon
 golfdigest.com##parsely-related-list,.js-video-anchor-target
 msn.com##.articlePageIntraArticleFullWidth,.banner-container,.consumption-page-banner-wrapper,.consumption-page-feed-wrapper,.end-of-content-block,.mcp-feed-container,above-river-block,homepage-footer,mobile-footer,views-right-rail
 msn.com###continuousReadingContainer > div > fluent-button.article-cont-read-button-on-app.accent
-mygolfspy.com##form
+mygolfspy.com##form,.mgs-ad
 nbcsports.com##.ArticlePage-lead,bsp-banner,bsp-reverse-scroll-ad.Page-ad,.ArticlePage-actions-wrapper,bsp-mpxplayer
 nfl.com##.d3-l-adv-row
 nfl.com##article[class]:style(margin-top: 0px !important;)
