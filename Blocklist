@@ -203,7 +203,7 @@ google.com###HbKV2c:has(.ouy7Mc, .vt6azd)
 ! App Promos !
 google.com##.fbar.ouy7Mc
 google.com##[aria-labelledby="promo_label_id"]
-google.com##.eMLgL
+google.com##.eMLgL,kno-ftr
 ! google.com###rcnt .Zxlcp
 ! google.com###appbar > [style="margin-top:12px"]
 google.com###slim_appbar
