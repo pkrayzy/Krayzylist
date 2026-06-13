@@ -7,12 +7,12 @@
 ! NotoSans*$font
 ! OpenSans-*00*$font
 ! ||assets.msn.com$font
-||fonts.gstatic.com/s/googlesans/v29/$font
-||fonts.gstatic.com/s/googlesans/v62/$font
-||fonts.gstatic.com/s/roboto/$font
-||fonts.gstatic.com/s/roboto/v18/$font
-||fonts.gstatic.com/s/roboto/v48/$font
-||media-amazon.com$font
+! ||fonts.gstatic.com/s/googlesans/v29/$font
+! ||fonts.gstatic.com/s/googlesans/v62/$font
+! ||fonts.gstatic.com/s/roboto/$font
+! ||fonts.gstatic.com/s/roboto/v18/$font
+! ||fonts.gstatic.com/s/roboto/v48/$font
+! ||media-amazon.com$font
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
