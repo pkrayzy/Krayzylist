@@ -146,7 +146,7 @@ theverge.com##div[class]:has(> div[data-concert])
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
 tunein.com##[class^="bottom-banner-module_"]
 tunein.com##[class^="upsell-module_"]
-tunein.com##[id^="outstream-video-ad"]
+tunein.com##[id^="outstream-video-ad-"]
 usatoday.com##body > div:has([href^="https://getad"])
 usatoday.com##header.gnt_n:style(margin: 0px 0 0)
 usatoday.com##header.gnt_n:style(top: 0px)
