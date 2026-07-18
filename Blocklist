@@ -136,7 +136,8 @@ outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reddit.com##shreddit-feed > article > shreddit-post[app-slug]
 reddit.com##shreddit-feed > article > shreddit-post[game]
-reddit.com##shreddit-feed > article:has(shreddit-post[game], shreddit-post[app-slug])
+reddit.com##shreddit-feed > article:has(shreddit-post[app-slug])
+reddit.com##shreddit-feed > article:has(shreddit-post[game])
 reuters.com##[data-testid="RefinitivPromoBar"],[data-testid="ResponsiveAdSlot"],[data-testid="LeaderboardSpace"]
 si.com##.mm-player-embed
 semafor.com##[data-testid="ad-sticky-header"]
