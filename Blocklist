@@ -253,4 +253,3 @@ bing.com###b_mtp,#sacs_win
 bloomberg.com,theverge.com#%#//scriptlet('remove-cookie')
 bloomberg.com,nytimes.com,theverge.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 bloomberg.com,nytimes.com,theverge.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
-nytimes.com#%#//scriptlet('trusted-replace-fetch-response', '"show_ads":true', '"show_ads":false', 'statsig/initialize')
