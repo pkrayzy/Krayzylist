@@ -222,7 +222,9 @@ bing.com##.b_adTop
 bing.com###b_pole:has(.b_poleContent > ul[data-partnertag] > .b_PolePAContainer)
 bing.com##.wptSld:has(.b_ad)
 !copilot
-bing.com###ca_main:style(padding-top: 0px !important;)
+! bing.com###ca_main:style(padding-top: 0px !important;)
+! bing.com###b_pole:style(margin-bottom: 0px !important;)
+! bing.com###copans_container.copans_container:style(margin-block-start: 0px !important;)
 bing.com##.ca_top_sec
 bing.com##.cht_header
 bing.com##.gs_pre_cont
@@ -238,8 +240,6 @@ bing.com###b_context:has(.richrswrapper,.b_rrsr,.rsExplr)
 !flyouts
 bing.com###b_mtp,#sacs_win
 
-bing.com###b_pole:style(margin-bottom: 0px !important;)
-bing.com###copans_container.copans_container:style(margin-block-start: 0px !important;)
 
 !!--Scriptlets--!!
 bloomberg.com,theverge.com#%#//scriptlet('remove-cookie')
