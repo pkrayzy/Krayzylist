@@ -129,7 +129,8 @@ nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-co
 nypost.com##div:has([data-adm-url])
 nypost.com##iframe[src^="https://embeds.nypost.com/protected-iframe/"]
 ! nytimes.com###app > div[class^="css-"]:has([data-testid="StandardAd"] > a[href="#after-dfp-ad-top"])
-nytimes.com##[id^="story-ad-"]
+nytimes.com##[data-testid^="Dropzone-"] > [id^="story-ad-"]:style(display: none !important;)
+! nytimes.com##[data-testid^="Dropzone-"]:has([id^="story-ad-"])
 outlook.live.com##.GssDD:has(img[src="https://res.public.onecdn.static.microsoft/assets/ads/adbarmetrochoice.svg"])
 pgatour.com##tbody.css-0 > tr.no-print.css-0
 reddit.com##shreddit-feed > article > shreddit-post[app-slug]
