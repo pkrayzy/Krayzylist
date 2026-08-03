@@ -99,6 +99,7 @@
 !!---Specific CSS---!!
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##[class^="TickerContainer-"],figure[data-testid="cne-interlude-container"],[data-testid="sticky-hero-ad"],.consumer-marketing-unit
 bloomberg.com##[class^="bvp-"]
+bsky.app##button[aria-label="Compose new post"]
 bulbapedia.bulbagarden.net###siteNotice
 ||bulbapedia.bulbagarden.net$font
 cbssports.com##.Skybox--minHeight,.Skybox--minHeightBoth:style(--global-nav-v2-offset: 0px !important;)
