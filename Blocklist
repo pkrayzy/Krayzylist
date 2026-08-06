@@ -213,6 +213,10 @@ google.com##[data-container-id="ad-content"]
 !!--DuckDuckGo--!!
 duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],[data-testid="related_searches"],span[data-testid="feedback-prompt"],[data-layout="videos"],[data-testid="feedback-prompt"],[data-layout="related_searches"],.related-searches
 
+!!--Brave--!!
+search.brave.com###search-elsewhere,#related-queries
+search.brave.com##[data-type="cluster"]:has(.video-cluster-grid)
+
 !!--Bing--!!
 @@||bing.com/fd/ls/
 
