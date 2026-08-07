@@ -217,7 +217,6 @@ duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],
 ||cdn.search.brave.com^$font
 search.brave.com###search-elsewhere,#related-queries,#faq
 search.brave.com##[data-type="cluster"]:has(.video-cluster-grid)
-search.brave.com##[data-type="web"],[id="discussions"]:style(margin: var(--spacing-3xl) 0 !important;)
 
 !!--Bing--!!
 @@||bing.com/fd/ls/
