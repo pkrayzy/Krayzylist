@@ -218,6 +218,10 @@ duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],
 search.brave.com###search-elsewhere,#related-queries,#faq
 search.brave.com##[data-type="cluster"]:has(.video-cluster-grid)
 
+search.brave.com##.snippet:style(--spacing-5xl: 2.0rem !important)
+search.brave.com##.snippet:style(--spacing-6xl: 2.0rem !important)
+search.brave.com##.snippet:style(margin-top: 0px !important)
+
 !!--Bing--!!
 @@||bing.com/fd/ls/
 
