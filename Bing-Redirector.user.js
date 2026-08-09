@@ -3,9 +3,8 @@
 // @run-at request
 // ==/UserScript==
 [
-  
   {
-    "id": 601,
+    "id": 501,
     "priority": 1,
     "action": {
       "type": "redirect",
@@ -14,7 +13,7 @@
       }
     },
     "condition": {
-      "regexFilter": "https?://(?:www\\.)?bing\\.com/search\\?.*q=([^&]+)",
+      "regexFilter": "^https?://(?:www\\.)?bing\\.com/search\\?.*[&?]q=([^&]+)",
       "resourceTypes": ["main_frame"]
     }
   }
