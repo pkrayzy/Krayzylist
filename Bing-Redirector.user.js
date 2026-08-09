@@ -4,16 +4,25 @@
 // ==/UserScript==
 [
   {
-    "id": 501,
+    "id": 601,
     "priority": 1,
     "action": {
       "type": "redirect",
       "redirect": {
-        "regexSubstitution": "https://search.brave.com/search?q=\\1"
+        "transform": {
+          "scheme": "https",
+          "host": "search.brave.com",
+          "path": "/search",
+          "queryTransform": {
+            "addOrReplaceParams": [
+              { "key": "q", "value": "{{urlParam:q}}" }
+            ]
+          }
+        }
       }
     },
     "condition": {
-      "regexFilter": "^https?://(?:www\\.)?bing\\.com/search\\?.*[&?]q=([^&]+)",
+      "urlFilter": "bing.com/search",
       "resourceTypes": ["main_frame"]
     }
   }
