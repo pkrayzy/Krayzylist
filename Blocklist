@@ -97,6 +97,7 @@
 ###mid-article-leaderboard
 
 !!---Specific CSS---!!
+amazon.com##div#nav-flyout-rufus:remove()
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##[class^="TickerContainer-"],figure[data-testid="cne-interlude-container"],[data-testid="sticky-hero-ad"],.consumer-marketing-unit
 bloomberg.com##[class^="bvp-"]
 bsky.app##button[aria-label="Compose new post"]
@@ -217,7 +218,6 @@ duckduckgo.com##.related-searches,[data-layout="images"],[data-testid="images"],
 ! ||cdn.search.brave.com^$font
 search.brave.com###search-elsewhere,#related-queries,#faq
 search.brave.com##[data-type="cluster"]:has(.video-cluster-grid)
-
 search.brave.com##.snippet:style(--spacing-5xl: 2.0rem !important)
 search.brave.com##.snippet:style(--spacing-6xl: 2.0rem !important)
 search.brave.com##.snippet:style(margin-top: 0px !important)
