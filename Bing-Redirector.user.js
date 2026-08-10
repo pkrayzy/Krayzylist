@@ -15,7 +15,10 @@
           "path": "/search",
           "queryTransform": {
             "addOrReplaceParams": [
-              { "key": "q", "value": "{{urlParam:q}}" }
+              { 
+                "key": "q", 
+                "value": "{{urlParam:q}}"
+              }
             ]
           }
         }
