@@ -7,16 +7,22 @@
 // @run-at       document-start
 // ==/UserScript==
 
-(function() {
-    'use strict';
+(function () {
+  const host = location.hostname;
+  const path = location.pathname;
 
-    // Extract query parameter "q"
-    const params = new URLSearchParams(window.location.search);
+  if (host === "www.bing.com" && path === "/search") {
+    const params = new URLSearchParams(location.search);
     const q = params.get("q");
 
-    // Only redirect if a search query exists
     if (q) {
-        const braveURL = "https://search.brave.com/search?q=" + encodeURIComponent(q);
-        window.location.replace(braveURL);
+      const braveUrl =
+        "https://search.brave.com/search?q=" + encodeURIComponent(q);
+
+      // Avoid infinite loops: only redirect if we're actually on Bing
+      if (location.href.indexOf("search.brave.com") === -1) {
+        location.replace(braveUrl);
+      }
     }
+  }
 })();
