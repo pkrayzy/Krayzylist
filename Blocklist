@@ -146,6 +146,7 @@ semafor.com##[data-testid="ad-sticky-header"]
 semafor.com##div[class^="styles_floatingBanner"]
 soundguys.com##div[data-ad-type],.e_gd.e_f
 speedtest.net##.mobile-during-test-banner,.mobile-pretest,.modal-overlay
+techcrunch.com,nbcsports.com##.DCDOr
 thekitchentoday.com##.inline-subscribe
 theverge.com##div[class]:has(> div[data-concert])
 thurrott.com##div[data-concert],[data-thurrott-section="inline-form"]
