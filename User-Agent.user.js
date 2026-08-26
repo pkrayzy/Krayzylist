@@ -53,5 +53,30 @@
         "stylesheet"
       ]
     }
+  },
+  {
+    "id": 303,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "user-agent",
+          "operation": "set",
+          "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||x.com",
+      "resourceTypes": [
+        "main_frame",
+        "sub_frame",
+        "xmlhttprequest",
+        "script",
+        "image",
+        "stylesheet"
+      ]
+    }
   }
 ]
