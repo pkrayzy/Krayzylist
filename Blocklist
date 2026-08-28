@@ -7,13 +7,13 @@
 ! NotoSans*$font
 ! OpenSans-*00*$font
 ! ||assets.msn.com$font
-! ||fonts.gstatic.com/s/googlesans/v29/$font
+||fonts.gstatic.com/s/googlesans/v29/$font
 ! ||fonts.gstatic.com/s/googlesans/v62/$font
 ! ||fonts.gstatic.com/s/roboto/$font
 ! ||fonts.gstatic.com/s/roboto/v18/$font
 ! ||fonts.gstatic.com/s/roboto/v48/$font
 ! ||media-amazon.com$font
-! google.com##*:style(font-family: "SF Pro", "SF Pro Display", "SF Pro Text", Arial, system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important)
+
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
