@@ -1,0 +1,14 @@
+/* ==UserStyle==
+@name           Google Fonts
+@description    Replaces Google Sans with SF Pro on Google Search results
+@match          *://*.google.com/search?*
+==/UserStyle== */
+
+* {
+    font-family:
+        "BlinkMacSystemFont",
+        Arial,
+        Roboto,
+        "Segoe UI",
+        sans-serif !important;
+}
