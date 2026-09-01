@@ -1,1 +1,0 @@
-.wBlock-userscripts/packages/tube-cleaner/dist/tube-cleaner.user.js

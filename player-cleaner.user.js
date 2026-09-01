@@ -1,1 +1,0 @@
-.wBlock-userscripts/packages/player-cleaner/dist/player-cleaner.user.js
