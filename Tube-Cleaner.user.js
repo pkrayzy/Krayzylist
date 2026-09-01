@@ -99,8 +99,8 @@
     function getAutoPiP() {
         try {
             var stored = localStorage.getItem(AUTO_PIP_KEY);
-            return stored === null ? true : stored === '1';
-        } catch (e) { return true; }
+            return stored === null ? false : stored === '1';
+        } catch (e) { return false; }
     }
 
     function setAutoPiP(v) {
