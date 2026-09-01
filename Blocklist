@@ -261,3 +261,6 @@ bing.com###copans_container.copans_container:style(margin-block-start: 0px !impo
 bloomberg.com,theverge.com#%#//scriptlet('remove-cookie')
 bloomberg.com,nytimes.com,theverge.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
 bloomberg.com,nytimes.com,theverge.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
+
+!!--Styles--!!
+google.com,bing.com,duckduckgo.com,search.brave.com##*:style(font-family: InterVariable, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;)
