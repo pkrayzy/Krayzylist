@@ -54,6 +54,7 @@
                 [:!Of :!Cf [:rdp :mac]] ; Alt-F Save As
                 [:!On :!Cn [:rdp :mac]] ; Don't Save
                 [:!Oa :!Ca [:rdp :mac]] ; Data
+                [:##keypad_enter :##return_or_enter [:rdp :mac]] ; Keypad-Enter
                 [:!Oreturn_or_enter :!Creturn_or_enter [:rdp :mac]] ; Alt-Enter
                 [:!TSv :!TCv [:rdp :mac]] ; Paste Special
                 [:!Oh :!Ch [:rdp :mac]] ; Clear filter
