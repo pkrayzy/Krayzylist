@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tube Cleaner
 // @namespace    com.skula.wblock
-// @version      0.1.14
+// @version      0.1.16
 // @description  Gives YouTube Safari-native controls, chapters, subtitles, SponsorBlock, optional DeArrow branding, picture-in-picture, background playback, quality selection, and audio-only mode.
 // @description:de  Bietet YouTube native Safari-Steuerelemente, Kapitel, Untertitel, SponsorBlock, optionales DeArrow-Branding, Bild-in-Bild, Hintergrundwiedergabe, Qualitätsauswahl und einen Nur-Audio-Modus.
 // @description:es  Añade a YouTube controles nativos de Safari, capítulos, subtítulos, SponsorBlock, marcas opcionales de DeArrow, imagen en imagen, reproducción en segundo plano, selección de calidad y modo de solo audio.
@@ -22,6 +22,8 @@
 // @run-at       document-start
 // @inject-into  page
 // @grant        none
+// @downloadURL  https://raw.githubusercontent.com/pkrayzy/Userscripts/refs/heads/main/packages/tube-cleaner/dist/tube-cleaner.user.js
+// @updateURL    https://raw.githubusercontent.com/pkrayzy/Userscripts/refs/heads/main/packages/tube-cleaner/dist/tube-cleaner.user.js
 // ==/UserScript==
 
 (function () {
@@ -63,6 +65,7 @@
     var LOG_PREFIX = '[Tube Cleaner]';
     var STORAGE_AUDIO = 'wblock.tubeCleaner.audioOnly';
     var STORAGE_QUALITY = 'wblock.tubeCleaner.quality';
+    var STORAGE_TOOLBAR_HIDDEN = 'wblock.tubeCleaner.hideToolbar';
     var STORAGE_POSITION = 'wblock.tubeCleaner.position.';
     var ATTR_CLEANED = 'data-wblock-tc-cleaned';
 
@@ -93,7 +96,7 @@
     // ------------------------------------------------------------------
 
     var AUTO_PIP_KEY = 'wblock.tubeCleaner.autoPiP';
-    var autoPiPEnabled = false;
+    var autoPiPEnabled = true;
     var pipActive = false;
 
     function getAutoPiP() {
@@ -273,6 +276,21 @@
 
     function setPreferredQuality(q) {
         try { localStorage.setItem(STORAGE_QUALITY, q); } catch (e) { /* ignore */ }
+    }
+
+    // Device-level preference to keep the wBlock toolbar (quality / SB / DA)
+    // off the video entirely. Double-tap or double-click the video reveals it
+    // temporarily; the checkbox lives in the SponsorBlock settings panel.
+    function isToolbarHidden() {
+        try { return localStorage.getItem(STORAGE_TOOLBAR_HIDDEN) === '1'; } catch (e) { return false; }
+    }
+
+    function setToolbarHidden(hidden) {
+        try {
+            if (hidden) { localStorage.setItem(STORAGE_TOOLBAR_HIDDEN, '1'); }
+            else { localStorage.removeItem(STORAGE_TOOLBAR_HIDDEN); }
+        } catch (e) { /* ignore */ }
+        document.dispatchEvent(new CustomEvent('wblock-tc-toolbar-pref'));
     }
 
     // ------------------------------------------------------------------
@@ -1056,7 +1074,6 @@
         setupMediaSession(player, video);
         setupChapters(player, video);
         setupNativeSubtitles(player, video);
-        // setupSponsorBlock(player, video);
     }
 
     var mediaSessionOwner = null;
@@ -1385,6 +1402,549 @@
             if (!video.hasAttribute('playsinline')) { video.setAttribute('playsinline', ''); }
             if (!video.hasAttribute('webkit-playsinline')) { video.setAttribute('webkit-playsinline', ''); }
         } catch (e) { /* ignore */ }
+    }
+
+    // ------------------------------------------------------------------
+    // DeArrow
+    //
+    // DeArrow stores voted replacement titles and thumbnail timestamps on the
+    // SponsorBlock server. The current watch video uses its four-character
+    // SHA-256 bucket so its exact id is filtered locally. Visible feed cards use
+    // DeArrow's compact single-video endpoint, matching the official extension,
+    // and are cached for the page session. An optional fallback uses DeArrow's
+    // server-provided random timestamp when a video has no accepted thumbnail.
+    // ------------------------------------------------------------------
+
+    var DEARROW_API = 'https://sponsor.ajay.app/api/branding';
+    var DEARROW_THUMBNAIL_API = 'https://dearrow-thumb.ajay.app/api/v1/getThumbnail';
+    var DEARROW_SETTINGS_KEY = 'wblock.tubeCleaner.deArrow';
+    var DEARROW_CARD_SELECTOR = [
+        'ytd-rich-grid-media', 'ytd-video-renderer', 'ytd-compact-video-renderer',
+        'ytd-grid-video-renderer', 'ytd-playlist-video-renderer', 'yt-lockup-view-model',
+        'ytm-video-with-context-renderer', 'ytm-compact-video-renderer',
+        'ytm-rich-item-renderer', 'ytm-shorts-lockup-view-model'
+    ].join(',');
+    var DEARROW_WATCH_TITLE_SELECTOR = [
+        'ytd-watch-metadata h1 yt-formatted-string',
+        '#watch-metadata h1 yt-formatted-string',
+        'ytm-slim-video-metadata-section-renderer h1',
+        'ytm-watch-metadata h1',
+        'h1.title yt-formatted-string'
+    ].join(',');
+    var deArrowSettingsCache = null;
+    var deArrowBrandingCache = {};
+    var deArrowBrandingCacheOrder = [];
+    var deArrowActiveRequests = {};
+    var deArrowIntersectionObserver = null;
+    var deArrowPendingScanRoots = [];
+    var deArrowScanScheduled = false;
+
+    function defaultDeArrowSettings() {
+        return {
+            enabled: false,
+            replaceTitles: true,
+            replaceThumbnails: true,
+            randomThumbnails: false,
+            showOriginalOnHover: true,
+            excludedChannels: []
+        };
+    }
+
+    function loadDeArrowSettings() {
+        if (deArrowSettingsCache) return deArrowSettingsCache;
+        var settings = defaultDeArrowSettings();
+        try {
+            var saved = JSON.parse(localStorage.getItem(DEARROW_SETTINGS_KEY) || '{}');
+            ['enabled', 'replaceTitles', 'replaceThumbnails', 'randomThumbnails', 'showOriginalOnHover'].forEach(function (key) {
+                if (typeof saved[key] === 'boolean') settings[key] = saved[key];
+            });
+            if (Array.isArray(saved.excludedChannels)) settings.excludedChannels = saved.excludedChannels.filter(function (id) {
+                return typeof id === 'string' && id.length < 200;
+            }).slice(0, 200);
+        } catch (e) { /* use defaults */ }
+        deArrowSettingsCache = settings;
+        return settings;
+    }
+
+    function saveDeArrowSettings(settings) {
+        deArrowSettingsCache = settings;
+        try { localStorage.setItem(DEARROW_SETTINGS_KEY, JSON.stringify(settings)); } catch (e) { /* ignore */ }
+        refreshDeArrowBranding();
+    }
+
+    function deArrowLocale() {
+        var language = (navigator.language || 'en').toLowerCase().split('-')[0];
+        var english = {
+            title: 'DeArrow settings', enabled: 'Enable DeArrow', titles: 'Replace titles',
+            thumbnails: 'Replace thumbnails', random: 'Use a random frame when no thumbnail is submitted',
+            hover: 'Show originals when hovering over a video', channel: 'Disable on this channel',
+            reset: 'Reset defaults', using: 'Using DeArrow'
+        };
+        var translations = {
+            de: { title:'DeArrow-Einstellungen',enabled:'DeArrow aktivieren',titles:'Titel ersetzen',thumbnails:'Vorschaubilder ersetzen',random:'Zufälliges Einzelbild verwenden, wenn kein Vorschaubild eingereicht wurde',hover:'Originale beim Bewegen über ein Video anzeigen',channel:'Auf diesem Kanal deaktivieren',reset:'Zurücksetzen',using:'Verwendet DeArrow' },
+            es: { title:'Ajustes de DeArrow',enabled:'Activar DeArrow',titles:'Sustituir títulos',thumbnails:'Sustituir miniaturas',random:'Usar un fotograma aleatorio si no se ha enviado una miniatura',hover:'Mostrar originales al pasar sobre un vídeo',channel:'Desactivar en este canal',reset:'Restablecer',using:'Usa DeArrow' },
+            fr: { title:'Réglages DeArrow',enabled:'Activer DeArrow',titles:'Remplacer les titres',thumbnails:'Remplacer les miniatures',random:'Utiliser une image aléatoire si aucune miniature n’a été proposée',hover:'Afficher les originaux au survol d’une vidéo',channel:'Désactiver sur cette chaîne',reset:'Réinitialiser',using:'Utilise DeArrow' },
+            it: { title:'Impostazioni DeArrow',enabled:'Attiva DeArrow',titles:'Sostituisci titoli',thumbnails:'Sostituisci miniature',random:'Usa un fotogramma casuale se non è stata inviata una miniatura',hover:'Mostra gli originali passando su un video',channel:'Disattiva su questo canale',reset:'Ripristina',using:'Usa DeArrow' },
+            pt: { title:'Configurações do DeArrow',enabled:'Ativar DeArrow',titles:'Substituir títulos',thumbnails:'Substituir miniaturas',random:'Usar um quadro aleatório quando nenhuma miniatura for enviada',hover:'Mostrar originais ao passar sobre um vídeo',channel:'Desativar neste canal',reset:'Restaurar padrões',using:'Usa DeArrow' },
+            ja: { title:'DeArrow設定',enabled:'DeArrowを有効にする',titles:'タイトルを置き換える',thumbnails:'サムネイルを置き換える',random:'サムネイルが投稿されていない場合はランダムなフレームを使う',hover:'動画にカーソルを合わせたとき元を表示',channel:'このチャンネルでは無効にする',reset:'初期設定に戻す',using:'DeArrowを使用' },
+            ko: { title:'DeArrow 설정',enabled:'DeArrow 활성화',titles:'제목 바꾸기',thumbnails:'미리보기 이미지 바꾸기',random:'제출된 미리보기가 없으면 임의의 프레임 사용',hover:'동영상 위에 마우스를 놓으면 원본 표시',channel:'이 채널에서 비활성화',reset:'기본값으로 재설정',using:'DeArrow 사용' },
+            ru: { title:'Настройки DeArrow',enabled:'Включить DeArrow',titles:'Заменять названия',thumbnails:'Заменять значки',random:'Использовать случайный кадр, если миниатюра не предложена',hover:'Показывать оригиналы при наведении на видео',channel:'Отключить на этом канале',reset:'Сбросить',using:'Использует DeArrow' },
+            zh: { title:'DeArrow 设置',enabled:'启用 DeArrow',titles:'替换标题',thumbnails:'替换缩略图',random:'没有提交缩略图时使用随机画面',hover:'悬停视频时显示原始内容',channel:'对这个频道停用',reset:'恢复默认设置',using:'使用 DeArrow' }
+        };
+        return translations[language] || english;
+    }
+
+    function cachedDeArrowBranding(videoId) {
+        return Object.prototype.hasOwnProperty.call(deArrowBrandingCache, videoId) ?
+            deArrowBrandingCache[videoId] : undefined;
+    }
+
+    function cacheDeArrowBranding(videoId, branding) {
+        if (!Object.prototype.hasOwnProperty.call(deArrowBrandingCache, videoId)) {
+            deArrowBrandingCacheOrder.push(videoId);
+        }
+        deArrowBrandingCache[videoId] = branding;
+        while (deArrowBrandingCacheOrder.length > 100) {
+            delete deArrowBrandingCache[deArrowBrandingCacheOrder.shift()];
+        }
+    }
+
+    function normalizeDeArrowBranding(value) {
+        if (!value || typeof value !== 'object') return null;
+        return {
+            titles: Array.isArray(value.titles) ? value.titles : [],
+            thumbnails: Array.isArray(value.thumbnails) ? value.thumbnails : [],
+            videoDuration: isFinite(value.videoDuration) && Number(value.videoDuration) > 0 ? Number(value.videoDuration) : null,
+            randomTime: value.randomTime !== null && value.randomTime !== undefined && isFinite(value.randomTime) &&
+                Number(value.randomTime) >= 0 ? Number(value.randomTime) : null
+        };
+    }
+
+    function fetchDeArrowBranding(videoId, hashLookup) {
+        var cached = cachedDeArrowBranding(videoId);
+        if (cached !== undefined) return Promise.resolve(cached);
+        if (deArrowActiveRequests[videoId]) return deArrowActiveRequests[videoId];
+        if (!window.fetch) return Promise.resolve(null);
+
+        var request;
+        if (hashLookup && window.crypto && crypto.subtle && window.TextEncoder) {
+            request = crypto.subtle.digest('SHA-256', new TextEncoder().encode(videoId)).then(function (buffer) {
+                var bytes = new Uint8Array(buffer);
+                var hash = '';
+                for (var i = 0; i < bytes.length; i++) hash += ('0' + bytes[i].toString(16)).slice(-2);
+                return fetch(DEARROW_API + '/' + hash.slice(0, 4) + '?fetchAll=true', { referrerPolicy: 'no-referrer' });
+            }).then(function (response) {
+                if (!response.ok && response.status !== 404) throw new Error('DeArrow HTTP ' + response.status);
+                return response.json();
+            }).then(function (bucket) {
+                return normalizeDeArrowBranding(bucket && bucket[videoId]);
+            });
+        } else {
+            request = fetch(DEARROW_API + '?videoID=' + encodeURIComponent(videoId) + '&fetchAll=true', {
+                referrerPolicy: 'no-referrer'
+            }).then(function (response) {
+                if (!response.ok && response.status !== 404) throw new Error('DeArrow HTTP ' + response.status);
+                return response.json();
+            }).then(normalizeDeArrowBranding);
+        }
+        deArrowActiveRequests[videoId] = request.then(function (branding) {
+            cacheDeArrowBranding(videoId, branding);
+            delete deArrowActiveRequests[videoId];
+            return branding;
+        }, function (error) {
+            delete deArrowActiveRequests[videoId];
+            log('DeArrow unavailable', error);
+            return null;
+        });
+        return deArrowActiveRequests[videoId];
+    }
+
+    function deArrowAcceptedTitle(branding) {
+        var title = branding && branding.titles[0];
+        return title && title.original !== true && typeof title.title === 'string' && title.title.trim() &&
+            (title.locked || Number(title.votes) >= 0) ? title.title.replace(/‹/g, '<') : null;
+    }
+
+    function deArrowAcceptedThumbnail(branding) {
+        var thumbnail = branding && branding.thumbnails[0];
+        return thumbnail && thumbnail.original !== true && isFinite(thumbnail.timestamp) && thumbnail.timestamp >= 0 &&
+            (thumbnail.locked || Number(thumbnail.votes) >= 0) ? Number(thumbnail.timestamp) : null;
+    }
+
+    // DeArrow supplies a stable randomTime when it has one. The deterministic
+    // fallback avoids a thumbnail changing on every scan for older responses.
+    function deArrowRandomThumbnailTimestamp(videoId, branding) {
+        if (!branding || !isFinite(branding.videoDuration) || branding.videoDuration <= 0) return null;
+        var fraction = branding.randomTime;
+        if (!isFinite(fraction) || fraction < 0) {
+            var hash = 2166136261;
+            for (var i = 0; i < videoId.length; i++) {
+                hash ^= videoId.charCodeAt(i);
+                hash = Math.imul(hash, 16777619);
+            }
+            fraction = (hash >>> 0) / 4294967296;
+        }
+        // Match DeArrow's policy of keeping fallback frames out of the ending.
+        fraction = Math.min(Math.max(Number(fraction), 0), 0.9);
+        return fraction * branding.videoDuration;
+    }
+
+    function deArrowVideoIdFromUrl(value) {
+        try {
+            var url = new URL(value, location.href);
+            var id = url.searchParams.get('v');
+            if (!id) {
+                var match = url.pathname.match(/^\/(?:shorts|embed)\/([A-Za-z0-9_-]{11})/);
+                id = match && match[1];
+            }
+            return id && /^[A-Za-z0-9_-]{11}$/.test(id) ? id : null;
+        } catch (e) { return null; }
+    }
+
+    function deArrowCardVideoId(card) {
+        var direct = card.getAttribute('data-video-id');
+        if (direct && /^[A-Za-z0-9_-]{11}$/.test(direct)) return direct;
+        var links = card.querySelectorAll('a[href], [href]');
+        for (var i = 0; i < links.length; i++) {
+            var id = deArrowVideoIdFromUrl(links[i].getAttribute('href'));
+            if (id) return id;
+        }
+        return null;
+    }
+
+    function deArrowCardChannelId(card) {
+        var direct = card.getAttribute('data-channel-id');
+        if (direct) return direct;
+        var link = card.querySelector('a[href^="/@"],a[href^="/channel/"],a[href^="/c/"],a[href^="/user/"]');
+        if (!link) return null;
+        try { return new URL(link.getAttribute('href'), location.href).pathname; }
+        catch (e) { return null; }
+    }
+
+    function deArrowChannelExcluded(settings, channelId) {
+        return !!(channelId && settings.excludedChannels.indexOf(channelId) !== -1);
+    }
+
+    function findDeArrowCardTitle(card) {
+        var selectors = [
+            '#video-title yt-formatted-string', 'yt-formatted-string#video-title',
+            'a#video-title-link yt-formatted-string', 'a#video-title-link', 'a#video-title',
+            '.yt-lockup-metadata-view-model__title span', '.yt-lockup-metadata-view-model__title',
+            '.media-item-headline', 'h3 a[href]'
+        ];
+        for (var i = 0; i < selectors.length; i++) {
+            var element = card.querySelector(selectors[i]);
+            if (element) return element;
+        }
+        return null;
+    }
+
+    function findDeArrowCardThumbnail(card, videoId) {
+        var links = card.querySelectorAll('a[href]');
+        for (var i = 0; i < links.length; i++) {
+            if (deArrowVideoIdFromUrl(links[i].getAttribute('href')) === videoId) {
+                var image = links[i].querySelector('img');
+                if (image) return image;
+            }
+        }
+        return card.querySelector('#thumbnail img, ytm-thumbnail-cover img, img.yt-core-image');
+    }
+
+    function applyDeArrowTitleElement(element, customTitle) {
+        if (!element) return;
+        var current = element.textContent || '';
+        if (element._wblockDeArrowOriginalText === undefined ||
+            current !== element._wblockDeArrowCustomText && current !== element._wblockDeArrowOriginalText) {
+            element._wblockDeArrowOriginalText = current;
+        }
+        element._wblockDeArrowCustomText = customTitle;
+        element.setAttribute('data-wblock-dearrow-title', '');
+        if (!element._wblockDeArrowShowingOriginal && current !== customTitle) element.textContent = customTitle;
+    }
+
+    function restoreDeArrowTitleElement(element) {
+        if (!element || element._wblockDeArrowOriginalText === undefined) return;
+        if (element.textContent === element._wblockDeArrowCustomText) {
+            element.textContent = element._wblockDeArrowOriginalText;
+        }
+        delete element._wblockDeArrowOriginalText;
+        delete element._wblockDeArrowCustomText;
+        delete element._wblockDeArrowShowingOriginal;
+        element.removeAttribute('data-wblock-dearrow-title');
+    }
+
+    function restoreDeArrowAttribute(element, name, value) {
+        if (value === null || value === undefined) element.removeAttribute(name);
+        else element.setAttribute(name, value);
+    }
+
+    function applyDeArrowThumbnailElement(element, videoId, timestamp) {
+        if (!element) return;
+        var url = DEARROW_THUMBNAIL_API + '?videoID=' + encodeURIComponent(videoId) +
+            '&time=' + encodeURIComponent(String(timestamp));
+        if (element._wblockDeArrowOriginalSrc === undefined) {
+            element._wblockDeArrowOriginalSrc = element.getAttribute('src');
+            element._wblockDeArrowOriginalSrcset = element.getAttribute('srcset');
+            element._wblockDeArrowOriginalReferrerPolicy = element.getAttribute('referrerpolicy');
+        } else if (!element._wblockDeArrowShowingOriginal && element.getAttribute('src') !== url &&
+            element.getAttribute('src') !== element._wblockDeArrowOriginalSrc) {
+            // YouTube recycles card image elements as the feed changes. Preserve
+            // its newly assigned original before applying the cached thumbnail.
+            element._wblockDeArrowOriginalSrc = element.getAttribute('src');
+            element._wblockDeArrowOriginalSrcset = element.getAttribute('srcset');
+            element._wblockDeArrowOriginalReferrerPolicy = element.getAttribute('referrerpolicy');
+            delete element._wblockDeArrowThumbnailFailed;
+        }
+        element._wblockDeArrowCustomSrc = url;
+        element.setAttribute('data-wblock-dearrow-thumbnail', '');
+        if (element._wblockDeArrowThumbnailFailed === url || element._wblockDeArrowShowingOriginal) return;
+        element.removeAttribute('srcset');
+        element.setAttribute('referrerpolicy', 'no-referrer');
+        if (element.getAttribute('src') !== url) element.setAttribute('src', url);
+        if (!element._wblockDeArrowErrorHooked) {
+            element._wblockDeArrowErrorHooked = true;
+            element.addEventListener('error', function () {
+                if (element.getAttribute('src') !== element._wblockDeArrowCustomSrc) return;
+                element._wblockDeArrowThumbnailFailed = element._wblockDeArrowCustomSrc;
+                restoreDeArrowAttribute(element, 'src', element._wblockDeArrowOriginalSrc);
+                restoreDeArrowAttribute(element, 'srcset', element._wblockDeArrowOriginalSrcset);
+                restoreDeArrowAttribute(element, 'referrerpolicy', element._wblockDeArrowOriginalReferrerPolicy);
+            });
+        }
+    }
+
+    function restoreDeArrowThumbnailElement(element) {
+        if (!element || element._wblockDeArrowOriginalSrc === undefined) return;
+        restoreDeArrowAttribute(element, 'src', element._wblockDeArrowOriginalSrc);
+        restoreDeArrowAttribute(element, 'srcset', element._wblockDeArrowOriginalSrcset);
+        restoreDeArrowAttribute(element, 'referrerpolicy', element._wblockDeArrowOriginalReferrerPolicy);
+        delete element._wblockDeArrowOriginalSrc;
+        delete element._wblockDeArrowOriginalSrcset;
+        delete element._wblockDeArrowOriginalReferrerPolicy;
+        delete element._wblockDeArrowCustomSrc;
+        delete element._wblockDeArrowThumbnailFailed;
+        delete element._wblockDeArrowShowingOriginal;
+        element.removeAttribute('data-wblock-dearrow-thumbnail');
+    }
+
+    function installDeArrowHover(card) {
+        if (card._wblockDeArrowHoverInstalled) return;
+        card._wblockDeArrowHoverInstalled = true;
+        card._wblockDeArrowMouseEnter = function () {
+            if (!loadDeArrowSettings().showOriginalOnHover) return;
+            card._wblockDeArrowShowingOriginal = true;
+            var title = card._wblockDeArrowTitleElement;
+            var image = card._wblockDeArrowThumbnailElement;
+            if (title && title._wblockDeArrowOriginalText !== undefined) {
+                title._wblockDeArrowShowingOriginal = true;
+                title.textContent = title._wblockDeArrowOriginalText;
+            }
+            if (image && image._wblockDeArrowOriginalSrc !== undefined) {
+                image._wblockDeArrowShowingOriginal = true;
+                restoreDeArrowAttribute(image, 'src', image._wblockDeArrowOriginalSrc);
+                restoreDeArrowAttribute(image, 'srcset', image._wblockDeArrowOriginalSrcset);
+                restoreDeArrowAttribute(image, 'referrerpolicy', image._wblockDeArrowOriginalReferrerPolicy);
+            }
+        };
+        card._wblockDeArrowMouseLeave = function () {
+            card._wblockDeArrowShowingOriginal = false;
+            var settings = loadDeArrowSettings();
+            if (!settings.enabled || deArrowChannelExcluded(settings, deArrowCardChannelId(card))) return;
+            var title = card._wblockDeArrowTitleElement;
+            var image = card._wblockDeArrowThumbnailElement;
+            if (title) {
+                title._wblockDeArrowShowingOriginal = false;
+                if (settings.replaceTitles && title._wblockDeArrowCustomText) title.textContent = title._wblockDeArrowCustomText;
+            }
+            if (image) {
+                image._wblockDeArrowShowingOriginal = false;
+                if (settings.replaceThumbnails && image._wblockDeArrowCustomSrc &&
+                    image._wblockDeArrowThumbnailFailed !== image._wblockDeArrowCustomSrc) {
+                    image.removeAttribute('srcset');
+                    image.setAttribute('referrerpolicy', 'no-referrer');
+                    image.setAttribute('src', image._wblockDeArrowCustomSrc);
+                }
+            }
+        };
+        card.addEventListener('mouseenter', card._wblockDeArrowMouseEnter);
+        card.addEventListener('mouseleave', card._wblockDeArrowMouseLeave);
+    }
+
+    function restoreDeArrowCard(card) {
+        if (!card) return;
+        restoreDeArrowTitleElement(card._wblockDeArrowTitleElement);
+        restoreDeArrowThumbnailElement(card._wblockDeArrowThumbnailElement);
+        if (card._wblockDeArrowHoverInstalled) {
+            card.removeEventListener('mouseenter', card._wblockDeArrowMouseEnter);
+            card.removeEventListener('mouseleave', card._wblockDeArrowMouseLeave);
+        }
+        delete card._wblockDeArrowTitleElement;
+        delete card._wblockDeArrowThumbnailElement;
+        delete card._wblockDeArrowHoverInstalled;
+        delete card._wblockDeArrowMouseEnter;
+        delete card._wblockDeArrowMouseLeave;
+        delete card._wblockDeArrowShowingOriginal;
+        delete card._wblockDeArrowObserved;
+        delete card._wblockDeArrowRequestedVideoId;
+        delete card._wblockDeArrowProcessedVideoId;
+        card.removeAttribute('data-wblock-dearrow-card');
+    }
+
+    function applyDeArrowCard(card) {
+        var videoId = deArrowCardVideoId(card);
+        if (!videoId) return;
+        if (card._wblockDeArrowRequestedVideoId && card._wblockDeArrowRequestedVideoId !== videoId) {
+            restoreDeArrowCard(card);
+        }
+        var settings = loadDeArrowSettings();
+        if (!settings.enabled || deArrowChannelExcluded(settings, deArrowCardChannelId(card))) {
+            restoreDeArrowCard(card);
+            return;
+        }
+        card._wblockDeArrowRequestedVideoId = videoId;
+        card.setAttribute('data-wblock-dearrow-card', '');
+        fetchDeArrowBranding(videoId, false).then(function (branding) {
+            if (!card.isConnected || card._wblockDeArrowRequestedVideoId !== videoId) return;
+            var currentSettings = loadDeArrowSettings();
+            if (!currentSettings.enabled || deArrowChannelExcluded(currentSettings, deArrowCardChannelId(card))) {
+                restoreDeArrowCard(card);
+                return;
+            }
+            var customTitle = deArrowAcceptedTitle(branding);
+            var customTimestamp = deArrowAcceptedThumbnail(branding);
+            if (customTimestamp === null && currentSettings.randomThumbnails) {
+                customTimestamp = deArrowRandomThumbnailTimestamp(videoId, branding);
+            }
+            var titleElement = findDeArrowCardTitle(card);
+            var thumbnailElement = findDeArrowCardThumbnail(card, videoId);
+            if (currentSettings.replaceTitles && customTitle) {
+                card._wblockDeArrowTitleElement = titleElement;
+                applyDeArrowTitleElement(titleElement, customTitle);
+            } else {
+                restoreDeArrowTitleElement(card._wblockDeArrowTitleElement);
+                delete card._wblockDeArrowTitleElement;
+            }
+            if (currentSettings.replaceThumbnails && customTimestamp !== null) {
+                card._wblockDeArrowThumbnailElement = thumbnailElement;
+                applyDeArrowThumbnailElement(thumbnailElement, videoId, customTimestamp);
+            } else {
+                restoreDeArrowThumbnailElement(card._wblockDeArrowThumbnailElement);
+                delete card._wblockDeArrowThumbnailElement;
+            }
+            if (card._wblockDeArrowTitleElement || card._wblockDeArrowThumbnailElement) installDeArrowHover(card);
+            card._wblockDeArrowProcessedVideoId = videoId;
+        });
+    }
+
+    function queueDeArrowCard(card) {
+        if (!card || card._wblockDeArrowShowingOriginal) return;
+        var videoId = deArrowCardVideoId(card);
+        if (!videoId) return;
+        if (card._wblockDeArrowProcessedVideoId === videoId) {
+            var title = card._wblockDeArrowTitleElement;
+            var image = card._wblockDeArrowThumbnailElement;
+            var titleNeedsRepair = title && title._wblockDeArrowCustomText &&
+                title.textContent !== title._wblockDeArrowCustomText;
+            var imageNeedsRepair = image && image._wblockDeArrowCustomSrc &&
+                image._wblockDeArrowThumbnailFailed !== image._wblockDeArrowCustomSrc &&
+                image.getAttribute('src') !== image._wblockDeArrowCustomSrc;
+            if (!titleNeedsRepair && !imageNeedsRepair) return;
+            applyDeArrowCard(card);
+            return;
+        }
+        if (card._wblockDeArrowRequestedVideoId === videoId && card._wblockDeArrowObserved) return;
+        if (typeof IntersectionObserver === 'undefined') {
+            applyDeArrowCard(card);
+            return;
+        }
+        if (!deArrowIntersectionObserver) {
+            deArrowIntersectionObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    try { deArrowIntersectionObserver.unobserve(entry.target); } catch (e) { /* ignore */ }
+                    entry.target._wblockDeArrowObserved = false;
+                    applyDeArrowCard(entry.target);
+                });
+            }, { rootMargin: '240px 0px', threshold: 0.01 });
+        }
+        if (!card._wblockDeArrowObserved) {
+            card._wblockDeArrowObserved = true;
+            card._wblockDeArrowRequestedVideoId = videoId;
+            card.setAttribute('data-wblock-dearrow-card', '');
+            deArrowIntersectionObserver.observe(card);
+        }
+    }
+
+    function applyCurrentDeArrowTitle() {
+        var settings = loadDeArrowSettings();
+        var videoId = sponsorBlockVideoId();
+        var channelId = sponsorBlockChannelId();
+        if (!settings.enabled || !settings.replaceTitles || !videoId || deArrowChannelExcluded(settings, channelId)) return;
+        fetchDeArrowBranding(videoId, true).then(function (branding) {
+            var currentSettings = loadDeArrowSettings();
+            if (!currentSettings.enabled || !currentSettings.replaceTitles || sponsorBlockVideoId() !== videoId ||
+                deArrowChannelExcluded(currentSettings, sponsorBlockChannelId())) return;
+            var customTitle = deArrowAcceptedTitle(branding);
+            if (!customTitle) return;
+            var titles = document.querySelectorAll(DEARROW_WATCH_TITLE_SELECTOR);
+            for (var i = 0; i < titles.length; i++) applyDeArrowTitleElement(titles[i], customTitle);
+        });
+    }
+
+    function scanForDeArrow(root) {
+        var settings = loadDeArrowSettings();
+        if (!settings.enabled || !root) return;
+        applyCurrentDeArrowTitle();
+        var cards = [];
+        if (root.nodeType === 1) {
+            try {
+                if (root.matches(DEARROW_CARD_SELECTOR)) cards.push(root);
+                var closest = root.closest(DEARROW_CARD_SELECTOR);
+                if (closest && cards.indexOf(closest) === -1) cards.push(closest);
+            } catch (e) { /* ignore */ }
+        }
+        if (root.querySelectorAll) {
+            var nested = root.querySelectorAll(DEARROW_CARD_SELECTOR);
+            for (var i = 0; i < nested.length; i++) if (cards.indexOf(nested[i]) === -1) cards.push(nested[i]);
+        }
+        for (var j = 0; j < cards.length; j++) queueDeArrowCard(cards[j]);
+    }
+
+    function scheduleDeArrowScan(root) {
+        if (!loadDeArrowSettings().enabled) return;
+        if (root === document) deArrowPendingScanRoots = [document];
+        else if (deArrowPendingScanRoots.indexOf(document) === -1 && root && deArrowPendingScanRoots.indexOf(root) === -1) {
+            deArrowPendingScanRoots.push(root);
+            if (deArrowPendingScanRoots.length > 40) deArrowPendingScanRoots = [document];
+        }
+        if (deArrowScanScheduled) return;
+        deArrowScanScheduled = true;
+        Promise.resolve().then(function () {
+            deArrowScanScheduled = false;
+            var roots = deArrowPendingScanRoots;
+            deArrowPendingScanRoots = [];
+            for (var i = 0; i < roots.length; i++) {
+                if (roots[i] === document || roots[i].isConnected) scanForDeArrow(roots[i]);
+            }
+        });
+    }
+
+    function restoreAllDeArrowBranding() {
+        if (deArrowIntersectionObserver) {
+            try { deArrowIntersectionObserver.disconnect(); } catch (e) { /* ignore */ }
+            deArrowIntersectionObserver = null;
+        }
+        var cards = document.querySelectorAll('[data-wblock-dearrow-card]');
+        for (var i = 0; i < cards.length; i++) restoreDeArrowCard(cards[i]);
+        var titles = document.querySelectorAll('[data-wblock-dearrow-title]');
+        for (var j = 0; j < titles.length; j++) restoreDeArrowTitleElement(titles[j]);
+        var thumbnails = document.querySelectorAll('[data-wblock-dearrow-thumbnail]');
+        for (var k = 0; k < thumbnails.length; k++) restoreDeArrowThumbnailElement(thumbnails[k]);
+    }
+
+    function refreshDeArrowBranding() {
+        restoreAllDeArrowBranding();
+        if (loadDeArrowSettings().enabled) scheduleDeArrowScan(document);
     }
 
     // ------------------------------------------------------------------
@@ -1926,6 +2486,9 @@
         });
     }
 
+    // Diagnostic counter for the PiP caption pump below.
+    var pipCaptionPumpTicks = 0;
+
     function setupNativeSubtitles(player, video) {
         if (!player || !video || !window.fetch || !window.Blob || !URL.createObjectURL) return;
         var cancelled = false;
@@ -2009,9 +2572,49 @@
             }, 500);
         }
 
+        // WebKit repaints native VTT cues into the PiP overlay during the
+        // page's rendering updates. A genuinely hidden tab stops those
+        // updates, so the PiP window keeps showing the last painted line even
+        // though playback and cue timing continue. The media element still
+        // fires timeupdate while hidden; watch for cue boundaries there and
+        // cycle the showing track's mode, which makes WebKit resolve and
+        // paint the current cue again. Cycling only at boundaries keeps the
+        // foreground path untouched and avoids flicker.
+        var pipCueSignature = null;
+        function activeCueSignature(track, time) {
+            var cues = track.cues;
+            if (!cues) return '';
+            var signature = '';
+            for (var i = 0; i < cues.length; i++) {
+                if (cues[i].startTime <= time && time < cues[i].endTime) {
+                    signature += cues[i].startTime + '-' + cues[i].endTime + ';';
+                }
+            }
+            return signature;
+        }
+        function onPiPCaptionTick() {
+            var forced = !!window.__wblockTCForcePiPCaptionPump;
+            if (!forced && (!_realHidden || !isPiPActive(video))) { pipCueSignature = null; return; }
+            var tracks = video.textTracks;
+            if (!tracks) return;
+            for (var i = 0; i < tracks.length; i++) {
+                var track = tracks[i];
+                if (track.mode !== 'showing') continue;
+                var signature = activeCueSignature(track, video.currentTime);
+                if (pipCueSignature === signature) return;
+                pipCueSignature = signature;
+                track.mode = 'hidden';
+                track.mode = 'showing';
+                pipCaptionPumpTicks++;
+                return;
+            }
+        }
+        video.addEventListener('timeupdate', onPiPCaptionTick);
+
         registerCleanup(function () {
             cancelled = true;
             stopRetry();
+            video.removeEventListener('timeupdate', onPiPCaptionTick);
             if (controller) controller.abort();
             for (var i = 0; i < elements.length; i++) {
                 if (elements[i].parentNode) elements[i].remove();
@@ -2298,6 +2901,22 @@
         if (!player || !player.getPlaybackQuality) return 'auto';
         var q = player.getPlaybackQuality();
         return q || 'auto';
+    }
+
+    // The SABR mobile player sometimes reports 'unknown' (or lags) from
+    // getPlaybackQuality. Fall back to the decoded frame height so the label
+    // reflects the stream that is actually rendering.
+    function qualityFromVideoHeight(video) {
+        var h = video && Math.min(video.videoWidth || Infinity, video.videoHeight || Infinity);
+        if (!h || !isFinite(h)) return null;
+        if (h >= 2000) return 'hd2160';
+        if (h >= 1300) return 'hd1440';
+        if (h >= 1000) return 'hd1080';
+        if (h >= 650) return 'hd720';
+        if (h >= 430) return 'large';
+        if (h >= 330) return 'medium';
+        if (h >= 210) return 'small';
+        return 'tiny';
     }
 
     // Click YouTube's internal settings button to open the quality menu
@@ -2615,9 +3234,21 @@
         qualityBtn.type = 'button';
         qualityBtn.style.cssText = btnStyle;
         function updateQualityBtn() {
+            var preferred = getPreferredQuality();
             var current = getCurrentQuality();
-            var label = QUALITY_LABELS[current] || current;
-            qualityBtn.textContent = label;
+            if (current === 'auto' || current === 'unknown' || !QUALITY_LABELS[current]) {
+                var mapped = qualityFromVideoHeight(video);
+                if (mapped) current = mapped;
+            }
+            var currentLabel = QUALITY_LABELS[current] || current;
+            if (preferred === 'auto') {
+                // Auto is a mode, not a wedged setting. Small portrait players
+                // legitimately stream 360p on auto; show it as status so it
+                // does not read as a stuck quality choice.
+                qualityBtn.textContent = current === 'auto' ? 'Auto' : 'Auto (' + currentLabel + ')';
+            } else {
+                qualityBtn.textContent = currentLabel;
+            }
             qualityBtn.title = 'Video quality (click to change)';
         }
         updateQualityBtn();
@@ -2691,14 +3322,9 @@
 
         qualityBtn.addEventListener('click', function (e) {
             e.stopPropagation();
-            // if (sponsorMenu) {
-            //     sponsorMenu.style.display = 'none';
-            //     if (sponsorBtn) sponsorBtn.setAttribute('aria-expanded', 'false');
-            // }
-            // if (deArrowMenu) {
-            //     deArrowMenu.style.display = 'none';
-            //     if (deArrowBtn) deArrowBtn.setAttribute('aria-expanded', 'false');
-            // }
+            if (qualityMenu) {
+                qualityMenu.style.display = 'none';
+            }
             if (qualityMenu.style.display === 'none') {
                 buildQualityMenu();
                 if (IS_IOS) {
@@ -2757,8 +3383,23 @@
         });
         if (!IS_IOS) { playbackRow.appendChild(audioBtn); }
 
-        // PiP button is intentionally omitted — Safari's native controls
-        // already provide PiP. Auto PiP handles automatic PiP entry.
+        // PiP button is intentionally omitted
+
+        // Device-level "hide these controls" preference. While set, the
+        // toolbar refuses to appear except while one of its own panels is
+        // open (so the checkbox that unsets it stays reachable) or after a
+        // deliberate double-tap / double-click reveal on the video.
+        var toolbarUserHidden = isToolbarHidden();
+        var toolbarRevealOverride = false;
+        function anyToolbarPanelOpen() {
+            var panels = [qualityMenu, sponsorMenu, deArrowMenu];
+            return panels.some(function (p) {
+                return p && p.style.display !== 'none' && p.style.display !== '';
+            });
+        }
+        function toolbarSuppressed() {
+            return toolbarUserHidden && !toolbarRevealOverride && !anyToolbarPanelOpen();
+        }
 
         if (IS_IOS) {
             // The mobile toolbar auto-hides a few seconds after playback
@@ -2771,6 +3412,7 @@
             var TOOLBAR_HIDE_DELAY = 3000;
 
             function showToolbar() {
+                if (toolbarSuppressed()) return;
                 toolbar.style.opacity = '1';
                 toolbar.style.setProperty('pointer-events', 'auto', 'important');
                 clearTimeout(toolbarTimer);
@@ -2778,7 +3420,7 @@
             function hideToolbar() {
                 // Never hide while a settings panel is open — the controls
                 // that opened it must remain reachable to close it again.
-                var panels = [qualityMenu];
+                var panels = [qualityMenu, sponsorMenu, deArrowMenu];
                 var anyOpen = panels.some(function (p) {
                     return p && p.style.display !== 'none' && p.style.display !== '';
                 });
@@ -2809,6 +3451,32 @@
             }
             video.addEventListener('click', onVideoTap);
 
+            // Double-tap reveals (or re-hides) the toolbar while the hide
+            // preference is on; single taps keep ignoring it.
+            function onVideoReveal() {
+                if (!toolbarUserHidden) return;
+                toolbarRevealOverride = !toolbarRevealOverride;
+                if (toolbarRevealOverride) {
+                    showToolbar();
+                    if (!video.paused && !video.ended) { scheduleHideToolbar(); }
+                } else {
+                    hideToolbar();
+                }
+            }
+            video.addEventListener('dblclick', onVideoReveal);
+
+            function onToolbarPref() {
+                toolbarUserHidden = isToolbarHidden();
+                toolbarRevealOverride = false;
+                if (toolbarUserHidden) {
+                    scheduleHideToolbar();
+                } else {
+                    showToolbar();
+                    if (!video.paused && !video.ended) { scheduleHideToolbar(); }
+                }
+            }
+            document.addEventListener('wblock-tc-toolbar-pref', onToolbarPref);
+
             // Keep visible while the toolbar itself is being touched.
             toolbar.addEventListener('touchstart', function () {
                 showToolbar();
@@ -2821,13 +3489,21 @@
             video.addEventListener('play', onVideoPlay);
             video.addEventListener('pause', onVideoPause);
 
-            // Initial state: visible if paused, auto-hide once playing.
-            showToolbar();
-            if (!video.paused && !video.ended) { scheduleHideToolbar(); }
+            // Initial state: visible if paused, auto-hide once playing. The
+            // hide preference starts it hidden outright.
+            if (toolbarUserHidden) {
+                toolbar.style.opacity = '0';
+                toolbar.style.setProperty('pointer-events', 'none', 'important');
+            } else {
+                showToolbar();
+                if (!video.paused && !video.ended) { scheduleHideToolbar(); }
+            }
 
             registerCleanup(function () {
                 clearTimeout(toolbarTimer);
                 video.removeEventListener('click', onVideoTap);
+                video.removeEventListener('dblclick', onVideoReveal);
+                document.removeEventListener('wblock-tc-toolbar-pref', onToolbarPref);
                 video.removeEventListener('play', onVideoPlay);
                 video.removeEventListener('pause', onVideoPause);
             });
@@ -2842,7 +3518,7 @@
             var _isOverToolbar = false;
 
             function desktopPanelOpen() {
-                var panels = [qualityMenu];
+                var panels = [qualityMenu, sponsorMenu, deArrowMenu];
                 return panels.some(function (p) {
                     return p && p.style.display !== 'none' && p.style.display !== '';
                 });
@@ -2858,13 +3534,14 @@
             }
 
             function showToolbar() {
+                if (toolbarSuppressed()) return;
                 toolbar.style.opacity = '1';
                 toolbar.style.setProperty('pointer-events', 'auto', 'important');
                 clearTimeout(toolbarTimer);
             }
 
             function hideToolbar() {
-                if (desktopPanelOpen() || _isOverToolbar || video.paused || video.ended) {
+                if (!toolbarSuppressed() && (desktopPanelOpen() || _isOverToolbar || video.paused || video.ended)) {
                     showToolbar();
                     return;
                 }
@@ -2873,7 +3550,7 @@
             }
 
             function scheduleHideToolbar() {
-                if (desktopPanelOpen() || _isOverToolbar || video.paused || video.ended) {
+                if (!toolbarSuppressed() && (desktopPanelOpen() || _isOverToolbar || video.paused || video.ended)) {
                     showToolbar();
                     return;
                 }
@@ -2932,6 +3609,27 @@
             function onVideoPause() { showToolbar(); }
             video.addEventListener('pause', onVideoPause);
 
+            // Double-click reveals (or re-hides) the toolbar while the hide
+            // preference is on.
+            function onVideoReveal() {
+                if (!toolbarUserHidden) return;
+                toolbarRevealOverride = !toolbarRevealOverride;
+                if (toolbarRevealOverride) {
+                    showToolbar();
+                    scheduleHideToolbar();
+                } else {
+                    hideToolbar();
+                }
+            }
+            video.addEventListener('dblclick', onVideoReveal);
+
+            function onToolbarPref() {
+                toolbarUserHidden = isToolbarHidden();
+                toolbarRevealOverride = false;
+                if (toolbarUserHidden) { scheduleHideToolbar(); }
+            }
+            document.addEventListener('wblock-tc-toolbar-pref', onToolbarPref);
+
             var presentationTimer = null;
             function onPresentationModeChange() {
                 if (video.webkitPresentationMode === 'picture-in-picture') {
@@ -2946,6 +3644,8 @@
                 clearTimeout(toolbarTimer);
                 clearTimeout(presentationTimer);
                 document.removeEventListener('mousemove', onDocumentMouseMove);
+                video.removeEventListener('dblclick', onVideoReveal);
+                document.removeEventListener('wblock-tc-toolbar-pref', onToolbarPref);
                 player.removeEventListener('mouseenter', onPlayerMouseEnter);
                 player.removeEventListener('mouseleave', onPlayerMouseLeave);
                 video.removeEventListener('play', onVideoPlay);
@@ -2985,7 +3685,6 @@
         }
 
         transformPlayer();
-        // refreshDeArrowBranding();
         setTimeout(transformPlayer, 500);
     }
 
@@ -3134,7 +3833,6 @@
         watchNavigation();
         setupFullscreenHotkey();
         transformPlayer();
-        // scheduleDeArrowScan(document);
 
         // Recovery scans only; normal startup is handled pre-paint above.
         if (document.readyState === 'loading') {
@@ -3154,6 +3852,15 @@
             applyPreferredQuality: applyPreferredQuality,
             getPreferredQuality: getPreferredQuality,
             setPreferredQuality: setPreferredQuality,
+            isToolbarHidden: isToolbarHidden,
+            pipCaptionPumpTicks: function () { return pipCaptionPumpTicks; },
+            setToolbarHidden: setToolbarHidden,
+            previewSponsorNotice: function () {
+                var p = findPlayer();
+                if (!p || !activeVideo) return 'no player';
+                showSponsorBlockNotice(p, activeVideo, { category: 'sponsor', segment: [0, 5], UUID: 'preview' }, {}, 'undo');
+                return 'ok';
+            },
             QUALITY_LABELS: QUALITY_LABELS,
             getPlayer: findPlayer,
             getChapters: extractChapters,
