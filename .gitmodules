@@ -1,0 +1,3 @@
+[submodule "upstream-scripts"]
+	path = upstream-scripts
+	url = https://github.com/0xCUB3/wBlock-userscripts.git
