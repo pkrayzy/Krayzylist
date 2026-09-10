@@ -1,1 +1,0 @@
-upstream-scripts/packages/tube-cleaner/src/tube-cleaner.user.js
