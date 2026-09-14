@@ -15,6 +15,7 @@ OpenSans-*00*$font
 ! ||media-amazon.com$font
 ||duckduckgo.com$font
 ||abs.twimg.com$font
+||fonts.gstatic.com/s/youtubesans/$font
 
 !!---General URL---!!
 /*.consentdrawer.bundle.*$script
