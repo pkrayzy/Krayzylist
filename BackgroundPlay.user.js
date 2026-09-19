@@ -12,6 +12,7 @@
 // @run-at       document-start
 // @inject-into  page
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/BackgroundPlay.user.js
 // ==/UserScript==
 
 (function () {
