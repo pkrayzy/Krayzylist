@@ -14,7 +14,7 @@
     'use strict';
 
     const SYSTEM_FONT_STACK = "'SF Pro Display', 'SF Pro', 'SF Text', 'Arial', sans-serif";
-    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'DuckSansDisplay', 'Duck Sans'];
+    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI'];
 
     function shouldReplaceFont(fontFamily) {
         if (!fontFamily) return false;
