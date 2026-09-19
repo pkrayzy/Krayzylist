@@ -151,6 +151,160 @@
     // Auto PiP — automatic Picture-in-Picture
     // ------------------------------------------------------------------
 
+    // Per-feature switches the app prepends as __wblockPlayerCleanerFeatures
+    // (Userscripts page, Player Cleaner row). Everything defaults to on so
+    // older wBlock builds, which do not inject the constant, behave as before.
+    var playerCleanerFeatures = (function () {
+        var features = { autoPictureInPicture: true, backgroundPlayback: true };
+        var injected = typeof __wblockPlayerCleanerFeatures === 'object' ? __wblockPlayerCleanerFeatures : null;
+        if (!injected) return features;
+        for (var key in features) {
+            if (typeof injected[key] === 'boolean') features[key] = injected[key];
+        }
+        return features;
+    })();
+    function featureEnabled(name) { return playerCleanerFeatures[name] !== false; }
+
+    var AUTO_PIP_KEY = 'wblock.playerCleaner.autoPiP';
+    var autoPiPEnabled = false;
+
+    function getAutoPiP() {
+        if (!featureEnabled('autoPictureInPicture')) return false;
+        try {
+            var stored = localStorage.getItem(AUTO_PIP_KEY);
+            return stored === null ? false : stored === '1';
+        } catch (e) { return false; }
+    }
+
+    try { autoPiPEnabled = getAutoPiP(); } catch (e) { /* ignore */ }
+
+    function isPiPActive(video) {
+        return document.pictureInPictureElement === video ||
+            (video && video.webkitPresentationMode === 'picture-in-picture');
+    }
+
+    function enterPiP(video) {
+        if (!video || !autoPiPEnabled) return;
+        if (isPiPActive(video)) return;
+        if (video.paused || video.ended) return;
+        try {
+            if (video.webkitSupportsPresentationMode &&
+                typeof video.webkitSetPresentationMode === 'function') {
+                video.webkitSetPresentationMode('picture-in-picture');
+            } else if (video.requestPictureInPicture) {
+                var request = video.requestPictureInPicture();
+                if (request && request.catch) request.catch(function () {});
+            }
+        } catch (e) { /* ignore */ }
+    }
+
+    function exitPiP(video) {
+        if (!video) return;
+        if (!isPiPActive(video)) return;
+        try {
+            if (video.webkitSupportsPresentationMode &&
+                typeof video.webkitSetPresentationMode === 'function') {
+                video.webkitSetPresentationMode('inline');
+            } else if (document.pictureInPictureElement) {
+                var result = document.exitPictureInPicture();
+                if (result && result.catch) result.catch(function () {});
+            }
+        } catch (e) { /* ignore */ }
+    }
+
+    function registerVideoCleanup(video, cleanup) {
+        if (!video._wblockCleanups) { video._wblockCleanups = []; }
+        video._wblockCleanups.push(cleanup);
+    }
+
+    function releaseVideoResources(video) {
+        if (!video) return;
+        var cleanups = video._wblockCleanups || [];
+        video._wblockCleanups = [];
+        for (var i = 0; i < cleanups.length; i++) {
+            try { cleanups[i](); } catch (e) { /* ignore */ }
+        }
+        video._wblockAutoPiPHooked = false;
+        video._wblockControlsGuarded = false;
+        video._wblockControlsPatched = false;
+        video._wblockClickGuard = false;
+        video._wblockChromeWatch = false;
+        video._wblockEnhanced = false;
+        video._wblockUpgradeable = false;
+        video._wblockPlaybackReady = false;
+        video._wblockHandshakeStarted = false;
+        video._wblockCleaned = false;
+        var _ei = enhancedVideos.indexOf(video);
+        if (_ei !== -1) { enhancedVideos.splice(_ei, 1); }
+        video._wblockPreferencesHooked = false;
+        video._wblockMediaSessionHooked = false;
+        video._wblockShortcutsHooked = false;
+        video._wblockTrackHarvestHooked = false;
+        try { video.removeAttribute(ATTR_DONE); } catch (e) { /* ignore */ }
+    }
+
+    function setupAutoPiP(video) {
+        if (!video || video._wblockAutoPiPHooked) return;
+        video._wblockAutoPiPHooked = true;
+
+        function onVisibilityChange() {
+            if (!autoPiPEnabled) return;
+            if (_realHidden) {
+                if (!video.paused && !video.ended) { enterPiP(video); }
+            } else if (document.hasFocus() && isPiPActive(video)) {
+                exitPiP(video);
+            }
+        }
+
+        // Window focus alone cannot tell whether another macOS window covers
+        // Safari, so blur must not trigger PiP. Actual tab hiding and viewport
+        // intersection changes provide reliable signals.
+        function onFocus() {
+            if (!autoPiPEnabled || _realHidden) return;
+            if (document.hasFocus() && isPiPActive(video)) { exitPiP(video); }
+        }
+
+        function onPageHide(e) {
+            if (e && e.persisted) return;
+            try { video.pause(); } catch (err) { /* ignore */ }
+            exitPiP(video);
+        }
+
+        document.addEventListener('visibilitychange', onVisibilityChange);
+        window.addEventListener('focus', onFocus);
+        window.addEventListener('pagehide', onPageHide);
+        registerVideoCleanup(video, function () {
+            document.removeEventListener('visibilitychange', onVisibilityChange);
+            window.removeEventListener('focus', onFocus);
+            window.removeEventListener('pagehide', onPageHide);
+        });
+
+        if (typeof IntersectionObserver !== 'undefined') {
+            var scrollObserver = new IntersectionObserver(function (entries) {
+                if (!autoPiPEnabled) return;
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting && !video.paused && !video.ended) {
+                        enterPiP(video);
+                    } else if (entry.isIntersecting && isPiPActive(video)) {
+                        exitPiP(video);
+                    }
+                });
+            }, { threshold: 0.1 });
+            scrollObserver.observe(video);
+            registerVideoCleanup(video, function () {
+                try { scrollObserver.disconnect(); } catch (e) { /* ignore */ }
+            });
+        }
+    }
+
+    function log() {
+        try {
+            if (window.__wblockPlayerCleanerDebug) {
+                console.log.apply(console, [LOG_PREFIX].concat([].slice.call(arguments)));
+            }
+        } catch (e) { /* ignore */ }
+    }
+
     // Player container selectors for the common custom-player libraries.
     var PLAYER_SELECTORS = [
         '.video-js',                 // video.js
