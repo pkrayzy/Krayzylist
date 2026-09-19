@@ -14,7 +14,7 @@
     'use strict';
 
     const SYSTEM_FONT_STACK = "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Arial', sans-serif";
-    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'Open Sans', 'Noto Sans'];
+    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'Open Sans', 'Noto Sans','TwitterChirp'];
 
     function shouldReplaceFont(fontFamily) {
         if (!fontFamily) return false;
