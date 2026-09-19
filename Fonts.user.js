@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Replaces Google Sans and Google Sans Flex with a clean system font stack
-// @updateURL      https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
+// @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @author       You
 // @match        *://*/*
 // @grant        GM_addStyle
