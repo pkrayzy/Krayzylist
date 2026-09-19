@@ -13,7 +13,7 @@
 (function () {
     'use strict';
 
-    const SYSTEM_FONT_STACK = "'SF Pro', 'Arial', sans-serif";
+    const SYSTEM_FONT_STACK = "'SF Pro', -apple-system, 'Arial', sans-serif";
     const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'Open Sans', 'Noto Sans','TwitterChirp'];
 
     function shouldReplaceFont(fontFamily) {
