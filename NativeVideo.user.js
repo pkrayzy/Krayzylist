@@ -3,12 +3,8 @@
 // @description  Gives custom web players native controls, auto PiP, background playback, restored subtitle and chapter tracks, Now Playing metadata, and remembered playback preferences.
 // @match        http://*/*
 // @match        https://*/*
-// @exclude      https://www.youtube.com/*
-// @exclude      https://youtube.com/*
-// @exclude      https://m.youtube.com/*
-// @exclude      https://music.youtube.com/*
-// @exclude      https://www.youtube-nocookie.com/*
-// @exclude      https://youtube-nocookie.com/*
+// @exclude      *://*.youtube.com/*
+// @exclude      *://*.youtube-nocookie.com/*
 // @updateUrl    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/NativeVideo.user.js
 // @run-at       document-start
 // @inject-into  page
