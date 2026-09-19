@@ -9,6 +9,7 @@
 @match          *://*.duckduckgo.com/*
 @match          *://*.search.brave.com/*
 @match          *://*.reddit.com/*
+@match          *://*.wikipedia.org/*
 ==/UserStyle== */
 
 * {
