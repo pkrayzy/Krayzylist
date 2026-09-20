@@ -36,8 +36,7 @@
     ];
 
     // The local font stack we want the browser to use when the target fonts are requested
-    // const SYSTEM_FONT_STACK = "local('SF Pro'), local('-apple-system'), local('Arial'), sans-serif";
-    const SYSTEM_FONT_STACK = "'SF Pro', 'Arial', -apple-system, sans-serif";
+    const SYSTEM_FONT_STACK = "local('SF Pro'), local('SF Pro Display'), local('SF Pro Text')";
 
     const cssOverrides = TARGET_FONTS.map(font => `
         @font-face {
