@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Replaces Google Sans and Google Sans Flex with a clean system font stack
+// @version      0.2
+// @description  Replaces Google Sans and other common fonts with a clean system font stack using CSS overrides
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @author       You
-// @match          *://*.google.com/*
-// @match          *://*.youtube.com/*
-// @match          *://*.bing.com/*
-// @match          *://*.msn.com/*
-// @match          *://*.duckduckgo.com/*
-// @match          *://*.search.brave.com/*
-// @match          *://*/*
+// @match        *://*.google.com/*
+// @match        *://*.youtube.com/*
+// @match        *://*.bing.com/*
+// @match        *://*.msn.com/*
+// @match        *://*.duckduckgo.com/*
+// @match        *://*.search.brave.com/*
+// @match        *://*/*
 // @grant        GM_addStyle
 // @run-at       document-start
 // ==/UserScript==
@@ -19,49 +19,28 @@
 (function () {
     'use strict';
 
-    const SYSTEM_FONT_STACK = "'SF Pro', -apple-system, 'Arial', sans-serif";
-    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'Open Sans', 'Noto Sans', 'Inter Variable', 'Inter', 'Amazon Ember'];
+    const TARGET_FONTS = [
+        'Google Sans', 
+        'Google Sans Flex', 
+        'Roboto', 
+        'Segoe UI', 
+        'Open Sans', 
+        'Noto Sans', 
+        'Inter Variable', 
+        'Inter', 
+        'Amazon Ember'
+    ];
 
-    function shouldReplaceFont(fontFamily) {
-        if (!fontFamily) return false;
-        return TARGET_FONTS.some(font => fontFamily.includes(font));
-    }
+    // The local font stack we want the browser to use when the target fonts are requested
+    // const SYSTEM_FONT_STACK = "local('SF Pro'), local('-apple-system'), local('Arial'), sans-serif";
+    const SYSTEM_FONT_STACK = "'SF Pro Display', -apple-system, 'Arial', sans-serif";
 
-    function applyFontReplacement(element) {
-        // Check computed style for the font-family
-        const computedStyle = window.getComputedStyle(element);
-        if (shouldReplaceFont(computedStyle.fontFamily)) {
-            element.style.setProperty('font-family', SYSTEM_FONT_STACK, 'important');
+    const cssOverrides = TARGET_FONTS.map(font => `
+        @font-face {
+            font-family: '${font}';
+            src: ${SYSTEM_FONT_STACK};
         }
+    `).join('\n');
 
-        // Also check children
-        element.querySelectorAll('*').forEach((el) => {
-            const childStyle = window.getComputedStyle(el);
-            if (shouldReplaceFont(childStyle.fontFamily)) {
-                el.style.setProperty('font-family', SYSTEM_FONT_STACK, 'important');
-            }
-        });
-    }
-
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.type === 'childList') {
-                mutation.addedNodes.forEach((node) => {
-                    if (node.nodeType === 1) {
-                        applyFontReplacement(node);
-                    }
-                });
-            }
-        });
-    });
-
-    observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true
-    });
-
-    // Initial run
-    window.addEventListener('DOMContentLoaded', () => {
-        applyFontReplacement(document.body);
-    });
+    GM_addStyle(cssOverrides);
 })();
