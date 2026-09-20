@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Replaces Google Sans and other common fonts with a clean system font stack using CSS overrides
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @match        *://*.google.com/*
@@ -37,7 +37,7 @@
 
     // The local font stack we want the browser to use when the target fonts are requested
     // const SYSTEM_FONT_STACK = "local('SF Pro'), local('-apple-system'), local('Arial'), sans-serif";
-    const SYSTEM_FONT_STACK = "'SF Pro', 'Arial', sans-serif";
+    const SYSTEM_FONT_STACK = "'SF Pro Text', 'Arial', sans-serif";
 
     const cssOverrides = TARGET_FONTS.map(font => `
         @font-face {
