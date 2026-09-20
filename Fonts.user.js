@@ -4,7 +4,6 @@
 // @version      0.2
 // @description  Replaces Google Sans and other common fonts with a clean system font stack using CSS overrides
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
-// @author       You
 // @match        *://*.google.com/*
 // @match        *://*.youtube.com/*
 // @match        *://*.bing.com/*
