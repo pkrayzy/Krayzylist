@@ -30,7 +30,9 @@
         'Segoe UI',
         'Segoe',
         'Tahoma',
-        'Verdana'
+        'Verdana',
+        'YouTube Sans',
+        'YTSans'
     ];
 
     // The local font stack we want the browser to use when the target fonts are requested
