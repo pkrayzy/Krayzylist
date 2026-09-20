@@ -10,6 +10,7 @@
 // @match        *://*.msn.com/*
 // @match        *://*.duckduckgo.com/*
 // @match        *://*.search.brave.com/*
+// @match        *://*/*
 // @grant        GM_addStyle
 // @run-at       document-start
 // ==/UserScript==
@@ -25,7 +26,9 @@
         'Open Sans',
         'Noto Sans',
         'Inter Variable',
-        'Inter'
+        'Inter',
+        'YTSans',
+        'YouTube Sans'
     ];
 
     // We create a @font-face rule for every target font.
