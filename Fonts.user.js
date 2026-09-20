@@ -38,13 +38,13 @@
         css += `
             @font-face {
                 font-family: '${font}';
-                src: local('SF Pro Text'), local('Arial');
+                src: local('SF Pro Display'), local('Arial');
                 font-weight: 100 900;
                 font-style: normal;
             }
             @font-face {
                 font-family: '${font}';
-                src: local('SF Pro Text'), local('Arial');
+                src: local('SF Pro Display'), local('Arial');
                 font-weight: 100 900;
                 font-style: italic;
             }
