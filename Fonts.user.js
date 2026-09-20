@@ -1,9 +1,8 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.3
-// @description  Replaces Google Sans and other common fonts with a clean system font stack using CSS overrides
-// @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
+// @version      0.5
+// @description  Replaces Google Sans and other common fonts with the system font using CSS overrides
 // @match        *://*.google.com/*
 // @match        *://*.youtube.com/*
 // @match        *://*.bing.com/*
@@ -35,13 +34,14 @@
         'YTSans'
     ];
 
-    // The local font stack we want the browser to use when the target fonts are requested
-    const SYSTEM_FONT_STACK = "local('SF Pro Display')";
+    // Maps every target font to the OS-level system font
+    const REPLACEMENT_FONT = "local('System Font')";
 
     const cssOverrides = TARGET_FONTS.map(font => `
         @font-face {
             font-family: '${font}';
-            src: ${SYSTEM_FONT_STACK};
+            src: ${REPLACEMENT_FONT};
+            font-display: swap;
         }
     `).join('\n');
 
