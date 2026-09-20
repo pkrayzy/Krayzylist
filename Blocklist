@@ -6,7 +6,7 @@
 !!---Fonts---!!
 NotoSans*$font
 OpenSans-*00*$font
-||msn.com$font
+! ||msn.com$font
 ! ||abs.twimg.com$font
 ||fonts.gstatic.com/s/googlesans/$font
 !||fonts.gstatic.com/s/googlesansflex/$font

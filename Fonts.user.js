@@ -11,6 +11,7 @@
 // @match          *://*.msn.com/*
 // @match          *://*.duckduckgo.com/*
 // @match          *://*.search.brave.com/*
+// @match          *://*/*
 // @grant        GM_addStyle
 // @run-at       document-start
 // ==/UserScript==
@@ -19,7 +20,7 @@
     'use strict';
 
     const SYSTEM_FONT_STACK = "'SF Pro', -apple-system, 'Arial', sans-serif";
-    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'Open Sans', 'Noto Sans', 'Inter Variable', 'Inter'];
+    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'Open Sans', 'Noto Sans', 'Inter Variable', 'Inter', 'Amazon Ember'];
 
     function shouldReplaceFont(fontFamily) {
         if (!fontFamily) return false;
