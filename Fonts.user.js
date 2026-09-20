@@ -5,7 +5,12 @@
 // @description  Replaces Google Sans and Google Sans Flex with a clean system font stack
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @author       You
-// @match        *://*/*
+// @match          *://*.google.com/*
+// @match          *://*.youtube.com/*
+// @match          *://*.bing.com/*
+// @match          *://*.msn.com/*
+// @match          *://*.duckduckgo.com/*
+// @match          *://*.search.brave.com/*
 // @grant        GM_addStyle
 // @run-at       document-start
 // ==/UserScript==
@@ -14,7 +19,7 @@
     'use strict';
 
     const SYSTEM_FONT_STACK = "'SF Pro', -apple-system, 'Arial', sans-serif";
-    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'Open Sans', 'Noto Sans','TwitterChirp'];
+    const TARGET_FONTS = ['Google Sans', 'Google Sans Flex', 'Roboto', 'Segoe UI', 'Open Sans', 'Noto Sans', 'Inter Variable', 'Inter'];
 
     function shouldReplaceFont(fontFamily) {
         if (!fontFamily) return false;
