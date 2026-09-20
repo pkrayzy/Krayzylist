@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.5
-// @description  Replaces Google Sans and other common fonts with the system font using CSS overrides
+// @version      0.6
+// @description  Replaces specific target fonts with the native system font stack
 // @match        *://*.google.com/*
 // @match        *://*.youtube.com/*
 // @match        *://*.bing.com/*
@@ -16,6 +16,9 @@
 
 (function () {
     'use strict';
+
+    // The system font stack that works across Windows, Mac, and Linux
+    const SYSTEM_STACK = "system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif";
 
     const TARGET_FONTS = [
         'Amazon Ember',
@@ -34,16 +37,14 @@
         'YTSans'
     ];
 
-    // Maps every target font to the OS-level system font
-    const REPLACEMENT_FONT = "local('System Font')";
-
-    const cssOverrides = TARGET_FONTS.map(font => `
-        @font-face {
-            font-family: '${font}';
-            src: ${REPLACEMENT_FONT};
-            font-display: swap;
+    // We create a CSS rule that targets any element using these fonts 
+    // and forces them to use the system stack.
+    const cssRules = TARGET_FONTS.map(font => `
+        [style*="${font}"], 
+        .font-${font.replace(/\s+/g, '-').toLowerCase()} { 
+            font-family: ${SYSTEM_STACK} !important; 
         }
     `).join('\n');
 
-    GM_addStyle(cssOverrides);
+    GM_addStyle(cssRules + globalOverride);
 })();
