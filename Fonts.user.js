@@ -19,14 +19,14 @@
     'use strict';
 
     const TARGET_FONTS = [
-        'Google Sans', 
-        'Google Sans Flex', 
-        'Roboto', 
-        'Segoe UI', 
-        'Open Sans', 
-        'Noto Sans', 
-        'Inter Variable', 
-        'Inter', 
+        'Google Sans',
+        'Google Sans Flex',
+        'Roboto',
+        'Segoe UI',
+        'Open Sans',
+        'Noto Sans',
+        'Inter Variable',
+        'Inter',
         'Amazon Ember'
     ];
 
