@@ -19,15 +19,18 @@
     'use strict';
 
     const TARGET_FONTS = [
-        'Google Sans',
+        'Amazon Ember',
         'Google Sans Flex',
-        'Roboto',
-        'Segoe UI',
-        'Open Sans',
-        'Noto Sans',
+        'Google Sans',
         'Inter Variable',
         'Inter',
-        'Amazon Ember'
+        'Noto Sans',
+        'Open Sans',
+        'Roboto',
+        'Segoe UI',
+        'Segoe',
+        'Tahoma',
+        'Verdana'
     ];
 
     // The local font stack we want the browser to use when the target fonts are requested
