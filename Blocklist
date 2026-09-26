@@ -137,7 +137,7 @@ nfl.com##article[class]:style(margin-top: 0px !important;)
 nypost.com##.entry-content.featured-image.featured-image__wrapper,.membership-comments-container,.membership-reactions-module,.nyp-zephr-flyout,.scrollingdown.hide,.widget--vividseats,amp-video-iframe,.recirc,.wp-block-nypost-editor-newsletter,.nyp-s2n-wrapper
 nypost.com##div:has([data-adm-url])
 nypost.com##iframe[src^="https://embeds.nypost.com/protected-iframe/"]
-nypost.com, pagsix.com##[dialog]
+nypost.com,pagsix.com##[dialog]
 nytimes.com###top-wrapper,#bottom-wrapper
 nytimes.com##.e1xxpj0j0 > .e1xxpj0j1
 nytimes.com##[id^="story-ad-"]
