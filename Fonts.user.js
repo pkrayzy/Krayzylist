@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.3.1
 // @description  Replaces target fonts with system fonts using the @font-face redirection hack
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @match        *://*.google.com/*
@@ -24,6 +24,8 @@
         'Roboto',
         'Segoe UI',
         'Open Sans',
+        'Montserrat',
+        'Montserrat Thin',
         'Noto Sans',
         'Inter Variable',
         'Inter',
