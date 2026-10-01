@@ -21,14 +21,15 @@
     const targetFonts = [
         'Google Sans',
         'Google Sans Flex',
-        'Roboto',
-        'Segoe UI',
-        'Open Sans',
+        'Inter',
+        'Inter Variable',
         'Montserrat',
         'Montserrat Thin',
         'Noto Sans',
-        'Inter Variable',
-        'Inter',
+        'Open Sans',
+        'Proxima Nova',
+        'Roboto',
+        'Segoe UI',
         'YTSans',
         'YouTube Sans'
     ];
