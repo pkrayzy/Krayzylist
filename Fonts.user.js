@@ -21,8 +21,6 @@
     const targetFonts = [
         'Google Sans',
         'Google Sans Flex',
-        'Inter',
-        'Inter Variable',
         'Montserrat',
         'Montserrat Thin',
         'Noto Sans',
