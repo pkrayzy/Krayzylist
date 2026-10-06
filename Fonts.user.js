@@ -28,6 +28,7 @@
         'Proxima Nova',
         'Roboto',
         'Segoe UI',
+        'TwitterChirp',
         'YTSans',
         'YouTube Sans'
     ];
