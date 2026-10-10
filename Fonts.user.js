@@ -29,6 +29,7 @@
         'Roboto',
         'Segoe UI',
         'TwitterChirp',
+        'Yahoo Sans',
         'YTSans',
         'YouTube Sans'
     ];
