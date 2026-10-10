@@ -263,6 +263,7 @@ bing.com##.ca_main:style(padding-block-start: 0px !important;)
 ! bing.com##.utilAns > .acf-tabs:style(padding: 0px !important;)
 bing.com##.utilAns > .acf-tabs:style(padding: var(--smtc-gap-between-content-small) !important;)
 bing.com###b_topw .b_wpt_container:style(margin-block-start: 0px !important;)
+bing.com###copans_container.copans_container::after
 bing.com###copans_container.copans_container:style(margin-block-start: 0px !important;)
 
 !!--Scriptlets--!!
