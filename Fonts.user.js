@@ -28,7 +28,6 @@
         'Proxima Nova',
         'Roboto',
         'Segoe UI',
-        'TwitterChirp',
         'Yahoo Sans',
         'YahooSans VF',
         'YahooSans',
@@ -43,13 +42,13 @@
         css += `
             @font-face {
                 font-family: '${font}';
-                src: local('.AppleSystemUIFont'), local('SF Pro'), local('Arial');
+                src: local('SF Pro Display'), local('.AppleSystemUIFont'), local('Helvetica'), local('Arial');
                 font-weight: 100 900;
                 font-style: normal;
             }
             @font-face {
                 font-family: '${font}';
-                src: local('.AppleSystemUIFont'), local('SF Pro'), local('Arial');
+                src: local('SF Pro Display'), local('.AppleSystemUIFont'), local('Helvetica'), local('Arial');
                 font-weight: 100 900;
                 font-style: italic;
             }
