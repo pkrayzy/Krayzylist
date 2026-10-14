@@ -19,6 +19,8 @@
     'use strict';
 
     const targetFonts = [
+        'Costco Sans',
+        'Costco Sans Web',
         'Google Sans',
         'Google Sans Flex',
         'Montserrat',
