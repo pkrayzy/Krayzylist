@@ -105,6 +105,7 @@ OpenSans-*00*$font
 !!---Specific CSS---!!
 amazon.com##div#nav-flyout-rufus:remove()
 architecturaldigest.com,bonappetit.com,cntraveler.com,gq.com,newyorker.com,pitchfork.com,self.com,teenvogue.com,them.us,vanityfair.com,vogue.com,wired.com##[class^="TickerContainer-"],figure[data-testid="cne-interlude-container"],[data-testid="sticky-hero-ad"],.consumer-marketing-unit
+bestbuy.com##[data-testid="marquee-ad-shimmer"]
 bloomberg.com##[class^="bvp-"]
 bloomberg.com##[aria-label="Leaderboard advertisement"],[aria-label="In-article advertisement"]
 bulbapedia.bulbagarden.net###siteNotice
