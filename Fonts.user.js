@@ -43,13 +43,13 @@
         css += `
             @font-face {
                 font-family: '${font}';
-                src: local('Helvetica Neue');
+                src: local('System-ui'), local('-apple-system'), local('InterVariable'), local('Helvetica Neue'), local('sans-serif');
                 font-weight: 100 900;
                 font-style: normal;
             }
             @font-face {
                 font-family: '${font}';
-                src: local('Helvetica Neue');
+                src: local('System-ui'), local('-apple-system'), local('InterVariable'), local('Helvetica Neue'), local('sans-serif');
                 font-weight: 100 900;
                 font-style: italic;
             }
