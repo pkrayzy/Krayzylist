@@ -38,8 +38,6 @@
     ];
 
     // We create a @font-face rule for every target font.
-    // This tells the browser: "Whenever you see [Target Font], use 'SF Pro Display' instead."
-    // src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica'), local('Arial'), local('Sans-Serif');
     let css = '';
     targetFonts.forEach(font => {
         css += `
@@ -58,7 +56,6 @@
         `;
     });
 
-
     // Inject the CSS into the page
     if (typeof GM_addStyle !== 'undefined') {
         GM_addStyle(css);
@@ -68,26 +65,51 @@
         document.documentElement.appendChild(style);
     }
 
-    // JS Logic: "if weight < 400, then use 400, else inherit"
+    // PERFORMANCE-OPTIMIZED Logic: "if weight < 400, then use 400, else inherit"
     const enforceMinWeight = (el) => {
-        if (el.nodeType !== 1) return; // Only process elements
-        const weight = window.getComputedStyle(el).fontWeight;
-        const numericWeight = parseInt(weight, 10);
+        if (!el || el.nodeType !== 1) return;
         
+        const style = window.getComputedStyle(el);
+        const weight = style.fontWeight;
+        
+        // Rapid check: if it's already 400 or more, skip immediately.
+        // Handle both numeric values (e.g. "300") and keywords (e.g. "normal", "bold").
+        if (weight === 'normal' || weight === 'bold' || parseInt(weight, 10) >= 400) {
+            return;
+        }
+        
+        const numericWeight = parseInt(weight, 10);
         if (!isNaN(numericWeight) && numericWeight < 400) {
             el.style.setProperty('font-weight', '400', 'important');
+            el.style.setProperty('font-variation-settings', '"wght" 400', 'important');
         }
     };
 
-    // Observe the document for new elements to handle dynamic content
+    // Use a fast loop for the initial pass
+    const initialElements = document.querySelectorAll('*');
+    for (let i = 0; i < initialElements.length; i++) {
+        enforceMinWeight(initialElements[i]);
+    }
+
+    // Use MutationObserver with a filter to minimize calls.
+    // We only process elements that are likely to have text or set font weights.
     const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-            mutation.addedNodes.forEach(node => {
+        for (let i = 0; i < mutations.length; i++) {
+            const mutation = mutations[i];
+            const nodes = mutation.addedNodes;
+            for (let j = 0; j < nodes.length; j++) {
+                const node = nodes[j];
                 if (node.nodeType === 1) {
                     enforceMinWeight(node);
-                    node.querySelectorAll('*').forEach(enforceMinWeight);
+                    // Only recurse if the node has children
+                    if (node.children.length > 0) {
+                        const children = node.querySelectorAll('*');
+                        for (let k = 0; k < children.length; k++) {
+                            enforceMinWeight(children[k]);
+                        }
+                    }
                 }
-            });
+            }
         }
     });
 
@@ -95,7 +117,4 @@
         childList: true,
         subtree: true
     });
-
-    // Initial pass for existing elements
-    document.querySelectorAll('*').forEach(enforceMinWeight);
 })();
