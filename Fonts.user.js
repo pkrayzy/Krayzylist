@@ -41,19 +41,19 @@
 
     // We create a @font-face rule for every target font.
     // This tells the browser: "Whenever you see [Target Font], use 'SF Pro Display' instead."
-    let css = '';
+    // src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Helvetica');    let css = '';
     targetFonts.forEach(font => {
         css += `
             @font-face {
                 font-family: '${font}';
-                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Helvetica');
-                font-weight: 400 900;
+                src: local('Helvetica Neue'), local('Helvetica');
+                font-weight: 100 900;
                 font-style: normal;
             }
             @font-face {
                 font-family: '${font}';
-                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Helvetica');
-                font-weight: 400 900;
+                src: local('Helvetica Neue'), local('Helvetica');
+                font-weight: 100 900;
                 font-style: italic;
             }
         `;
