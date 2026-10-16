@@ -44,13 +44,13 @@
         css += `
             @font-face {
                 font-family: '${font}';
-                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica'), local('Arial'), local('Sans-Serif');
+                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Arial'), local('Sans-Serif');
                 font-weight: 100 900;
                 font-style: normal;
             }
             @font-face {
                 font-family: '${font}';
-                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica'), local('Arial'), local('Sans-Serif');
+                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Arial'), local('Sans-Serif');
                 font-weight: 100 900;
                 font-style: italic;
             }
