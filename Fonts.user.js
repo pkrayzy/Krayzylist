@@ -19,6 +19,7 @@
     'use strict';
 
     const targetFonts = [
+        'Arial',
         'Costco Sans',
         'Costco Sans Web',
         'Google Sans',
@@ -44,14 +45,14 @@
         css += `
             @font-face {
                 font-family: '${font}';
-                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Arial'), local('Sans-Serif');
-                font-weight: 400 900;
+                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Helvetica'), local('Sans-Serif');
+                font-weight: 100 900;
                 font-style: normal;
             }
             @font-face {
                 font-family: '${font}';
-                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Arial'), local('Sans-Serif');
-                font-weight: 400 900;
+                src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Helvetica'), local('Sans-Serif');
+                font-weight: 100 900;
                 font-style: italic;
             }
         `;
