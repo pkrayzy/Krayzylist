@@ -19,8 +19,6 @@
     'use strict';
 
     const targetFonts = [
-        'sans-serif',
-        'Arial',
         'Costco Sans',
         'Costco Sans Web',
         'Google Sans',
@@ -41,23 +39,25 @@
 
     // We create a @font-face rule for every target font.
     // This tells the browser: "Whenever you see [Target Font], use 'SF Pro Display' instead."
-    // src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica Neue'), local('Helvetica');    let css = '';
+    // src: local('.AppleSystemUIFont'), local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('Helvetica'), local('Arial'), local('Sans-Serif');
+    let css = '';
     targetFonts.forEach(font => {
         css += `
             @font-face {
                 font-family: '${font}';
-                src: local('Helvetica Neue'), local('Helvetica');
+                src: local('Helvetica Neue');
                 font-weight: 100 900;
                 font-style: normal;
             }
             @font-face {
                 font-family: '${font}';
-                src: local('Helvetica Neue'), local('Helvetica');
+                src: local('Helvetica Neue');
                 font-weight: 100 900;
                 font-style: italic;
             }
         `;
     });
+
 
     // Inject the CSS into the page
     if (typeof GM_addStyle !== 'undefined') {
@@ -67,4 +67,35 @@
         style.textContent = css;
         document.documentElement.appendChild(style);
     }
+
+    // JS Logic: "if weight < 400, then use 400, else inherit"
+    const enforceMinWeight = (el) => {
+        if (el.nodeType !== 1) return; // Only process elements
+        const weight = window.getComputedStyle(el).fontWeight;
+        const numericWeight = parseInt(weight, 10);
+        
+        if (!isNaN(numericWeight) && numericWeight < 400) {
+            el.style.setProperty('font-weight', '400', 'important');
+        }
+    };
+
+    // Observe the document for new elements to handle dynamic content
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                    enforceMinWeight(node);
+                    node.querySelectorAll('*').forEach(enforceMinWeight);
+                }
+            });
+        }
+    });
+
+    observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+    });
+
+    // Initial pass for existing elements
+    document.querySelectorAll('*').forEach(enforceMinWeight);
 })();
