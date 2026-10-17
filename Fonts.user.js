@@ -30,6 +30,7 @@
         'Proxima Nova',
         'Roboto',
         'Segoe UI',
+        'TwitterChirp',
         'Yahoo Sans',
         'YahooSans VF',
         'YahooSans',
