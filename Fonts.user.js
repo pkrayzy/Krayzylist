@@ -19,6 +19,7 @@
     'use strict';
 
     const targetFonts = [
+        'app-sans',
         'Costco Sans',
         'Costco Sans Web',
         'Google Sans',
@@ -29,8 +30,10 @@
         'Open Sans',
         'Proxima Nova',
         'Roboto',
+        'sans',
         'Segoe UI',
         'TwitterChirp',
+        'VCNudge',
         'Yahoo Sans',
         'YahooSans VF',
         'YahooSans',
