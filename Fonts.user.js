@@ -33,7 +33,6 @@
         'Roboto',
         'sans',
         'Segoe UI',
-        'TwitterChirp',
         'VCNudge',
         'Yahoo Sans',
         'YahooSans VF',
