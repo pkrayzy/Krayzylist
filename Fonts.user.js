@@ -24,7 +24,6 @@
         'Costco Sans Web',
         'Google Sans',
         'Google Sans Flex',
-        'InterVariable',
         'Montserrat',
         'Montserrat Thin',
         'Noto Sans',
