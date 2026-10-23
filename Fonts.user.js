@@ -48,13 +48,13 @@
         css += `
             @font-face {
                 font-family: '${font}';
-                src: local('System-ui'), local('-apple-system'), local('sans-serif');
+                src: local('System-ui'), local('-apple-system'), local('sans-serif'), local('Helvetica Neue'), local('Arial');
                 font-weight: 100 900;
                 font-style: normal;
             }
             @font-face {
                 font-family: '${font}';
-                src: local('System-ui'), local('-apple-system'), local('sans-serif');
+                src: local('System-ui'), local('-apple-system'), local('sans-serif'), local('Helvetica Neue'), local('Arial');
                 font-weight: 100 900;
                 font-style: italic;
             }
