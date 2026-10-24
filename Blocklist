@@ -268,6 +268,6 @@ bing.com###copans_container.copans_container::after
 bing.com###copans_container.copans_container:style(margin-block-start: 0px !important;)
 
 !!--Scriptlets--!!
-bloomberg.com,theverge.com#%#//scriptlet('remove-cookie')
-bloomberg.com,nytimes.com,theverge.com#%#//scriptlet('set-session-storage-item', '/*/', '$remove$')
-bloomberg.com,nytimes.com,theverge.com#%#//scriptlet('set-local-storage-item', '/*/', '$remove$')
+bloomberg.com,theverge.com##+js(remove-cookie)
+bloomberg.com,nytimes.com,theverge.com##+js(set-session-storage-item, /*/, $remove$)
+bloomberg.com,nytimes.com,theverge.com##+js(set-local-storage-item, /*/, $remove$)
