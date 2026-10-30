@@ -4,7 +4,12 @@
 // @version      1.0
 // @description  Prevents YouTube and other sites from pausing video when switching tabs or minimizing the window.
 // @author       Claude
-// @match        *://*.youtube.com/*
+// @match        https://www.youtube.com/*
+// @match        https://youtube.com/*
+// @match        https://m.youtube.com/*
+// @match        https://music.youtube.com/*
+// @match        https://www.youtube-nocookie.com/*
+// @match        https://youtube-nocookie.com/*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==

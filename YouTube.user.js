@@ -4,9 +4,12 @@
 // @version      1.0
 // @description  Combined YouTube modifications for playback, ad-blocking, and player fixes
 // @author       Claude
-// @match        *://www.youtube.com/*
-// @match        *://m.youtube.com/*
-// @match        *://youtube-nocookie.com/*
+// @match        https://www.youtube.com/*
+// @match        https://youtube.com/*
+// @match        https://m.youtube.com/*
+// @match        https://music.youtube.com/*
+// @match        https://www.youtube-nocookie.com/*
+// @match        https://youtube-nocookie.com/*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
