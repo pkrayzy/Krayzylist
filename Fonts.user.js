@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.3.1
+// @version      0.3.3
 // @description  Replaces target fonts with system fonts using the @font-face redirection hack
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @match        *://*.google.com/*
@@ -20,53 +20,27 @@
 
     const targetFonts = [
         'app-sans',
-        'Costco Sans',
-        'Costco Sans Web',
-        'Google Sans',
-        'Google Sans Flex',
-        'Montserrat',
-        'Montserrat Thin',
-        'Noto Sans',
-        'Open Sans',
-        'Proxima Nova',
-        'Roboto',
-        'sans',
-        'Segoe UI',
-        'VCNudge',
-        'Yahoo Sans',
-        'YahooSans VF',
-        'YahooSans',
-        'YTSans',
-        'YouTube Sans'
+        'Costco Sans', 'Costco Sans Web',
+        'Google Sans', 'Google Sans Flex',
+        'Montserrat', 'Montserrat Thin',
+        'Noto Sans', 'Open Sans',
+        'Proxima Nova', 'Roboto', 'sans',
+        'Segoe UI', 'VCNudge',
+        'Yahoo Sans', 'YahooSans VF', 'YahooSans',
+        'YTSans', 'YouTube Sans'
     ];
 
+    const src = "local('System-ui'),local('-apple-system'),local('sans-serif'),local('Helvetica Neue'),local('Arial')";
+    const css = targetFonts.map(f =>
+        `@font-face{font-family:'${f}';src:${src};font-weight:100 900;font-style:normal}` +
+        `@font-face{font-family:'${f}';src:${src};font-weight:100 900;font-style:italic}`
+    ).join('');
 
-    // We create a @font-face rule for every target font.
-    // This tells the browser: "Whenever you see [Target Font], use 'SF Pro Display' instead."
-    let css = '';
-    targetFonts.forEach(font => {
-        css += `
-            @font-face {
-                font-family: '${font}';
-                src: local('System-ui'), local('-apple-system'), local('sans-serif'), local('Helvetica Neue'), local('Arial');
-                font-weight: 100 900;
-                font-style: normal;
-            }
-            @font-face {
-                font-family: '${font}';
-                src: local('System-ui'), local('-apple-system'), local('sans-serif'), local('Helvetica Neue'), local('Arial');
-                font-weight: 100 900;
-                font-style: italic;
-            }
-        `;
-    });
-
-    // Inject the CSS into the page
     if (typeof GM_addStyle !== 'undefined') {
         GM_addStyle(css);
     } else {
         const style = document.createElement('style');
         style.textContent = css;
-        document.documentElement.appendChild(style);
+        (document.head || document.documentElement).appendChild(style);
     }
 })();
