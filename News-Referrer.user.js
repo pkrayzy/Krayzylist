@@ -56,5 +56,23 @@
       "initiatorDomains": ["ft.com", "nytimes.com", "newyorker.com", "theverge.com"],
       "resourceTypes": ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "xmlhttprequest", "other"]
     }
+  },
+  {
+    "id": 204,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        {
+          "header": "Referer",
+          "operation": "set",
+          "value": "https://www.drudgereport.com/"
+        }
+      ]
+    },
+    "condition": {
+      "initiatorDomains": ["wsj.com"],
+      "resourceTypes": ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "xmlhttprequest", "other"]
+    }
   }
 ]
