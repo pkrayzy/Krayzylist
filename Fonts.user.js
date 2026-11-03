@@ -20,14 +20,24 @@
 
     const targetFonts = [
         'app-sans',
-        'Costco Sans', 'Costco Sans Web',
-        'Google Sans', 'Google Sans Flex',
-        'Montserrat', 'Montserrat Thin',
-        'Noto Sans', 'Open Sans',
-        'Proxima Nova', 'Roboto', 'sans',
-        'Segoe UI', 'VCNudge',
-        'Yahoo Sans', 'YahooSans VF', 'YahooSans',
-        'YTSans', 'YouTube Sans'
+        'Costco Sans',
+        'Costco Sans Web',
+        'Google Sans',
+        'Google Sans Flex',
+        'Montserrat',
+        'Montserrat Thin',
+        'Noto Sans',
+        'Open Sans',
+        'Proxima Nova',
+        'Roboto',
+        'sans',
+        'Segoe UI',
+        'VCNudge',
+        'Yahoo Sans',
+        'YahooSans VF',
+        'YahooSans',
+        'YTSans',
+        'YouTube Sans'
     ];
 
     const src = "local('System-ui'),local('-apple-system'),local('sans-serif'),local('Helvetica Neue'),local('Arial')";
