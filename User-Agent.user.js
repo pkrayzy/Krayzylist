@@ -80,7 +80,7 @@
     }
   },
   {
-    "id": 303,
+    "id": 304,
     "priority": 1,
     "action": {
       "type": "modifyHeaders",
