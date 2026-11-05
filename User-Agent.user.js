@@ -88,8 +88,7 @@
         {
           "header": "user-agent",
           "operation": "set",
-          // "value": "Mozilla/5.0 (compatible; Google-InspectionTool/1.0)"
-          "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:147.0) Gecko/20100101 Firefox/147.0"
+          "value": "Mozilla/5.0 (compatible; Google-InspectionTool/1.0)"
         }
       ]
     },
