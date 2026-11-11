@@ -53,6 +53,7 @@
     let recentUserInteraction = false;
     let interactionTimer = null;
     function markUserInteraction() {
+        if (recentUserInteraction) return;
         recentUserInteraction = true;
         if (interactionTimer) clearTimeout(interactionTimer);
         interactionTimer = setTimeout(function () {
@@ -62,8 +63,6 @@
     }
     try {
         document.addEventListener('pointerdown', markUserInteraction, true);
-        document.addEventListener('mousedown', markUserInteraction, true);
-        document.addEventListener('touchstart', markUserInteraction, true);
         document.addEventListener('keydown', markUserInteraction, true);
     } catch (e) { /* ignore */ }
 
@@ -223,7 +222,6 @@
         }
 
         // Safari needs playsinline to keep decoded video alive in background/PiP.
-        try { video.setAttribute('playsinline', ''); } catch (e) { /* ignore */ }
         try { video.playsInline = true; } catch (e) { /* ignore */ }
         try { video.setAttribute('webkit-playsinline', ''); } catch (e) { /* ignore */ }
 
@@ -253,42 +251,22 @@
     const observer = new MutationObserver((mutations) => {
         // Collect newly added videos once per batch to avoid repeated scans.
         const found = [];
-        for (let i = 0; i < mutations.length; i++) {
-            const nodes = mutations[i].addedNodes;
-            for (let j = 0; j < nodes.length; j++) {
-                const node = nodes[j];
-                if (!node || node.nodeType !== 1) continue;
+        for (const mutation of mutations) {
+            for (const node of mutation.addedNodes) {
+                if (node.nodeType !== 1) continue;
                 if (node.tagName === 'VIDEO') {
                     found.push(node);
                 } else if (typeof node.querySelectorAll === 'function') {
                     const videos = node.querySelectorAll('video');
-                    for (let k = 0; k < videos.length; k++) found.push(videos[k]);
+                    for (const v of videos) found.push(v);
                 }
             }
         }
-        for (let i = 0; i < found.length; i++) setupVideo(found[i]);
+        for (const video of found) setupVideo(video);
     });
 
     const observeTarget = document.documentElement || document;
     observer.observe(observeTarget, { childList: true, subtree: true });
-
-    // If we had to start on `document` because html wasn't ready, switch to
-    // documentElement once available to narrow the observation scope.
-    if (!document.documentElement) {
-        const switchTarget = function () {
-            try { observer.disconnect(); } catch (e) { /* ignore */ }
-            if (document.documentElement) {
-                try { observer.observe(document.documentElement, { childList: true, subtree: true }); } catch (e) { /* ignore */ }
-            } else {
-                try { observer.observe(document, { childList: true, subtree: true }); } catch (e) { /* ignore */ }
-            }
-        };
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', switchTarget, { once: true });
-        } else {
-            switchTarget();
-        }
-    }
 
     const scanExisting = () => {
         const videos = document.getElementsByTagName('video');
