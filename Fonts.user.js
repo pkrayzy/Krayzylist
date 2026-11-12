@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.3.4
+// @version      0.3.5
 // @description  Replaces target fonts with system fonts using the @font-face redirection hack
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @match        *://*.google.com/*
