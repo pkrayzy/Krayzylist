@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.3.3
+// @version      0.3.4
 // @description  Replaces target fonts with system fonts using the @font-face redirection hack
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @match        *://*.google.com/*
@@ -39,18 +39,23 @@
         'YTSans',
         'YouTube Sans'
     ];
-
+    
     const src = "local('System-ui'),local('-apple-system'),local('sans-serif'),local('Helvetica Neue'),local('Arial')";
-    const css = targetFonts.map(f =>
-        `@font-face{font-family:'${f}';src:${src};font-weight:100 900;font-style:normal}` +
-        `@font-face{font-family:'${f}';src:${src};font-weight:100 900;font-style:italic}`
-    ).join('');
+    
+    // Optimization: Use a loop to build the string to avoid intermediate array allocation
+    let css = '';
+    for (let i = 0; i < targetFonts.length; i++) {
+        const f = targetFonts[i];
+        css += `@font-face{font-family:'${f}';src:${src};font-weight:100 900;font-style:normal}` +
+               `@font-face{font-family:'${f}';src:${src};font-weight:100 900;font-style:italic}`;
+    }
 
     if (typeof GM_addStyle !== 'undefined') {
         GM_addStyle(css);
     } else {
         const style = document.createElement('style');
         style.textContent = css;
+        // document.head is often null at document-start; document.documentElement is always available
         (document.head || document.documentElement).appendChild(style);
     }
 })();
