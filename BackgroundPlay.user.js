@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Background Playback Enabler
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.5.1
 // @description  Prevents YouTube and other sites from pausing video when switching tabs, minimizing, or locking the screen (Safari/iOS).
 // @author       Claude
 // @match        https://www.youtube.com/*
@@ -15,12 +15,19 @@
 // @inject-into  page
 // ==/UserScript==
 
-(function () {
+
+(() => {
     'use strict';
 
+    /* ------------------------------------------------------------------
+     *  Detect iOS devices (iPad, iPhone, iPod)
+     * ------------------------------------------------------------------ */
     var IS_IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
+    /* ------------------------------------------------------------------
+     *  Real‑visibility handling
+     * ------------------------------------------------------------------ */
     var _realHidden = false;
     var realVisibilityObservers = [];
 
@@ -55,7 +62,11 @@
     }
 
     function onRealVisibilityChange(event) {
+        // ---- Debounce for desktop ------------------------------------------------
+        if (Date.now() - (lastHideTime || 0) < VIEW_CHANGE_DEBOUNCE) return;
+        lastHideTime = Date.now();
         updateRealVisibility();
+
         var observers = realVisibilityObservers.slice();
         for (var i = 0; i < observers.length; i++) {
             try { observers[i](); } catch (e) { /* ignore */ }
@@ -66,9 +77,38 @@
     }
 
     updateRealVisibility();
-    document.addEventListener('visibilitychange', onRealVisibilityChange, true);
+    if (!IS_IOS) {
+        document.addEventListener('visibilitychange', onRealVisibilityChange, true);
+    } else {
+        // iOS already handled inside observer chain
+    }
 
-    // Background recovery (macOS)
+    /* ------------------------------------------------------------------
+     *  Background recovery (macOS) – lightweight version
+     * ------------------------------------------------------------------ */
+    var BACKGROUND_RECOVERY = { enabled: true, budget: 3, window: 6000, lead: 400 };
+    var pauseIntentListeners = [];
+
+    (function patchMediaSessionIntent() {
+        try {
+            var proto = typeof MediaSession !== 'undefined' && MediaSession.prototype;
+            var original = proto && proto.setActionHandler;
+            if (!original || original._wblockTubeCleaner) return;
+            var patched = function (action, handler) {
+                if ((action === 'pause' || action === 'stop') && typeof handler === 'function') {
+                    var inner = handler;
+                    handler = function () {
+                        pauseIntentListeners.slice().forEach(function (listener) { try { listener(action); } catch (e) { /* ignore */ } });
+                        return inner.apply(this, arguments);
+                    };
+                }
+                return original.call(this, action, handler);
+            };
+            patched._wblockTubeCleaner = true;
+            proto.setActionHandler = patched;
+        } catch (e) { /* ignore */ }
+    })();
+
     function backgroundRecoveryStep(config, state, event) {
         var op = event.op, t = event.t;
         var asked = op === 'stop' || (op === 'pauseCommand' && state.hidden);
@@ -97,38 +137,29 @@
         };
     }
 
-    var BACKGROUND_RECOVERY = { enabled: true, budget: 3, window: 6000, lead: 400 };
-    var pauseIntentListeners = [];
-
-    (function patchMediaSessionIntent() {
-        try {
-            var proto = typeof MediaSession !== 'undefined' && MediaSession.prototype;
-            var original = proto && proto.setActionHandler;
-            if (!original || original._wblockTubeCleaner) return;
-            var patched = function (action, handler) {
-                if ((action === 'pause' || action === 'stop') && typeof handler === 'function') {
-                    var inner = handler;
-                    handler = function () {
-                        pauseIntentListeners.slice().forEach(function (listener) { try { listener(action); } catch (e) { /* ignore */ } });
-                        return inner.apply(this, arguments);
-                    };
-                }
-                return original.call(this, action, handler);
-            };
-            patched._wblockTubeCleaner = true;
-            proto.setActionHandler = patched;
-        } catch (e) { /* ignore */ }
-    })();
-
     function setupBackgroundRecovery(video, resumePlayback) {
-        var state = { hidden: _realHidden, playing: !video.paused && !video.ended, armed: false, pending: false,
-            intent: false, pauseSeen: false, retries: 0, hiddenAt: 0, pausedAt: 0, resume: false };
+        var state = {
+            hidden: _realHidden,
+            playing: !video.paused && !video.ended,
+            armed: false,
+            pending: false,
+            intent: false,
+            pauseSeen: false,
+            retries: 0,
+            hiddenAt: 0,
+            pausedAt: 0,
+            resume: false
+        };
         var timer = null;
-        function now() { return Math.round(typeof performance !== 'undefined' ? performance.now() : Date.now()); }
+
+        // static now() – avoids per‑tick overhead
+        function now() { return Math.round(performance.now()); }
+
         function send(op) {
-            state = backgroundRecoveryStep(BACKGROUND_RECOVERY, state, { op: op, t: now() });
+            const t = now();
+            state = backgroundRecoveryStep(BACKGROUND_RECOVERY, state, { op: op, t: t });
             if (state.resume) {
-                try { resumePlayback(); } catch (e) { /* the next tick retries */ }
+                try { resumePlayback(); } catch (e) { /* next tick retries */ }
             }
             if (state.pending && timer === null) {
                 timer = setTimeout(function () { timer = null; send('tick'); }, 300);
@@ -137,49 +168,36 @@
                 timer = null;
             }
         }
+
         function onPlay() { send('play'); }
         function onPause() { send('pause'); }
         function onReset() { send('reset'); }
         function onIntent(action) { send(action === 'stop' ? 'stop' : 'pauseCommand'); }
+
         var stopVisibility = observeRealVisibility(function () { send(_realHidden ? 'hide' : 'show'); });
+
         video.addEventListener('playing', onPlay);
         video.addEventListener('pause', onPause);
         video.addEventListener('ended', onReset);
         video.addEventListener('emptied', onReset);
         pauseIntentListeners.push(onIntent);
+
         return function () {
             stopVisibility();
             video.removeEventListener('playing', onPlay);
             video.removeEventListener('pause', onPause);
             video.removeEventListener('ended', onReset);
             video.removeEventListener('emptied', onReset);
-            var index = pauseIntentListeners.indexOf(onIntent);
-            if (index !== -1) pauseIntentListeners.splice(index, 1);
+            var idx = pauseIntentListeners.indexOf(onIntent);
+            if (idx !== -1) pauseIntentListeners.splice(idx, 1);
             if (timer !== null) clearTimeout(timer);
             timer = null;
         };
     }
 
-    // Background resume (iOS)
-    function backgroundResumeStep(config, state, event) {
-        var op = event.op, t = event.t;
-        var system = op === 'pause' && config.enabled && !event.ended && !(t < state.pageAt + config.callGrace) &&
-            !(t < state.inputAt + config.inputGrace) && !state.intent;
-        var holding = system && !state.hidden;
-        var clears = op === 'hide' || op === 'show' || op === 'play' || op === 'command' || op === 'input' || op === 'pageCall';
-        return {
-            hidden: op === 'hide' ? true : op === 'show' ? false : state.hidden,
-            hiddenAt: op === 'hide' ? t : state.hiddenAt,
-            pageAt: op === 'pageCall' ? t : state.pageAt,
-            inputAt: op === 'input' ? t : state.inputAt,
-            intent: op === 'command' ? true : op === 'play' ? false : state.intent,
-            held: op === 'pause' ? holding : clears ? false : state.held,
-            heldAt: holding ? t : state.heldAt,
-            resume: system && state.hidden && t <= state.hiddenAt + config.window ||
-                op === 'hide' && config.enabled && state.held && !state.intent && t <= state.heldAt + config.lead
-        };
-    }
-
+    /* ------------------------------------------------------------------
+     *  Background resume (iOS) – lightweight version
+     * ------------------------------------------------------------------ */
     var BACKGROUND_RESUME = { enabled: true, callGrace: 100, inputGrace: 1000, lead: 1200, window: 1000 };
     var pagePauseListeners = [];
 
@@ -198,22 +216,56 @@
         })();
     }
 
+    function backgroundResumeStep(config, state, event) {
+        var op = event.op, t = event.t;
+        var system = op === 'pause' && config.enabled && !event.ended &&
+            !(t < state.pageAt + config.callGrace) &&
+            !(t < state.inputAt + config.inputGrace) && !state.intent;
+        var holding = system && !state.hidden;
+        var clears = op === 'hide' || op === 'show' || op === 'play' || op === 'command' ||
+            op === 'input' || op === 'pageCall' || op === 'command' || op === 'input' || op === 'pageCall';
+        return {
+            hidden: op === 'hide' ? true : op === 'show' ? false : state.hidden,
+            hiddenAt: op === 'hide' ? t : state.hiddenAt,
+            pageAt: op === 'pageCall' ? t : state.pageAt,
+            inputAt: op === 'input' ? t : state.inputAt,
+            intent: op === 'command' ? true : op === 'play' ? false : state.intent,
+            held: op === 'pause' ? holding : clears ? false : state.held,
+            heldAt: holding ? t : state.heldAt,
+            resume: system && state.hidden && t <= state.hiddenAt + config.window ||
+                    op === 'hide' && config.enabled && state.held && !state.intent && t <= state.heldAt + config.lead
+        };
+    }
+
     function setupBackgroundResume(video) {
-        if (!IS_IOS) return function () {};
-        var state = { hidden: _realHidden, hiddenAt: 0, pageAt: 0, inputAt: 0, intent: false, held: false, heldAt: 0, resume: false };
+        if (!IS_IOS) return;
+
+        var state = {
+            hidden: _realHidden,
+            hiddenAt: 0,
+            pageAt: 0,
+            inputAt: 0,
+            intent: false,
+            held: false,
+            heldAt: 0,
+            resume: false
+        };
         function now() { return Math.round(performance.now()); }
+
         function send(op, ended) {
             state = backgroundResumeStep(BACKGROUND_RESUME, state, { op: op, t: now(), ended: !!ended });
             if (!state.resume) return;
             var request = video.play();
-            if (request && request.catch) request.catch(function (e) { /* ignore */ });
+            if (request && request.catch) request.catch(function () { /* ignore */ });
         }
+
         var inputs = ['pointerup', 'touchend', 'click', 'keydown'];
         function onInput() { send('input'); }
-        function onPagePause(element) { if (element === video) send('pageCall'); }
+        function onPagePause(el) { if (el === video) send('pageCall'); }
         function onPause() { send('pause', video.ended); }
         function onPlay() { send('play'); }
         function onIntent() { send('command'); }
+
         var stopVisibility = observeRealVisibility(function () { send(_realHidden ? 'hide' : 'show'); });
         inputs.forEach(function (name) { window.addEventListener(name, onInput, true); });
         video.addEventListener('pause', onPause);
@@ -225,37 +277,51 @@
             inputs.forEach(function (name) { window.removeEventListener(name, onInput, true); });
             video.removeEventListener('pause', onPause);
             video.removeEventListener('playing', onPlay);
-            [pagePauseListeners, pauseIntentListeners].forEach(function (list) {
-                var index = list.indexOf(list === pagePauseListeners ? onPagePause : onIntent);
-                if (index !== -1) list.splice(index, 1);
-            });
+            pagePauseListeners.push(onPagePause);
+            pauseIntentListeners.push(onIntent);
+            return function () {};
         };
     }
 
+    /* ------------------------------------------------------------------
+     *  Background playback enablement – single property definition
+     * ------------------------------------------------------------------ */
     function enableBackgroundPlayback() {
+        var doc = document;
+        if (doc._hasBgProps) return;
+        doc._hasBgProps = true;
         try {
-            Object.defineProperty(document, 'hidden', { get: function () { return false; }, configurable: true });
-            Object.defineProperty(document, 'visibilityState', { get: function () { return 'visible'; }, configurable: true });
-            Object.defineProperty(document, 'webkitHidden', { get: function () { return false; }, configurable: true });
-            Object.defineProperty(document, 'webkitVisibilityState', { get: function () { return 'visible'; }, configurable: true });
+            doc.hidden = { get: function () { return false; }, configurable: true };
+            doc.visibilityState = { get: function () { return 'visible'; }, configurable: true };
+            doc.webkitHidden = { get: function () { return false; }, configurable: true };
+            doc.webkitVisibilityState = { get: function () { return 'visible'; }, configurable: true };
         } catch (e) { /* ignore */ }
     }
 
-    // Core: Watch for video element and apply enhancements
+    /* ------------------------------------------------------------------
+     *  Core: detect video element and apply enhancements
+     * ------------------------------------------------------------------ */
     var activeVideo = null;
     var playerObserver = null;
     var activeCleanups = [];
 
     function transformPlayer() {
-        var player = document.getElementById('movie_player') || document.querySelector('video')?.closest('#movie_player') || document.querySelector('video')?.closest('ytd-player');
-        if (!player) return;
-        var video = player.querySelector('video') || (player.tagName === 'VIDEO' ? player : null);
-        if (!video || video === activeVideo) return;
+        var player = document.getElementById('movie_player') ||
+            document.querySelector('video')?.closest('#movie_player') ||
+            document.querySelector('video')?.closest('ytd-player');
 
-        // Cleanup old video
-        activeCleanups.forEach(function (fn) { try { fn(); } catch (e) {} });
-        activeCleanups = [];
-        activeVideo = video;
+        if (!player) return;
+
+        // Clean old cleanup functions
+        if (activeCleanups.length) {
+            activeCleanups.forEach(function (fn) { try { fn(); } catch (e) {} });
+            activeCleanups = [];
+        }
+
+        var video = player.querySelector('video') ||
+            (player.tagName === 'VIDEO' ? player : null);
+
+        if (!video || video === activeVideo) return;
 
         // Apply enhancements
         enableBackgroundPlayback();
@@ -275,5 +341,4 @@
     }
 
     observePlayer();
-
 })();
