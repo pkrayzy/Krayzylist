@@ -2,7 +2,8 @@
 # Each instruction is accompanied by a comment describing its purpose and possible values.
 
 # Base model specification
-FROM gemma4:12b-mlx
+# FROM gemma4:12b-mlx
+FROM nemotron-3-nano:4b-mlx
 
 # Model parameters
 # Enable Mirostat sampling for perplexity control. 0=disabled, 1=Mirostat, 2=Mirostat 2.0.
@@ -12,7 +13,7 @@ FROM gemma4:12b-mlx
 # Balance between coherence and diversity. Default: 5.0. Lower values = more focused text.
 # PARAMETER mirostat_tau <float>
 # Context window size. Default: 2048. Controls tokens used for generating the next token.
-PARAMETER num_ctx 4096
+PARAMETER num_ctx 8192
 # Number of GQA groups in the transformer layer. Required for some models, e.g., 8 for llama2:70b.
 # PARAMETER num_gqa <int
 # Number of layers to send to the GPU(s). macOS default: 1 for metal support.
