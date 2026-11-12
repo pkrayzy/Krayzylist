@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Background Playback Enabler
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  Prevents YouTube and other sites from pausing video when switching tabs, minimizing, or locking the screen (Safari/iOS).
 // @author       Claude
 // @match        https://www.youtube.com/*
@@ -15,270 +15,208 @@
 // @inject-into  page
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
 
-    // Capture the native visibility getters BEFORE we shadow them, so we can
-    // still tell whether the page is genuinely backgrounded (iOS lock / home).
-    function findGetter(obj, name) {
-        let proto = obj;
+    // ------------------------------------------------------------------
+    // 1. Preserve Native Visibility State
+    // ------------------------------------------------------------------
+    function findGetter(target, prop) {
+        let proto = target;
         while (proto) {
-            const desc = Object.getOwnPropertyDescriptor(proto, name);
+            const desc = Object.getOwnPropertyDescriptor(proto, prop);
             if (desc && typeof desc.get === 'function') return desc.get;
             proto = Object.getPrototypeOf(proto);
         }
         return null;
     }
 
-    const nativeHiddenGetter = findGetter(document, 'hidden');
-    const nativeVSGetter = findGetter(document, 'visibilityState');
+    const nativeHiddenGetter = findGetter(document, 'hidden') || findGetter(document, 'webkitHidden');
 
-    let realHidden = false;
-    function updateRealHidden() {
+    function isRealHidden() {
         try {
-            realHidden = nativeHiddenGetter ? !!nativeHiddenGetter.call(document) : false;
-        } catch (e) {
-            realHidden = false;
+            return nativeHiddenGetter ? nativeHiddenGetter.call(document) : false;
+        } catch (_) {
+            return false;
         }
     }
-    updateRealHidden();
 
-    const blockEvent = (e) => {
-        try { e.stopImmediatePropagation(); } catch (err) { /* ignore */ }
-    };
-
-    // Track whether a pause was requested by the user (lock-screen/media keys,
-    // on-page controls, keyboard). Used to avoid auto-resuming an explicit pause.
-    let userPaused = false;
-    let recentUserInteraction = false;
-    let interactionTimer = null;
-    function markUserInteraction() {
-        if (recentUserInteraction) return;
-        recentUserInteraction = true;
-        if (interactionTimer) clearTimeout(interactionTimer);
-        interactionTimer = setTimeout(function () {
-            recentUserInteraction = false;
-            interactionTimer = null;
-        }, 1200);
-    }
-    try {
-        document.addEventListener('pointerdown', markUserInteraction, true);
-        document.addEventListener('keydown', markUserInteraction, true);
-    } catch (e) { /* ignore */ }
-
-    // Keep our real-visibility tracker in sync, then block other listeners.
-    function onVisibilityChange(e) {
-        updateRealHidden();
-        try { e.stopImmediatePropagation(); } catch (err) { /* ignore */ }
-    }
-
-    // 1. Spoof Visibility State (desktop tabs + iOS Safari)
-    const enableBackgroundPlayback = () => {
-        document.addEventListener('visibilitychange', onVisibilityChange, true);
-        document.addEventListener('webkitvisibilitychange', onVisibilityChange, true);
-        window.addEventListener('pagehide', blockEvent, true);
-        window.addEventListener('freeze', blockEvent, true);
-
-        // Real values the OS/browser computed; we mask them as "visible".
-        try {
-            Object.defineProperty(document, 'hidden', {
-                get: function () { return false; },
-                configurable: true
-            });
-        } catch (e) { /* ignore */ }
-        try {
-            Object.defineProperty(document, 'visibilityState', {
-                get: function () { return 'visible'; },
-                configurable: true
-            });
-        } catch (e) { /* ignore */ }
-        try {
-            Object.defineProperty(document, 'webkitHidden', {
-                get: function () { return false; },
-                configurable: true
-            });
-        } catch (e) { /* ignore */ }
-        try {
-            Object.defineProperty(document, 'webkitVisibilityState', {
-                get: function () { return 'visible'; },
-                configurable: true
-            });
-        } catch (e) { /* ignore */ }
-
-        // YouTube sometimes checks document.hasFocus() as a fallback signal.
-        try { document.hasFocus = function () { return true; }; } catch (e) { /* ignore */ }
-
-        console.log('Background playback enabled: Visibility spoofed (Safari).');
-    };
-
-    enableBackgroundPlayback();
-
-    // 1b. Media Session hooks so a user-initiated pause (lock-screen button,
-    // media keys, OS controls) is honored instead of being auto-resumed.
-    (function hookMediaSession() {
-        if (!navigator.mediaSession) return;
-        let nativeSetActionHandler = null;
-        try { nativeSetActionHandler = navigator.mediaSession.setActionHandler.bind(navigator.mediaSession); } catch (e) { nativeSetActionHandler = null; }
-        if (!nativeSetActionHandler) return;
-
-        const wrapped = {}; // action -> the handler the page registered (or null)
-
-        function pauseAllVideos() {
-            try {
-                const videos = document.getElementsByTagName('video');
-                for (let i = 0; i < videos.length; i++) {
-                    const v = videos[i];
-                    if (v && !v.paused) {
-                        try { v.pause(); } catch (e) { /* ignore */ }
-                    }
-                }
-            } catch (e) { /* ignore */ }
-        }
-        function playAllVideos() {
-            try {
-                const videos = document.getElementsByTagName('video');
-                for (let i = 0; i < videos.length; i++) {
-                    const v = videos[i];
-                    if (v && v.paused && !v.ended) {
-                        try { const p = v.play(); if (p && p.catch) p.catch(function(){}); } catch (e) { /* ignore */ }
-                    }
-                }
-            } catch (e) { /* ignore */ }
-        }
-
-        // Reuse two static wrappers instead of allocating a closure per call.
-        function playWrapper(details) {
-            userPaused = false;
-            const pageHandler = wrapped.play;
-            if (typeof pageHandler === 'function') {
-                try { pageHandler(details); } catch (e) { /* ignore */ }
-            } else {
-                playAllVideos();
-            }
-        }
-        function pauseWrapper(details) {
-            userPaused = true;
-            const pageHandler = wrapped.pause;
-            if (typeof pageHandler === 'function') {
-                try { pageHandler(details); } catch (e) { /* ignore */ }
-            } else {
-                pauseAllVideos();
-            }
-        }
-
-        navigator.mediaSession.setActionHandler = function (action, handler) {
-            wrapped[action] = handler;
-            if (action === 'play') {
-                try { nativeSetActionHandler('play', playWrapper); } catch (e) { /* ignore */ }
-            } else if (action === 'pause') {
-                try { nativeSetActionHandler('pause', pauseWrapper); } catch (e) { /* ignore */ }
-            } else {
-                try { nativeSetActionHandler(action, handler); } catch (e) { /* ignore */ }
-            }
+    // ------------------------------------------------------------------
+    // 2. Spoof Document Visibility for Page Scripts
+    // ------------------------------------------------------------------
+    function spoofVisibility(target) {
+        const props = {
+            hidden: () => false,
+            visibilityState: () => 'visible',
+            webkitHidden: () => false,
+            webkitVisibilityState: () => 'visible'
         };
-
-        // Install base wrappers up front.
-        try { navigator.mediaSession.setActionHandler('play', null); } catch (e) { /* ignore */ }
-        try { navigator.mediaSession.setActionHandler('pause', null); } catch (e) { /* ignore */ }
-    })();
-
-    // 2. Resume helpers for iOS (screen lock / home swipe pauses the media).
-    function resumeVideo(video) {
-        if (!video || video.ended) return;
-        try {
-            if (video.paused) {
-                const p = video.play();
-                if (p && typeof p.catch === 'function') p.catch(function () { /* ignore */ });
-            }
-        } catch (e) { /* ignore */ }
-        try {
-            if (navigator.mediaSession) navigator.mediaSession.playbackState = 'playing';
-        } catch (e) { /* ignore */ }
+        for (const [key, getter] of Object.entries(props)) {
+            try {
+                Object.defineProperty(target, key, {
+                    get: getter,
+                    configurable: true,
+                    enumerable: true
+                });
+            } catch (_) {}
+        }
     }
 
-    function resumeAll() {
-        try {
-            const videos = document.getElementsByTagName('video');
-            for (let i = 0; i < videos.length; i++) resumeVideo(videos[i]);
-        } catch (e) { /* ignore */ }
+    spoofVisibility(document);
+    if (typeof Document !== 'undefined' && Document.prototype) {
+        spoofVisibility(Document.prototype);
     }
 
-    // Keep real-visibility state updated even after page is hidden; fire resumes
-    // on transitions (covers pageshow/resume/focus returning).
-    document.addEventListener('resume', function () { updateRealHidden(); resumeAll(); }, true);
-    window.addEventListener('pageshow', function () { updateRealHidden(); resumeAll(); }, true);
-    window.addEventListener('focus', function () { updateRealHidden(); }, true);
+    // ------------------------------------------------------------------
+    // 3. User Intent & System Pause Tracking
+    // ------------------------------------------------------------------
+    let userIntentPause = false;
+    let lastInputTime = 0;
+    let lastPagePauseTime = 0;
+    let heldForHide = null;
 
-    // 3. Per-video setup
-    function setupVideo(video) {
-        if (!video || video.nodeType !== 1 || video._bgPlaySetup) return;
-        video._bgPlaySetup = true;
+    let recoveryRetries = 0;
+    let recoveryWindowStart = 0;
+    const RECOVERY_BUDGET = 3;
+    const RECOVERY_WINDOW_MS = 6000;
+    const INPUT_GRACE_MS = 1000;
+    const PAGE_CALL_GRACE_MS = 150;
+    const HIDE_LEAD_MS = 1500;
 
-        if (video.webkitWirelessVideoPlaybackDisabled) {
-            try { video.webkitWirelessVideoPlaybackDisabled = false; } catch (e) { /* ignore */ }
-        }
-        if (video.disableRemotePlayback) {
-            try { video.disableRemotePlayback = false; } catch (e) { /* ignore */ }
-        }
-
-        // Safari needs playsinline to keep decoded video alive in background/PiP.
-        try { video.playsInline = true; } catch (e) { /* ignore */ }
-        try { video.setAttribute('webkit-playsinline', ''); } catch (e) { /* ignore */ }
-
-        // Auto-resume when iOS pauses us (lock screen / swipe home).
-        video.addEventListener('pause', function () {
-            if (video.ended) return;
-            const explicitUserPause = userPaused || recentUserInteraction;
-            if (explicitUserPause) {
-                try { video._bgUserPaused = true; } catch (e) { /* ignore */ }
-            }
-            setTimeout(function () {
-                // Only fight background/system pauses, not an explicit user tap.
-                if (realHidden && video.paused && !video.ended && !explicitUserPause && !video._bgUserPaused) {
-                    resumeVideo(video);
-                }
-            }, 150);
-        }, true);
-
-        video.addEventListener('play', function () {
-            try { video._bgUserPaused = false; } catch (e) { /* ignore */ }
-            userPaused = false;
-            recentUserInteraction = false;
-            try { if (navigator.mediaSession) navigator.mediaSession.playbackState = 'playing'; } catch (e) { /* ignore */ }
-        }, true);
-    }
-
-    const observer = new MutationObserver((mutations) => {
-        // Collect newly added videos once per batch to avoid repeated scans.
-        const found = [];
-        for (const mutation of mutations) {
-            for (const node of mutation.addedNodes) {
-                if (node.nodeType !== 1) continue;
-                if (node.tagName === 'VIDEO') {
-                    found.push(node);
-                } else if (typeof node.querySelectorAll === 'function') {
-                    const videos = node.querySelectorAll('video');
-                    for (const v of videos) found.push(v);
-                }
-            }
-        }
-        for (const video of found) setupVideo(video);
+    // Track user input (clicks, taps, keyboard shortcuts like Space / 'K')
+    const onUserInput = () => { lastInputTime = performance.now(); };
+    const inputOptions = { capture: true, passive: true };
+    ['pointerup', 'touchend', 'click', 'keydown'].forEach(evt => {
+        window.addEventListener(evt, onUserInput, inputOptions);
     });
 
-    const observeTarget = document.documentElement || document;
-    observer.observe(observeTarget, { childList: true, subtree: true });
-
-    const scanExisting = () => {
-        const videos = document.getElementsByTagName('video');
-        for (let i = 0; i < videos.length; i++) {
-            setupVideo(videos[i]);
+    // Track explicit pause() calls from YouTube's own player scripts
+    try {
+        const origPause = HTMLMediaElement.prototype.pause;
+        if (origPause) {
+            HTMLMediaElement.prototype.pause = function () {
+                lastPagePauseTime = performance.now();
+                return origPause.apply(this, arguments);
+            };
         }
-    };
+    } catch (_) {}
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', scanExisting, { once: true });
-    } else {
-        scanExisting();
+    // Hook MediaSession pause/stop (lock screen, Control Center, media keys)
+    try {
+        const mediaSessionProto = typeof MediaSession !== 'undefined' && MediaSession.prototype;
+        const origSetActionHandler = mediaSessionProto && mediaSessionProto.setActionHandler;
+        if (origSetActionHandler) {
+            mediaSessionProto.setActionHandler = function (action, handler) {
+                if ((action === 'pause' || action === 'stop') && typeof handler === 'function') {
+                    const originalHandler = handler;
+                    handler = function () {
+                        userIntentPause = true;
+                        return originalHandler.apply(this, arguments);
+                    };
+                } else if (action === 'play' && typeof handler === 'function') {
+                    const originalHandler = handler;
+                    handler = function () {
+                        userIntentPause = false;
+                        return originalHandler.apply(this, arguments);
+                    };
+                }
+                return origSetActionHandler.call(this, action, handler);
+            };
+        }
+    } catch (_) {}
+
+    // Safely resume playback without throwing unhandled promise rejections
+    function safePlay(video) {
+        if (!video || video.ended || !video.paused) return;
+        try {
+            const result = video.play();
+            if (result && typeof result.catch === 'function') {
+                result.catch(() => {});
+            }
+        } catch (_) {}
     }
 
+    // ------------------------------------------------------------------
+    // 4. Capture-Phase Media Event Delegation
+    // ------------------------------------------------------------------
+    document.addEventListener('play', () => {
+        userIntentPause = false;
+        heldForHide = null;
+    }, true);
+
+    document.addEventListener('playing', () => {
+        userIntentPause = false;
+        heldForHide = null;
+        if (!isRealHidden()) {
+            recoveryRetries = 0;
+        }
+    }, true);
+
+    document.addEventListener('pause', (event) => {
+        const video = event.target;
+        if (!(video instanceof HTMLMediaElement) || video.ended) return;
+
+        const now = performance.now();
+
+        // Check if pause was initiated by user or script
+        const isUserAction = userIntentPause ||
+            (now - lastInputTime < INPUT_GRACE_MS) ||
+            (now - lastPagePauseTime < PAGE_CALL_GRACE_MS);
+
+        if (isUserAction) return;
+
+        // System/WebKit background pause
+        if (isRealHidden()) {
+            if (now - recoveryWindowStart > RECOVERY_WINDOW_MS) {
+                recoveryRetries = 0;
+                recoveryWindowStart = now;
+            }
+            if (recoveryRetries < RECOVERY_BUDGET) {
+                recoveryRetries++;
+                safePlay(video);
+            }
+        } else {
+            // WebKit pre-hide pause (pauses 400-900ms before visibilitychange fires)
+            heldForHide = { video, time: now };
+        }
+    }, true);
+
+    // Ensure videos can play inline on mobile WebKit
+    document.addEventListener('loadedmetadata', (event) => {
+        const video = event.target;
+        if (video instanceof HTMLMediaElement && !video.playsInline) {
+            video.playsInline = true;
+        }
+    }, { capture: true, passive: true });
+
+    // ------------------------------------------------------------------
+    // 5. Visibility Change Suppression & Background Resume
+    // ------------------------------------------------------------------
+    function onVisibilityChange(event) {
+        const hidden = isRealHidden();
+
+        if (hidden) {
+            // Block YouTube from learning the document is hidden
+            if (event && typeof event.stopImmediatePropagation === 'function') {
+                event.stopImmediatePropagation();
+            }
+
+            // Resume videos paused by WebKit right before the hide
+            if (heldForHide) {
+                const elapsed = performance.now() - heldForHide.time;
+                if (elapsed <= HIDE_LEAD_MS && !userIntentPause) {
+                    safePlay(heldForHide.video);
+                }
+                heldForHide = null;
+            }
+        } else {
+            recoveryRetries = 0;
+            heldForHide = null;
+        }
+    }
+
+    window.addEventListener('visibilitychange', onVisibilityChange, true);
+    document.addEventListener('visibilitychange', onVisibilityChange, true);
+    window.addEventListener('webkitvisibilitychange', onVisibilityChange, true);
+    document.addEventListener('webkitvisibilitychange', onVisibilityChange, true);
 })();
