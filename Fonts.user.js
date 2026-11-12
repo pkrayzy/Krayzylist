@@ -47,8 +47,8 @@
     let css = '';
     for (let i = 0; i < targetFonts.length; i++) {
         const f = targetFonts[i];
-        css += `@font-face{font-family:'${f}';src:${src};font-weight:300 800;font-style:normal}` +
-               `@font-face{font-family:'${f}';src:${src};font-weight:300 800;font-style:italic}`;
+        css += `@font-face{font-family:'${f}';src:${src};font-weight:400 800;font-style:normal}` +
+               `@font-face{font-family:'${f}';src:${src};font-weight:400 800;font-style:italic}`;
     }
 
     if (typeof GM_addStyle !== 'undefined') {
