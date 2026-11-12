@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.3.6
+// @version      0.3.7
 // @description  Replaces target fonts with system fonts using the @font-face redirection hack
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @match        *://*.google.com/*
@@ -32,6 +32,7 @@
         'Roboto',
         'sans',
         'Segoe UI',
+        'Syne',
         'VCNudge',
         'Yahoo Sans',
         'YahooSans VF',
