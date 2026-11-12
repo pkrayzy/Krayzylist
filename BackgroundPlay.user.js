@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Background Playback Enabler
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.5
 // @description  Prevents YouTube and other sites from pausing video when switching tabs, minimizing, or locking the screen (Safari/iOS).
 // @author       Claude
 // @match        https://www.youtube.com/*
@@ -18,205 +18,262 @@
 (function () {
     'use strict';
 
-    // ------------------------------------------------------------------
-    // 1. Preserve Native Visibility State
-    // ------------------------------------------------------------------
-    function findGetter(target, prop) {
-        let proto = target;
-        while (proto) {
-            const desc = Object.getOwnPropertyDescriptor(proto, prop);
-            if (desc && typeof desc.get === 'function') return desc.get;
-            proto = Object.getPrototypeOf(proto);
-        }
+    var IS_IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    var _realHidden = false;
+    var realVisibilityObservers = [];
+
+    function findDocumentGetter(name) {
+        try {
+            var proto = document;
+            while (proto) {
+                var descriptor = Object.getOwnPropertyDescriptor(proto, name);
+                if (descriptor && typeof descriptor.get === 'function') {
+                    return descriptor.get;
+                }
+                proto = Object.getPrototypeOf(proto);
+            }
+        } catch (e) { /* ignore */ }
         return null;
     }
 
-    const nativeHiddenGetter = findGetter(document, 'hidden') || findGetter(document, 'webkitHidden');
+    var nativeHiddenGetter = findDocumentGetter('hidden');
 
-    function isRealHidden() {
+    function updateRealVisibility() {
         try {
-            return nativeHiddenGetter ? nativeHiddenGetter.call(document) : false;
-        } catch (_) {
-            return false;
-        }
+            _realHidden = nativeHiddenGetter ? nativeHiddenGetter.call(document) : document.hidden;
+        } catch (e) { /* ignore */ }
     }
 
-    // ------------------------------------------------------------------
-    // 2. Spoof Document Visibility for Page Scripts
-    // ------------------------------------------------------------------
-    function spoofVisibility(target) {
-        const props = {
-            hidden: () => false,
-            visibilityState: () => 'visible',
-            webkitHidden: () => false,
-            webkitVisibilityState: () => 'visible'
+    function observeRealVisibility(callback) {
+        realVisibilityObservers.push(callback);
+        return function () {
+            var index = realVisibilityObservers.indexOf(callback);
+            if (index !== -1) realVisibilityObservers.splice(index, 1);
         };
-        for (const [key, getter] of Object.entries(props)) {
-            try {
-                Object.defineProperty(target, key, {
-                    get: getter,
-                    configurable: true,
-                    enumerable: true
-                });
-            } catch (_) {}
+    }
+
+    function onRealVisibilityChange(event) {
+        updateRealVisibility();
+        var observers = realVisibilityObservers.slice();
+        for (var i = 0; i < observers.length; i++) {
+            try { observers[i](); } catch (e) { /* ignore */ }
+        }
+        if (_realHidden && event && typeof event.stopImmediatePropagation === 'function') {
+            event.stopImmediatePropagation();
         }
     }
 
-    spoofVisibility(document);
-    if (typeof Document !== 'undefined' && Document.prototype) {
-        spoofVisibility(Document.prototype);
+    updateRealVisibility();
+    document.addEventListener('visibilitychange', onRealVisibilityChange, true);
+
+    // Background recovery (macOS)
+    function backgroundRecoveryStep(config, state, event) {
+        var op = event.op, t = event.t;
+        var asked = op === 'stop' || (op === 'pauseCommand' && state.hidden);
+        var inWindow = t <= state.hiddenAt + config.window;
+        var pausedJustBefore = state.pauseSeen && t <= state.pausedAt + config.lead;
+        var arming = op === 'hide' && config.enabled && (state.playing || pausedJustBefore);
+        var lostWhileHidden = op === 'pause' && state.hidden && !state.intent && inWindow && state.retries < config.budget;
+        var resumeNow = op === 'tick' && state.pending && state.hidden && state.retries < config.budget && inWindow;
+        var retries = op === 'hide' ? 0 : resumeNow ? state.retries + 1 : state.retries;
+        var pending = state.pending;
+        if (op === 'hide') pending = arming && !state.playing;
+        else if (op === 'show' || op === 'play' || asked || op === 'reset') pending = false;
+        else if (op === 'pause') pending = state.armed && lostWhileHidden;
+        else if (op === 'tick') pending = resumeNow && retries < config.budget && inWindow;
+        return {
+            hidden: op === 'hide' ? true : op === 'show' ? false : state.hidden,
+            playing: op === 'play' ? true : op === 'pause' || op === 'reset' ? false : state.playing,
+            armed: op === 'hide' ? arming : op === 'show' || asked || op === 'reset' ? false : state.armed,
+            pending: pending,
+            intent: op === 'hide' || op === 'play' ? false : asked ? true : state.intent,
+            pauseSeen: op === 'pause' ? !state.intent : asked || op === 'reset' ? false : state.pauseSeen,
+            retries: retries,
+            hiddenAt: op === 'hide' ? t : state.hiddenAt,
+            pausedAt: op === 'pause' && !state.intent ? t : state.pausedAt,
+            resume: resumeNow
+        };
     }
 
-    // ------------------------------------------------------------------
-    // 3. User Intent & System Pause Tracking
-    // ------------------------------------------------------------------
-    let userIntentPause = false;
-    let lastInputTime = 0;
-    let lastPagePauseTime = 0;
-    let heldForHide = null;
+    var BACKGROUND_RECOVERY = { enabled: true, budget: 3, window: 6000, lead: 400 };
+    var pauseIntentListeners = [];
 
-    let recoveryRetries = 0;
-    let recoveryWindowStart = 0;
-    const RECOVERY_BUDGET = 3;
-    const RECOVERY_WINDOW_MS = 6000;
-    const INPUT_GRACE_MS = 1000;
-    const PAGE_CALL_GRACE_MS = 150;
-    const HIDE_LEAD_MS = 1500;
-
-    // Track user input (clicks, taps, keyboard shortcuts like Space / 'K')
-    const onUserInput = () => { lastInputTime = performance.now(); };
-    const inputOptions = { capture: true, passive: true };
-    ['pointerup', 'touchend', 'click', 'keydown'].forEach(evt => {
-        window.addEventListener(evt, onUserInput, inputOptions);
-    });
-
-    // Track explicit pause() calls from YouTube's own player scripts
-    try {
-        const origPause = HTMLMediaElement.prototype.pause;
-        if (origPause) {
-            HTMLMediaElement.prototype.pause = function () {
-                lastPagePauseTime = performance.now();
-                return origPause.apply(this, arguments);
-            };
-        }
-    } catch (_) {}
-
-    // Hook MediaSession pause/stop (lock screen, Control Center, media keys)
-    try {
-        const mediaSessionProto = typeof MediaSession !== 'undefined' && MediaSession.prototype;
-        const origSetActionHandler = mediaSessionProto && mediaSessionProto.setActionHandler;
-        if (origSetActionHandler) {
-            mediaSessionProto.setActionHandler = function (action, handler) {
-                if ((action === 'pause' || action === 'stop') && typeof handler === 'function') {
-                    const originalHandler = handler;
-                    handler = function () {
-                        userIntentPause = true;
-                        return originalHandler.apply(this, arguments);
-                    };
-                } else if (action === 'play' && typeof handler === 'function') {
-                    const originalHandler = handler;
-                    handler = function () {
-                        userIntentPause = false;
-                        return originalHandler.apply(this, arguments);
-                    };
-                }
-                return origSetActionHandler.call(this, action, handler);
-            };
-        }
-    } catch (_) {}
-
-    // Safely resume playback without throwing unhandled promise rejections
-    function safePlay(video) {
-        if (!video || video.ended || !video.paused) return;
+    (function patchMediaSessionIntent() {
         try {
-            const result = video.play();
-            if (result && typeof result.catch === 'function') {
-                result.catch(() => {});
-            }
-        } catch (_) {}
-    }
-
-    // ------------------------------------------------------------------
-    // 4. Capture-Phase Media Event Delegation
-    // ------------------------------------------------------------------
-    document.addEventListener('play', () => {
-        userIntentPause = false;
-        heldForHide = null;
-    }, true);
-
-    document.addEventListener('playing', () => {
-        userIntentPause = false;
-        heldForHide = null;
-        if (!isRealHidden()) {
-            recoveryRetries = 0;
-        }
-    }, true);
-
-    document.addEventListener('pause', (event) => {
-        const video = event.target;
-        if (!(video instanceof HTMLMediaElement) || video.ended) return;
-
-        const now = performance.now();
-
-        // Check if pause was initiated by user or script
-        const isUserAction = userIntentPause ||
-            (now - lastInputTime < INPUT_GRACE_MS) ||
-            (now - lastPagePauseTime < PAGE_CALL_GRACE_MS);
-
-        if (isUserAction) return;
-
-        // System/WebKit background pause
-        if (isRealHidden()) {
-            if (now - recoveryWindowStart > RECOVERY_WINDOW_MS) {
-                recoveryRetries = 0;
-                recoveryWindowStart = now;
-            }
-            if (recoveryRetries < RECOVERY_BUDGET) {
-                recoveryRetries++;
-                safePlay(video);
-            }
-        } else {
-            // WebKit pre-hide pause (pauses 400-900ms before visibilitychange fires)
-            heldForHide = { video, time: now };
-        }
-    }, true);
-
-    // Ensure videos can play inline on mobile WebKit
-    document.addEventListener('loadedmetadata', (event) => {
-        const video = event.target;
-        if (video instanceof HTMLMediaElement && !video.playsInline) {
-            video.playsInline = true;
-        }
-    }, { capture: true, passive: true });
-
-    // ------------------------------------------------------------------
-    // 5. Visibility Change Suppression & Background Resume
-    // ------------------------------------------------------------------
-    function onVisibilityChange(event) {
-        const hidden = isRealHidden();
-
-        if (hidden) {
-            // Block YouTube from learning the document is hidden
-            if (event && typeof event.stopImmediatePropagation === 'function') {
-                event.stopImmediatePropagation();
-            }
-
-            // Resume videos paused by WebKit right before the hide
-            if (heldForHide) {
-                const elapsed = performance.now() - heldForHide.time;
-                if (elapsed <= HIDE_LEAD_MS && !userIntentPause) {
-                    safePlay(heldForHide.video);
+            var proto = typeof MediaSession !== 'undefined' && MediaSession.prototype;
+            var original = proto && proto.setActionHandler;
+            if (!original || original._wblockTubeCleaner) return;
+            var patched = function (action, handler) {
+                if ((action === 'pause' || action === 'stop') && typeof handler === 'function') {
+                    var inner = handler;
+                    handler = function () {
+                        pauseIntentListeners.slice().forEach(function (listener) { try { listener(action); } catch (e) { /* ignore */ } });
+                        return inner.apply(this, arguments);
+                    };
                 }
-                heldForHide = null;
+                return original.call(this, action, handler);
+            };
+            patched._wblockTubeCleaner = true;
+            proto.setActionHandler = patched;
+        } catch (e) { /* ignore */ }
+    })();
+
+    function setupBackgroundRecovery(video, resumePlayback) {
+        var state = { hidden: _realHidden, playing: !video.paused && !video.ended, armed: false, pending: false,
+            intent: false, pauseSeen: false, retries: 0, hiddenAt: 0, pausedAt: 0, resume: false };
+        var timer = null;
+        function now() { return Math.round(typeof performance !== 'undefined' ? performance.now() : Date.now()); }
+        function send(op) {
+            state = backgroundRecoveryStep(BACKGROUND_RECOVERY, state, { op: op, t: now() });
+            if (state.resume) {
+                try { resumePlayback(); } catch (e) { /* the next tick retries */ }
             }
-        } else {
-            recoveryRetries = 0;
-            heldForHide = null;
+            if (state.pending && timer === null) {
+                timer = setTimeout(function () { timer = null; send('tick'); }, 300);
+            } else if (!state.pending && timer !== null) {
+                clearTimeout(timer);
+                timer = null;
+            }
         }
+        function onPlay() { send('play'); }
+        function onPause() { send('pause'); }
+        function onReset() { send('reset'); }
+        function onIntent(action) { send(action === 'stop' ? 'stop' : 'pauseCommand'); }
+        var stopVisibility = observeRealVisibility(function () { send(_realHidden ? 'hide' : 'show'); });
+        video.addEventListener('playing', onPlay);
+        video.addEventListener('pause', onPause);
+        video.addEventListener('ended', onReset);
+        video.addEventListener('emptied', onReset);
+        pauseIntentListeners.push(onIntent);
+        return function () {
+            stopVisibility();
+            video.removeEventListener('playing', onPlay);
+            video.removeEventListener('pause', onPause);
+            video.removeEventListener('ended', onReset);
+            video.removeEventListener('emptied', onReset);
+            var index = pauseIntentListeners.indexOf(onIntent);
+            if (index !== -1) pauseIntentListeners.splice(index, 1);
+            if (timer !== null) clearTimeout(timer);
+            timer = null;
+        };
     }
 
-    window.addEventListener('visibilitychange', onVisibilityChange, true);
-    document.addEventListener('visibilitychange', onVisibilityChange, true);
-    window.addEventListener('webkitvisibilitychange', onVisibilityChange, true);
-    document.addEventListener('webkitvisibilitychange', onVisibilityChange, true);
+    // Background resume (iOS)
+    function backgroundResumeStep(config, state, event) {
+        var op = event.op, t = event.t;
+        var system = op === 'pause' && config.enabled && !event.ended && !(t < state.pageAt + config.callGrace) &&
+            !(t < state.inputAt + config.inputGrace) && !state.intent;
+        var holding = system && !state.hidden;
+        var clears = op === 'hide' || op === 'show' || op === 'play' || op === 'command' || op === 'input' || op === 'pageCall';
+        return {
+            hidden: op === 'hide' ? true : op === 'show' ? false : state.hidden,
+            hiddenAt: op === 'hide' ? t : state.hiddenAt,
+            pageAt: op === 'pageCall' ? t : state.pageAt,
+            inputAt: op === 'input' ? t : state.inputAt,
+            intent: op === 'command' ? true : op === 'play' ? false : state.intent,
+            held: op === 'pause' ? holding : clears ? false : state.held,
+            heldAt: holding ? t : state.heldAt,
+            resume: system && state.hidden && t <= state.hiddenAt + config.window ||
+                op === 'hide' && config.enabled && state.held && !state.intent && t <= state.heldAt + config.lead
+        };
+    }
+
+    var BACKGROUND_RESUME = { enabled: true, callGrace: 100, inputGrace: 1000, lead: 1200, window: 1000 };
+    var pagePauseListeners = [];
+
+    if (IS_IOS) {
+        (function patchPagePause() {
+            try {
+                var nativePause = HTMLMediaElement.prototype.pause;
+                if (!nativePause || nativePause._wblockTubeCleaner) return;
+                var patched = function () {
+                    pagePauseListeners.slice().forEach(function (listener) { try { listener(this); } catch (e) { /* ignore */ } }, this);
+                    return nativePause.apply(this, arguments);
+                };
+                patched._wblockTubeCleaner = true;
+                HTMLMediaElement.prototype.pause = patched;
+            } catch (e) { /* ignore */ }
+        })();
+    }
+
+    function setupBackgroundResume(video) {
+        if (!IS_IOS) return function () {};
+        var state = { hidden: _realHidden, hiddenAt: 0, pageAt: 0, inputAt: 0, intent: false, held: false, heldAt: 0, resume: false };
+        function now() { return Math.round(performance.now()); }
+        function send(op, ended) {
+            state = backgroundResumeStep(BACKGROUND_RESUME, state, { op: op, t: now(), ended: !!ended });
+            if (!state.resume) return;
+            var request = video.play();
+            if (request && request.catch) request.catch(function (e) { /* ignore */ });
+        }
+        var inputs = ['pointerup', 'touchend', 'click', 'keydown'];
+        function onInput() { send('input'); }
+        function onPagePause(element) { if (element === video) send('pageCall'); }
+        function onPause() { send('pause', video.ended); }
+        function onPlay() { send('play'); }
+        function onIntent() { send('command'); }
+        var stopVisibility = observeRealVisibility(function () { send(_realHidden ? 'hide' : 'show'); });
+        inputs.forEach(function (name) { window.addEventListener(name, onInput, true); });
+        video.addEventListener('pause', onPause);
+        video.addEventListener('playing', onPlay);
+        pagePauseListeners.push(onPagePause);
+        pauseIntentListeners.push(onIntent);
+        return function () {
+            stopVisibility();
+            inputs.forEach(function (name) { window.removeEventListener(name, onInput, true); });
+            video.removeEventListener('pause', onPause);
+            video.removeEventListener('playing', onPlay);
+            [pagePauseListeners, pauseIntentListeners].forEach(function (list) {
+                var index = list.indexOf(list === pagePauseListeners ? onPagePause : onIntent);
+                if (index !== -1) list.splice(index, 1);
+            });
+        };
+    }
+
+    function enableBackgroundPlayback() {
+        try {
+            Object.defineProperty(document, 'hidden', { get: function () { return false; }, configurable: true });
+            Object.defineProperty(document, 'visibilityState', { get: function () { return 'visible'; }, configurable: true });
+            Object.defineProperty(document, 'webkitHidden', { get: function () { return false; }, configurable: true });
+            Object.defineProperty(document, 'webkitVisibilityState', { get: function () { return 'visible'; }, configurable: true });
+        } catch (e) { /* ignore */ }
+    }
+
+    // Core: Watch for video element and apply enhancements
+    var activeVideo = null;
+    var playerObserver = null;
+    var activeCleanups = [];
+
+    function transformPlayer() {
+        var player = document.getElementById('movie_player') || document.querySelector('video')?.closest('#movie_player') || document.querySelector('video')?.closest('ytd-player');
+        if (!player) return;
+        var video = player.querySelector('video') || (player.tagName === 'VIDEO' ? player : null);
+        if (!video || video === activeVideo) return;
+
+        // Cleanup old video
+        activeCleanups.forEach(function (fn) { try { fn(); } catch (e) {} });
+        activeCleanups = [];
+        activeVideo = video;
+
+        // Apply enhancements
+        enableBackgroundPlayback();
+        activeCleanups.push(setupBackgroundRecovery(video, function () {
+            if (typeof player.playVideo === 'function') player.playVideo();
+            else video.play().catch(function () {});
+        }));
+        activeCleanups.push(setupBackgroundResume(video));
+    }
+
+    function observePlayer() {
+        if (typeof MutationObserver !== 'undefined') {
+            playerObserver = new MutationObserver(transformPlayer);
+            playerObserver.observe(document.documentElement, { childList: true, subtree: true });
+        }
+        transformPlayer();
+    }
+
+    observePlayer();
+
 })();
