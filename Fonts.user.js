@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         System Font Replacer
 // @namespace    http://tampermonkey.net/
-// @version      0.3.5
+// @version      0.3.6
 // @description  Replaces target fonts with system fonts using the @font-face redirection hack
 // @updateURL    https://raw.githubusercontent.com/pkrayzy/Krayzylist/main/Fonts.user.js
 // @match        *://*.google.com/*
@@ -46,8 +46,8 @@
     let css = '';
     for (let i = 0; i < targetFonts.length; i++) {
         const f = targetFonts[i];
-        css += `@font-face{font-family:'${f}';src:${src};font-weight:400 900;font-style:normal}` +
-               `@font-face{font-family:'${f}';src:${src};font-weight:400 900;font-style:italic}`;
+        css += `@font-face{font-family:'${f}';src:${src};font-weight:300 800;font-style:normal}` +
+               `@font-face{font-family:'${f}';src:${src};font-weight:300 800;font-style:italic}`;
     }
 
     if (typeof GM_addStyle !== 'undefined') {
